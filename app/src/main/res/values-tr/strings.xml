@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Global YDS App</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Keşfet</string>
+    <string name="nav_words">Kelimeler</string>
+    <string name="nav_exams">Sınavlar</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">YDS'de Başarıya Ulaşın</string>
+    <string name="onboarding_1_desc">Global YDS App ile kelime ezberleyin, deneme sınavlarına katılın.</string>
+    <string name="onboarding_2_title">Akıllı Kelime Kartları</string>
+    <string name="onboarding_2_desc">Öğrendiğiniz kelimeleri kaydırarak kaydedin, unutmayın.</string>
+    <string name="onboarding_3_title">Gerçekçi Deneme Sınavları</string>
+    <string name="onboarding_3_desc">Kendinizi test edin, sürenizi yönetin ve hedefinize ulaşın.</string>
+    <string name="onboarding_skip">GEÇ</string>
+    <string name="onboarding_done">BAŞLA</string>
+    
+    <!-- Login -->
+    <string name="login_error">Giriş başarısız!</string>
+</resources>

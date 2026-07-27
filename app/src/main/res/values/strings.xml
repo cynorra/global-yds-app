@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Global YDS App</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Discover</string>
+    <string name="nav_words">Words</string>
+    <string name="nav_exams">Exams</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Succeed in YDS</string>
+    <string name="onboarding_1_desc">Memorize words and take mock exams with Global YDS App.</string>
+    <string name="onboarding_2_title">Smart Word Cards</string>
+    <string name="onboarding_2_desc">Swipe to save learned words, never forget.</string>
+    <string name="onboarding_3_title">Realistic Mock Exams</string>
+    <string name="onboarding_3_desc">Test yourself, manage your time and reach your goal.</string>
+    <string name="onboarding_skip">SKIP</string>
+    <string name="onboarding_done">START</string>
+    
+    <!-- Login -->
+    <string name="login_error">Login failed!</string>
+</resources>
