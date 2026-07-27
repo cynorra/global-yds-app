@@ -8,6 +8,7 @@ plugins {
 android {
     namespace 'com.vocabmaster.app'
     compileSdk 34
+    buildToolsVersion "34.0.0"
 
     defaultConfig {
         applicationId "com.vocabmaster.app"
@@ -45,6 +46,7 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.6.2'
     implementation 'androidx.activity:activity-ktx:1.8.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
     
     // Material Design Temel
     implementation 'com.google.android.material:material:1.11.0'
@@ -69,37 +71,29 @@ dependencies {
     implementation 'com.mikepenz:materialdrawer:9.0.1'
     implementation 'com.mikepenz:aboutlibraries:10.9.1'
     implementation 'com.github.AppIntro:AppIntro:6.3.1'
-    implementation 'com.github.SimformSolutionsPvtLtd:SSBouncyBottomSheet:1.1.0'
-    implementation 'com.github.Shashank02051997:FancyToast-Android:0.2.1'
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.8'
     implementation 'com.github.faruktoptas:FancyShowCaseView:1.0.0'
     implementation 'com.github.ashik94vc:ElegantNumberButton:1.0.3'
 
     // Loading & Progress
-    implementation 'com.github.leandroBorgesFerreira:LoadingButtonAndroid:2.3.2'
+    implementation 'com.github.leandroBorgesFerreira:LoadingButtonAndroid:1.12.1'
     implementation 'com.akexorcist:round-corner-progress-bar:2.2.1'
-    implementation 'com.team.supercharge:shimmerlayout:2.1.0'
-    implementation 'com.github.Faltenreich:SkeletonLayout:4.0.0'
 
     // Liste & Layout
-    implementation 'com.github.chthai64:SwipeRevealLayout:1.4.1'
+    implementation 'androidx.customview:customview:1.1.0'
     implementation 'com.github.takusemba:multisnaprecyclerview:2.0.1'
-    implementation 'com.github.Ramotion:cardslider-android:0.3.1'
-    implementation 'com.github.yarolegovich:discrete-scrollview:1.5.1'
 
     // Form & Giriş
-    implementation 'com.github.ChaosLeung:PinView:1.4.2'
+    implementation 'io.github.chaosleung:pinview:1.4.4'
     implementation 'com.hbb20:ccp:2.7.3'
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
-
-    // PDF
-    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
     // Google AdMob
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
 
     // Firebase (BOM and Firestore)
     implementation platform('com.google.firebase:firebase-bom:34.16.0')
-    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-analytics'
 
     // Retrofit & Gson
@@ -119,7 +113,6 @@ dependencies {
 
     // Premium Tasarım Eklentileri
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    implementation 'com.github.flavioarfaria:KenBurnsView:1.0.7'
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'com.github.Chrisvin:LiquidSwipe:1.3'

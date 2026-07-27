@@ -7,12 +7,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntroFragment;
+import com.vocabmaster.app.data.local.AppPreferences;
 
 public class OnboardingActivity extends AppIntro {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (AppPreferences.isLoggedIn(this)) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+            return;
+        }
+        if (AppPreferences.isOnboardingComplete(this)) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
+        }
 
         // Slide 1: Welcome
         addSlide(AppIntroFragment.createInstance(
@@ -57,6 +69,7 @@ public class OnboardingActivity extends AppIntro {
     }
 
     private void goToLogin() {
+        AppPreferences.setOnboardingComplete(this);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+import com.vocabmaster.app.data.local.AppPreferences
 import com.vocabmaster.app.ui.viewmodels.LoginViewModel
 import com.shashank.sony.fancytoastlib.FancyToast
 
@@ -35,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel.loginStatus.observe(this) { isSuccess ->
             if (isSuccess) {
+                AppPreferences.setLoggedIn(this, true)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

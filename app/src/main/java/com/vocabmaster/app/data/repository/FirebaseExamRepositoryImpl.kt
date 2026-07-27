@@ -8,27 +8,34 @@ import kotlinx.coroutines.tasks.await
 class FirebaseExamRepositoryImpl(
     private val firestore: FirebaseFirestore
 ) : ExamRepository {
-    
-    override suspend fun getAvailableExams(): List<Exam> {
-        // Fetch exams from Firestore
-        return emptyList()
-    }
 
-    override suspend fun submitExam(examId: String, score: Int, userId: String): Boolean {
+    private val examsCollection = firestore.collection("exams")
+
+    override suspend fun getAvailableExams(): List<Exam> {
         return try {
-            val data = hashMapOf(
-                "score" to score,
-                "timestamp" to System.currentTimeMillis()
-            )
-            firestore.collection("leaderboard").document(userId).set(data).await()
-            true
+            examsCollection.whereEqualTo("isCompleted", false).get().await()
+                .documents.mapNotNull { it.toObject(Exam::class.java) }
         } catch (e: Exception) {
-            false
+            emptyList()
         }
     }
 
-    override suspend fun getLeaderboard(): List<Pair<String, Int>> {
-        // Fetch leaderboard from Firestore
-        return emptyList()
+    override suspend fun getCompletedExams(): List<Exam> {
+        return try {
+            examsCollection.whereEqualTo("isCompleted", true).get().await()
+                .documents.mapNotNull { it.toObject(Exam::class.java) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    override suspend fun submitExamResult(examId: String, score: Int) {
+        try {
+            examsCollection.document(examId)
+                .update(mapOf("isCompleted" to true, "score" to score))
+                .await()
+        } catch (e: Exception) {
+            // Swallow network/Firestore errors; caller can retry the submission later.
+        }
     }
 }

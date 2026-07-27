@@ -10,4 +10,6 @@
     
     <color name="cardBackground">#FFFFFF</color>
     <color name="dividerColor">#E5E7EB</color>
+
+    <color name="shimmer_color">#a2878787</color>
 </resources>

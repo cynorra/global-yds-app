@@ -1,5 +1,6 @@
 package com.vocabmaster.app.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.vocabmaster.app.LoginActivity;
 import com.vocabmaster.app.R;
+import com.vocabmaster.app.data.local.AppPreferences;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -34,6 +37,14 @@ public class ProfileFragment extends Fragment {
         
         LineChart chart = view.findViewById(R.id.progressChart);
         setupChart(chart);
+
+        view.findViewById(R.id.tvLogout).setOnClickListener(v -> {
+            AppPreferences.setLoggedIn(requireContext(), false);
+            Intent intent = new Intent(requireContext(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            requireActivity().finish();
+        });
     }
     
     private void setupChart(LineChart chart) {

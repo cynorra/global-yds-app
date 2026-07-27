@@ -31,9 +31,10 @@ public class VocabularyFragment extends Fragment {
         // Use PagerSnapHelper to snap to items like cards
         new androidx.recyclerview.widget.PagerSnapHelper().attachToRecyclerView(rvVocabulary);
         
-        com.vocabmaster.app.data.repository.RealVocabularyRepositoryImpl repo = 
+        com.vocabmaster.app.data.repository.RealVocabularyRepositoryImpl repo =
             new com.vocabmaster.app.data.repository.RealVocabularyRepositoryImpl(
-                com.vocabmaster.app.data.remote.RetrofitClient.INSTANCE.getApi()
+                com.vocabmaster.app.data.remote.RetrofitClient.INSTANCE.getApi(),
+                com.vocabmaster.app.data.local.AppDatabase.getDatabase(requireContext()).wordDao()
             );
 
         com.vocabmaster.app.ui.viewmodels.VocabularyViewModel viewModel = 

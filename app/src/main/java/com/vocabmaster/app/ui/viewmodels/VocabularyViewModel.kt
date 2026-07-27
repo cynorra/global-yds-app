@@ -15,8 +15,14 @@ class VocabularyViewModel(private val repository: VocabularyRepository) : ViewMo
 
     fun loadWords() {
         viewModelScope.launch {
-            // Placeholder: Calling the repository to get words
-            _words.value = repository.getDailyWords()
+            _words.value = repository.getWordsToLearn()
+        }
+    }
+
+    fun markWordAsLearned(wordId: String) {
+        viewModelScope.launch {
+            repository.markWordAsLearned(wordId)
+            loadWords()
         }
     }
 }

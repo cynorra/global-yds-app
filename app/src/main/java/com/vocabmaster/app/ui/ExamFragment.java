@@ -27,16 +27,25 @@ public class ExamFragment extends Fragment {
         
         androidx.recyclerview.widget.RecyclerView rvExams = view.findViewById(R.id.rvExams);
         rvExams.setLayoutManager(new androidx.recyclerview.widget.LinearLayoutManager(getContext()));
-        
-        // Placeholder for ViewModel connection
-        // examViewModel.getExams().observe(getViewLifecycleOwner(), exams -> {
-        //     adapter.setExams(exams);
-        //     rvExams.setAdapter(adapter);
-        // });
-        
-        java.util.List<com.vocabmaster.app.domain.models.Exam> emptyExams = new java.util.ArrayList<>();
-        com.vocabmaster.app.ui.adapters.ExamAdapter adapter = new com.vocabmaster.app.ui.adapters.ExamAdapter(emptyExams);
-        rvExams.setAdapter(adapter);
+
+        com.vocabmaster.app.data.repository.MockExamRepositoryImpl repo =
+                new com.vocabmaster.app.data.repository.MockExamRepositoryImpl();
+
+        com.vocabmaster.app.ui.viewmodels.ExamViewModel examViewModel =
+                new androidx.lifecycle.ViewModelProvider(this, new androidx.lifecycle.ViewModelProvider.Factory() {
+                    @NonNull
+                    @Override
+                    public <T extends androidx.lifecycle.ViewModel> T create(@NonNull Class<T> modelClass) {
+                        return (T) new com.vocabmaster.app.ui.viewmodels.ExamViewModel(repo);
+                    }
+                }).get(com.vocabmaster.app.ui.viewmodels.ExamViewModel.class);
+
+        examViewModel.getExams().observe(getViewLifecycleOwner(), exams -> {
+            com.vocabmaster.app.ui.adapters.ExamAdapter adapter = new com.vocabmaster.app.ui.adapters.ExamAdapter(exams);
+            rvExams.setAdapter(adapter);
+        });
+
+        examViewModel.loadExams();
 
         view.findViewById(R.id.btnSimulateSuccess).setOnClickListener(v -> {
             com.github.jinatonic.confetti.CommonConfetti.rainingConfetti(
