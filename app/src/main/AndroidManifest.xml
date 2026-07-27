@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GlobalYDS">
         
-        <!-- Sample AdMob App ID -->
+        <!-- Real AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-4674211063760769~7607691537"/>
         
         <activity
             android:name=".OnboardingActivity"

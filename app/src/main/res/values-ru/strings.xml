@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Исследовать</string>
+    <string name="nav_words">Слова</string>
+    <string name="nav_exams">Экзамены</string>
+    <string name="nav_profile">Профиль</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Успех в английском</string>
+    <string name="onboarding_1_desc">Изучайте слова и сдавайте экзамены с VocabMaster.</string>
+    <string name="onboarding_2_title">Умные карточки</string>
+    <string name="onboarding_2_desc">Проведите, чтобы сохранить выученные слова.</string>
+    <string name="onboarding_3_title">Реалистичные экзамены</string>
+    <string name="onboarding_3_desc">Проверьте себя и достигните своей цели.</string>
+    <string name="onboarding_skip">ПРОПУСТИТЬ</string>
+    <string name="onboarding_done">НАЧАТЬ</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Добро пожаловать!</string>
+    <string name="login_desc">Введите 4-значный код, отправленный на ваш телефон.</string>
+    <string name="login_button">Войти</string>
+    <string name="login_error">Ошибка входа!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Что вы хотите изучить сегодня?</string>
+    <string name="home_popular_topics">Популярные темы</string>
+    <string name="topic_grammar">Грамматика</string>
+    <string name="topic_vocabulary">Словарный запас</string>
+    <string name="topic_mock_exam">Пробный экзамен</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Учить слова</string>
+    <string name="vocab_desc">Проведите по карточкам для повторения</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Общий прогресс</string>
+    <string name="exam_finish_test">Тест успешно завершен</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Премиум участник</string>
+    <string name="profile_words">Слова</string>
+    <string name="profile_exams">Экзамены</string>
+    <string name="profile_streak">Ежедневная серия</string>
+    <string name="profile_settings">Настройки аккаунта</string>
+    <string name="profile_notifications">Уведомления</string>
+    <string name="profile_about">О нас</string>
+    <string name="profile_logout">Выйти</string>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Odkrywaj</string>
+    <string name="nav_words">Słowa</string>
+    <string name="nav_exams">Egzaminy</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Sukces w języku angielskim</string>
+    <string name="onboarding_1_desc">Ucz się słów i zdawaj egzaminy z VocabMaster.</string>
+    <string name="onboarding_2_title">Inteligentne Karty</string>
+    <string name="onboarding_2_desc">Przesuń, aby zapisać nauczone słowa.</string>
+    <string name="onboarding_3_title">Realistyczne Egzaminy</string>
+    <string name="onboarding_3_desc">Sprawdź się i osiągnij swój cel.</string>
+    <string name="onboarding_skip">POMIŃ</string>
+    <string name="onboarding_done">ZACZNIJ</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Witamy!</string>
+    <string name="login_desc">Wprowadź 4-cyfrowy kod wysłany na Twój telefon.</string>
+    <string name="login_button">Zaloguj się</string>
+    <string name="login_error">Logowanie nie powiodło się!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Czego chcesz się dzisiaj nauczyć?</string>
+    <string name="home_popular_topics">Popularne Tematy</string>
+    <string name="topic_grammar">Gramatyka</string>
+    <string name="topic_vocabulary">Słownictwo</string>
+    <string name="topic_mock_exam">Egzamin Próbny</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Ucz się słów</string>
+    <string name="vocab_desc">Przesuwaj karty, aby powtarzać</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Ogólny Postęp</string>
+    <string name="exam_finish_test">Test zakończony sukcesem</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Członek Premium</string>
+    <string name="profile_words">Słowa</string>
+    <string name="profile_exams">Egzaminy</string>
+    <string name="profile_streak">Codzienna Seria</string>
+    <string name="profile_settings">Ustawienia Konta</string>
+    <string name="profile_notifications">Powiadomienia</string>
+    <string name="profile_about">O Nas</string>
+    <string name="profile_logout">Wyloguj się</string>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Entdecken</string>
+    <string name="nav_words">Wörter</string>
+    <string name="nav_exams">Prüfungen</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Erfolg in Englisch</string>
+    <string name="onboarding_1_desc">Vokabeln lernen und Prüfungen ablegen mit VocabMaster.</string>
+    <string name="onboarding_2_title">Intelligente Karten</string>
+    <string name="onboarding_2_desc">Wischen, um gelernte Wörter zu speichern.</string>
+    <string name="onboarding_3_title">Realistische Prüfungen</string>
+    <string name="onboarding_3_desc">Testen Sie sich selbst und erreichen Sie Ihr Ziel.</string>
+    <string name="onboarding_skip">ÜBERSPRINGEN</string>
+    <string name="onboarding_done">STARTEN</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Willkommen!</string>
+    <string name="login_desc">Geben Sie den 4-stelligen Code ein, den Sie erhalten haben.</string>
+    <string name="login_button">Anmelden</string>
+    <string name="login_error">Anmeldung fehlgeschlagen!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Was möchten Sie heute lernen?</string>
+    <string name="home_popular_topics">Beliebte Themen</string>
+    <string name="topic_grammar">Grammatik</string>
+    <string name="topic_vocabulary">Wortschatz</string>
+    <string name="topic_mock_exam">Probeprüfung</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Wörter lernen</string>
+    <string name="vocab_desc">Karten zum Überprüfen wischen</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Allgemeiner Fortschritt</string>
+    <string name="exam_finish_test">Test erfolgreich abgeschlossen</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Premium-Mitglied</string>
+    <string name="profile_words">Wörter</string>
+    <string name="profile_exams">Prüfungen</string>
+    <string name="profile_streak">Tägliche Serie</string>
+    <string name="profile_settings">Kontoeinstellungen</string>
+    <string name="profile_notifications">Benachrichtigungen</string>
+    <string name="profile_about">Über uns</string>
+    <string name="profile_logout">Abmelden</string>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Scopri</string>
+    <string name="nav_words">Parole</string>
+    <string name="nav_exams">Esami</string>
+    <string name="nav_profile">Profilo</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Successo in Inglese</string>
+    <string name="onboarding_1_desc">Memorizza parole e fai esami con VocabMaster.</string>
+    <string name="onboarding_2_title">Carte Intelligenti</string>
+    <string name="onboarding_2_desc">Scorri per salvare le parole imparate.</string>
+    <string name="onboarding_3_title">Esami Realistici</string>
+    <string name="onboarding_3_desc">Mettiti alla prova e raggiungi il tuo obiettivo.</string>
+    <string name="onboarding_skip">SALTA</string>
+    <string name="onboarding_done">INIZIA</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Benvenuto!</string>
+    <string name="login_desc">Inserisci il codice a 4 cifre inviato al tuo telefono.</string>
+    <string name="login_button">Accedi</string>
+    <string name="login_error">Accesso fallito!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Cosa vuoi imparare oggi?</string>
+    <string name="home_popular_topics">Argomenti Popolari</string>
+    <string name="topic_grammar">Grammatica</string>
+    <string name="topic_vocabulary">Vocabolario</string>
+    <string name="topic_mock_exam">Esame di Prova</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Impara Parole</string>
+    <string name="vocab_desc">Scorri le carte per ripassare</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Progresso Generale</string>
+    <string name="exam_finish_test">Test Completato</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Membro Premium</string>
+    <string name="profile_words">Parole</string>
+    <string name="profile_exams">Esami</string>
+    <string name="profile_streak">Serie Giornaliera</string>
+    <string name="profile_settings">Impostazioni Account</string>
+    <string name="profile_notifications">Notifiche</string>
+    <string name="profile_about">Chi Siamo</string>
+    <string name="profile_logout">Esci</string>
+</resources>

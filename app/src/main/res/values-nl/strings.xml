@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Ontdekken</string>
+    <string name="nav_words">Woorden</string>
+    <string name="nav_exams">Examens</string>
+    <string name="nav_profile">Profiel</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Succes in het Engels</string>
+    <string name="onboarding_1_desc">Woorden leren en examens afleggen met VocabMaster.</string>
+    <string name="onboarding_2_title">Slimme Kaarten</string>
+    <string name="onboarding_2_desc">Veeg om geleerde woorden op te slaan.</string>
+    <string name="onboarding_3_title">Realistische Examens</string>
+    <string name="onboarding_3_desc">Test jezelf en bereik je doel.</string>
+    <string name="onboarding_skip">OVERSLAAN</string>
+    <string name="onboarding_done">STARTEN</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Welkom!</string>
+    <string name="login_desc">Voer de 4-cijferige code in die naar uw telefoon is verzonden.</string>
+    <string name="login_button">Inloggen</string>
+    <string name="login_error">Inloggen mislukt!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Wat wil je vandaag leren?</string>
+    <string name="home_popular_topics">Populaire Onderwerpen</string>
+    <string name="topic_grammar">Grammatica</string>
+    <string name="topic_vocabulary">Woordenschat</string>
+    <string name="topic_mock_exam">Proefexamen</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Woorden leren</string>
+    <string name="vocab_desc">Veeg kaarten om te beoordelen</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Algemene Voortgang</string>
+    <string name="exam_finish_test">Test succesvol afgerond</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Premium Lid</string>
+    <string name="profile_words">Woorden</string>
+    <string name="profile_exams">Examens</string>
+    <string name="profile_streak">Dagelijkse Reeks</string>
+    <string name="profile_settings">Accountinstellingen</string>
+    <string name="profile_notifications">Meldingen</string>
+    <string name="profile_about">Over Ons</string>
+    <string name="profile_logout">Uitloggen</string>
+</resources>

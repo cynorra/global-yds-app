@@ -1,21 +1,22 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "dummy-project-id",
-    "storage_bucket": "dummy-project-id.appspot.com"
+    "project_number": "129460323433",
+    "firebase_url": "https://global-yds-app-default-rtdb.firebaseio.com",
+    "project_id": "global-yds-app",
+    "storage_bucket": "global-yds-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:abcdef1234567890",
+        "mobilesdk_app_id": "1:129460323433:android:127c57aa207e917b498ef8",
         "android_client_info": {
-          "package_name": "com.example.globalyds"
+          "package_name": "com.vocabmaster.app"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "dummy-api-key-replace-me"
+          "current_key": "AIzaSyAysczGPLwix9UL4kWrIPVeLfCm2NbW3VM"
         }
       ],
       "services": {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Global YDS App</string>
+    <string name="app_name">VocabMaster: Learn English</string>
     
     <!-- Bottom Nav Menu -->
     <string name="nav_discover">Keşfet</string>
@@ -9,8 +9,8 @@
     <string name="nav_profile">Profil</string>
     
     <!-- Onboarding -->
-    <string name="onboarding_1_title">YDS'de Başarıya Ulaşın</string>
-    <string name="onboarding_1_desc">Global YDS App ile kelime ezberleyin, deneme sınavlarına katılın.</string>
+    <string name="onboarding_1_title">İngilizcede Başarıya Ulaşın</string>
+    <string name="onboarding_1_desc">VocabMaster ile kelime ezberleyin, dil becerilerinizi geliştirin.</string>
     <string name="onboarding_2_title">Akıllı Kelime Kartları</string>
     <string name="onboarding_2_desc">Öğrendiğiniz kelimeleri kaydırarak kaydedin, unutmayın.</string>
     <string name="onboarding_3_title">Gerçekçi Deneme Sınavları</string>
@@ -19,5 +19,33 @@
     <string name="onboarding_done">BAŞLA</string>
     
     <!-- Login -->
+    <string name="login_welcome">Hoş Geldiniz!</string>
+    <string name="login_desc">Devam etmek için telefonunuza gelen 4 haneli kodu girin.</string>
+    <string name="login_button">Giriş Yap</string>
     <string name="login_error">Giriş başarısız!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Bugün Ne Öğrenmek İstersin?</string>
+    <string name="home_popular_topics">Popüler Konular</string>
+    <string name="topic_grammar">Gramer</string>
+    <string name="topic_vocabulary">Kelime</string>
+    <string name="topic_mock_exam">Deneme</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Kelime Öğren</string>
+    <string name="vocab_desc">Kartları kaydırarak kelimeleri tekrar et</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Genel İlerleme</string>
+    <string name="exam_finish_test">Testi Başarıyla Bitir (Confetti)</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Premium Üye</string>
+    <string name="profile_words">Kelime</string>
+    <string name="profile_exams">Sınav</string>
+    <string name="profile_streak">Günlük Seri</string>
+    <string name="profile_settings">Hesap Ayarları</string>
+    <string name="profile_notifications">Bildirimler</string>
+    <string name="profile_about">Hakkımızda</string>
+    <string name="profile_logout">Çıkış Yap</string>
 </resources>

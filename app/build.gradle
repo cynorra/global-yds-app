@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.globalyds'
+    namespace 'com.vocabmaster.app'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.globalyds"
+        applicationId "com.vocabmaster.app"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -98,7 +98,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
 
     // Firebase (BOM and Firestore)
-    implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    implementation platform('com.google.firebase:firebase-bom:34.16.0')
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-analytics'
 
@@ -116,4 +116,11 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.6.1'
     implementation 'androidx.room:room-ktx:2.6.1'
     kapt 'androidx.room:room-compiler:2.6.1'
+
+    // Premium Tasarım Eklentileri
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.flavioarfaria:KenBurnsView:1.0.7'
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation 'com.github.Chrisvin:LiquidSwipe:1.3'
 }

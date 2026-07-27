@@ -12,15 +12,34 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Header -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bugün Ne Öğrenmek İstersin?"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/textColorPrimary"
-            android:layout_marginBottom="16dp"/>
+        <!-- Header with KenBurnsView -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp">
+            
+            <com.flaviofaria.kenburnsview.KenBurnsView
+                android:id="@+id/kbvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"/>
+                
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#44000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_greeting"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="16dp"/>
+        </FrameLayout>
 
         <!-- Shimmer Loading View -->
         <io.supercharge.shimmerlayout.ShimmerLayout
@@ -50,7 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Popüler Konular"
+            android:text="@string/home_popular_topics"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/textColorPrimary"
@@ -65,17 +84,17 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gramer"
+                android:text="@string/topic_grammar"
                 style="@style/Widget.MaterialComponents.Chip.Choice"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kelime"
+                android:text="@string/topic_vocabulary"
                 style="@style/Widget.MaterialComponents.Chip.Choice"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Deneme"
+                android:text="@string/topic_mock_exam"
                 style="@style/Widget.MaterialComponents.Chip.Choice"/>
         </com.google.android.material.chip.ChipGroup>
 

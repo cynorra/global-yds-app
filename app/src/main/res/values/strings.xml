@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Global YDS App</string>
+    <string name="app_name">VocabMaster: Learn English</string>
     
     <!-- Bottom Nav Menu -->
     <string name="nav_discover">Discover</string>
@@ -8,8 +8,8 @@
     <string name="nav_profile">Profile</string>
     
     <!-- Onboarding -->
-    <string name="onboarding_1_title">Succeed in YDS</string>
-    <string name="onboarding_1_desc">Memorize words and take mock exams with Global YDS App.</string>
+    <string name="onboarding_1_title">Succeed in English</string>
+    <string name="onboarding_1_desc">Memorize words and take mock exams with VocabMaster.</string>
     <string name="onboarding_2_title">Smart Word Cards</string>
     <string name="onboarding_2_desc">Swipe to save learned words, never forget.</string>
     <string name="onboarding_3_title">Realistic Mock Exams</string>
@@ -18,5 +18,33 @@
     <string name="onboarding_done">START</string>
     
     <!-- Login -->
+    <string name="login_welcome">Welcome!</string>
+    <string name="login_desc">Enter the 4-digit code sent to your phone to continue.</string>
+    <string name="login_button">Login</string>
     <string name="login_error">Login failed!</string>
+
+    <!-- Home -->
+    <string name="home_greeting">What do you want to learn today?</string>
+    <string name="home_popular_topics">Popular Topics</string>
+    <string name="topic_grammar">Grammar</string>
+    <string name="topic_vocabulary">Vocabulary</string>
+    <string name="topic_mock_exam">Mock Exam</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Learn Words</string>
+    <string name="vocab_desc">Swipe cards to review words</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">General Progress</string>
+    <string name="exam_finish_test">Finish Test Successfully (Confetti)</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Premium Member</string>
+    <string name="profile_words">Words</string>
+    <string name="profile_exams">Exams</string>
+    <string name="profile_streak">Daily Streak</string>
+    <string name="profile_settings">Account Settings</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="profile_about">About Us</string>
+    <string name="profile_logout">Logout</string>
 </resources>

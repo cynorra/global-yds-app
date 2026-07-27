@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VocabMaster: Learn English</string>
+    
+    <!-- Bottom Nav Menu -->
+    <string name="nav_discover">Découvrir</string>
+    <string name="nav_words">Mots</string>
+    <string name="nav_exams">Examens</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_1_title">Réussir en Anglais</string>
+    <string name="onboarding_1_desc">Mémorisez des mots et passez des examens avec VocabMaster.</string>
+    <string name="onboarding_2_title">Cartes Intelligentes</string>
+    <string name="onboarding_2_desc">Faites glisser pour enregistrer les mots appris, ne les oubliez jamais.</string>
+    <string name="onboarding_3_title">Examens Réalistes</string>
+    <string name="onboarding_3_desc">Testez-vous, gérez votre temps et atteignez votre objectif.</string>
+    <string name="onboarding_skip">PASSER</string>
+    <string name="onboarding_done">COMMENCER</string>
+    
+    <!-- Login -->
+    <string name="login_welcome">Bienvenue !</string>
+    <string name="login_desc">Entrez le code à 4 chiffres envoyé sur votre téléphone.</string>
+    <string name="login_button">Se Connecter</string>
+    <string name="login_error">Échec de la connexion !</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Que voulez-vous apprendre aujourd\'hui ?</string>
+    <string name="home_popular_topics">Sujets Populaires</string>
+    <string name="topic_grammar">Grammaire</string>
+    <string name="topic_vocabulary">Vocabulaire</string>
+    <string name="topic_mock_exam">Examen Blanc</string>
+
+    <!-- Vocabulary -->
+    <string name="vocab_learn">Apprendre des mots</string>
+    <string name="vocab_desc">Faites glisser les cartes pour réviser</string>
+
+    <!-- Exam -->
+    <string name="exam_progress">Progression Générale</string>
+    <string name="exam_finish_test">Test terminé avec succès</string>
+
+    <!-- Profile -->
+    <string name="profile_premium_member">Membre Premium</string>
+    <string name="profile_words">Mots</string>
+    <string name="profile_exams">Examens</string>
+    <string name="profile_streak">Série Quotidienne</string>
+    <string name="profile_settings">Paramètres du Compte</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="profile_about">À Propos</string>
+    <string name="profile_logout">Se Déconnecter</string>
+</resources>
