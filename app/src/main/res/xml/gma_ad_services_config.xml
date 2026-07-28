@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad-services-config>
+    <attestations>
+        <untrusted-enrollment-check enabled="false"/>
+    </attestations>
+</ad-services-config>

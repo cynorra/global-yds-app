@@ -1,0 +1,22 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+app/build/
+app/release/
+
+# JVM crash dumps
+hs_err_pid*.log
+replay_pid*.log
+
+# Kotlin compiler local cache
+.kotlin/
+
+# Stale local build logs
+build-failed-log.txt
+app/build-failed-log.txt

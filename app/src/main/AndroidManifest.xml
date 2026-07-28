@@ -13,7 +13,13 @@
         android:theme="@style/Theme.GlobalYDS"
         tools:replace="android:theme">
         
-        <!-- TODO: switch back to the real App ID before release: ca-app-pub-4674211063760769~7607691537 -->
+        <!-- Reklam ve Analiz servisleri arasındaki manifest çakışmasını çözer -->
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
+
+        <!-- Test APPLICATION_ID - Yayına çıkarken gerçek ID ile değiştirin -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
