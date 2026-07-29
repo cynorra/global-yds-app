@@ -6,8 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vocabmaster.app.databinding.ItemModuleBinding
 import com.vocabmaster.app.domain.models.Module
 
-class ModuleAdapter(private val modules: List<Module>) :
-    RecyclerView.Adapter<ModuleAdapter.ModuleViewHolder>() {
+fun interface OnModuleClickListener {
+    fun onModuleClick(module: Module)
+}
+
+class ModuleAdapter(
+    private val modules: List<Module>,
+    private val onModuleClick: OnModuleClickListener
+) : RecyclerView.Adapter<ModuleAdapter.ModuleViewHolder>() {
 
     class ModuleViewHolder(val binding: ItemModuleBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -21,6 +27,7 @@ class ModuleAdapter(private val modules: List<Module>) :
         holder.binding.tvTitle.text = module.title
         holder.binding.tvDescription.text = module.description
         holder.binding.ivIcon.setImageResource(module.iconResId)
+        holder.itemView.setOnClickListener { onModuleClick.onModuleClick(module) }
     }
 
     override fun getItemCount() = modules.size

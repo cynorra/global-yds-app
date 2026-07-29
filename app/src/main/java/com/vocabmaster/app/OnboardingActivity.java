@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntroFragment;
+import com.google.firebase.auth.FirebaseAuth;
 import com.vocabmaster.app.data.local.AppPreferences;
 
 public class OnboardingActivity extends AppIntro {
@@ -15,7 +16,7 @@ public class OnboardingActivity extends AppIntro {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (AppPreferences.isLoggedIn(this)) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
             return;

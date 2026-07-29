@@ -29,6 +29,7 @@
                 app:civ_border_color="@android:color/white"/>
 
             <TextView
+                android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Eren Şahin"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -61,9 +62,10 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tvWordsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="342"
+                    tools:text="0"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/textColorPrimary"/>
@@ -82,9 +84,10 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tvExamsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12"
+                    tools:text="0"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/textColorPrimary"/>
@@ -92,27 +95,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/profile_exams"
-                    android:textSize="12sp"
-                    android:textColor="@color/textColorSecondary"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/textColorPrimary"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile_streak"
                     android:textSize="12sp"
                     android:textColor="@color/textColorSecondary"/>
             </LinearLayout>
@@ -151,7 +133,18 @@
                     android:id="@+id/progressChart"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"/>
-                    
+
+                <TextView
+                    android:id="@+id/tvNoExamsYet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/exam_no_exams"
+                    android:textColor="@color/textColorSecondary"
+                    android:visibility="gone"/>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

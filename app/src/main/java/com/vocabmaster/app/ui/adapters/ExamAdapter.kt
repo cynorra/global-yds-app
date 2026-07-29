@@ -6,8 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vocabmaster.app.databinding.ItemExamBinding
 import com.vocabmaster.app.domain.models.Exam
 
-class ExamAdapter(private val exams: List<Exam>) :
-    RecyclerView.Adapter<ExamAdapter.ExamViewHolder>() {
+fun interface OnExamClickListener {
+    fun onExamClick(exam: Exam)
+}
+
+class ExamAdapter(
+    private val exams: List<Exam>,
+    private val onExamClick: OnExamClickListener
+) : RecyclerView.Adapter<ExamAdapter.ExamViewHolder>() {
 
     class ExamViewHolder(val binding: ItemExamBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -19,8 +25,17 @@ class ExamAdapter(private val exams: List<Exam>) :
     override fun onBindViewHolder(holder: ExamViewHolder, position: Int) {
         val exam = exams[position]
         holder.binding.tvTitle.text = exam.title
-        holder.binding.tvScore.text = "Score: ${exam.score}"
         holder.binding.tvDetails.text = "${exam.totalQuestions} Questions • ${exam.durationMinutes} Minutes"
+
+        if (exam.isCompleted) {
+            holder.binding.tvScore.text = "Score: ${exam.score}"
+            holder.itemView.setOnClickListener(null)
+            holder.itemView.alpha = 0.7f
+        } else {
+            holder.binding.tvScore.text = ""
+            holder.itemView.alpha = 1f
+            holder.itemView.setOnClickListener { onExamClick.onExamClick(exam) }
+        }
     }
 
     override fun getItemCount() = exams.size

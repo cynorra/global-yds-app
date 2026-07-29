@@ -20,15 +20,30 @@
     
     <!-- Login -->
     <string name="login_welcome">Добро пожаловать!</string>
-    <string name="login_desc">Введите 4-значный код, отправленный на ваш телефон.</string>
+    <string name="login_desc">Войдите, используя email и пароль, чтобы продолжить.</string>
     <string name="login_button">Войти</string>
     <string name="login_error">Ошибка входа!</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="login_no_account">Нет аккаунта? Зарегистрироваться</string>
+
+    <!-- Register -->
+    <string name="register_title">Создать аккаунт</string>
+    <string name="register_desc">Зарегистрируйтесь, чтобы начать обучение.</string>
+    <string name="register_confirm_password_hint">Подтвердите пароль</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="register_have_account">Уже есть аккаунт? Войти</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Пожалуйста, заполните все поля.</string>
+    <string name="auth_error_password_mismatch">Пароли не совпадают.</string>
 
     <!-- Home -->
     <string name="home_greeting">Что вы хотите изучить сегодня?</string>
     <string name="home_popular_topics">Популярные темы</string>
     <string name="topic_grammar">Грамматика</string>
     <string name="topic_vocabulary">Словарный запас</string>
+    <string name="topic_reading">Чтение</string>
     <string name="topic_mock_exam">Пробный экзамен</string>
 
     <!-- Vocabulary -->
@@ -37,13 +52,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">Общий прогресс</string>
-    <string name="exam_finish_test">Тест успешно завершен</string>
+    <string name="exam_next">Далее</string>
+    <string name="exam_finish">Завершить</string>
+    <string name="exam_result_label">Ваш результат</string>
+    <string name="exam_no_exams">Пока нет доступных экзаменов.</string>
+    <string name="exam_question_counter">Вопрос %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Премиум участник</string>
     <string name="profile_words">Слова</string>
     <string name="profile_exams">Экзамены</string>
-    <string name="profile_streak">Ежедневная серия</string>
     <string name="profile_settings">Настройки аккаунта</string>
     <string name="profile_notifications">Уведомления</string>
     <string name="profile_about">О нас</string>

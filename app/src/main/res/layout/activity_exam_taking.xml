@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:padding="20dp"
+    tools:context=".ExamTakingActivity">
+
+    <TextView
+        android:id="@+id/tvExamTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Örnek YDS Sınavı"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvQuestionCounter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        tools:text="Soru 1 / 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvExamTitle" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvQuestionCounter" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar">
+
+        <LinearLayout
+            android:id="@+id/groupQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/tvQuestionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="She ______ to the store every day." />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOption1"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="start|center_vertical"
+                android:textAllCaps="false"
+                tools:text="go" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOption2"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="start|center_vertical"
+                android:textAllCaps="false"
+                tools:text="goes" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOption3"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="start|center_vertical"
+                android:textAllCaps="false"
+                tools:text="going" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOption4"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="start|center_vertical"
+                android:textAllCaps="false"
+                tools:text="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:enabled="false"
+                android:text="@string/exam_next"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/groupResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvScoreResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="66%" />
+
+            <TextView
+                android:id="@+id/tvScoreLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/exam_result_label"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFinish"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/exam_finish"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

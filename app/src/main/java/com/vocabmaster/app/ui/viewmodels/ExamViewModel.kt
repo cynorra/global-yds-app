@@ -15,7 +15,9 @@ class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
 
     fun loadExams() {
         viewModelScope.launch {
-            _exams.value = repository.getAvailableExams()
+            val available = repository.getAvailableExams()
+            val completed = repository.getCompletedExams()
+            _exams.value = available + completed
         }
     }
 }

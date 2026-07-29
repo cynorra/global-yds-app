@@ -20,15 +20,30 @@
     
     <!-- Login -->
     <string name="login_welcome">Welkom!</string>
-    <string name="login_desc">Voer de 4-cijferige code in die naar uw telefoon is verzonden.</string>
+    <string name="login_desc">Log in met uw e-mail en wachtwoord om door te gaan.</string>
     <string name="login_button">Inloggen</string>
     <string name="login_error">Inloggen mislukt!</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="login_password_hint">Wachtwoord</string>
+    <string name="login_no_account">Geen account? Registreren</string>
+
+    <!-- Register -->
+    <string name="register_title">Account aanmaken</string>
+    <string name="register_desc">Registreer om te beginnen met leren.</string>
+    <string name="register_confirm_password_hint">Bevestig wachtwoord</string>
+    <string name="register_button">Registreren</string>
+    <string name="register_have_account">Al een account? Inloggen</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Vul alle velden in.</string>
+    <string name="auth_error_password_mismatch">Wachtwoorden komen niet overeen.</string>
 
     <!-- Home -->
     <string name="home_greeting">Wat wil je vandaag leren?</string>
     <string name="home_popular_topics">Populaire Onderwerpen</string>
     <string name="topic_grammar">Grammatica</string>
     <string name="topic_vocabulary">Woordenschat</string>
+    <string name="topic_reading">Lezen</string>
     <string name="topic_mock_exam">Proefexamen</string>
 
     <!-- Vocabulary -->
@@ -37,13 +52,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">Algemene Voortgang</string>
-    <string name="exam_finish_test">Test succesvol afgerond</string>
+    <string name="exam_next">Volgende</string>
+    <string name="exam_finish">Voltooien</string>
+    <string name="exam_result_label">Uw score</string>
+    <string name="exam_no_exams">Nog geen examens beschikbaar.</string>
+    <string name="exam_question_counter">Vraag %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Premium Lid</string>
     <string name="profile_words">Woorden</string>
     <string name="profile_exams">Examens</string>
-    <string name="profile_streak">Dagelijkse Reeks</string>
     <string name="profile_settings">Accountinstellingen</string>
     <string name="profile_notifications">Meldingen</string>
     <string name="profile_about">Over Ons</string>

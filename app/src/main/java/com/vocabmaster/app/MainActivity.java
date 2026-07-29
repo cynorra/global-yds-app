@@ -87,10 +87,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadFragment(Fragment fragment) {
+        openFragment(fragment, false);
+    }
+
+    /**
+     * Opens a fragment on top of the current tab. Used by HomeFragment to drill into
+     * Grammar/Reading, which are not bottom-nav tabs of their own.
+     */
+    public void openFragment(Fragment fragment, boolean addToBackStack) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
         ft.replace(R.id.fragment_container, fragment);
+        if (addToBackStack) {
+            ft.addToBackStack(null);
+        }
         ft.commit();
+    }
+
+    public void selectBottomNavTab(int itemId) {
+        bottomNav.setSelectedItemId(itemId);
     }
 }

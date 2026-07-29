@@ -1,15 +1,35 @@
 package com.vocabmaster.app.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.vocabmaster.app.ExamTakingActivity;
 import com.vocabmaster.app.R;
+import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl;
+import com.vocabmaster.app.domain.repository.ExamRepository;
+import com.vocabmaster.app.ui.adapters.ExamAdapter;
+import com.vocabmaster.app.ui.viewmodels.ExamViewModel;
 
 public class ExamFragment extends Fragment {
+
+    private ExamViewModel examViewModel;
+    private RecyclerView rvExams;
+    private View tvEmptyState;
+
+    private final ActivityResultLauncher<Intent> examTakingLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> examViewModel.loadExams());
 
     public ExamFragment() {
         // Required empty public constructor
@@ -24,39 +44,31 @@ public class ExamFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        
-        androidx.recyclerview.widget.RecyclerView rvExams = view.findViewById(R.id.rvExams);
-        rvExams.setLayoutManager(new androidx.recyclerview.widget.LinearLayoutManager(getContext()));
 
-        com.vocabmaster.app.data.repository.MockExamRepositoryImpl repo =
-                new com.vocabmaster.app.data.repository.MockExamRepositoryImpl();
+        rvExams = view.findViewById(R.id.rvExams);
+        tvEmptyState = view.findViewById(R.id.tvEmptyState);
+        rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        com.vocabmaster.app.ui.viewmodels.ExamViewModel examViewModel =
-                new androidx.lifecycle.ViewModelProvider(this, new androidx.lifecycle.ViewModelProvider.Factory() {
-                    @NonNull
-                    @Override
-                    public <T extends androidx.lifecycle.ViewModel> T create(@NonNull Class<T> modelClass) {
-                        return (T) new com.vocabmaster.app.ui.viewmodels.ExamViewModel(repo);
-                    }
-                }).get(com.vocabmaster.app.ui.viewmodels.ExamViewModel.class);
+        ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance());
+
+        examViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
+            @NonNull
+            @Override
+            @SuppressWarnings("unchecked")
+            public <T extends androidx.lifecycle.ViewModel> T create(@NonNull Class<T> modelClass) {
+                return (T) new ExamViewModel(repo);
+            }
+        }).get(ExamViewModel.class);
 
         examViewModel.getExams().observe(getViewLifecycleOwner(), exams -> {
-            com.vocabmaster.app.ui.adapters.ExamAdapter adapter = new com.vocabmaster.app.ui.adapters.ExamAdapter(exams);
+            tvEmptyState.setVisibility(exams.isEmpty() ? View.VISIBLE : View.GONE);
+            rvExams.setVisibility(exams.isEmpty() ? View.GONE : View.VISIBLE);
+
+            ExamAdapter adapter = new ExamAdapter(exams, exam ->
+                    examTakingLauncher.launch(ExamTakingActivity.createIntent(requireContext(), exam.getId(), exam.getTitle())));
             rvExams.setAdapter(adapter);
         });
 
         examViewModel.loadExams();
-
-        view.findViewById(R.id.btnSimulateSuccess).setOnClickListener(v -> {
-            com.github.jinatonic.confetti.CommonConfetti.rainingConfetti(
-                    (ViewGroup) view.getRootView(),
-                    new int[] {
-                        android.graphics.Color.parseColor("#4F46E5"), // Primary
-                        android.graphics.Color.parseColor("#10B981"), // Accent
-                        android.graphics.Color.parseColor("#F59E0B"), // Yellow
-                        android.graphics.Color.parseColor("#EC4899")  // Pink
-                    }
-            ).oneShot();
-        });
     }
 }

@@ -20,15 +20,30 @@
     
     <!-- Login -->
     <string name="login_welcome">Willkommen!</string>
-    <string name="login_desc">Geben Sie den 4-stelligen Code ein, den Sie erhalten haben.</string>
+    <string name="login_desc">Melden Sie sich mit E-Mail und Passwort an, um fortzufahren.</string>
     <string name="login_button">Anmelden</string>
     <string name="login_error">Anmeldung fehlgeschlagen!</string>
+    <string name="login_email_hint">E-Mail</string>
+    <string name="login_password_hint">Passwort</string>
+    <string name="login_no_account">Kein Konto? Registrieren</string>
+
+    <!-- Register -->
+    <string name="register_title">Konto erstellen</string>
+    <string name="register_desc">Registrieren Sie sich, um mit dem Lernen zu beginnen.</string>
+    <string name="register_confirm_password_hint">Passwort bestätigen</string>
+    <string name="register_button">Registrieren</string>
+    <string name="register_have_account">Bereits ein Konto? Anmelden</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Bitte füllen Sie alle Felder aus.</string>
+    <string name="auth_error_password_mismatch">Die Passwörter stimmen nicht überein.</string>
 
     <!-- Home -->
     <string name="home_greeting">Was möchten Sie heute lernen?</string>
     <string name="home_popular_topics">Beliebte Themen</string>
     <string name="topic_grammar">Grammatik</string>
     <string name="topic_vocabulary">Wortschatz</string>
+    <string name="topic_reading">Lesen</string>
     <string name="topic_mock_exam">Probeprüfung</string>
 
     <!-- Vocabulary -->
@@ -37,13 +52,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">Allgemeiner Fortschritt</string>
-    <string name="exam_finish_test">Test erfolgreich abgeschlossen</string>
+    <string name="exam_next">Weiter</string>
+    <string name="exam_finish">Beenden</string>
+    <string name="exam_result_label">Ihr Ergebnis</string>
+    <string name="exam_no_exams">Noch keine Prüfungen verfügbar.</string>
+    <string name="exam_question_counter">Frage %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Premium-Mitglied</string>
     <string name="profile_words">Wörter</string>
     <string name="profile_exams">Prüfungen</string>
-    <string name="profile_streak">Tägliche Serie</string>
     <string name="profile_settings">Kontoeinstellungen</string>
     <string name="profile_notifications">Benachrichtigungen</string>
     <string name="profile_about">Über uns</string>

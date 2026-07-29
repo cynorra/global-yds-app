@@ -19,15 +19,30 @@
     
     <!-- Login -->
     <string name="login_welcome">Welcome!</string>
-    <string name="login_desc">Enter the 4-digit code sent to your phone to continue.</string>
+    <string name="login_desc">Sign in with your e-mail and password to continue.</string>
     <string name="login_button">Login</string>
     <string name="login_error">Login failed!</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_no_account">Don\'t have an account? Sign up</string>
+
+    <!-- Register -->
+    <string name="register_title">Create Account</string>
+    <string name="register_desc">Sign up to start learning.</string>
+    <string name="register_confirm_password_hint">Confirm Password</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_have_account">Already have an account? Log in</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Please fill in all fields.</string>
+    <string name="auth_error_password_mismatch">Passwords do not match.</string>
 
     <!-- Home -->
     <string name="home_greeting">What do you want to learn today?</string>
     <string name="home_popular_topics">Popular Topics</string>
     <string name="topic_grammar">Grammar</string>
     <string name="topic_vocabulary">Vocabulary</string>
+    <string name="topic_reading">Reading</string>
     <string name="topic_mock_exam">Mock Exam</string>
 
     <!-- Vocabulary -->
@@ -36,13 +51,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">General Progress</string>
-    <string name="exam_finish_test">Finish Test Successfully (Confetti)</string>
+    <string name="exam_next">Next</string>
+    <string name="exam_finish">Finish</string>
+    <string name="exam_result_label">Your Score</string>
+    <string name="exam_no_exams">No exams available yet.</string>
+    <string name="exam_question_counter">Question %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Premium Member</string>
     <string name="profile_words">Words</string>
     <string name="profile_exams">Exams</string>
-    <string name="profile_streak">Daily Streak</string>
     <string name="profile_settings">Account Settings</string>
     <string name="profile_notifications">Notifications</string>
     <string name="profile_about">About Us</string>

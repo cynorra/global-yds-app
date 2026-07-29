@@ -20,15 +20,30 @@
     
     <!-- Login -->
     <string name="login_welcome">¡Bienvenido!</string>
-    <string name="login_desc">Ingresa el código de 4 dígitos enviado a tu teléfono.</string>
+    <string name="login_desc">Inicia sesión con tu correo y contraseña para continuar.</string>
     <string name="login_button">Iniciar Sesión</string>
     <string name="login_error">¡Error al iniciar sesión!</string>
+    <string name="login_email_hint">Correo electrónico</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_no_account">¿No tienes una cuenta? Regístrate</string>
+
+    <!-- Register -->
+    <string name="register_title">Crear Cuenta</string>
+    <string name="register_desc">Regístrate para empezar a aprender.</string>
+    <string name="register_confirm_password_hint">Confirmar Contraseña</string>
+    <string name="register_button">Registrarse</string>
+    <string name="register_have_account">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Por favor completa todos los campos.</string>
+    <string name="auth_error_password_mismatch">Las contraseñas no coinciden.</string>
 
     <!-- Home -->
     <string name="home_greeting">¿Qué quieres aprender hoy?</string>
     <string name="home_popular_topics">Temas Populares</string>
     <string name="topic_grammar">Gramática</string>
     <string name="topic_vocabulary">Vocabulario</string>
+    <string name="topic_reading">Lectura</string>
     <string name="topic_mock_exam">Examen de Prueba</string>
 
     <!-- Vocabulary -->
@@ -37,13 +52,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">Progreso General</string>
-    <string name="exam_finish_test">Prueba Finalizada (Confeti)</string>
+    <string name="exam_next">Siguiente</string>
+    <string name="exam_finish">Finalizar</string>
+    <string name="exam_result_label">Tu Puntuación</string>
+    <string name="exam_no_exams">Aún no hay exámenes disponibles.</string>
+    <string name="exam_question_counter">Pregunta %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Miembro Premium</string>
     <string name="profile_words">Palabras</string>
     <string name="profile_exams">Exámenes</string>
-    <string name="profile_streak">Racha Diaria</string>
     <string name="profile_settings">Configuración de Cuenta</string>
     <string name="profile_notifications">Notificaciones</string>
     <string name="profile_about">Sobre Nosotros</string>

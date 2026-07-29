@@ -20,15 +20,30 @@
     
     <!-- Login -->
     <string name="login_welcome">Benvenuto!</string>
-    <string name="login_desc">Inserisci il codice a 4 cifre inviato al tuo telefono.</string>
+    <string name="login_desc">Accedi con la tua email e password per continuare.</string>
     <string name="login_button">Accedi</string>
     <string name="login_error">Accesso fallito!</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_no_account">Non hai un account? Registrati</string>
+
+    <!-- Register -->
+    <string name="register_title">Crea Account</string>
+    <string name="register_desc">Registrati per iniziare a imparare.</string>
+    <string name="register_confirm_password_hint">Conferma Password</string>
+    <string name="register_button">Registrati</string>
+    <string name="register_have_account">Hai già un account? Accedi</string>
+
+    <!-- Auth errors -->
+    <string name="auth_error_empty_fields">Si prega di compilare tutti i campi.</string>
+    <string name="auth_error_password_mismatch">Le password non coincidono.</string>
 
     <!-- Home -->
     <string name="home_greeting">Cosa vuoi imparare oggi?</string>
     <string name="home_popular_topics">Argomenti Popolari</string>
     <string name="topic_grammar">Grammatica</string>
     <string name="topic_vocabulary">Vocabolario</string>
+    <string name="topic_reading">Lettura</string>
     <string name="topic_mock_exam">Esame di Prova</string>
 
     <!-- Vocabulary -->
@@ -37,13 +52,17 @@
 
     <!-- Exam -->
     <string name="exam_progress">Progresso Generale</string>
-    <string name="exam_finish_test">Test Completato</string>
+    <string name="exam_next">Avanti</string>
+    <string name="exam_finish">Termina</string>
+    <string name="exam_result_label">Il tuo punteggio</string>
+    <string name="exam_no_exams">Nessun esame disponibile al momento.</string>
+    <string name="exam_question_counter">Domanda %1$d / %2$d</string>
+    <string name="exam_score_format">%1$d%%</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Membro Premium</string>
     <string name="profile_words">Parole</string>
     <string name="profile_exams">Esami</string>
-    <string name="profile_streak">Serie Giornaliera</string>
     <string name="profile_settings">Impostazioni Account</string>
     <string name="profile_notifications">Notifiche</string>
     <string name="profile_about">Chi Siamo</string>

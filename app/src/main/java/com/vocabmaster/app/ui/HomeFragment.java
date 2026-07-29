@@ -61,7 +61,21 @@ public class HomeFragment extends Fragment {
                 modules.add(new com.vocabmaster.app.domain.models.Module("2", "Grammar", "Master grammar rules", R.mipmap.ic_launcher));
                 modules.add(new com.vocabmaster.app.domain.models.Module("3", "Reading", "Read passages", R.mipmap.ic_launcher));
                 
-                com.vocabmaster.app.ui.adapters.ModuleAdapter adapter = new com.vocabmaster.app.ui.adapters.ModuleAdapter(modules);
+                com.vocabmaster.app.ui.adapters.ModuleAdapter adapter = new com.vocabmaster.app.ui.adapters.ModuleAdapter(modules, module -> {
+                    if (!(getActivity() instanceof com.vocabmaster.app.MainActivity)) return;
+                    com.vocabmaster.app.MainActivity activity = (com.vocabmaster.app.MainActivity) getActivity();
+                    switch (module.getId()) {
+                        case "1":
+                            activity.selectBottomNavTab(R.id.nav_vocabulary);
+                            break;
+                        case "2":
+                            activity.openFragment(new GrammarFragment(), true);
+                            break;
+                        case "3":
+                            activity.openFragment(new ReadingFragment(), true);
+                            break;
+                    }
+                });
                 rvModules.setAdapter(adapter);
                 
                 // Show TapTargetView tutorial after loading
