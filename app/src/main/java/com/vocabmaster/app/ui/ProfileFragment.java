@@ -60,7 +60,8 @@ public class ProfileFragment extends Fragment {
 
         VocabularyRepository vocabularyRepository = new RealVocabularyRepositoryImpl(
                 RetrofitClient.INSTANCE.getApi(),
-                AppDatabase.getDatabase(requireContext()).wordDao()
+                AppDatabase.getDatabase(requireContext()).wordDao(),
+                FirebaseFirestore.getInstance()
         );
         ExamRepository examRepository = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance());
 

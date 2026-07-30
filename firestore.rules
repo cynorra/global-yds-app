@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Shared exam question bank. Any signed-in user may read it, and may create it once
+    // (this is how the app seeds sample content on first run since there is no backend/admin
+    // process). Once a document exists it can no longer be modified or deleted by clients,
+    // so users cannot vandalize the shared question bank.
+    match /exams/{examId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+
+      match /questions/{questionId} {
+        allow read: if request.auth != null;
+        allow create: if request.auth != null;
+        allow update, delete: if false;
+      }
+    }
+
+    // Per-user exam attempts. Only the owning user can read or write their own attempts.
+    match /users/{userId}/examAttempts/{examId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Shared vocabulary bank, one bucket per device language (e.g. "tr", "es"). Translations
+    // are fetched from the free translation API and written once per language; after that every
+    // device reads the cached translations instead of re-translating the same words.
+    match /words/{langCode}/items/{wordId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+  }
+}

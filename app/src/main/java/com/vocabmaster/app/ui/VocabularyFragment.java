@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.vocabmaster.app.R;
 import com.vocabmaster.app.data.local.AppDatabase;
 import com.vocabmaster.app.data.remote.RetrofitClient;
@@ -58,7 +59,8 @@ public class VocabularyFragment extends Fragment {
 
         RealVocabularyRepositoryImpl repo = new RealVocabularyRepositoryImpl(
                 RetrofitClient.INSTANCE.getApi(),
-                AppDatabase.getDatabase(requireContext()).wordDao()
+                AppDatabase.getDatabase(requireContext()).wordDao(),
+                FirebaseFirestore.getInstance()
         );
 
         VocabularyViewModel viewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
