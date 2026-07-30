@@ -3,13 +3,23 @@
     <color name="colorPrimary">#4F46E5</color>
     <color name="colorPrimaryDark">#3730A3</color>
     <color name="colorAccent">#10B981</color>
-    
+
     <color name="backgroundColor">#F9FAFB</color>
     <color name="textColorPrimary">#111827</color>
     <color name="textColorSecondary">#6B7280</color>
-    
+
     <color name="cardBackground">#FFFFFF</color>
     <color name="dividerColor">#E5E7EB</color>
 
     <color name="shimmer_color">#a2878787</color>
+
+    <!-- Semantic colors (error / success / warning), consistent across light & dark. -->
+    <color name="colorError">#DC2626</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorSuccess">#10B981</color>
+    <color name="colorOnSuccess">#FFFFFF</color>
+    <color name="colorWarning">#F59E0B</color>
+    <color name="colorOnWarning">#111827</color>
+
+    <color name="surfaceElevated">#FFFFFF</color>
 </resources>

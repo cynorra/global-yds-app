@@ -3,18 +3,27 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorOnPrimary">@color/cardBackground</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorSecondaryVariant">@color/colorAccent</item>
-        <item name="colorOnSecondary">@color/textColorPrimary</item>
-        
+        <item name="colorOnSecondary">#052E16</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
         <!-- Premium specific attributes -->
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
+    </style>
+
+    <!-- Splash screen shown while OnboardingActivity decides where to route the user
+         (already-logged-in / onboarded / first-run). See androidx.core:core-splashscreen. -->
+    <style name="Theme.GlobalYDS.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/colorPrimary</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.GlobalYDS</item>
     </style>
 </resources>

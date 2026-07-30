@@ -15,4 +15,7 @@ interface WordDao {
 
     @Query("UPDATE words SET isLearned = 1 WHERE id = :wordId")
     suspend fun markAsLearned(wordId: String)
+
+    @Query("DELETE FROM words WHERE id = :wordId")
+    suspend fun deleteWord(wordId: String)
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colors lightened slightly for AA contrast on dark surfaces. -->
+    <color name="colorPrimary">#6366F1</color>
+    <color name="colorPrimaryDark">#4F46E5</color>
+    <color name="colorAccent">#34D399</color>
+
+    <color name="backgroundColor">#121317</color>
+    <color name="textColorPrimary">#F3F4F6</color>
+    <color name="textColorSecondary">#9CA3AF</color>
+
+    <color name="cardBackground">#1E2029</color>
+    <color name="dividerColor">#2D2F3A</color>
+
+    <color name="shimmer_color">#33FFFFFF</color>
+
+    <color name="colorError">#F87171</color>
+    <color name="colorOnError">#450A0A</color>
+    <color name="colorSuccess">#34D399</color>
+    <color name="colorOnSuccess">#052E16</color>
+    <color name="colorWarning">#FBBF24</color>
+    <color name="colorOnWarning">#451A03</color>
+
+    <color name="surfaceElevated">#1E2029</color>
+</resources>

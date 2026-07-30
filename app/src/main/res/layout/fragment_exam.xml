@@ -21,16 +21,16 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:id="@+id/tvEmptyState"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:gravity="center"
-            android:text="@string/exam_no_exams"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="16sp"
-            android:visibility="gone" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp" />
+
+        <include
+            android:id="@+id/emptyState"
+            layout="@layout/layout_empty_state" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExams"

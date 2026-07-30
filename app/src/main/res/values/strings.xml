@@ -36,6 +36,8 @@
     <!-- Auth errors -->
     <string name="auth_error_empty_fields">Please fill in all fields.</string>
     <string name="auth_error_password_mismatch">Passwords do not match.</string>
+    <string name="auth_error_invalid_email">Enter a valid e-mail address.</string>
+    <string name="auth_error_weak_password">Password must be at least 6 characters.</string>
 
     <!-- Home -->
     <string name="home_greeting">What do you want to learn today?</string>
@@ -48,6 +50,8 @@
     <!-- Vocabulary -->
     <string name="vocab_learn">Learn Words</string>
     <string name="vocab_desc">Swipe cards to review words</string>
+    <string name="vocabulary_word_learned">Word marked as learned ✓</string>
+    <string name="vocabulary_word_deleted">Word removed</string>
 
     <!-- Exam -->
     <string name="exam_progress">General Progress</string>
@@ -57,6 +61,18 @@
     <string name="exam_no_exams">No exams available yet.</string>
     <string name="exam_question_counter">Question %1$d / %2$d</string>
     <string name="exam_score_format">%1$d%%</string>
+
+    <!-- Shared empty / error states -->
+    <string name="action_retry">Retry</string>
+    <string name="error_generic_title">Something went wrong</string>
+    <string name="error_generic_subtitle">Please check your connection and try again.</string>
+    <string name="grammar_empty_title">No grammar topics yet</string>
+    <string name="grammar_empty_subtitle">Check back soon for new topics.</string>
+    <string name="reading_empty_title">No reading passages yet</string>
+    <string name="reading_empty_subtitle">Check back soon for new passages.</string>
+    <string name="vocabulary_empty_title">All caught up! 🎉</string>
+    <string name="vocabulary_empty_subtitle">You\'ve learned every word in this set.</string>
+    <string name="exam_error_title">Couldn\'t load exams</string>
 
     <!-- Profile -->
     <string name="profile_premium_member">Premium Member</string>

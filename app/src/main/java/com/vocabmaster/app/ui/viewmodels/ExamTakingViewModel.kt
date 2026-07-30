@@ -12,6 +12,7 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
 
     private var questions: List<Question> = emptyList()
     private val selectedAnswers = mutableMapOf<Int, Int>()
+    private var examTitle: String = ""
 
     private val _currentIndex = MutableLiveData(0)
     val currentIndex: LiveData<Int> get() = _currentIndex
@@ -25,7 +26,8 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
     private val _finalScorePercent = MutableLiveData<Int?>()
     val finalScorePercent: LiveData<Int?> get() = _finalScorePercent
 
-    fun loadQuestions(examId: String) {
+    fun loadQuestions(examId: String, examTitle: String) {
+        this.examTitle = examTitle
         viewModelScope.launch {
             questions = repository.getExamQuestions(examId)
             _totalQuestions.value = questions.size
@@ -56,7 +58,7 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
         val correctCount = questions.indices.count { i -> selectedAnswers[i] == questions[i].correctOptionIndex }
         val scorePercent = if (questions.isNotEmpty()) (correctCount * 100) / questions.size else 0
         viewModelScope.launch {
-            repository.submitExamResult(examId, scorePercent)
+            repository.submitExamResult(examId, examTitle, scorePercent)
             _finalScorePercent.value = scorePercent
         }
     }

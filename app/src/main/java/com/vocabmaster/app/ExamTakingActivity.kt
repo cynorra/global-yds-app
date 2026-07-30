@@ -86,7 +86,7 @@ class ExamTakingActivity : AppCompatActivity() {
             if (score != null) showResult(score)
         }
 
-        viewModel.loadQuestions(examId)
+        viewModel.loadQuestions(examId, examTitle)
     }
 
     private fun bindQuestion(question: Question) {

@@ -1,17 +1,18 @@
 package com.vocabmaster.app.ui.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vocabmaster.app.databinding.ItemExamBinding
-import com.vocabmaster.app.domain.models.Exam
+import com.vocabmaster.app.ui.viewmodels.ExamListItem
 
 fun interface OnExamClickListener {
-    fun onExamClick(exam: Exam)
+    fun onExamClick(exam: ExamListItem)
 }
 
 class ExamAdapter(
-    private val exams: List<Exam>,
+    private val exams: List<ExamListItem>,
     private val onExamClick: OnExamClickListener
 ) : RecyclerView.Adapter<ExamAdapter.ExamViewHolder>() {
 
@@ -28,12 +29,13 @@ class ExamAdapter(
         holder.binding.tvDetails.text = "${exam.totalQuestions} Questions • ${exam.durationMinutes} Minutes"
 
         if (exam.isCompleted) {
-            holder.binding.tvScore.text = "Score: ${exam.score}"
+            holder.binding.tvScore.visibility = View.VISIBLE
+            holder.binding.tvScore.text = "✓ ${exam.score}%"
+            holder.itemView.isClickable = false
             holder.itemView.setOnClickListener(null)
-            holder.itemView.alpha = 0.7f
         } else {
-            holder.binding.tvScore.text = ""
-            holder.itemView.alpha = 1f
+            holder.binding.tvScore.visibility = View.GONE
+            holder.itemView.isClickable = true
             holder.itemView.setOnClickListener { onExamClick.onExamClick(exam) }
         }
     }
