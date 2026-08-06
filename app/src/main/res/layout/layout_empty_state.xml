@@ -19,7 +19,7 @@
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
         android:alpha="0.6"
-        android:src="@android:drawable/ic_dialog_info"
+        android:src="@drawable/ic_state_empty"
         app:tint="@color/textColorSecondary"
         tools:ignore="ContentDescription" />
 

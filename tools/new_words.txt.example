@@ -1,0 +1,11 @@
+# One word per line. Optionally add "|your own example sentence" after the word.
+# If you don't provide an example, the script looks one up automatically via the free
+# Dictionary API (https://api.dictionaryapi.dev) - if none is found there, the word is still
+# added (with an empty example you can fill in later from the Firebase console).
+#
+# Copy this file to new_words.txt (same folder) and edit it, then run:
+#   .\add_words.ps1
+#
+Ambitious|She has always been ambitious about her career.
+Diligent
+Meticulous|He is meticulous about checking every detail before submitting his work.

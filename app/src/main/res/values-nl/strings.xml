@@ -37,6 +37,8 @@
     <!-- Auth errors -->
     <string name="auth_error_empty_fields">Vul alle velden in.</string>
     <string name="auth_error_password_mismatch">Wachtwoorden komen niet overeen.</string>
+    <string name="auth_error_invalid_email">Voer een geldig e-mailadres in.</string>
+    <string name="auth_error_weak_password">Wachtwoord moet minstens 6 tekens bevatten.</string>
 
     <!-- Home -->
     <string name="home_greeting">Wat wil je vandaag leren?</string>
@@ -45,10 +47,19 @@
     <string name="topic_vocabulary">Woordenschat</string>
     <string name="topic_reading">Lezen</string>
     <string name="topic_mock_exam">Proefexamen</string>
+    <string name="module_vocabulary_desc">Leer nieuwe woorden</string>
+    <string name="module_grammar_desc">Beheers de grammaticaregels</string>
+    <string name="module_reading_desc">Lees teksten</string>
+    <string name="home_tutorial_title">Welkom!</string>
+    <string name="home_tutorial_desc">Begin met leren door de categorieën te verkennen.</string>
 
     <!-- Vocabulary -->
     <string name="vocab_learn">Woorden leren</string>
     <string name="vocab_desc">Veeg kaarten om te beoordelen</string>
+    <string name="vocabulary_word_learned">Woord gemarkeerd als geleerd ✓</string>
+    <string name="vocabulary_word_deleted">Woord verwijderd</string>
+    <string name="vocabulary_meaning_unknown">Onbekend</string>
+    <string name="vocabulary_translation_not_found">Vertaling niet gevonden</string>
 
     <!-- Exam -->
     <string name="exam_progress">Algemene Voortgang</string>
@@ -59,6 +70,18 @@
     <string name="exam_question_counter">Vraag %1$d / %2$d</string>
     <string name="exam_score_format">%1$d%%</string>
 
+    <!-- Shared empty / error states -->
+    <string name="action_retry">Opnieuw proberen</string>
+    <string name="error_generic_title">Er is iets misgegaan</string>
+    <string name="error_generic_subtitle">Controleer je verbinding en probeer het opnieuw.</string>
+    <string name="grammar_empty_title">Nog geen grammaticaonderwerpen</string>
+    <string name="grammar_empty_subtitle">Kom binnenkort terug voor nieuwe onderwerpen.</string>
+    <string name="reading_empty_title">Nog geen leesteksten</string>
+    <string name="reading_empty_subtitle">Kom binnenkort terug voor nieuwe teksten.</string>
+    <string name="vocabulary_empty_title">Helemaal bij! 🎉</string>
+    <string name="vocabulary_empty_subtitle">Je hebt alle woorden in deze set geleerd.</string>
+    <string name="exam_error_title">Examens konden niet worden geladen</string>
+
     <!-- Profile -->
     <string name="profile_premium_member">Premium Lid</string>
     <string name="profile_words">Woorden</string>
@@ -67,4 +90,17 @@
     <string name="profile_notifications">Meldingen</string>
     <string name="profile_about">Over Ons</string>
     <string name="profile_logout">Uitloggen</string>
+
+    <!-- Account settings -->
+    <string name="account_change_password">Wachtwoord Wijzigen</string>
+    <string name="account_change_password_sent">E-mail voor wachtwoordherstel verzonden.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_reminder_title">Dagelijkse Studieherinnering</string>
+    <string name="notifications_reminder_desc">Ontvang dagelijks een herinnering om je woordenschat te oefenen.</string>
+    <string name="notifications_permission_denied">Schakel meldingen in via de systeeminstellingen om herinneringen te ontvangen.</string>
+
+    <!-- About -->
+    <string name="about_description">VocabMaster helpt je Engelse woordenschat te leren, grammaticaregels onder de knie te krijgen en te oefenen met realistische proefexamens.</string>
+    <string name="about_version">Versie %1$s</string>
 </resources>

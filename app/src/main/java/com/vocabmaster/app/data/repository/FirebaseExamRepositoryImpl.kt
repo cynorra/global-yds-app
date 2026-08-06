@@ -1,5 +1,6 @@
 package com.vocabmaster.app.data.repository
 
+import com.vocabmaster.app.data.remote.TranslationApi
 import com.vocabmaster.app.domain.Resource
 import com.vocabmaster.app.domain.models.Exam
 import com.vocabmaster.app.domain.models.ExamAttempt
@@ -7,10 +8,15 @@ import com.vocabmaster.app.domain.models.Question
 import com.vocabmaster.app.domain.repository.ExamRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Locale
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.tasks.await
 
 class FirebaseExamRepositoryImpl(
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    private val api: TranslationApi
 ) : ExamRepository {
 
     private val examsCollection = firestore.collection("exams")
@@ -21,14 +27,69 @@ class FirebaseExamRepositoryImpl(
     private fun examAttemptsCollection(uid: String) =
         firestore.collection("users").document(uid).collection("examAttempts")
 
+    // Exam titles are authored in Turkish in the shared `exams` bank (see seedSampleExamsIfEmpty).
+    // getAllExams() returns them translated into the device's language, cached per language in
+    // Firestore so the same title is only ever translated once across all devices.
     override suspend fun getAllExams(): Resource<List<Exam>> {
         return try {
             seedSampleExamsIfEmpty()
             val exams = examsCollection.get().await().documents.mapNotNull { it.toObject(Exam::class.java) }
-            Resource.Success(exams)
+            Resource.Success(withTranslatedTitles(exams))
         } catch (e: Exception) {
             Resource.Error(e.message)
         }
+    }
+
+    private suspend fun withTranslatedTitles(exams: List<Exam>): List<Exam> {
+        val targetLanguage = Locale.getDefault().language
+        if (targetLanguage == "tr" || exams.isEmpty()) return exams
+
+        val titleCache = firestore.collection(TITLE_COLLECTION).document(targetLanguage).collection("items")
+        val cached = try {
+            titleCache.get().await().documents.associate { it.id to it.getString("title") }
+        } catch (e: Exception) {
+            emptyMap()
+        }
+
+        val missing = exams.filter { cached[it.id] == null }
+        val translated = if (missing.isNotEmpty()) translateAndCacheTitles(targetLanguage, missing, titleCache) else emptyMap()
+
+        return exams.map { exam ->
+            exam.copy(title = cached[exam.id] ?: translated[exam.id] ?: exam.title)
+        }
+    }
+
+    private suspend fun translateAndCacheTitles(
+        targetLanguage: String,
+        exams: List<Exam>,
+        titleCache: com.google.firebase.firestore.CollectionReference
+    ): Map<String, String> {
+        val langPair = "tr|$targetLanguage"
+
+        val translated = coroutineScope {
+            exams.map { exam ->
+                async {
+                    val title = try {
+                        api.translateWord(word = exam.title, langPair = langPair).responseData?.translatedText
+                            ?: exam.title
+                    } catch (e: Exception) {
+                        exam.title
+                    }
+                    exam.id to title
+                }
+            }.awaitAll()
+        }.toMap()
+
+        try {
+            translated.forEach { (examId, title) ->
+                titleCache.document(examId).set(mapOf("title" to title)).await()
+            }
+        } catch (e: Exception) {
+            // Firestore write failed (e.g. offline); title is still usable locally this
+            // session, another device will simply cache it later.
+        }
+
+        return translated
     }
 
     override suspend fun getCompletedExams(): Resource<List<ExamAttempt>> {
@@ -186,4 +247,8 @@ class FirebaseExamRepositoryImpl(
             )
         )
     )
+
+    companion object {
+        private const val TITLE_COLLECTION = "exam_titles"
+    }
 }

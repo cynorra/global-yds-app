@@ -46,12 +46,19 @@
     <string name="topic_vocabulary">Vocabulary</string>
     <string name="topic_reading">Reading</string>
     <string name="topic_mock_exam">Mock Exam</string>
+    <string name="module_vocabulary_desc">Learn new words</string>
+    <string name="module_grammar_desc">Master grammar rules</string>
+    <string name="module_reading_desc">Read passages</string>
+    <string name="home_tutorial_title">Welcome!</string>
+    <string name="home_tutorial_desc">Start learning by exploring the categories.</string>
 
     <!-- Vocabulary -->
     <string name="vocab_learn">Learn Words</string>
     <string name="vocab_desc">Swipe cards to review words</string>
     <string name="vocabulary_word_learned">Word marked as learned ✓</string>
     <string name="vocabulary_word_deleted">Word removed</string>
+    <string name="vocabulary_meaning_unknown">Unknown</string>
+    <string name="vocabulary_translation_not_found">Translation not found</string>
 
     <!-- Exam -->
     <string name="exam_progress">General Progress</string>
@@ -82,4 +89,17 @@
     <string name="profile_notifications">Notifications</string>
     <string name="profile_about">About Us</string>
     <string name="profile_logout">Logout</string>
+
+    <!-- Account settings -->
+    <string name="account_change_password">Change Password</string>
+    <string name="account_change_password_sent">Password reset e-mail sent.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_reminder_title">Daily Study Reminder</string>
+    <string name="notifications_reminder_desc">Get a daily reminder to practice your vocabulary.</string>
+    <string name="notifications_permission_denied">Enable notifications in system settings to receive reminders.</string>
+
+    <!-- About -->
+    <string name="about_description">VocabMaster helps you learn English vocabulary, master grammar rules, and practice with realistic mock exams.</string>
+    <string name="about_version">Version %1$s</string>
 </resources>

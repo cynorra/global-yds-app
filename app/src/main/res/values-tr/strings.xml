@@ -37,6 +37,8 @@
     <!-- Auth errors -->
     <string name="auth_error_empty_fields">Lütfen tüm alanları doldurun.</string>
     <string name="auth_error_password_mismatch">Şifreler eşleşmiyor.</string>
+    <string name="auth_error_invalid_email">Geçerli bir e-posta adresi girin.</string>
+    <string name="auth_error_weak_password">Şifre en az 6 karakter olmalıdır.</string>
 
     <!-- Home -->
     <string name="home_greeting">Bugün Ne Öğrenmek İstersin?</string>
@@ -45,10 +47,19 @@
     <string name="topic_vocabulary">Kelime</string>
     <string name="topic_reading">Okuma</string>
     <string name="topic_mock_exam">Deneme</string>
+    <string name="module_vocabulary_desc">Yeni kelimeler öğren</string>
+    <string name="module_grammar_desc">Gramer kurallarında ustalaş</string>
+    <string name="module_reading_desc">Metinleri oku</string>
+    <string name="home_tutorial_title">Hoş Geldiniz!</string>
+    <string name="home_tutorial_desc">Kategorileri keşfederek öğrenmeye başlayın.</string>
 
     <!-- Vocabulary -->
     <string name="vocab_learn">Kelime Öğren</string>
     <string name="vocab_desc">Kartları kaydırarak kelimeleri tekrar et</string>
+    <string name="vocabulary_word_learned">Kelime öğrenildi olarak işaretlendi ✓</string>
+    <string name="vocabulary_word_deleted">Kelime kaldırıldı</string>
+    <string name="vocabulary_meaning_unknown">Bilinmiyor</string>
+    <string name="vocabulary_translation_not_found">Çeviri bulunamadı</string>
 
     <!-- Exam -->
     <string name="exam_progress">Genel İlerleme</string>
@@ -59,6 +70,18 @@
     <string name="exam_question_counter">Soru %1$d / %2$d</string>
     <string name="exam_score_format">%1$d%%</string>
 
+    <!-- Shared empty / error states -->
+    <string name="action_retry">Tekrar Dene</string>
+    <string name="error_generic_title">Bir şeyler ters gitti</string>
+    <string name="error_generic_subtitle">Lütfen bağlantınızı kontrol edip tekrar deneyin.</string>
+    <string name="grammar_empty_title">Henüz gramer konusu yok</string>
+    <string name="grammar_empty_subtitle">Yeni konular için yakında tekrar kontrol edin.</string>
+    <string name="reading_empty_title">Henüz okuma parçası yok</string>
+    <string name="reading_empty_subtitle">Yeni parçalar için yakında tekrar kontrol edin.</string>
+    <string name="vocabulary_empty_title">Hepsi tamamlandı! 🎉</string>
+    <string name="vocabulary_empty_subtitle">Bu setteki tüm kelimeleri öğrendiniz.</string>
+    <string name="exam_error_title">Sınavlar yüklenemedi</string>
+
     <!-- Profile -->
     <string name="profile_premium_member">Premium Üye</string>
     <string name="profile_words">Kelime</string>
@@ -67,4 +90,17 @@
     <string name="profile_notifications">Bildirimler</string>
     <string name="profile_about">Hakkımızda</string>
     <string name="profile_logout">Çıkış Yap</string>
+
+    <!-- Account settings -->
+    <string name="account_change_password">Şifreyi Değiştir</string>
+    <string name="account_change_password_sent">Şifre sıfırlama e-postası gönderildi.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_reminder_title">Günlük Çalışma Hatırlatıcısı</string>
+    <string name="notifications_reminder_desc">Kelime çalışman için her gün hatırlatma al.</string>
+    <string name="notifications_permission_denied">Hatırlatma alabilmek için bildirimlere sistem ayarlarından izin verin.</string>
+
+    <!-- About -->
+    <string name="about_description">VocabMaster; İngilizce kelime öğrenmene, gramer kurallarında ustalaşmana ve gerçekçi deneme sınavlarıyla pratik yapmana yardımcı olur.</string>
+    <string name="about_version">Sürüm %1$s</string>
 </resources>

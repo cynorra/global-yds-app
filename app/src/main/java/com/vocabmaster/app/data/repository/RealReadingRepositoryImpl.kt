@@ -5,15 +5,22 @@ import com.vocabmaster.app.data.local.ReadingPassageEntity
 import com.vocabmaster.app.domain.Resource
 import com.vocabmaster.app.domain.models.ReadingPassage
 import com.vocabmaster.app.domain.repository.ReadingRepository
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class RealReadingRepositoryImpl(
-    private val readingDao: ReadingDao
+    private val readingDao: ReadingDao,
+    private val firestore: FirebaseFirestore
 ) : ReadingRepository {
 
-    // A varied bank of short YDS-style informational passages.
-    private val seedPassages = listOf(
+    // One-time seed for the shared Firestore passage bank, used only the very first time the
+    // `reading_passages` collection is empty. After that the bank lives entirely in Firestore -
+    // add/edit/remove passages from the Firebase console, no app release needed. Passages are
+    // always English (this is an English reading exercise), so there is no translation step,
+    // unlike the vocabulary/grammar banks.
+    private val initialSeedPassages = listOf(
         ReadingPassageEntity(
             id = "1",
             title = "The Rise of Remote Work",
@@ -107,13 +114,51 @@ class RealReadingRepositoryImpl(
 
     override suspend fun getPassages(): Resource<List<ReadingPassage>> = withContext(Dispatchers.IO) {
         try {
-            if (readingDao.getAllPassages().isEmpty()) {
-                readingDao.insertPassages(seedPassages)
-            }
+            ensurePassagesCached()
             Resource.Success(readingDao.getAllPassages().map { it.toDomain() })
         } catch (e: Exception) {
             Resource.Error(e.message)
         }
+    }
+
+    // Firestore's `reading_passages` collection is the single source of truth. Only passages
+    // missing locally are downloaded, so an admin can add new passages in Firestore at any time
+    // without an app update.
+    private suspend fun ensurePassagesCached() {
+        val masterPassages = loadOrSeedMasterBank()
+        if (masterPassages.isEmpty()) return // offline on first run with no local cache yet
+
+        val existingIds = readingDao.getAllPassages().map { it.id }.toSet()
+        val missingPassages = masterPassages.filterNot { it.id in existingIds }
+        if (missingPassages.isEmpty()) return
+
+        readingDao.insertPassages(missingPassages)
+    }
+
+    private suspend fun loadOrSeedMasterBank(): List<ReadingPassageEntity> {
+        val masterCollection = firestore.collection(MASTER_COLLECTION)
+        return try {
+            val existing = masterCollection.get().await().documents.mapNotNull { it.toObject(ReadingPassageEntity::class.java) }
+            existing.ifEmpty { seedMasterBank(masterCollection) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    private suspend fun seedMasterBank(
+        masterCollection: com.google.firebase.firestore.CollectionReference
+    ): List<ReadingPassageEntity> {
+        try {
+            initialSeedPassages.forEach { passage ->
+                masterCollection.document(passage.id).set(
+                    mapOf("id" to passage.id, "title" to passage.title, "bodyText" to passage.bodyText)
+                ).await()
+            }
+        } catch (e: Exception) {
+            // Offline on very first run: the app still works this session with the seed list
+            // in memory; another device (or this one later) will perform the seed write.
+        }
+        return initialSeedPassages
     }
 
     private fun ReadingPassageEntity.toDomain() = ReadingPassage(
@@ -121,4 +166,8 @@ class RealReadingRepositoryImpl(
         title = title,
         bodyText = bodyText
     )
+
+    companion object {
+        private const val MASTER_COLLECTION = "reading_passages"
+    }
 }

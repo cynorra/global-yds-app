@@ -10,12 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:layout_marginHorizontal="@dimen/screen_horizontal_margin">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sınavlar"
+            android:text="@string/nav_exams"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/textColorPrimary"

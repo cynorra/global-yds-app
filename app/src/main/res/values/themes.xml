@@ -17,6 +17,12 @@
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+        <!-- App-wide typography. android:fontFamily applies on API 26+; fontFamily is the
+             AppCompat-backported attribute that also covers API 24-25. Falls back to the
+             system font automatically if the Google Fonts provider can't be resolved. -->
+        <item name="android:fontFamily" tools:targetApi="o">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
     </style>
 
     <!-- Splash screen shown while OnboardingActivity decides where to route the user

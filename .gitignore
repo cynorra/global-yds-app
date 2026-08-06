@@ -10,6 +10,9 @@
 app/build/
 app/release/
 
+# Word bank tooling working files (personal batches, not the shared .example template)
+tools/new_words.txt
+
 # JVM crash dumps
 hs_err_pid*.log
 replay_pid*.log
@@ -20,3 +23,6 @@ replay_pid*.log
 # Stale local build logs
 build-failed-log.txt
 app/build-failed-log.txt
+
+# Firebase CLI debug log
+firebase-debug.log

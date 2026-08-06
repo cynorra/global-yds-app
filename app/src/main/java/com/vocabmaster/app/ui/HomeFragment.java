@@ -57,9 +57,9 @@ public class HomeFragment extends Fragment {
                 
                 rvModules.setLayoutManager(new androidx.recyclerview.widget.LinearLayoutManager(getContext()));
                 java.util.List<com.vocabmaster.app.domain.models.Module> modules = new java.util.ArrayList<>();
-                modules.add(new com.vocabmaster.app.domain.models.Module("1", "Vocabulary", "Learn new words", R.mipmap.ic_launcher));
-                modules.add(new com.vocabmaster.app.domain.models.Module("2", "Grammar", "Master grammar rules", R.mipmap.ic_launcher));
-                modules.add(new com.vocabmaster.app.domain.models.Module("3", "Reading", "Read passages", R.mipmap.ic_launcher));
+                modules.add(new com.vocabmaster.app.domain.models.Module("1", getString(R.string.topic_vocabulary), getString(R.string.module_vocabulary_desc), R.drawable.ic_module_vocabulary));
+                modules.add(new com.vocabmaster.app.domain.models.Module("2", getString(R.string.topic_grammar), getString(R.string.module_grammar_desc), R.drawable.ic_module_grammar));
+                modules.add(new com.vocabmaster.app.domain.models.Module("3", getString(R.string.topic_reading), getString(R.string.module_reading_desc), R.drawable.ic_module_reading));
                 
                 com.vocabmaster.app.ui.adapters.ModuleAdapter adapter = new com.vocabmaster.app.ui.adapters.ModuleAdapter(modules, module -> {
                     if (!(getActivity() instanceof com.vocabmaster.app.MainActivity)) return;
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
     private void showTutorial() {
         if (getActivity() == null) return;
         TapTargetView.showFor(getActivity(),
-            TapTarget.forView(kbvHeader, "Hoş Geldiniz!", "Kategorileri keşfederek öğrenmeye başlayın.")
+            TapTarget.forView(kbvHeader, getString(R.string.home_tutorial_title), getString(R.string.home_tutorial_desc))
                 .outerCircleColor(R.color.colorPrimary)
                 .targetCircleColor(android.R.color.white)
                 .titleTextSize(20)

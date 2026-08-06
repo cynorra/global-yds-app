@@ -19,6 +19,9 @@ import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_OPEN_TAB = "extra_open_tab";
+    public static final String TAB_VOCABULARY = "vocabulary";
+
     private BottomNavigationView bottomNav;
     private AdView adView;
 
@@ -37,10 +40,15 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
-        // Load Home Fragment by default
+        // Load Home Fragment by default, unless we were opened via a deep link (e.g. a reminder notification)
         if (savedInstanceState == null) {
-            loadFragment(new HomeFragment());
-            bottomNav.setSelectedItemId(R.id.nav_home);
+            if (TAB_VOCABULARY.equals(getIntent().getStringExtra(EXTRA_OPEN_TAB))) {
+                loadFragment(new VocabularyFragment());
+                bottomNav.setSelectedItemId(R.id.nav_vocabulary);
+            } else {
+                loadFragment(new HomeFragment());
+                bottomNav.setSelectedItemId(R.id.nav_home);
+            }
         }
 
         bottomNav.setOnItemSelectedListener(item -> {

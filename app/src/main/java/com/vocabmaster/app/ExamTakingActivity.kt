@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.FirebaseFirestore
+import com.vocabmaster.app.data.remote.RetrofitClient
 import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl
 import com.vocabmaster.app.domain.models.Question
 import com.vocabmaster.app.ui.viewmodels.ExamTakingViewModel
@@ -35,7 +36,7 @@ class ExamTakingActivity : AppCompatActivity() {
         ViewModelProvider(this, object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return ExamTakingViewModel(FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance())) as T
+                return ExamTakingViewModel(FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.api)) as T
             }
         })[ExamTakingViewModel::class.java]
     }

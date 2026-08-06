@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
 import com.vocabmaster.app.R
 import com.vocabmaster.app.data.local.AppDatabase
+import com.vocabmaster.app.data.remote.RetrofitClient
 import com.vocabmaster.app.data.repository.RealGrammarRepositoryImpl
 import com.vocabmaster.app.ui.adapters.GrammarAdapter
 import com.vocabmaster.app.ui.viewmodels.GrammarViewModel
@@ -40,7 +42,11 @@ class GrammarFragment : Fragment() {
         val emptyStateSubtitle = view.findViewById<TextView>(R.id.tvEmptyStateSubtitle)
         val emptyStateRetry = view.findViewById<MaterialButton>(R.id.btnEmptyStateRetry)
 
-        val repo = RealGrammarRepositoryImpl(AppDatabase.getDatabase(requireContext()).grammarDao())
+        val repo = RealGrammarRepositoryImpl(
+            AppDatabase.getDatabase(requireContext()).grammarDao(),
+            RetrofitClient.api,
+            FirebaseFirestore.getInstance()
+        )
         val viewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
@@ -61,7 +67,7 @@ class GrammarFragment : Fragment() {
                 state.errorMessage != null -> {
                     rvGrammar.visibility = View.GONE
                     emptyStateRoot.visibility = View.VISIBLE
-                    emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_alert)
+                    emptyStateIcon.setImageResource(R.drawable.ic_state_error)
                     emptyStateTitle.text = getString(R.string.error_generic_title)
                     emptyStateSubtitle.text = getString(R.string.error_generic_subtitle)
                     emptyStateRetry.visibility = View.VISIBLE
@@ -72,7 +78,7 @@ class GrammarFragment : Fragment() {
                 state.items.isEmpty() -> {
                     rvGrammar.visibility = View.GONE
                     emptyStateRoot.visibility = View.VISIBLE
-                    emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_info)
+                    emptyStateIcon.setImageResource(R.drawable.ic_state_empty)
                     emptyStateTitle.text = getString(R.string.grammar_empty_title)
                     emptyStateSubtitle.text = getString(R.string.grammar_empty_subtitle)
                     emptyStateRetry.visibility = View.GONE

@@ -33,7 +33,7 @@ public class OnboardingActivity extends AppIntro {
         addSlide(AppIntroFragment.createInstance(
                 getString(R.string.onboarding_1_title),
                 getString(R.string.onboarding_1_desc),
-                R.mipmap.ic_launcher, // You'd ideally use a premium illustration here
+                R.drawable.ic_onboarding_success,
                 Color.parseColor("#4F46E5") // Primary color
         ));
 
@@ -41,7 +41,7 @@ public class OnboardingActivity extends AppIntro {
         addSlide(AppIntroFragment.createInstance(
                 getString(R.string.onboarding_2_title),
                 getString(R.string.onboarding_2_desc),
-                R.mipmap.ic_launcher,
+                R.drawable.ic_onboarding_cards,
                 Color.parseColor("#3730A3") // Darker primary
         ));
 
@@ -49,7 +49,7 @@ public class OnboardingActivity extends AppIntro {
         addSlide(AppIntroFragment.createInstance(
                 getString(R.string.onboarding_3_title),
                 getString(R.string.onboarding_3_desc),
-                R.mipmap.ic_launcher,
+                R.drawable.ic_onboarding_exam,
                 Color.parseColor("#10B981") // Accent color
         ));
 

@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:layout_marginHorizontal="@dimen/screen_horizontal_margin">
 
         <!-- Header with KenBurnsView -->
         <FrameLayout
@@ -52,8 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <View android:layout_width="150dp" android:layout_height="200dp" android:background="#DDDDDD" android:layout_marginEnd="16dp" />
-                <View android:layout_width="150dp" android:layout_height="200dp" android:background="#DDDDDD" />
+                <View android:layout_width="150dp" android:layout_height="200dp" android:background="@color/dividerColor" android:layout_marginEnd="16dp" />
+                <View android:layout_width="150dp" android:layout_height="200dp" android:background="@color/dividerColor" />
             </LinearLayout>
         </io.supercharge.shimmerlayout.ShimmerLayout>
 

@@ -37,6 +37,8 @@
     <!-- Auth errors -->
     <string name="auth_error_empty_fields">Bitte füllen Sie alle Felder aus.</string>
     <string name="auth_error_password_mismatch">Die Passwörter stimmen nicht überein.</string>
+    <string name="auth_error_invalid_email">Geben Sie eine gültige E-Mail-Adresse ein.</string>
+    <string name="auth_error_weak_password">Das Passwort muss mindestens 6 Zeichen lang sein.</string>
 
     <!-- Home -->
     <string name="home_greeting">Was möchten Sie heute lernen?</string>
@@ -45,10 +47,19 @@
     <string name="topic_vocabulary">Wortschatz</string>
     <string name="topic_reading">Lesen</string>
     <string name="topic_mock_exam">Probeprüfung</string>
+    <string name="module_vocabulary_desc">Neue Wörter lernen</string>
+    <string name="module_grammar_desc">Grammatikregeln meistern</string>
+    <string name="module_reading_desc">Texte lesen</string>
+    <string name="home_tutorial_title">Willkommen!</string>
+    <string name="home_tutorial_desc">Beginnen Sie mit dem Lernen, indem Sie die Kategorien erkunden.</string>
 
     <!-- Vocabulary -->
     <string name="vocab_learn">Wörter lernen</string>
     <string name="vocab_desc">Karten zum Überprüfen wischen</string>
+    <string name="vocabulary_word_learned">Wort als gelernt markiert ✓</string>
+    <string name="vocabulary_word_deleted">Wort entfernt</string>
+    <string name="vocabulary_meaning_unknown">Unbekannt</string>
+    <string name="vocabulary_translation_not_found">Übersetzung nicht gefunden</string>
 
     <!-- Exam -->
     <string name="exam_progress">Allgemeiner Fortschritt</string>
@@ -59,6 +70,18 @@
     <string name="exam_question_counter">Frage %1$d / %2$d</string>
     <string name="exam_score_format">%1$d%%</string>
 
+    <!-- Shared empty / error states -->
+    <string name="action_retry">Erneut versuchen</string>
+    <string name="error_generic_title">Etwas ist schiefgelaufen</string>
+    <string name="error_generic_subtitle">Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.</string>
+    <string name="grammar_empty_title">Noch keine Grammatikthemen</string>
+    <string name="grammar_empty_subtitle">Schauen Sie bald wieder vorbei für neue Themen.</string>
+    <string name="reading_empty_title">Noch keine Lesetexte</string>
+    <string name="reading_empty_subtitle">Schauen Sie bald wieder vorbei für neue Texte.</string>
+    <string name="vocabulary_empty_title">Alles erledigt! 🎉</string>
+    <string name="vocabulary_empty_subtitle">Du hast alle Wörter in diesem Set gelernt.</string>
+    <string name="exam_error_title">Prüfungen konnten nicht geladen werden</string>
+
     <!-- Profile -->
     <string name="profile_premium_member">Premium-Mitglied</string>
     <string name="profile_words">Wörter</string>
@@ -67,4 +90,17 @@
     <string name="profile_notifications">Benachrichtigungen</string>
     <string name="profile_about">Über uns</string>
     <string name="profile_logout">Abmelden</string>
+
+    <!-- Account settings -->
+    <string name="account_change_password">Passwort ändern</string>
+    <string name="account_change_password_sent">E-Mail zum Zurücksetzen des Passworts gesendet.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_reminder_title">Tägliche Lernerinnerung</string>
+    <string name="notifications_reminder_desc">Erhalten Sie täglich eine Erinnerung, um Ihren Wortschatz zu üben.</string>
+    <string name="notifications_permission_denied">Aktivieren Sie Benachrichtigungen in den Systemeinstellungen, um Erinnerungen zu erhalten.</string>
+
+    <!-- About -->
+    <string name="about_description">VocabMaster hilft Ihnen, englischen Wortschatz zu lernen, Grammatikregeln zu meistern und mit realistischen Probeprüfungen zu üben.</string>
+    <string name="about_version">Version %1$s</string>
 </resources>

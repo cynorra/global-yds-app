@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
 import com.vocabmaster.app.R
 import com.vocabmaster.app.data.local.AppDatabase
 import com.vocabmaster.app.data.repository.RealReadingRepositoryImpl
@@ -40,7 +41,10 @@ class ReadingFragment : Fragment() {
         val emptyStateSubtitle = view.findViewById<TextView>(R.id.tvEmptyStateSubtitle)
         val emptyStateRetry = view.findViewById<MaterialButton>(R.id.btnEmptyStateRetry)
 
-        val repo = RealReadingRepositoryImpl(AppDatabase.getDatabase(requireContext()).readingDao())
+        val repo = RealReadingRepositoryImpl(
+            AppDatabase.getDatabase(requireContext()).readingDao(),
+            FirebaseFirestore.getInstance()
+        )
         val viewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
@@ -61,7 +65,7 @@ class ReadingFragment : Fragment() {
                 state.errorMessage != null -> {
                     rvReading.visibility = View.GONE
                     emptyStateRoot.visibility = View.VISIBLE
-                    emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_alert)
+                    emptyStateIcon.setImageResource(R.drawable.ic_state_error)
                     emptyStateTitle.text = getString(R.string.error_generic_title)
                     emptyStateSubtitle.text = getString(R.string.error_generic_subtitle)
                     emptyStateRetry.visibility = View.VISIBLE
@@ -72,7 +76,7 @@ class ReadingFragment : Fragment() {
                 state.items.isEmpty() -> {
                     rvReading.visibility = View.GONE
                     emptyStateRoot.visibility = View.VISIBLE
-                    emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_info)
+                    emptyStateIcon.setImageResource(R.drawable.ic_state_empty)
                     emptyStateTitle.text = getString(R.string.reading_empty_title)
                     emptyStateSubtitle.text = getString(R.string.reading_empty_subtitle)
                     emptyStateRetry.visibility = View.GONE

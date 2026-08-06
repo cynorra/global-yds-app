@@ -22,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.vocabmaster.app.ExamTakingActivity;
 import com.vocabmaster.app.R;
+import com.vocabmaster.app.data.remote.RetrofitClient;
 import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl;
 import com.vocabmaster.app.domain.repository.ExamRepository;
 import com.vocabmaster.app.ui.adapters.ExamAdapter;
@@ -64,7 +65,7 @@ public class ExamFragment extends Fragment {
         emptyStateRetry = view.findViewById(R.id.btnEmptyStateRetry);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance());
+        ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.INSTANCE.getApi());
 
         examViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
             @NonNull
@@ -89,7 +90,7 @@ public class ExamFragment extends Fragment {
             if (state.getErrorMessage() != null) {
                 rvExams.setVisibility(View.GONE);
                 emptyStateRoot.setVisibility(View.VISIBLE);
-                emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_alert);
+                emptyStateIcon.setImageResource(R.drawable.ic_state_error);
                 emptyStateTitle.setText(R.string.exam_error_title);
                 emptyStateSubtitle.setText(R.string.error_generic_subtitle);
                 emptyStateRetry.setVisibility(View.VISIBLE);
@@ -102,7 +103,7 @@ public class ExamFragment extends Fragment {
             if (state.getItems().isEmpty()) {
                 rvExams.setVisibility(View.GONE);
                 emptyStateRoot.setVisibility(View.VISIBLE);
-                emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_info);
+                emptyStateIcon.setImageResource(R.drawable.ic_state_empty);
                 emptyStateTitle.setText(R.string.exam_no_exams);
                 emptyStateSubtitle.setText("");
                 emptyStateRetry.setVisibility(View.GONE);

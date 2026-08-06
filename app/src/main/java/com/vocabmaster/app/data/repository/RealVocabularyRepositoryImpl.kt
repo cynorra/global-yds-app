@@ -1,11 +1,14 @@
 package com.vocabmaster.app.data.repository
 
+import android.content.Context
+import com.vocabmaster.app.R
 import com.vocabmaster.app.data.local.WordDao
 import com.vocabmaster.app.data.local.WordEntity
 import com.vocabmaster.app.data.remote.TranslationApi
 import com.vocabmaster.app.domain.Resource
 import com.vocabmaster.app.domain.models.Word
 import com.vocabmaster.app.domain.repository.VocabularyRepository
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Locale
 import kotlinx.coroutines.Dispatchers
@@ -15,15 +18,30 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
+/**
+ * Word bank shape as stored in the `word_bank` Firestore collection - the single source of
+ * truth for which words exist in the app. Editable directly from the Firestore console
+ * (add/edit/remove documents there); no app release is needed to change the word list.
+ */
+private data class MasterWord(
+    val id: String = "",
+    val englishWord: String = "",
+    val exampleSentence: String = ""
+)
+
 class RealVocabularyRepositoryImpl(
     private val api: TranslationApi,
     private val wordDao: WordDao,
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    context: Context
 ) : VocabularyRepository {
 
-    // A bank of common YDS-level words, each with a hand-written example sentence. Turkish
-    // meanings are fetched from the translation API and cached locally on first run.
-    private val defaultWords = listOf(
+    private val appContext = context.applicationContext
+
+    // One-time seed for the shared Firestore word bank, used only the very first time the
+    // `word_bank` collection is empty (e.g. a brand new Firebase project). After that, the
+    // bank lives entirely in Firestore and this list is never read again.
+    private val initialSeedWords = listOf(
         "Abandon" to "The sailors had to abandon the sinking ship.",
         "Abstract" to "The lecture was too abstract for most first-year students.",
         "Accurate" to "Please make sure the figures in the report are accurate.",
@@ -102,55 +120,99 @@ class RealVocabularyRepositoryImpl(
         wordDao.deleteWord(wordId)
     }
 
-    // Words are translated at most once per language, ever - not once per device. The first
-    // device for a given language pays the translation-API cost and writes the results to the
-    // shared Firestore bank; every device after that (including this one on reinstall) just
-    // reads the cached translations, so no AI and no repeated API calls are involved.
+    // Firestore's `word_bank` collection is the single source of truth for which words exist.
+    // This only ever downloads words the device doesn't already have locally, so an admin can
+    // add new words in Firestore at any time and every device will pick up just the delta on
+    // its next visit to Vocabulary - no re-download of the whole bank, no app update needed.
     private suspend fun ensureWordsCached() {
-        if (wordDao.getAllWords().isNotEmpty()) return
+        val masterWords = loadOrSeedMasterBank()
+        if (masterWords.isEmpty()) return // offline on first run with no local cache yet
 
-        // Cihazın geçerli dil kodunu al (örneğin tr, es, fr, de vb.)
+        val existingIds = wordDao.getAllWords().map { it.id }.toSet()
+        val missingWords = masterWords.filterNot { it.id in existingIds }
+        if (missingWords.isEmpty()) return
+
         val targetLanguage = Locale.getDefault().language
-        val itemsCollection = firestore.collection("words").document(targetLanguage).collection("items")
+        val translationCache = firestore.collection("words").document(targetLanguage).collection("items")
 
-        val cached = try {
-            itemsCollection.get().await().documents.mapNotNull { it.toObject(WordEntity::class.java) }
+        val alreadyTranslated = try {
+            translationCache.get().await().documents
+                .mapNotNull { it.toObject(WordEntity::class.java) }
+                .associateBy { it.id }
+        } catch (e: Exception) {
+            emptyMap()
+        }
+
+        val needTranslation = missingWords.filterNot { it.id in alreadyTranslated.keys }
+        val newlyTranslated = if (needTranslation.isNotEmpty()) {
+            translateAndCache(targetLanguage, needTranslation, translationCache)
+        } else {
+            emptyMap()
+        }
+
+        val newWords = missingWords.map { alreadyTranslated[it.id] ?: newlyTranslated.getValue(it.id) }
+        wordDao.insertWords(newWords)
+    }
+
+    private suspend fun loadOrSeedMasterBank(): List<MasterWord> {
+        val masterCollection = firestore.collection(MASTER_COLLECTION)
+        return try {
+            val existing = masterCollection.get().await().documents.mapNotNull { it.toObject(MasterWord::class.java) }
+            existing.ifEmpty { seedMasterBank(masterCollection) }
         } catch (e: Exception) {
             emptyList()
         }
-
-        val words = if (cached.isNotEmpty()) {
-            cached
-        } else {
-            translateAndSeed(targetLanguage, itemsCollection)
-        }
-        wordDao.insertWords(words)
     }
 
-    // Translates every default word (concurrently, so ~50 words load in roughly the time of one
-    // network round trip instead of fifty sequential ones) and writes them to the shared
-    // Firestore bank for this language so no other device has to translate them again.
-    private suspend fun translateAndSeed(
+    // Runs once, only if the shared word bank has never been populated (e.g. a fresh Firebase
+    // project). Writes the starter word list so the app is usable out of the box; from then on
+    // the bank is managed entirely in Firestore, not in this code.
+    private suspend fun seedMasterBank(masterCollection: CollectionReference): List<MasterWord> {
+        val seed = initialSeedWords.mapIndexed { index, (word, example) ->
+            MasterWord(id = index.toString(), englishWord = word, exampleSentence = example)
+        }
+        try {
+            seed.forEach { word ->
+                masterCollection.document(word.id).set(
+                    mapOf("id" to word.id, "englishWord" to word.englishWord, "exampleSentence" to word.exampleSentence)
+                ).await()
+            }
+        } catch (e: Exception) {
+            // Offline on very first run: the app still works this session with the seed list
+            // in memory; another device (or this one later) will perform the seed write.
+        }
+        return seed
+    }
+
+    // Translates only the words this device is missing (concurrently, so N words load in
+    // roughly the time of one network round trip) and writes them to the shared per-language
+    // Firestore cache so no other device ever has to translate the same word again.
+    private suspend fun translateAndCache(
         targetLanguage: String,
-        itemsCollection: com.google.firebase.firestore.CollectionReference
-    ): List<WordEntity> {
+        words: List<MasterWord>,
+        translationCache: CollectionReference
+    ): Map<String, WordEntity> {
         val langPair = "en|$targetLanguage"
 
         val translated = coroutineScope {
-            defaultWords.mapIndexed { index, (engWord, example) ->
+            words.map { masterWord ->
                 async {
-                    val trMeaning = try {
-                        api.translateWord(word = engWord, langPair = langPair).responseData?.translatedText
-                            ?: "Bilinmiyor"
-                    } catch (e: Exception) {
-                        // If network fails, add a fallback
-                        "Çeviri Bulunamadı"
+                    val meaning = if (targetLanguage == "en") {
+                        masterWord.englishWord
+                    } else {
+                        try {
+                            api.translateWord(word = masterWord.englishWord, langPair = langPair)
+                                .responseData?.translatedText
+                                ?: appContext.getString(R.string.vocabulary_meaning_unknown)
+                        } catch (e: Exception) {
+                            appContext.getString(R.string.vocabulary_translation_not_found)
+                        }
                     }
                     WordEntity(
-                        id = index.toString(),
-                        englishWord = engWord,
-                        turkishMeaning = trMeaning,
-                        exampleSentence = example,
+                        id = masterWord.id,
+                        englishWord = masterWord.englishWord,
+                        turkishMeaning = meaning,
+                        exampleSentence = masterWord.exampleSentence,
                         isLearned = false
                     )
                 }
@@ -159,7 +221,7 @@ class RealVocabularyRepositoryImpl(
 
         try {
             translated.forEach { word ->
-                itemsCollection.document(word.id).set(
+                translationCache.document(word.id).set(
                     mapOf(
                         "id" to word.id,
                         "englishWord" to word.englishWord,
@@ -170,10 +232,10 @@ class RealVocabularyRepositoryImpl(
             }
         } catch (e: Exception) {
             // Firestore write failed (e.g. offline); words are still usable locally this
-            // session, another device will simply seed the bank later.
+            // session, another device will simply cache them later.
         }
 
-        return translated
+        return translated.associateBy { it.id }
     }
 
     private fun WordEntity.toDomain() = Word(
@@ -183,4 +245,8 @@ class RealVocabularyRepositoryImpl(
         exampleSentence = exampleSentence,
         isLearned = isLearned
     )
+
+    companion object {
+        private const val MASTER_COLLECTION = "word_bank"
+    }
 }

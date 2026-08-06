@@ -31,5 +31,43 @@ service cloud.firestore {
       allow create: if request.auth != null;
       allow update, delete: if false;
     }
+
+    // Master word bank: the single source of truth for which words exist in the app. Clients
+    // may only create it once (first-run seed if empty); editing/adding words afterwards is
+    // done from the Firebase console, which uses admin access and is not subject to these rules.
+    match /word_bank/{wordId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // Master grammar topic bank, same "seed once, manage from console" pattern as word_bank.
+    match /grammar_topics/{topicId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // Per-language cache of translated grammar explanations, same pattern as /words.
+    match /grammar_explanations/{langCode}/items/{topicId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // Per-language cache of translated exam titles, same pattern as /words.
+    match /exam_titles/{langCode}/items/{examId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // Master reading passage bank, same "seed once, manage from console" pattern as word_bank.
+    // Passages are always English, so there is no per-language translation cache to go with it.
+    match /reading_passages/{passageId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
   }
 }

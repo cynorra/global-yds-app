@@ -103,7 +103,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#E5E7EB"
+            android:background="@color/dividerColor"
             android:layout_marginHorizontal="16dp"/>
 
         <!-- Progress Chart Card -->
@@ -151,7 +151,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#E5E7EB"
+            android:background="@color/dividerColor"
             android:layout_marginHorizontal="16dp"/>
 
         <!-- Settings List -->
@@ -162,6 +162,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvAccountSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_settings"
@@ -173,6 +174,7 @@
                 android:background="?attr/selectableItemBackground"/>
 
             <TextView
+                android:id="@+id/tvNotifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_notifications"
@@ -184,6 +186,7 @@
                 android:background="?attr/selectableItemBackground"/>
 
             <TextView
+                android:id="@+id/tvAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_about"
@@ -202,7 +205,7 @@
                 android:textSize="16sp"
                 android:padding="16dp"
                 android:textStyle="bold"
-                android:textColor="#EF4444"
+                android:textColor="@color/colorError"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"/>

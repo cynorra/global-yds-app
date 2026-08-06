@@ -37,6 +37,8 @@
     <!-- Auth errors -->
     <string name="auth_error_empty_fields">Пожалуйста, заполните все поля.</string>
     <string name="auth_error_password_mismatch">Пароли не совпадают.</string>
+    <string name="auth_error_invalid_email">Введите действительный адрес электронной почты.</string>
+    <string name="auth_error_weak_password">Пароль должен содержать не менее 6 символов.</string>
 
     <!-- Home -->
     <string name="home_greeting">Что вы хотите изучить сегодня?</string>
@@ -45,10 +47,19 @@
     <string name="topic_vocabulary">Словарный запас</string>
     <string name="topic_reading">Чтение</string>
     <string name="topic_mock_exam">Пробный экзамен</string>
+    <string name="module_vocabulary_desc">Учите новые слова</string>
+    <string name="module_grammar_desc">Освойте правила грамматики</string>
+    <string name="module_reading_desc">Читайте тексты</string>
+    <string name="home_tutorial_title">Добро пожаловать!</string>
+    <string name="home_tutorial_desc">Начните обучение, изучив категории.</string>
 
     <!-- Vocabulary -->
     <string name="vocab_learn">Учить слова</string>
     <string name="vocab_desc">Проведите по карточкам для повторения</string>
+    <string name="vocabulary_word_learned">Слово отмечено как выученное ✓</string>
+    <string name="vocabulary_word_deleted">Слово удалено</string>
+    <string name="vocabulary_meaning_unknown">Неизвестно</string>
+    <string name="vocabulary_translation_not_found">Перевод не найден</string>
 
     <!-- Exam -->
     <string name="exam_progress">Общий прогресс</string>
@@ -59,6 +70,18 @@
     <string name="exam_question_counter">Вопрос %1$d / %2$d</string>
     <string name="exam_score_format">%1$d%%</string>
 
+    <!-- Shared empty / error states -->
+    <string name="action_retry">Повторить</string>
+    <string name="error_generic_title">Что-то пошло не так</string>
+    <string name="error_generic_subtitle">Проверьте подключение и попробуйте снова.</string>
+    <string name="grammar_empty_title">Пока нет тем по грамматике</string>
+    <string name="grammar_empty_subtitle">Загляните позже — появятся новые темы.</string>
+    <string name="reading_empty_title">Пока нет текстов для чтения</string>
+    <string name="reading_empty_subtitle">Загляните позже — появятся новые тексты.</string>
+    <string name="vocabulary_empty_title">Всё выучено! 🎉</string>
+    <string name="vocabulary_empty_subtitle">Вы выучили все слова в этом наборе.</string>
+    <string name="exam_error_title">Не удалось загрузить экзамены</string>
+
     <!-- Profile -->
     <string name="profile_premium_member">Премиум участник</string>
     <string name="profile_words">Слова</string>
@@ -67,4 +90,17 @@
     <string name="profile_notifications">Уведомления</string>
     <string name="profile_about">О нас</string>
     <string name="profile_logout">Выйти</string>
+
+    <!-- Account settings -->
+    <string name="account_change_password">Изменить пароль</string>
+    <string name="account_change_password_sent">Письмо для сброса пароля отправлено.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_reminder_title">Ежедневное напоминание об учёбе</string>
+    <string name="notifications_reminder_desc">Получайте ежедневное напоминание, чтобы практиковать словарный запас.</string>
+    <string name="notifications_permission_denied">Включите уведомления в системных настройках, чтобы получать напоминания.</string>
+
+    <!-- About -->
+    <string name="about_description">VocabMaster помогает изучать английскую лексику, осваивать правила грамматики и практиковаться с реалистичными пробными экзаменами.</string>
+    <string name="about_version">Версия %1$s</string>
 </resources>

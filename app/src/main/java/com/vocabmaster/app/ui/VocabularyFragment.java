@@ -60,7 +60,8 @@ public class VocabularyFragment extends Fragment {
         RealVocabularyRepositoryImpl repo = new RealVocabularyRepositoryImpl(
                 RetrofitClient.INSTANCE.getApi(),
                 AppDatabase.getDatabase(requireContext()).wordDao(),
-                FirebaseFirestore.getInstance()
+                FirebaseFirestore.getInstance(),
+                requireContext()
         );
 
         VocabularyViewModel viewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
@@ -89,7 +90,7 @@ public class VocabularyFragment extends Fragment {
             if (state.getErrorMessage() != null) {
                 rvVocabulary.setVisibility(View.GONE);
                 emptyStateRoot.setVisibility(View.VISIBLE);
-                emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_alert);
+                emptyStateIcon.setImageResource(R.drawable.ic_state_error);
                 emptyStateTitle.setText(R.string.error_generic_title);
                 emptyStateSubtitle.setText(R.string.error_generic_subtitle);
                 emptyStateRetry.setVisibility(View.VISIBLE);
@@ -102,7 +103,7 @@ public class VocabularyFragment extends Fragment {
             if (state.getItems().isEmpty()) {
                 rvVocabulary.setVisibility(View.GONE);
                 emptyStateRoot.setVisibility(View.VISIBLE);
-                emptyStateIcon.setImageResource(android.R.drawable.ic_dialog_info);
+                emptyStateIcon.setImageResource(R.drawable.ic_state_empty);
                 emptyStateTitle.setText(R.string.vocabulary_empty_title);
                 emptyStateSubtitle.setText(R.string.vocabulary_empty_subtitle);
                 emptyStateRetry.setVisibility(View.GONE);

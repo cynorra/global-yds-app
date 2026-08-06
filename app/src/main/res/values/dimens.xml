@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Extra horizontal margin applied around form/content columns on large screens
+         (tablets, foldables) so they don't stretch edge-to-edge. Zero on phones. -->
+    <dimen name="screen_horizontal_margin">0dp</dimen>
+</resources>

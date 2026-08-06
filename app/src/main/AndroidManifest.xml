@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +21,9 @@
             android:resource="@xml/gma_ad_services_config"
             tools:replace="android:resource" />
 
-        <!-- Test APPLICATION_ID - Yayına çıkarken gerçek ID ile değiştirin -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-4674211063760769~7607691537"/>
         
         <activity
             android:name=".OnboardingActivity"
@@ -49,6 +50,30 @@
         <activity
             android:name=".ExamTakingActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".AccountSettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".NotificationSettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".notifications.ReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".notifications.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>

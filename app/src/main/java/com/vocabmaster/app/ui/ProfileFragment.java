@@ -61,9 +61,10 @@ public class ProfileFragment extends Fragment {
         VocabularyRepository vocabularyRepository = new RealVocabularyRepositoryImpl(
                 RetrofitClient.INSTANCE.getApi(),
                 AppDatabase.getDatabase(requireContext()).wordDao(),
-                FirebaseFirestore.getInstance()
+                FirebaseFirestore.getInstance(),
+                requireContext()
         );
-        ExamRepository examRepository = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance());
+        ExamRepository examRepository = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.INSTANCE.getApi());
 
         ProfileViewModel viewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
             @NonNull
@@ -76,6 +77,15 @@ public class ProfileFragment extends Fragment {
 
         viewModel.getStats().observe(getViewLifecycleOwner(), this::bindStats);
         viewModel.loadStats();
+
+        view.findViewById(R.id.tvAccountSettings).setOnClickListener(v ->
+                startActivity(new Intent(requireContext(), com.vocabmaster.app.AccountSettingsActivity.class)));
+
+        view.findViewById(R.id.tvNotifications).setOnClickListener(v ->
+                startActivity(new Intent(requireContext(), com.vocabmaster.app.NotificationSettingsActivity.class)));
+
+        view.findViewById(R.id.tvAbout).setOnClickListener(v ->
+                startActivity(new Intent(requireContext(), com.vocabmaster.app.AboutActivity.class)));
 
         view.findViewById(R.id.tvLogout).setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
@@ -123,7 +133,7 @@ public class ProfileFragment extends Fragment {
             entries.add(new Entry(i + 1f, scores.get(i)));
         }
 
-        LineDataSet dataSet = new LineDataSet(entries, "Sınav Puanı");
+        LineDataSet dataSet = new LineDataSet(entries, getString(R.string.exam_result_label));
         dataSet.setColor(Color.parseColor("#6200EE"));
         dataSet.setCircleColor(Color.parseColor("#6200EE"));
         dataSet.setLineWidth(3f);
