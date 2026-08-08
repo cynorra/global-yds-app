@@ -16,11 +16,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.ump.ConsentInformation;
+import com.google.android.ump.ConsentRequestParameters;
+import com.google.android.ump.UserMessagingPlatform;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_OPEN_TAB = "extra_open_tab";
     public static final String TAB_VOCABULARY = "vocabulary";
+
+    // GDPR/UK consent (Google User Messaging Platform) flow. Currently off: ads load the same
+    // way they always have, no consent form is ever shown. Flip this to true (no other changes
+    // needed) if Google flags a consent policy warning for this app in the AdMob console.
+    private static final boolean GDPR_CONSENT_ENABLED = false;
 
     private BottomNavigationView bottomNav;
     private AdView adView;
@@ -35,10 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNav = findViewById(R.id.bottomNav);
 
-        MobileAds.initialize(this, initializationStatus -> {});
         adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        initializeAds();
 
         // Load Home Fragment by default, unless we were opened via a deep link (e.g. a reminder notification)
         if (savedInstanceState == null) {
@@ -92,6 +98,44 @@ public class MainActivity extends AppCompatActivity {
             adView.destroy();
         }
         super.onDestroy();
+    }
+
+    /**
+     * When GDPR_CONSENT_ENABLED is false (default), behaves exactly as before this flow
+     * existed: initializes ads and loads the banner immediately, no consent form.
+     * When true, defers ad init until Google's UMP SDK has resolved consent (shows an EEA/UK
+     * consent form only where legally required); falls back to initializing ads anyway if the
+     * consent info request itself fails (e.g. offline), same as the no-consent-flow behavior.
+     */
+    private void initializeAds() {
+        if (!GDPR_CONSENT_ENABLED) {
+            MobileAds.initialize(this, initializationStatus -> {});
+            loadBannerAd();
+            return;
+        }
+
+        ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(this);
+        ConsentRequestParameters params = new ConsentRequestParameters.Builder().build();
+
+        consentInformation.requestConsentInfoUpdate(
+                this,
+                params,
+                () -> UserMessagingPlatform.loadAndShowConsentFormIfRequired(this, formError -> {
+                    if (consentInformation.canRequestAds()) {
+                        MobileAds.initialize(this, initializationStatus -> {});
+                        loadBannerAd();
+                    }
+                }),
+                requestConsentError -> {
+                    MobileAds.initialize(this, initializationStatus -> {});
+                    loadBannerAd();
+                }
+        );
+    }
+
+    private void loadBannerAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     private void loadFragment(Fragment fragment) {

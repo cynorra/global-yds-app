@@ -70,6 +70,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.android.gms:play-services-ads:23.1.0'
+    // GDPR/UK consent flow (User Messaging Platform). Wired into MainActivity but disabled by
+    // default via GDPR_CONSENT_ENABLED - flip that flag on if Google flags a policy warning.
+    implementation 'com.google.android.ump:user-messaging-platform:4.0.0'
 
     // Diğer Kütüphaneler (Tam liste)
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
