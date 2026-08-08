@@ -13,6 +13,10 @@ app/release/
 # Word bank tooling working files (personal batches, not the shared .example template)
 tools/new_words.txt
 
+# Word bank tooling saved credential (DPAPI-encrypted, only ever contains a blob, but keep
+# it out of git regardless)
+tools/.word_tool_credential.xml
+
 # JVM crash dumps
 hs_err_pid*.log
 replay_pid*.log

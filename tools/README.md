@@ -23,8 +23,22 @@ translates only the new words the next time it opens the Vocabulary tab.
    .\add_words.ps1
    ```
    It will prompt for your account e-mail/password, then add each word as a new document.
+   Consider using a dedicated account for this (created via the app's own Register screen) so
+   your personal login never touches this script - no special role is needed, any signed-in
+   account works.
 3. Done - no app update needed. `new_words.txt` is gitignored-safe to reuse for the next batch
    (just clear it out or add a new batch of lines).
+
+### Not typing the password every time
+
+Add `-SaveCredential` the first time:
+```
+.\add_words.ps1 -SaveCredential
+```
+This saves the email/password to `tools\.word_tool_credential.xml`, encrypted with Windows
+DPAPI - it can only be decrypted by your Windows account, on this machine (useless if copied
+elsewhere, gitignored regardless). Every run after that picks it up automatically with no
+prompt. To remove it: `.\add_words.ps1 -ClearSavedCredential`.
 
 ## Notes
 
