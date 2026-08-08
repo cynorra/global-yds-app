@@ -24,6 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * {@link ImageView} extension that animates its image with the
@@ -32,7 +33,7 @@ import android.widget.ImageView;
  * @see Transition
  * @see TransitionGenerator
  */
-public class KenBurnsView extends ImageView {
+public class KenBurnsView extends AppCompatImageView {
 
     /** Delay between a pair of frames at a 60 FPS frame rate. */
     private static final long FRAME_DELAY = 1000 / 60;

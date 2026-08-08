@@ -34,7 +34,7 @@ public class OnboardingActivity extends AppIntro {
                 getString(R.string.onboarding_1_title),
                 getString(R.string.onboarding_1_desc),
                 R.drawable.ic_onboarding_success,
-                Color.parseColor("#4F46E5") // Primary color
+                R.color.colorPrimary
         ));
 
         // Slide 2: Vocabulary
@@ -42,7 +42,7 @@ public class OnboardingActivity extends AppIntro {
                 getString(R.string.onboarding_2_title),
                 getString(R.string.onboarding_2_desc),
                 R.drawable.ic_onboarding_cards,
-                Color.parseColor("#3730A3") // Darker primary
+                R.color.colorPrimaryDark
         ));
 
         // Slide 3: Exams
@@ -50,7 +50,7 @@ public class OnboardingActivity extends AppIntro {
                 getString(R.string.onboarding_3_title),
                 getString(R.string.onboarding_3_desc),
                 R.drawable.ic_onboarding_exam,
-                Color.parseColor("#10B981") // Accent color
+                R.color.colorAccent
         ));
 
         // Customize AppIntro
