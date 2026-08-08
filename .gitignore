@@ -17,6 +17,9 @@ tools/new_words.txt
 # it out of git regardless)
 tools/.word_tool_credential.xml
 
+# Never commit plaintext credentials
+tools/crds.txt
+
 # JVM crash dumps
 hs_err_pid*.log
 replay_pid*.log
