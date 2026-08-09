@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.vocabmaster.app.ui.HomeFragment;
 import com.vocabmaster.app.ui.VocabularyFragment;
 import com.vocabmaster.app.ui.ExamFragment;
+import com.vocabmaster.app.ui.LeaderboardFragment;
 import com.vocabmaster.app.ui.ProfileFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_exam) {
                 loadFragment(new ExamFragment());
+                return true;
+            } else if (id == R.id.nav_leaderboard) {
+                loadFragment(new LeaderboardFragment());
                 return true;
             } else if (id == R.id.nav_profile) {
                 loadFragment(new ProfileFragment());

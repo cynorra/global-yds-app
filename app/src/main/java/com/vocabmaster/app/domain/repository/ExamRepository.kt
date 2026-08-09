@@ -9,5 +9,7 @@ interface ExamRepository {
     suspend fun getAllExams(): Resource<List<Exam>>
     suspend fun getCompletedExams(): Resource<List<ExamAttempt>>
     suspend fun getExamQuestions(examId: String): List<Question>
-    suspend fun submitExamResult(examId: String, examTitle: String, score: Int)
+    suspend fun submitExamResult(examId: String, examTitle: String, score: Int, mistakes: List<Question>)
+    suspend fun getMistakes(): List<Question>
+    suspend fun removeMistake(questionId: String)
 }

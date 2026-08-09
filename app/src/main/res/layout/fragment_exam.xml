@@ -23,6 +23,39 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="16dp"/>
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMistakes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FEE2E2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yanlışlar Kutusu"
+                    android:textColor="#B91C1C"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvMistakesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Yanlış yaptığınız ... soru birikti. Şimdi tekrar et!"
+                    android:textColor="#991B1B"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"

@@ -22,9 +22,15 @@ class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
     private val _uiState = MutableLiveData(ListUiState<ExamListItem>())
     val uiState: LiveData<ListUiState<ExamListItem>> get() = _uiState
 
+    private val _mistakesCount = MutableLiveData<Int>()
+    val mistakesCount: LiveData<Int> get() = _mistakesCount
+
     fun loadExams() {
         _uiState.value = ListUiState(isLoading = true)
         viewModelScope.launch {
+            val mistakes = repository.getMistakes()
+            _mistakesCount.value = mistakes.size
+
             val allExamsResult = repository.getAllExams()
             if (allExamsResult is Resource.Error) {
                 _uiState.value = ListUiState(isLoading = false, errorMessage = allExamsResult.message)

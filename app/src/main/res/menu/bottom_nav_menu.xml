@@ -13,6 +13,10 @@
         android:icon="@android:drawable/ic_menu_agenda"
         android:title="@string/nav_exams" />
     <item
+        android:id="@+id/nav_leaderboard"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/nav_leaderboard" />
+    <item
         android:id="@+id/nav_profile"
         android:icon="@android:drawable/ic_menu_myplaces"
         android:title="@string/nav_profile" />

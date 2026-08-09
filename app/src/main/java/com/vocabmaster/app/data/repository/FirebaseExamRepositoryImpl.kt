@@ -8,6 +8,10 @@ import com.vocabmaster.app.domain.models.Question
 import com.vocabmaster.app.domain.repository.ExamRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.SetOptions
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -33,10 +37,47 @@ class FirebaseExamRepositoryImpl(
     override suspend fun getAllExams(): Resource<List<Exam>> {
         return try {
             seedSampleExamsIfEmpty()
+            ensureDailyExam()
             val exams = examsCollection.get().await().documents.mapNotNull { it.toObject(Exam::class.java) }
-            Resource.Success(withTranslatedTitles(exams))
+            // Sort so the daily exam is at the top
+            val sortedExams = exams.sortedByDescending { it.id.startsWith("exam-daily") }
+            Resource.Success(withTranslatedTitles(sortedExams))
         } catch (e: Exception) {
             Resource.Error(e.message)
+        }
+    }
+
+    private suspend fun ensureDailyExam() {
+        val dateStr = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val dailyId = "exam-daily-$dateStr"
+        
+        val exists = examsCollection.document(dailyId).get().await().exists()
+        if (exists) return
+
+        // Pick 10 random questions from the seed bank
+        val allQuestions = seedExams.flatMap { it.questions }.shuffled().take(10)
+        
+        examsCollection.document(dailyId).set(
+            mapOf(
+                "id" to dailyId,
+                "title" to "Günün Denemesi ($dateStr)",
+                "totalQuestions" to allQuestions.size,
+                "durationMinutes" to 15
+            )
+        ).await()
+
+        val questionsCollection = examsCollection.document(dailyId).collection("questions")
+        allQuestions.forEachIndexed { index, question ->
+            // Re-assign ID to ensure uniqueness in the new subcollection
+            val newQId = "q${index + 1}"
+            questionsCollection.document(newQId).set(
+                mapOf(
+                    "id" to newQId,
+                    "text" to question.text,
+                    "options" to question.options,
+                    "correctOptionIndex" to question.correctOptionIndex
+                )
+            ).await()
         }
     }
 
@@ -104,6 +145,7 @@ class FirebaseExamRepositoryImpl(
     }
 
     override suspend fun getExamQuestions(examId: String): List<Question> {
+        if (examId == "MISTAKES") return getMistakes()
         return try {
             examsCollection.document(examId).collection("questions").get().await()
                 .documents.mapNotNull { it.toObject(Question::class.java) }
@@ -112,9 +154,12 @@ class FirebaseExamRepositoryImpl(
         }
     }
 
-    override suspend fun submitExamResult(examId: String, examTitle: String, score: Int) {
-        val uid = currentUserId ?: return
+    override suspend fun submitExamResult(examId: String, examTitle: String, score: Int, mistakes: List<Question>) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val uid = user?.uid ?: return
         try {
+            val username = user.displayName?.takeIf { it.isNotBlank() } ?: (user.email ?: "").substringBefore("@")
+            
             examAttemptsCollection(uid).document(examId).set(
                 mapOf(
                     "examId" to examId,
@@ -123,8 +168,44 @@ class FirebaseExamRepositoryImpl(
                     "completedAt" to System.currentTimeMillis()
                 )
             ).await()
+
+            firestore.collection("users").document(uid).set(
+                mapOf(
+                    "id" to uid,
+                    "username" to username,
+                    "totalScore" to FieldValue.increment(score.toLong())
+                ),
+                SetOptions.merge()
+            ).await()
+
+            if (mistakes.isNotEmpty()) {
+                val mistakesCol = firestore.collection("users").document(uid).collection("mistakes")
+                mistakes.forEach { question ->
+                    mistakesCol.document(question.id).set(question).await()
+                }
+            }
         } catch (e: Exception) {
             // Swallow network/Firestore errors; caller can retry the submission later.
+        }
+    }
+
+    override suspend fun getMistakes(): List<Question> {
+        val uid = currentUserId ?: return emptyList()
+        return try {
+            firestore.collection("users").document(uid).collection("mistakes")
+                .get().await()
+                .documents.mapNotNull { it.toObject(Question::class.java) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    override suspend fun removeMistake(questionId: String) {
+        val uid = currentUserId ?: return
+        try {
+            firestore.collection("users").document(uid).collection("mistakes")
+                .document(questionId).delete().await()
+        } catch (e: Exception) {
         }
     }
 

@@ -11,11 +11,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.vocabmaster.app.data.remote.RetrofitClient
 import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl
 import com.vocabmaster.app.domain.models.Question
+import com.vocabmaster.app.ui.adapters.ExamResultAdapter
 import com.vocabmaster.app.ui.viewmodels.ExamTakingViewModel
 
 class ExamTakingActivity : AppCompatActivity() {
@@ -28,6 +31,8 @@ class ExamTakingActivity : AppCompatActivity() {
     private lateinit var groupQuiz: android.widget.LinearLayout
     private lateinit var groupResult: android.widget.LinearLayout
     private lateinit var tvScoreResult: TextView
+    private lateinit var rvExamResultDetails: RecyclerView
+    private lateinit var resultAdapter: ExamResultAdapter
 
     private lateinit var examId: String
     private var selectedButtonIndex: Int? = null
@@ -56,6 +61,12 @@ class ExamTakingActivity : AppCompatActivity() {
         groupQuiz = findViewById(R.id.groupQuiz)
         groupResult = findViewById(R.id.groupResult)
         tvScoreResult = findViewById(R.id.tvScoreResult)
+        rvExamResultDetails = findViewById(R.id.rvExamResultDetails)
+        
+        rvExamResultDetails.layoutManager = LinearLayoutManager(this)
+        resultAdapter = ExamResultAdapter()
+        rvExamResultDetails.adapter = resultAdapter
+
         optionButtons = listOf(
             findViewById(R.id.btnOption1),
             findViewById(R.id.btnOption2),
@@ -85,6 +96,24 @@ class ExamTakingActivity : AppCompatActivity() {
 
         viewModel.finalScorePercent.observe(this) { score ->
             if (score != null) showResult(score)
+        }
+
+        viewModel.resultDetails.observe(this) { details ->
+            if (details != null) {
+                resultAdapter.submitList(details)
+            }
+        }
+
+        val tvTimer = findViewById<TextView>(R.id.tvTimer)
+        viewModel.timeRemaining.observe(this) { seconds ->
+            val minutes = seconds / 60
+            val secs = seconds % 60
+            tvTimer.text = String.format("%02d:%02d", minutes, secs)
+            if (seconds <= 10) {
+                tvTimer.setTextColor(Color.RED)
+            } else {
+                tvTimer.setTextColor(getColor(R.color.colorPrimary))
+            }
         }
 
         viewModel.loadQuestions(examId, examTitle)

@@ -1,11 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">VocabMaster: Learn English</string>
     
     <!-- Bottom Nav Menu -->
     <string name="nav_discover">Discover</string>
     <string name="nav_words">Words</string>
     <string name="nav_exams">Exams</string>
+    <string name="nav_leaderboard">Leaders</string>
     <string name="nav_profile">Profile</string>
+    
+    <string name="leaderboard_title">Top Achievers</string>
     
     <!-- Onboarding -->
     <string name="onboarding_1_title">Succeed in English</string>

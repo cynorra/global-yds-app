@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.vocabmaster.app.ExamTakingActivity;
@@ -38,6 +39,9 @@ public class ExamFragment extends Fragment {
     private TextView emptyStateTitle;
     private TextView emptyStateSubtitle;
     private MaterialButton emptyStateRetry;
+    
+    private MaterialCardView cardMistakes;
+    private TextView tvMistakesCount;
 
     private final ActivityResultLauncher<Intent> examTakingLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> examViewModel.loadExams());
@@ -63,6 +67,8 @@ public class ExamFragment extends Fragment {
         emptyStateTitle = view.findViewById(R.id.tvEmptyStateTitle);
         emptyStateSubtitle = view.findViewById(R.id.tvEmptyStateSubtitle);
         emptyStateRetry = view.findViewById(R.id.btnEmptyStateRetry);
+        cardMistakes = view.findViewById(R.id.cardMistakes);
+        tvMistakesCount = view.findViewById(R.id.tvMistakesCount);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
 
         ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.INSTANCE.getApi());
@@ -77,6 +83,20 @@ public class ExamFragment extends Fragment {
         }).get(ExamViewModel.class);
 
         emptyStateRetry.setOnClickListener(v -> examViewModel.loadExams());
+
+        cardMistakes.setOnClickListener(v -> {
+            Intent intent = ExamTakingActivity.createIntent(requireContext(), "MISTAKES", "Yanlışlar Kutusu");
+            examTakingLauncher.launch(intent);
+        });
+
+        examViewModel.getMistakesCount().observe(getViewLifecycleOwner(), count -> {
+            if (count != null && count > 0) {
+                cardMistakes.setVisibility(View.VISIBLE);
+                tvMistakesCount.setText("Yanlış yaptığınız " + count + " soru birikti. Şimdi tekrar et!");
+            } else {
+                cardMistakes.setVisibility(View.GONE);
+            }
+        });
 
         examViewModel.getUiState().observe(getViewLifecycleOwner(), state -> {
             progressBar.setVisibility(state.isLoading() ? View.VISIBLE : View.GONE);

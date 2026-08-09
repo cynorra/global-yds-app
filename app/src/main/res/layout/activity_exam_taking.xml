@@ -14,13 +14,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:textColor="@color/textColorPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Örnek YDS Sınavı"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="15:00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvExamTitle"
+        app:layout_constraintBottom_toBottomOf="@id/tvExamTitle" />
 
     <TextView
         android:id="@+id/tvQuestionCounter"
@@ -157,6 +170,13 @@
                 android:text="@string/exam_result_label"
                 android:textColor="@color/textColorSecondary"
                 android:textSize="16sp" />
+                
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvExamResultDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:nestedScrollingEnabled="false" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFinish"
