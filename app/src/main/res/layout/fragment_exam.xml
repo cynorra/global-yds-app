@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
@@ -41,7 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yanlışlar Kutusu"
+                    android:text="@string/mistakes_box_title"
                     android:textColor="#B91C1C"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
@@ -50,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Yanlış yaptığınız ... soru birikti. Şimdi tekrar et!"
+                    tools:text="@string/mistakes_box_desc"
                     android:textColor="#991B1B"
                     android:textSize="14sp"/>
             </LinearLayout>

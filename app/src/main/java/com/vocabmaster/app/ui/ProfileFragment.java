@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.list.DialogListExtKt;
 import com.vocabmaster.app.LoginActivity;
 import com.vocabmaster.app.R;
 import com.vocabmaster.app.data.local.AppDatabase;
@@ -87,6 +91,8 @@ public class ProfileFragment extends Fragment {
         view.findViewById(R.id.tvAbout).setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), com.vocabmaster.app.AboutActivity.class)));
 
+        view.findViewById(R.id.tvLanguage).setOnClickListener(v -> showLanguageDialog());
+
         view.findViewById(R.id.tvLogout).setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(requireContext(), LoginActivity.class);
@@ -94,6 +100,23 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
             requireActivity().finish();
         });
+    }
+
+    private void showLanguageDialog() {
+        List<String> languages = new ArrayList<>();
+        languages.add(getString(R.string.lang_english));
+        languages.add(getString(R.string.lang_turkish));
+
+        new MaterialDialog(requireContext(), MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, getString(R.string.dialog_language_title))
+                .show(dialog -> {
+                    DialogListExtKt.listItems(dialog, null, languages, null, true, (dlg, index, text) -> {
+                        String languageCode = index == 0 ? "en" : "tr";
+                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(languageCode));
+                        return null;
+                    });
+                    return null;
+                });
     }
 
     private void bindUserInfo(View view) {

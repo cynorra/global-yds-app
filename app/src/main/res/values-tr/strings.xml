@@ -106,4 +106,16 @@
     <!-- About -->
     <string name="about_description">VocabMaster; İngilizce kelime öğrenmene, gramer kurallarında ustalaşmana ve gerçekçi deneme sınavlarıyla pratik yapmana yardımcı olur.</string>
     <string name="about_version">Sürüm %1$s</string>
+
+    <!-- Mistakes Box & Report Card -->
+    <string name="mistakes_box_title">Yanlışlar Kutusu</string>
+    <string name="mistakes_box_desc">Yanlış yaptığınız %1$d soru birikti. Şimdi tekrar et!</string>
+    <string name="result_blank">Boş Bırakıldı</string>
+    <string name="result_your_answer">Senin Cevabın: %1$s</string>
+    <string name="result_correct_answer">Doğru Cevap: %1$s</string>
+    <string name="profile_language">Dil</string>
+    <string name="daily_exam_title">Günün Denemesi (%1$s)</string>
+    <string name="dialog_language_title">Dil Seçin</string>
+    <string name="lang_english">English</string>
+    <string name="lang_turkish">Türkçe</string>
 </resources>

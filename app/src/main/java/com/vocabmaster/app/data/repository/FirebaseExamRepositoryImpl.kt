@@ -60,7 +60,7 @@ class FirebaseExamRepositoryImpl(
         examsCollection.document(dailyId).set(
             mapOf(
                 "id" to dailyId,
-                "title" to "Günün Denemesi ($dateStr)",
+                "title" to "Exam of the Day ($dateStr)",
                 "totalQuestions" to allQuestions.size,
                 "durationMinutes" to 15
             )

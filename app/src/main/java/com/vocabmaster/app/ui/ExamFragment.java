@@ -85,14 +85,14 @@ public class ExamFragment extends Fragment {
         emptyStateRetry.setOnClickListener(v -> examViewModel.loadExams());
 
         cardMistakes.setOnClickListener(v -> {
-            Intent intent = ExamTakingActivity.createIntent(requireContext(), "MISTAKES", "Yanlışlar Kutusu");
+            Intent intent = ExamTakingActivity.createIntent(requireContext(), "MISTAKES", getString(R.string.mistakes_box_title));
             examTakingLauncher.launch(intent);
         });
 
         examViewModel.getMistakesCount().observe(getViewLifecycleOwner(), count -> {
             if (count != null && count > 0) {
                 cardMistakes.setVisibility(View.VISIBLE);
-                tvMistakesCount.setText("Yanlış yaptığınız " + count + " soru birikti. Şimdi tekrar et!");
+                tvMistakesCount.setText(getString(R.string.mistakes_box_desc, count));
             } else {
                 cardMistakes.setVisibility(View.GONE);
             }

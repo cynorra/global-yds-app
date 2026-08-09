@@ -41,20 +41,22 @@ class ExamResultAdapter(
             val selectedOpt = detail.selectedOptionIndex
             val correctOpt = q.correctOptionIndex
 
+            val context = tvUserAnswer.context
+
             if (selectedOpt == null) {
-                tvUserAnswer.text = "Boş Bırakıldı"
+                tvUserAnswer.text = context.getString(R.string.result_blank)
                 tvUserAnswer.setTextColor(Color.parseColor("#9CA3AF"))
                 tvCorrectAnswer.visibility = View.VISIBLE
-                tvCorrectAnswer.text = "Doğru Cevap: ${q.options.getOrNull(correctOpt) ?: ""}"
+                tvCorrectAnswer.text = context.getString(R.string.result_correct_answer, q.options.getOrNull(correctOpt) ?: "")
             } else if (selectedOpt == correctOpt) {
-                tvUserAnswer.text = "Senin Cevabın: ${q.options.getOrNull(selectedOpt) ?: ""}"
+                tvUserAnswer.text = context.getString(R.string.result_your_answer, q.options.getOrNull(selectedOpt) ?: "")
                 tvUserAnswer.setTextColor(Color.parseColor("#10B981")) // Green
                 tvCorrectAnswer.visibility = View.GONE
             } else {
-                tvUserAnswer.text = "Senin Cevabın: ${q.options.getOrNull(selectedOpt) ?: ""}"
+                tvUserAnswer.text = context.getString(R.string.result_your_answer, q.options.getOrNull(selectedOpt) ?: "")
                 tvUserAnswer.setTextColor(Color.parseColor("#EF4444")) // Red
                 tvCorrectAnswer.visibility = View.VISIBLE
-                tvCorrectAnswer.text = "Doğru Cevap: ${q.options.getOrNull(correctOpt) ?: ""}"
+                tvCorrectAnswer.text = context.getString(R.string.result_correct_answer, q.options.getOrNull(correctOpt) ?: "")
             }
         }
     }
