@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası (Privacy Policy) - Global YDS (VocabMaster)</title>
+    <title>Gizlilik Politikası & Hesap Silme Talebi - Global YDS (Cynorra)</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -40,11 +40,22 @@
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 8px;
         }
+        .deletion-box {
+            background-color: #f0f9ff;
+            border: 2px solid #0284c7;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .deletion-box h3 {
+            margin-top: 0;
+            color: #0369a1;
+        }
         p, li {
             color: var(--text-secondary);
             font-size: 15px;
         }
-        ul {
+        ul, ol {
             padding-left: 20px;
         }
         .badge {
@@ -70,53 +81,58 @@
 <body>
     <div class="container">
         <span class="badge">Cynorra Apps</span>
-        <h1>Gizlilik Politikası / Privacy Policy</h1>
+        <h1>Gizlilik Politikası & Hesap Silme (Account Deletion)</h1>
+        <p><strong>Uygulama Adı / App Name:</strong> Global YDS (VocabMaster)</p>
+        <p><strong>Geliştirici / Developer:</strong> Cynorra</p>
+        <p><strong>Paket Adı / Package Name:</strong> <code>com.cynorra.vocabmaster.app</code></p>
         <p><strong>Son Güncelleme:</strong> 24 Ağustos 2026</p>
-        <p><strong>Uygulama:</strong> Global YDS (VocabMaster: Learn English)</p>
-        <p><strong>Paket Adı:</strong> <code>com.cynorra.vocabmaster.app</code></p>
+
+        <!-- Google Play Account Deletion Policy Compliant Section -->
+        <div id="account-deletion" class="deletion-box">
+            <h3>🗑️ Hesap ve Veri Silme Talebi (Account Deletion Request)</h3>
+            <p><strong>Cynorra</strong> tarafından geliştirilen <strong>Global YDS</strong> uygulamasındaki hesabınızı ve ilişkili verilerinizi silmek istiyorsanız aşağıdaki adımları uygulayabilirsiniz:</p>
+            
+            <h4>Silme Adımları (How to Request Deletion):</h4>
+            <ol>
+                <li>Kayıtlı e-posta adresinizden <strong>support@cynorra.com</strong> adresine bir e-posta gönderin.</li>
+                <li>Konu başlığına <strong>"Hesap Silme Talebi - Global YDS"</strong> yazın.</li>
+                <li>E-posta içeriğinde silinmesini istediğiniz kullanıcı e-posta adresinizi belirtin.</li>
+            </ol>
+
+            <h4>Silinecek Veri Türleri (Types of Data Deleted):</h4>
+            <ul>
+                <li>Firebase Authentication üzerindeki kullanıcı e-postanız, kullanıcı adınız ve şifrelenmiş kimlik verileriniz.</li>
+                <li>Firebase Firestore üzerindeki öğrenilen kelimeleriniz, çözülen sınavlarınız, yanlışlar kutunuz ve istatistikleriniz.</li>
+            </ul>
+
+            <h4>Veri Saklama Süresi (Data Retention Timeline):</h4>
+            <p>Silme talebiniz bize ulaştıktan sonra tüm kullanıcı verileriniz <strong>en geç 7 iş günü içerisinde</strong> kalıcı olarak sunucularımızdan tamamen silinir. Yasal zorunluluklar haricinde hiçbir veri saklanmaz.</p>
+        </div>
 
         <h2>1. Türkçe Gizlilik Politikası</h2>
 
         <h3>1.1. Toplanan Veriler ve Kullanım Amaçları</h3>
         <p>Cynorra olarak kişisel verilerinizin gizliliğine ve güvenliğine önem veriyoruz. Uygulamamızın sunmuş olduğu hizmetlerin yürütülebilmesi amacıyla aşağıdaki veriler işlenmektedir:</p>
         <ul>
-            <li><strong>Hesap Bilgileri:</strong> Kayıt olma ve giriş işlemleriniz sırasında e-posta adresiniz, kullanıcı adınız ve şifrelenmiş kimlik bilgileriniz Firebase Authentication altyapısında güvenle saklanır. Google ile Giriş yapılması durumunda ise Google hesabınızın temel profil bilgileri (E-posta, İsim, Profil Resmi URL'si) işlenir.</li>
+            <li><strong>Hesap Bilgileri:</strong> Kayıt olma ve giriş işlemleriniz sırasında e-posta adresiniz, kullanıcı adınız ve şifrelenmiş kimlik bilgileriniz Firebase Authentication altyapısında güvenle saklanır. Google ile Giriş yapılması durumunda ise Google hesabınızın temel profil bilgileri (E-posta, İsim) işlenir.</li>
             <li><strong>Kullanım ve Başarı Verileri:</strong> Öğrendiğiniz kelimeler, çözdüğünüz deneme sınavları, puanlarınız ve istatistikleriniz hesabınızla eşleşecek şekilde Firebase Firestore ve cihazınızın yerel veritabanında (Room SQLite) saklanır.</li>
-            <li><strong>Cihaz ve Analiz Verileri:</strong> Uygulama performansını artırmak ve teknik hataları tespit etmek amacıyla Google Analytics for Firebase kullanılabilir.</li>
-            <li><strong>Reklam Verileri:</strong> Uygulamamızda Google AdMob reklam hizmeti kullanılmaktadır. AdMob, kişiselleştirilmiş veya kişiselleştirilmemiş reklamlar sunmak amacıyla cihaz reklam kimliğinizi (AAID) kullanabilir.</li>
+            <li><strong>Reklam Verileri:</strong> Uygulamamızda Google AdMob reklam hizmeti kullanılmaktadır. AdMob, reklam sunmak amacıyla cihaz reklam kimliğinizi (AAID) kullanabilir.</li>
         </ul>
 
         <h3>1.2. Üçüncü Taraf Hizmetleri</h3>
-        <p>Uygulamamız aşağıdaki güvenilir üçüncü taraf hizmet sağlayıcılarını kullanmaktadır:</p>
         <ul>
             <li>Google Play Services</li>
-            <li>Firebase Authentication, Firestore ve Analytics</li>
+            <li>Firebase Authentication, Firestore & Analytics</li>
             <li>Google AdMob</li>
         </ul>
-
-        <h3>1.3. Kullanıcı Hakları ve Hesap Silme</h3>
-        <p>Kullanıcılarımız hesaplarını ve hesaplarıyla ilişkili tüm verileri diledikleri zaman silme hakkına sahiptir. Hesap silme talebiniz veya veri erişim talepleriniz için bizimle <strong>support@cynorra.com</strong> e-posta adresi üzerinden iletişime geçebilirsiniz.</p>
 
         <h2>2. English Privacy Policy</h2>
 
         <h3>2.1. Information Collection and Use</h3>
-        <p>Cynorra operates Global YDS (com.cynorra.vocabmaster.app). This policy outlines how we collect and manage user data:</p>
-        <ul>
-            <li><strong>Account Data:</strong> When registering, your email address, username, and encrypted credentials are stored securely via Firebase Authentication. If using Google Sign-In, basic Google profile information (Email, Display Name, Photo URL) is processed.</li>
-            <li><strong>Study Progress:</strong> Learned words, exam scores, attempt histories, and performance analytics are stored in Firebase Firestore and locally on your device via Room SQLite.</li>
-            <li><strong>Advertising:</strong> We use Google AdMob to serve advertisements. AdMob may collect and process device advertising identifiers (AAID) to serve relevant ads according to Google Play Policies.</li>
-        </ul>
+        <p>Cynorra operates Global YDS (com.cynorra.vocabmaster.app). Account details, study progress, and performance statistics are collected solely to deliver language learning services.</p>
 
-        <h3>2.2. Third-Party Services</h3>
-        <p>The app relies on the following third-party integrations:</p>
-        <ul>
-            <li>Google Play Services</li>
-            <li>Google Firebase (Auth, Firestore, Analytics)</li>
-            <li>Google AdMob</li>
-        </ul>
-
-        <h3>2.3. Account Deletion Request</h3>
-        <p>You have the right to request deletion of your personal account and associated study data at any time by contacting us at <strong>support@cynorra.com</strong>.</p>
+        <h3>2.2. Account Deletion Request</h3>
+        <p>To request deletion of your account and all associated data, email <strong>support@cynorra.com</strong>. All data will be permanently removed within 7 days.</p>
 
         <div class="footer">
             &copy; 2026 Cynorra. All rights reserved.
