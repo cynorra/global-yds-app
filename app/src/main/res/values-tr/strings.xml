@@ -29,6 +29,9 @@
     <string name="login_email_hint">E-posta</string>
     <string name="login_password_hint">Şifre</string>
     <string name="login_no_account">Hesabın yok mu? Kayıt ol</string>
+    <string name="login_or_divider">VEYA</string>
+    <string name="login_google_button">Google ile Giriş Yap</string>
+    <string name="default_web_client_id" translatable="false">129460323433-YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
 
     <!-- Register -->
     <string name="register_title">Hesap Oluştur</string>

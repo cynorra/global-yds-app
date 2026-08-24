@@ -3,9 +3,15 @@ package com.vocabmaster.app
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.vocabmaster.app.domain.repository.AuthResult
@@ -20,6 +26,25 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var tilPassword: TextInputLayout
     private lateinit var etEmail: TextInputEditText
     private lateinit var etPassword: TextInputEditText
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val googleSignInLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                try {
+                    val account = task.getResult(ApiException::class.java)
+                    val idToken = account?.idToken
+                    if (idToken != null) {
+                        loginViewModel.loginWithGoogle(idToken)
+                    } else {
+                        FancyToast.makeText(this, getString(R.string.login_error), FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                    }
+                } catch (e: ApiException) {
+                    FancyToast.makeText(this, e.localizedMessage ?: getString(R.string.login_error), FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +55,12 @@ class LoginActivity : AppCompatActivity() {
         tilPassword = findViewById(R.id.tilPassword)
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         btnLogin.setOnClickListener {
             tilEmail.error = null
@@ -51,6 +82,11 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             loginViewModel.login(email, password)
+        }
+
+        findViewById<MaterialButton>(R.id.btnGoogleSignIn).setOnClickListener {
+            val signInIntent = googleSignInClient.signInIntent
+            googleSignInLauncher.launch(signInIntent)
         }
 
         findViewById<android.widget.TextView>(R.id.tvGoRegister).setOnClickListener {

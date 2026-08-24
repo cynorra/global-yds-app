@@ -28,4 +28,13 @@ class LoginViewModel : ViewModel() {
             _isLoading.postValue(false)
         }
     }
+
+    fun loginWithGoogle(idToken: String) {
+        _isLoading.value = true
+        viewModelScope.launch {
+            val result = userRepository.loginWithGoogle(idToken)
+            _authResult.postValue(result)
+            _isLoading.postValue(false)
+        }
+    }
 }

@@ -11,5 +11,6 @@ interface UserRepository {
     fun getCurrentUser(): User?
     suspend fun login(email: String, password: String): AuthResult
     suspend fun register(email: String, password: String): AuthResult
+    suspend fun loginWithGoogle(idToken: String): AuthResult
     fun logout()
 }

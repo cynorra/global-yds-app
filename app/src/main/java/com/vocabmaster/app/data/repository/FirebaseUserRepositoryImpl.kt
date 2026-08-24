@@ -38,6 +38,17 @@ class FirebaseUserRepositoryImpl(
         }
     }
 
+    override suspend fun loginWithGoogle(idToken: String): AuthResult {
+        return try {
+            val credential = com.google.firebase.auth.GoogleAuthProvider.getCredential(idToken, null)
+            val result = auth.signInWithCredential(credential).await()
+            val user = result.user?.toDomain() ?: return AuthResult.Error("Google ile giriş başarısız oldu.")
+            AuthResult.Success(user)
+        } catch (e: Exception) {
+            AuthResult.Error(mapError(e))
+        }
+    }
+
     override fun logout() {
         auth.signOut()
     }
