@@ -24,6 +24,17 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="16dp"/>
 
+        <TextView
+            android:id="@+id/tvWeakAreaInsight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="14sp"
+            android:visibility="gone"
+            tools:text="💡 En çok pratiğe ihtiyacın olan konu: Koşul Cümleleri (%45)"
+            tools:visibility="visible"/>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardMicroExam"
             android:layout_width="match_parent"

@@ -114,9 +114,12 @@
     <string name="mistakes_box_desc">¡%1$d pregunta(s) lista(s) para repasar hoy!</string>
     <string name="micro_exam_title">Examen Rápido</string>
     <string name="micro_exam_desc">Una ronda rápida de práctica de 8 preguntas</string>
+    <string name="weak_area_not_attempted">💡 Tema aún no intentado: %1$s</string>
+    <string name="weak_area_low_score">💡 Enfócate en este tema: %1$s (%%%2$d)</string>
     <string name="result_blank">Sin responder</string>
     <string name="result_your_answer">Tu respuesta: %1$s</string>
     <string name="result_correct_answer">Respuesta correcta: %1$s</string>
+    <string name="result_explanation">Por qué: %1$s</string>
     <string name="profile_language">Idioma</string>
     <string name="daily_exam_title">Examen del Día (%1$s)</string>
     <string name="dialog_language_title">Seleccionar idioma</string>

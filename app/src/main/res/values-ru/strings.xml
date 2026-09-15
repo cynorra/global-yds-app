@@ -114,9 +114,12 @@
     <string name="mistakes_box_desc">%1$d вопрос(ов) готовы к повторению сегодня!</string>
     <string name="micro_exam_title">Мини-тест</string>
     <string name="micro_exam_desc">Быстрый раунд практики из 8 вопросов</string>
+    <string name="weak_area_not_attempted">💡 Тема ещё не пройдена: %1$s</string>
+    <string name="weak_area_low_score">💡 Сосредоточься на этой теме: %1$s (%%%2$d)</string>
     <string name="result_blank">Оставлено пустым</string>
     <string name="result_your_answer">Ваш ответ: %1$s</string>
     <string name="result_correct_answer">Правильный ответ: %1$s</string>
+    <string name="result_explanation">Почему: %1$s</string>
     <string name="profile_language">Язык</string>
     <string name="daily_exam_title">Экзамен Дня (%1$s)</string>
     <string name="dialog_language_title">Выберите язык</string>

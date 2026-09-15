@@ -33,6 +33,7 @@ class ExamResultAdapter(
         private val tvQuestion: TextView = view.findViewById(R.id.tvQuestion)
         private val tvUserAnswer: TextView = view.findViewById(R.id.tvUserAnswer)
         private val tvCorrectAnswer: TextView = view.findViewById(R.id.tvCorrectAnswer)
+        private val tvExplanation: TextView = view.findViewById(R.id.tvExplanation)
 
         fun bind(detail: ExamResultDetail) {
             val q = detail.question
@@ -43,20 +44,31 @@ class ExamResultAdapter(
 
             val context = tvUserAnswer.context
 
+            val wasWrongOrBlank: Boolean
             if (selectedOpt == null) {
                 tvUserAnswer.text = context.getString(R.string.result_blank)
                 tvUserAnswer.setTextColor(Color.parseColor("#9CA3AF"))
                 tvCorrectAnswer.visibility = View.VISIBLE
                 tvCorrectAnswer.text = context.getString(R.string.result_correct_answer, q.options.getOrNull(correctOpt) ?: "")
+                wasWrongOrBlank = true
             } else if (selectedOpt == correctOpt) {
                 tvUserAnswer.text = context.getString(R.string.result_your_answer, q.options.getOrNull(selectedOpt) ?: "")
                 tvUserAnswer.setTextColor(Color.parseColor("#10B981")) // Green
                 tvCorrectAnswer.visibility = View.GONE
+                wasWrongOrBlank = false
             } else {
                 tvUserAnswer.text = context.getString(R.string.result_your_answer, q.options.getOrNull(selectedOpt) ?: "")
                 tvUserAnswer.setTextColor(Color.parseColor("#EF4444")) // Red
                 tvCorrectAnswer.visibility = View.VISIBLE
                 tvCorrectAnswer.text = context.getString(R.string.result_correct_answer, q.options.getOrNull(correctOpt) ?: "")
+                wasWrongOrBlank = true
+            }
+
+            if (wasWrongOrBlank && q.explanation.isNotBlank()) {
+                tvExplanation.visibility = View.VISIBLE
+                tvExplanation.text = context.getString(R.string.result_explanation, q.explanation)
+            } else {
+                tvExplanation.visibility = View.GONE
             }
         }
     }

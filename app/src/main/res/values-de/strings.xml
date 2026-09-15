@@ -114,9 +114,12 @@
     <string name="mistakes_box_desc">%1$d Frage(n) heute fällig zur Wiederholung!</string>
     <string name="micro_exam_title">Kurztest</string>
     <string name="micro_exam_desc">Eine schnelle Übungsrunde mit 8 Fragen</string>
+    <string name="weak_area_not_attempted">💡 Noch nicht versuchtes Thema: %1$s</string>
+    <string name="weak_area_low_score">💡 Übe dieses Thema: %1$s (%%%2$d)</string>
     <string name="result_blank">Nicht beantwortet</string>
     <string name="result_your_answer">Deine Antwort: %1$s</string>
     <string name="result_correct_answer">Richtige Antwort: %1$s</string>
+    <string name="result_explanation">Warum: %1$s</string>
     <string name="profile_language">Sprache</string>
     <string name="daily_exam_title">Tagesprüfung (%1$s)</string>
     <string name="dialog_language_title">Sprache auswählen</string>

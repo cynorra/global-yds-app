@@ -115,9 +115,12 @@
     <string name="mistakes_box_desc">%1$d question(s) ready to review today!</string>
     <string name="micro_exam_title">Micro Exam</string>
     <string name="micro_exam_desc">A quick 8-question practice round</string>
+    <string name="weak_area_not_attempted">💡 Topic not tried yet: %1$s</string>
+    <string name="weak_area_low_score">💡 Focus on this topic: %1$s (%%%2$d)</string>
     <string name="result_blank">Left Blank</string>
     <string name="result_your_answer">Your Answer: %1$s</string>
     <string name="result_correct_answer">Correct Answer: %1$s</string>
+    <string name="result_explanation">Why: %1$s</string>
     <string name="profile_language">Language</string>
     <string name="daily_exam_title">Exam of the Day (%1$s)</string>
     <string name="dialog_language_title">Select Language</string>

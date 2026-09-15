@@ -114,9 +114,12 @@
     <string name="mistakes_box_desc">%1$d vraag/vragen klaar om vandaag te herhalen!</string>
     <string name="micro_exam_title">Micro-examen</string>
     <string name="micro_exam_desc">Een snelle oefenronde met 8 vragen</string>
+    <string name="weak_area_not_attempted">💡 Onderwerp nog niet geprobeerd: %1$s</string>
+    <string name="weak_area_low_score">💡 Focus op dit onderwerp: %1$s (%%%2$d)</string>
     <string name="result_blank">Niet ingevuld</string>
     <string name="result_your_answer">Jouw antwoord: %1$s</string>
     <string name="result_correct_answer">Juiste antwoord: %1$s</string>
+    <string name="result_explanation">Waarom: %1$s</string>
     <string name="profile_language">Taal</string>
     <string name="daily_exam_title">Examen van de Dag (%1$s)</string>
     <string name="dialog_language_title">Taal selecteren</string>

@@ -46,6 +46,7 @@ public class ExamFragment extends Fragment {
     private TextView tvMistakesCount;
     private ImageView ivMistakesLock;
     private MaterialCardView cardMicroExam;
+    private TextView tvWeakAreaInsight;
 
     private static final int MICRO_EXAM_DURATION_MINUTES = 6;
 
@@ -81,6 +82,7 @@ public class ExamFragment extends Fragment {
         tvMistakesCount = view.findViewById(R.id.tvMistakesCount);
         ivMistakesLock = view.findViewById(R.id.ivMistakesLock);
         cardMicroExam = view.findViewById(R.id.cardMicroExam);
+        tvWeakAreaInsight = view.findViewById(R.id.tvWeakAreaInsight);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
 
         BillingManager.isPremium().observe(getViewLifecycleOwner(), isPremium ->
@@ -111,6 +113,19 @@ public class ExamFragment extends Fragment {
             }
             Intent intent = ExamTakingActivity.createIntent(requireContext(), "MISTAKES", getString(R.string.mistakes_box_title));
             examTakingLauncher.launch(intent);
+        });
+
+        examViewModel.getWeakAreaInsight().observe(getViewLifecycleOwner(), insight -> {
+            if (insight == null) {
+                tvWeakAreaInsight.setVisibility(View.GONE);
+                return;
+            }
+            tvWeakAreaInsight.setVisibility(View.VISIBLE);
+            if (insight.getScorePercent() == null) {
+                tvWeakAreaInsight.setText(getString(R.string.weak_area_not_attempted, insight.getTopicTitle()));
+            } else {
+                tvWeakAreaInsight.setText(getString(R.string.weak_area_low_score, insight.getTopicTitle(), insight.getScorePercent()));
+            }
         });
 
         examViewModel.getMistakesCount().observe(getViewLifecycleOwner(), count -> {

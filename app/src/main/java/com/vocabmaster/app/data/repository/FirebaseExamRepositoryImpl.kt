@@ -86,7 +86,8 @@ class FirebaseExamRepositoryImpl(
                     "id" to newQId,
                     "text" to question.text,
                     "options" to question.options,
-                    "correctOptionIndex" to question.correctOptionIndex
+                    "correctOptionIndex" to question.correctOptionIndex,
+                    "explanation" to question.explanation
                 )
             ).await()
         }
@@ -200,6 +201,7 @@ class FirebaseExamRepositoryImpl(
                             "text" to question.text,
                             "options" to question.options,
                             "correctOptionIndex" to question.correctOptionIndex,
+                            "explanation" to question.explanation,
                             "correctStreak" to 0,
                             "nextReviewAt" to nextReviewAt,
                             "wrongCount" to FieldValue.increment(1)
@@ -303,7 +305,8 @@ class FirebaseExamRepositoryImpl(
                         "id" to question.id,
                         "text" to question.text,
                         "options" to question.options,
-                        "correctOptionIndex" to question.correctOptionIndex
+                        "correctOptionIndex" to question.correctOptionIndex,
+                        "explanation" to question.explanation
                     )
                 ).await()
             }
@@ -323,16 +326,16 @@ class FirebaseExamRepositoryImpl(
             title = "Zamanlar (Tenses)",
             durationMinutes = 12,
             questions = listOf(
-                Question("q1", "She ______ to the store every day.", listOf("go", "goes", "going", "gone"), 1),
-                Question("q2", "By the time we arrived, the movie ______.", listOf("already started", "had already started", "has already started", "already starts"), 1),
-                Question("q3", "I ______ my homework since 6 p.m.", listOf("do", "did", "have been doing", "will do"), 2),
-                Question("q4", "They ______ dinner when the phone rang.", listOf("have", "had", "were having", "has"), 2),
-                Question("q5", "She ______ abroad twice this year.", listOf("traveled", "has traveled", "was traveling", "travels"), 1),
-                Question("q6", "Next week, I ______ my grandmother in London.", listOf("visit", "visited", "am visiting", "will have visited"), 2),
-                Question("q7", "He ______ for the company since 2015.", listOf("works", "worked", "has worked", "is working"), 2),
-                Question("q8", "While she ______ dinner, the lights went out.", listOf("cooked", "was cooking", "cooks", "has cooked"), 1),
-                Question("q9", "The train ______ before we got to the station.", listOf("left", "has left", "had left", "leaves"), 2),
-                Question("q10", "Look! The bus ______.", listOf("comes", "came", "is coming", "has come"), 2)
+                Question("q1", "She ______ to the store every day.", listOf("go", "goes", "going", "gone"), 1, "Present Simple: 3. tekil şahısta (she/he/it) fiile -s/-es eki gelir. \"every day\" gibi zarflar alışkanlık/rutin bildirir."),
+                Question("q2", "By the time we arrived, the movie ______.", listOf("already started", "had already started", "has already started", "already starts"), 1, "Past Perfect: geçmişte iki olaydan önce biteni anlatır. \"By the time we arrived\" (geçmiş) sırasında film çoktan başlamıştı."),
+                Question("q3", "I ______ my homework since 6 p.m.", listOf("do", "did", "have been doing", "will do"), 2, "Present Perfect Continuous: \"since\" ile başlangıç noktası belirtilen ve hâlâ süren eylemler için kullanılır."),
+                Question("q4", "They ______ dinner when the phone rang.", listOf("have", "had", "were having", "has"), 2, "Past Continuous: geçmişte devam eden bir eylem, \"the phone rang\" (Simple Past) gibi ani bir olayla kesilir."),
+                Question("q5", "She ______ abroad twice this year.", listOf("traveled", "has traveled", "was traveling", "travels"), 1, "Present Perfect: \"this year\" henüz bitmemiş bir zaman dilimidir; \"twice\" ile deneyim/sayı bildirilir."),
+                Question("q6", "Next week, I ______ my grandmother in London.", listOf("visit", "visited", "am visiting", "will have visited"), 2, "Present Continuous, önceden planlanmış gelecek eylemler için kullanılır (\"next week\" ile netleşen program)."),
+                Question("q7", "He ______ for the company since 2015.", listOf("works", "worked", "has worked", "is working"), 2, "Present Perfect: \"since 2015\" başlangıç noktasından bugüne süren bir durumu anlatır."),
+                Question("q8", "While she ______ dinner, the lights went out.", listOf("cooked", "was cooking", "cooks", "has cooked"), 1, "Past Continuous: \"while\" ile geçmişte devam eden bir eylem, başka bir olayla (went out) kesilir."),
+                Question("q9", "The train ______ before we got to the station.", listOf("left", "has left", "had left", "leaves"), 2, "Past Perfect: iki geçmiş olaydan önce gerçekleşen (tren, istasyona varmadan önce ayrılmış)."),
+                Question("q10", "Look! The bus ______.", listOf("comes", "came", "is coming", "has come"), 2, "Present Continuous: \"Look!\" ile şu anda, konuşma anında gerçekleşen bir eylem anlatılır.")
             )
         ),
         SeedExam(
@@ -340,14 +343,14 @@ class FirebaseExamRepositoryImpl(
             title = "Koşul Cümleleri ve Modallar",
             durationMinutes = 10,
             questions = listOf(
-                Question("q1", "If it rains tomorrow, we ______ the picnic.", listOf("cancel", "will cancel", "would cancel", "canceled"), 1),
-                Question("q2", "If I were you, I ______ that job offer.", listOf("accept", "will accept", "would accept", "accepted"), 2),
-                Question("q3", "If she had studied harder, she ______ the exam.", listOf("would pass", "will pass", "would have passed", "passes"), 2),
-                Question("q4", "You ______ smoke in this building; it's strictly forbidden.", listOf("don't have to", "must not", "may not", "shouldn't"), 1),
-                Question("q5", "She ______ be at home now; I saw her car in the driveway.", listOf("must", "can't", "mustn't", "should"), 0),
-                Question("q6", "He ______ have left already; his coat is still here.", listOf("must", "can't", "might", "should"), 1),
-                Question("q7", "Passengers ______ fasten their seatbelts during takeoff.", listOf("might", "could", "must", "would"), 2),
-                Question("q8", "If only I ______ more time to prepare for the interview.", listOf("have", "had", "had had", "would have"), 2)
+                Question("q1", "If it rains tomorrow, we ______ the picnic.", listOf("cancel", "will cancel", "would cancel", "canceled"), 1, "Type 1 Conditional (gerçek/olası gelecek koşul): if + Present Simple, ... will + fiil."),
+                Question("q2", "If I were you, I ______ that job offer.", listOf("accept", "will accept", "would accept", "accepted"), 2, "Type 2 Conditional (şimdiki zamana ait hayali durum): if + Past Simple (were), ... would + fiil."),
+                Question("q3", "If she had studied harder, she ______ the exam.", listOf("would pass", "will pass", "would have passed", "passes"), 2, "Type 3 Conditional (gerçekleşmemiş geçmiş koşul): if + Past Perfect, ... would have + past participle."),
+                Question("q4", "You ______ smoke in this building; it's strictly forbidden.", listOf("don't have to", "must not", "may not", "shouldn't"), 1, "\"must not\": kesin yasak bildirir. \"don't have to\" ise zorunluluk yokluğu anlamına gelir, yasak değil."),
+                Question("q5", "She ______ be at home now; I saw her car in the driveway.", listOf("must", "can't", "mustn't", "should"), 0, "\"must\": kanıta dayalı güçlü olasılık/çıkarım bildirir (arabasını gördüm, o yüzden evde olmalı)."),
+                Question("q6", "He ______ have left already; his coat is still here.", listOf("must", "can't", "might", "should"), 1, "\"can't have + past participle\": mantıksal olarak imkansız bir geçmiş çıkarımı (mantosu burada, o yüzden gitmiş olamaz)."),
+                Question("q7", "Passengers ______ fasten their seatbelts during takeoff.", listOf("might", "could", "must", "would"), 2, "\"must\": kural/zorunluluk bildiren modal fiildir."),
+                Question("q8", "If only I ______ more time to prepare for the interview.", listOf("have", "had", "had had", "would have"), 2, "\"If only\" + Past Perfect: geçmişe dönük pişmanlık bildirir (\"keşke daha fazla zamanım olsaydı\").")
             )
         ),
         SeedExam(
@@ -355,14 +358,14 @@ class FirebaseExamRepositoryImpl(
             title = "Edilgen Çatı ve Bildirilen Konuşma",
             durationMinutes = 10,
             questions = listOf(
-                Question("q1", "The report ______ by the manager yesterday.", listOf("wrote", "was written", "is written", "has written"), 1),
-                Question("q2", "This bridge ______ in 1990.", listOf("built", "was built", "has built", "is building"), 1),
-                Question("q3", "English ______ in many countries around the world.", listOf("speaks", "is spoken", "spoke", "was speaking"), 1),
-                Question("q4", "The letter ______ by tomorrow morning.", listOf("will send", "will be sent", "sends", "sent"), 1),
-                Question("q5", "She said that she ______ tired.", listOf("is", "was", "has been", "will be"), 1),
-                Question("q6", "He told me that he ______ the movie the day before.", listOf("watches", "watched", "had watched", "has watched"), 2),
-                Question("q7", "They said they ______ back the following week.", listOf("come", "came", "will come", "would come"), 3),
-                Question("q8", "The teacher asked the students ______ the exercise quietly.", listOf("do", "doing", "to do", "did"), 2)
+                Question("q1", "The report ______ by the manager yesterday.", listOf("wrote", "was written", "is written", "has written"), 1, "Simple Past Passive: was/were + past participle. Eylemi yapan (manager) \"by\" ile belirtilir."),
+                Question("q2", "This bridge ______ in 1990.", listOf("built", "was built", "has built", "is building"), 1, "Simple Past Passive: geçmişte belirli bir tarihte tamamlanan edilgen eylem."),
+                Question("q3", "English ______ in many countries around the world.", listOf("speaks", "is spoken", "spoke", "was speaking"), 1, "Present Simple Passive: genel geçer bir gerçeği edilgen çatıyla anlatır (is/are + past participle)."),
+                Question("q4", "The letter ______ by tomorrow morning.", listOf("will send", "will be sent", "sends", "sent"), 1, "Future Passive: will be + past participle."),
+                Question("q5", "She said that she ______ tired.", listOf("is", "was", "has been", "will be"), 1, "Reported Speech: aktarılan cümlede Present Simple (is), Past Simple'a (was) kayar (tense backshift)."),
+                Question("q6", "He told me that he ______ the movie the day before.", listOf("watches", "watched", "had watched", "has watched"), 2, "Reported Speech: Past Simple, Past Perfect'e kayar; \"the day before\" ifadesi de zaman zarfının aktarımdaki karşılığıdır."),
+                Question("q7", "They said they ______ back the following week.", listOf("come", "came", "will come", "would come"), 3, "Reported Speech: \"will\", \"would\"ya kayar; \"the following week\" de \"next week\"in aktarımdaki karşılığıdır."),
+                Question("q8", "The teacher asked the students ______ the exercise quietly.", listOf("do", "doing", "to do", "did"), 2, "Aktarılan rica/emir yapısı: ask/tell + kişi + to + fiil.")
             )
         ),
         SeedExam(
@@ -370,14 +373,14 @@ class FirebaseExamRepositoryImpl(
             title = "İlgi Cümlecikleri ve Karşılaştırmalar",
             durationMinutes = 10,
             questions = listOf(
-                Question("q1", "The man ______ car was stolen called the police.", listOf("who", "whose", "which", "that"), 1),
-                Question("q2", "This is the restaurant ______ we had dinner last night.", listOf("which", "who", "where", "whose"), 2),
-                Question("q3", "The book, ______ was written by a famous author, became a bestseller.", listOf("that", "which", "who", "whose"), 1),
-                Question("q4", "She is the woman ______ helped me find my way.", listOf("whom", "who", "which", "whose"), 1),
-                Question("q5", "This exam is ______ than the last one.", listOf("difficult", "more difficult", "most difficult", "the most difficult"), 1),
-                Question("q6", "He is ______ student in the whole class.", listOf("hardworking", "more hardworking", "the most hardworking", "hardworking than"), 2),
-                Question("q7", "This is by far ______ hotel I have ever stayed in.", listOf("good", "better", "the best", "best"), 2),
-                Question("q8", "The weather today is ______ than yesterday.", listOf("bad", "worse", "the worst", "more bad"), 1)
+                Question("q1", "The man ______ car was stolen called the police.", listOf("who", "whose", "which", "that"), 1, "\"whose\": iyelik bildiren ilgi zamiri (adamın arabası -> whose car)."),
+                Question("q2", "This is the restaurant ______ we had dinner last night.", listOf("which", "who", "where", "whose"), 2, "\"where\": yer bildiren bir ismin ardından gelen ilgi zamiri."),
+                Question("q3", "The book, ______ was written by a famous author, became a bestseller.", listOf("that", "which", "who", "whose"), 1, "\"which\": nesneler için kullanılan ilgi zamiri; virgüllü (non-defining) yapılarda \"that\" kullanılamaz."),
+                Question("q4", "She is the woman ______ helped me find my way.", listOf("whom", "who", "which", "whose"), 1, "\"who\": cümlede özne konumundaki kişi için kullanılan ilgi zamiri (\"whom\" nesne konumu için kullanılır)."),
+                Question("q5", "This exam is ______ than the last one.", listOf("difficult", "more difficult", "most difficult", "the most difficult"), 1, "İki heceden uzun sıfatlarda karşılaştırma: more + sıfat + than."),
+                Question("q6", "He is ______ student in the whole class.", listOf("hardworking", "more hardworking", "the most hardworking", "hardworking than"), 2, "Üstünlük derecesi (superlative): the most + sıfat, bir grup içindeki en üst düzeyi belirtir."),
+                Question("q7", "This is by far ______ hotel I have ever stayed in.", listOf("good", "better", "the best", "best"), 2, "\"good\" sıfatının düzensiz üstünlük hali \"the best\"tir; \"by far\" ile pekiştirilir."),
+                Question("q8", "The weather today is ______ than yesterday.", listOf("bad", "worse", "the worst", "more bad"), 1, "\"bad\" sıfatının düzensiz karşılaştırma hali \"worse\"tür (more bad diye bir yapı yoktur).")
             )
         ),
         SeedExam(
@@ -385,16 +388,16 @@ class FirebaseExamRepositoryImpl(
             title = "Genel Tekrar",
             durationMinutes = 14,
             questions = listOf(
-                Question("q1", "Neither of the students ______ the correct answer.", listOf("know", "knows", "knew", "have known"), 2),
-                Question("q2", "Not only ______ late, but he also forgot his documents.", listOf("he was", "was he", "he is", "is he"), 1),
-                Question("q3", "She is used to ______ up early.", listOf("get", "got", "getting", "gets"), 2),
-                Question("q4", "I look forward to ______ from you soon.", listOf("hear", "hearing", "heard", "to hear"), 1),
-                Question("q5", "Despite ______ hard, he failed the exam.", listOf("study", "studied", "to study", "studying"), 3),
-                Question("q6", "Neither the manager nor the employees ______ satisfied with the results.", listOf("was", "were", "is", "has been"), 1),
-                Question("q7", "He denied ______ the money.", listOf("to steal", "stealing", "steal", "stolen"), 1),
-                Question("q8", "It's high time you ______ your responsibilities seriously.", listOf("take", "took", "will take", "have taken"), 1),
-                Question("q9", "Hardly ______ the show started when the lights went out.", listOf("has", "had", "did", "was"), 1),
-                Question("q10", "The more you practice, ______ you become.", listOf("better", "the better", "best", "the best"), 1)
+                Question("q1", "Neither of the students ______ the correct answer.", listOf("know", "knows", "knew", "have known"), 2, "\"Neither of + çoğul isim\" tekil kabul edilir; cümle bağlamı geçmiş zamanı gerektirir (knew)."),
+                Question("q2", "Not only ______ late, but he also forgot his documents.", listOf("he was", "was he", "he is", "is he"), 1, "Olumsuzluk/sınırlama bildiren \"Not only\" cümle başına geldiğinde devrik yapı (inversion) gerekir: Not only + yardımcı fiil + özne."),
+                Question("q3", "She is used to ______ up early.", listOf("get", "got", "getting", "gets"), 2, "\"be used to\" alışkanlık bildirir ve ardından fiil-ing gelir (\"to\" burada mastar değil, edattır)."),
+                Question("q4", "I look forward to ______ from you soon.", listOf("hear", "hearing", "heard", "to hear"), 1, "\"look forward to\" ifadesinde \"to\" edattır, ardından fiil-ing gelir."),
+                Question("q5", "Despite ______ hard, he failed the exam.", listOf("study", "studied", "to study", "studying"), 3, "\"despite\" bir edattır ve ardından fiil-ing (gerund) gelir."),
+                Question("q6", "Neither the manager nor the employees ______ satisfied with the results.", listOf("was", "were", "is", "has been"), 1, "\"Neither...nor\" yapısında fiil, özneye en yakın olan isme (employees, çoğul) göre çekimlenir."),
+                Question("q7", "He denied ______ the money.", listOf("to steal", "stealing", "steal", "stolen"), 1, "\"deny\" fiilinden sonra gerund (fiil-ing) gelir, \"to\" mastarı değil."),
+                Question("q8", "It's high time you ______ your responsibilities seriously.", listOf("take", "took", "will take", "have taken"), 1, "\"It's (high) time + özne\" yapısından sonra Past Simple gelir; anlam şimdiki/gelecek zamana aittir ama biçim geçmiştir."),
+                Question("q9", "Hardly ______ the show started when the lights went out.", listOf("has", "had", "did", "was"), 1, "\"Hardly...when\" yapısında devrik yapı ve Past Perfect kullanılır: Hardly had + özne + past participle."),
+                Question("q10", "The more you practice, ______ you become.", listOf("better", "the better", "best", "the best"), 1, "\"The + comparative..., the + comparative...\" paralel karşılaştırma yapısı: bir şey arttıkça diğeri de artar/değişir.")
             )
         )
     )

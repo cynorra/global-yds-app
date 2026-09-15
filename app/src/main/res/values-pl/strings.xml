@@ -114,9 +114,12 @@
     <string name="mistakes_box_desc">%1$d pytanie/pytań do powtórki dzisiaj!</string>
     <string name="micro_exam_title">Mikro Egzamin</string>
     <string name="micro_exam_desc">Szybka runda ćwiczeniowa z 8 pytań</string>
+    <string name="weak_area_not_attempted">💡 Temat jeszcze nie sprawdzony: %1$s</string>
+    <string name="weak_area_low_score">💡 Skup się na tym temacie: %1$s (%%%2$d)</string>
     <string name="result_blank">Bez odpowiedzi</string>
     <string name="result_your_answer">Twoja odpowiedź: %1$s</string>
     <string name="result_correct_answer">Poprawna odpowiedź: %1$s</string>
+    <string name="result_explanation">Dlaczego: %1$s</string>
     <string name="profile_language">Język</string>
     <string name="daily_exam_title">Egzamin Dnia (%1$s)</string>
     <string name="dialog_language_title">Wybierz język</string>
