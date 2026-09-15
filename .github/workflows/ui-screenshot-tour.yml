@@ -55,9 +55,7 @@ jobs:
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
             ./gradlew installDebug --no-daemon --stacktrace
-            ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace \
-              -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" \
-              -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
+            ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
             mkdir -p screenshots
             adb pull /sdcard/Android/data/com.cynorra.vocabmaster.app/files/screens screenshots || true
             ls -la screenshots || true
