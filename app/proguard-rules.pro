@@ -1,6 +1,3 @@
--dontoptimize
--dontobfuscate
-
 # Keep models and entities
 -keepclassmembers class * {
     @com.google.gson.annotations.SerializedName <fields>;

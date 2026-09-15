@@ -19,6 +19,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.UserMessagingPlatform;
@@ -132,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
      * the no-consent-flow behavior.
      */
     private void initializeAds() {
+        if (com.vocabmaster.app.BuildConfig.DEBUG) {
+            // Prevents the dev's own device from serving/clicking live ads during testing -
+            // the #1 cause of AdMob account suspension. Get this device's hash from the
+            // "Use RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList(...))" line
+            // logcat prints the first time a real ad request is made on it.
+            MobileAds.setRequestConfiguration(new RequestConfiguration.Builder()
+                    .setTestDeviceIds(java.util.Collections.singletonList("ADD_YOUR_TEST_DEVICE_ID_HERE"))
+                    .build());
+        }
         if (!GDPR_CONSENT_ENABLED) {
             MobileAds.initialize(this, initializationStatus -> {});
             loadBannerAd();

@@ -21,6 +21,7 @@ public class HomeFragment extends Fragment {
     private ShimmerLayout shimmerLayout;
     private RecyclerView rvModules;
     private KenBurnsView kbvHeader;
+    private final Handler loadHandler = new Handler(android.os.Looper.getMainLooper());
 
     public HomeFragment() {
         // Required empty public constructor
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
 
 
         // Simulate network request loading time
-        new Handler().postDelayed(() -> {
+        loadHandler.postDelayed(() -> {
             if (isAdded() && shimmerLayout != null) {
                 shimmerLayout.stopShimmerAnimation();
                 shimmerLayout.setVisibility(View.GONE);
@@ -103,5 +104,11 @@ public class HomeFragment extends Fragment {
                     super.onTargetClick(view);
                 }
             });
+    }
+
+    @Override
+    public void onDestroyView() {
+        loadHandler.removeCallbacksAndMessages(null);
+        super.onDestroyView();
     }
 }

@@ -24,9 +24,11 @@ class AccountSettingsActivity : AppCompatActivity() {
             if (email.isNullOrEmpty()) return@setOnClickListener
             auth.sendPasswordResetEmail(email)
                 .addOnSuccessListener {
+                    if (isFinishing || isDestroyed) return@addOnSuccessListener
                     Snackbar.make(root, getString(R.string.account_change_password_sent), Snackbar.LENGTH_LONG).show()
                 }
                 .addOnFailureListener {
+                    if (isFinishing || isDestroyed) return@addOnFailureListener
                     Snackbar.make(root, getString(R.string.error_generic_title), Snackbar.LENGTH_LONG).show()
                 }
         }
