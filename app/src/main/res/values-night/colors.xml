@@ -22,4 +22,12 @@
     <color name="colorOnWarning">#451A03</color>
 
     <color name="surfaceElevated">#1E2029</color>
+
+    <!-- Low-opacity brand tint used behind a screen-header icon badge. -->
+    <color name="circleIconBg">#262A3D</color>
+
+    <!-- "Danger container" pair for the Mistakes Box card - a soft tint, not the solid
+         colorError/colorOnError pairing meant for buttons/alerts. -->
+    <color name="errorContainerBg">#3A2020</color>
+    <color name="onErrorContainer">#FCA5A5</color>
 </resources>

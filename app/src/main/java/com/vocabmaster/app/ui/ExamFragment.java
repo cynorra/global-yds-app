@@ -22,7 +22,9 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.vocabmaster.app.ExamTakingActivity;
+import com.vocabmaster.app.PremiumActivity;
 import com.vocabmaster.app.R;
+import com.vocabmaster.app.data.billing.BillingManager;
 import com.vocabmaster.app.data.remote.RetrofitClient;
 import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl;
 import com.vocabmaster.app.domain.repository.ExamRepository;
@@ -42,9 +44,14 @@ public class ExamFragment extends Fragment {
     
     private MaterialCardView cardMistakes;
     private TextView tvMistakesCount;
+    private ImageView ivMistakesLock;
 
     private final ActivityResultLauncher<Intent> examTakingLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> examViewModel.loadExams());
+
+    private boolean isPremium() {
+        return Boolean.TRUE.equals(BillingManager.isPremium().getValue());
+    }
 
     public ExamFragment() {
         // Required empty public constructor
@@ -69,7 +76,11 @@ public class ExamFragment extends Fragment {
         emptyStateRetry = view.findViewById(R.id.btnEmptyStateRetry);
         cardMistakes = view.findViewById(R.id.cardMistakes);
         tvMistakesCount = view.findViewById(R.id.tvMistakesCount);
+        ivMistakesLock = view.findViewById(R.id.ivMistakesLock);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        BillingManager.isPremium().observe(getViewLifecycleOwner(), isPremium ->
+                ivMistakesLock.setVisibility(isPremium ? View.GONE : View.VISIBLE));
 
         ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.INSTANCE.getApi());
 
@@ -85,6 +96,10 @@ public class ExamFragment extends Fragment {
         emptyStateRetry.setOnClickListener(v -> examViewModel.loadExams());
 
         cardMistakes.setOnClickListener(v -> {
+            if (!isPremium()) {
+                startActivity(PremiumActivity.createIntent(requireContext()));
+                return;
+            }
             Intent intent = ExamTakingActivity.createIntent(requireContext(), "MISTAKES", getString(R.string.mistakes_box_title));
             examTakingLauncher.launch(intent);
         });
@@ -133,8 +148,13 @@ public class ExamFragment extends Fragment {
             emptyStateRoot.setVisibility(View.GONE);
             rvExams.setVisibility(View.VISIBLE);
 
-            ExamAdapter adapter = new ExamAdapter(state.getItems(), exam ->
-                    examTakingLauncher.launch(ExamTakingActivity.createIntent(requireContext(), exam.getId(), exam.getTitle())));
+            ExamAdapter adapter = new ExamAdapter(state.getItems(), exam -> {
+                if (exam.getId().startsWith("exam-daily") && !isPremium()) {
+                    startActivity(PremiumActivity.createIntent(requireContext()));
+                    return;
+                }
+                examTakingLauncher.launch(ExamTakingActivity.createIntent(requireContext(), exam.getId(), exam.getTitle(), exam.getDurationMinutes()));
+            });
             rvExams.setAdapter(adapter);
         });
 

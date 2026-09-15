@@ -1,5 +1,7 @@
 package com.vocabmaster.app.ui.viewmodels
 
+import android.util.Log
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +22,11 @@ class LeaderboardViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
+    // One-shot error signal (not sticky state): the Fragment shows it once as a Snackbar and
+    // clears it, so re-observing on rotation doesn't replay a stale error.
+    private val _error = MutableLiveData<String?>()
+    val error: LiveData<String?> get() = _error
+
     fun fetchLeaderboard() {
         _isLoading.value = true
         viewModelScope.launch {
@@ -29,14 +36,25 @@ class LeaderboardViewModel : ViewModel() {
                     .limit(50)
                     .get()
                     .await()
-                
+
                 val userList = snapshot.documents.mapNotNull { it.toObject(LeaderboardUser::class.java) }
                 _users.value = userList
             } catch (e: Exception) {
+                Log.w(TAG, "fetchLeaderboard failed", e)
+                FirebaseCrashlytics.getInstance().recordException(e)
                 _users.value = emptyList()
+                _error.value = e.message
             } finally {
                 _isLoading.value = false
             }
         }
+    }
+
+    fun errorShown() {
+        _error.value = null
+    }
+
+    companion object {
+        private const val TAG = "LeaderboardViewModel"
     }
 }

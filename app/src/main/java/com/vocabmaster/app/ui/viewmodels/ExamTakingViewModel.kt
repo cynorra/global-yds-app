@@ -37,7 +37,7 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
     private val _resultDetails = MutableLiveData<List<ExamResultDetail>>()
     val resultDetails: LiveData<List<ExamResultDetail>> get() = _resultDetails
 
-    fun loadQuestions(examId: String, examTitle: String) {
+    fun loadQuestions(examId: String, examTitle: String, durationMinutes: Int) {
         this.examTitle = examTitle
         this.currentExamId = examId
         viewModelScope.launch {
@@ -45,7 +45,7 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
             _totalQuestions.value = questions.size
             _currentIndex.value = 0
             _currentQuestion.value = questions.firstOrNull()
-            startTimer(15 * 60) // 15 minutes
+            startTimer(durationMinutes * 60)
         }
     }
 

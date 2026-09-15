@@ -23,7 +23,7 @@ class ExamTakingViewModelTest {
     private fun viewModelWithLoadedQuestions(repository: FakeExamRepository): ExamTakingViewModel {
         repository.questionsByExamId = mapOf("exam-1" to questions)
         val viewModel = ExamTakingViewModel(repository)
-        viewModel.loadQuestions("exam-1", "Tenses")
+        viewModel.loadQuestions("exam-1", "Tenses", durationMinutes = 15)
         return viewModel
     }
 

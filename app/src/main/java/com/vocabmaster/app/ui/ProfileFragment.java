@@ -26,14 +26,15 @@ import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl;
 import com.vocabmaster.app.data.repository.RealVocabularyRepositoryImpl;
 import com.vocabmaster.app.domain.repository.ExamRepository;
 import com.vocabmaster.app.domain.repository.VocabularyRepository;
+import com.vocabmaster.app.ui.adapters.AchievementAdapter;
 import com.vocabmaster.app.ui.viewmodels.ProfileStats;
 import com.vocabmaster.app.ui.viewmodels.ProfileViewModel;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.components.XAxis;
-import android.graphics.Color;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public class ProfileFragment extends Fragment {
 
     private LineChart chart;
     private TextView tvNoExamsYet;
+    private RecyclerView rvAchievements;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -59,6 +61,8 @@ public class ProfileFragment extends Fragment {
 
         chart = view.findViewById(R.id.progressChart);
         tvNoExamsYet = view.findViewById(R.id.tvNoExamsYet);
+        rvAchievements = view.findViewById(R.id.rvAchievements);
+        rvAchievements.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 
         bindUserInfo(view);
 
@@ -75,12 +79,19 @@ public class ProfileFragment extends Fragment {
             @Override
             @SuppressWarnings("unchecked")
             public <T extends androidx.lifecycle.ViewModel> T create(@NonNull Class<T> modelClass) {
-                return (T) new ProfileViewModel(vocabularyRepository, examRepository);
+                return (T) new ProfileViewModel(vocabularyRepository, examRepository, FirebaseFirestore.getInstance());
             }
         }).get(ProfileViewModel.class);
 
         viewModel.getStats().observe(getViewLifecycleOwner(), this::bindStats);
         viewModel.loadStats();
+
+        view.findViewById(R.id.tvManagePremium).setOnClickListener(v ->
+                startActivity(com.vocabmaster.app.PremiumActivity.createIntent(requireContext())));
+
+        com.vocabmaster.app.data.billing.BillingManager.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
+            view.findViewById(R.id.tvPremiumBadge).setVisibility(isPremium ? View.VISIBLE : View.GONE);
+        });
 
         view.findViewById(R.id.tvAccountSettings).setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), com.vocabmaster.app.AccountSettingsActivity.class)));
@@ -135,9 +146,15 @@ public class ProfileFragment extends Fragment {
     private void bindStats(ProfileStats stats) {
         TextView tvWordsCount = requireView().findViewById(R.id.tvWordsCount);
         TextView tvExamsCount = requireView().findViewById(R.id.tvExamsCount);
+        TextView tvLevel = requireView().findViewById(R.id.tvLevel);
+        TextView tvStreak = requireView().findViewById(R.id.tvStreak);
 
         tvWordsCount.setText(String.valueOf(stats.getLearnedWordsCount()));
         tvExamsCount.setText(String.valueOf(stats.getCompletedExamScores().size()));
+        tvLevel.setText(String.valueOf(stats.getLevel()));
+        tvStreak.setText(String.valueOf(stats.getCurrentStreak()));
+
+        rvAchievements.setAdapter(new AchievementAdapter(stats.getAchievements()));
 
         setupChart(chart, stats.getCompletedExamScores());
     }
@@ -156,17 +173,21 @@ public class ProfileFragment extends Fragment {
             entries.add(new Entry(i + 1f, scores.get(i)));
         }
 
+        int brandColor = androidx.core.content.ContextCompat.getColor(requireContext(), R.color.colorPrimary);
+        int accentColor = androidx.core.content.ContextCompat.getColor(requireContext(), R.color.colorAccent);
+
         LineDataSet dataSet = new LineDataSet(entries, getString(R.string.exam_result_label));
-        dataSet.setColor(Color.parseColor("#6200EE"));
-        dataSet.setCircleColor(Color.parseColor("#6200EE"));
+        dataSet.setColor(brandColor);
+        dataSet.setCircleColor(brandColor);
         dataSet.setLineWidth(3f);
         dataSet.setCircleRadius(5f);
         dataSet.setDrawValues(false);
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-        // Premium gradient fill
+        // Gradient fill using the app's own brand colors, not the generic Material purple this
+        // chart-library boilerplate shipped with.
         dataSet.setDrawFilled(true);
-        dataSet.setFillColor(Color.parseColor("#BB86FC"));
+        dataSet.setFillColor(accentColor);
         dataSet.setFillAlpha(100);
 
         LineData lineData = new LineData(dataSet);

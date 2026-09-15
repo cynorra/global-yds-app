@@ -15,21 +15,28 @@ import com.vocabmaster.app.ui.ProfileFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.UserMessagingPlatform;
+import com.vocabmaster.app.data.billing.BillingManager;
+import com.vocabmaster.app.data.remote.RemoteConfigManager;
+
+import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_OPEN_TAB = "extra_open_tab";
     public static final String TAB_VOCABULARY = "vocabulary";
 
-    // GDPR/UK consent (Google User Messaging Platform) flow. Currently off: ads load the same
-    // way they always have, no consent form is ever shown. Flip this to true (no other changes
-    // needed) if Google flags a consent policy warning for this app in the AdMob console.
-    private static final boolean GDPR_CONSENT_ENABLED = false;
+    // GDPR/UK consent (Google User Messaging Platform) flow. When true, defers ad init until
+    // Google's UMP SDK has resolved consent (shows an EEA/UK consent form only where legally
+    // required) before loading any ads.
+    private static final boolean GDPR_CONSENT_ENABLED = true;
 
     private BottomNavigationView bottomNav;
     private AdView adView;
@@ -45,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottomNav);
 
         adView = findViewById(R.id.adView);
+
+        BillingManager.initialize(this);
+        RemoteConfigManager.INSTANCE.initialize();
+        BillingManager.isPremium().observe(this, isPremium -> {
+            adView.setVisibility(isPremium ? View.GONE : View.VISIBLE);
+        });
         initializeAds();
 
         // Load Home Fragment by default, unless we were opened via a deep link (e.g. a reminder notification)
@@ -70,8 +83,12 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new ExamFragment());
                 return true;
             } else if (id == R.id.nav_leaderboard) {
-                loadFragment(new LeaderboardFragment());
-                return true;
+                if (Boolean.TRUE.equals(BillingManager.isPremium().getValue())) {
+                    loadFragment(new LeaderboardFragment());
+                    return true;
+                }
+                startActivity(PremiumActivity.createIntent(this));
+                return false;
             } else if (id == R.id.nav_profile) {
                 loadFragment(new ProfileFragment());
                 return true;
@@ -101,15 +118,18 @@ public class MainActivity extends AppCompatActivity {
         if (adView != null) {
             adView.destroy();
         }
+        if (isFinishing()) {
+            BillingManager.endConnection();
+        }
         super.onDestroy();
     }
 
     /**
-     * When GDPR_CONSENT_ENABLED is false (default), behaves exactly as before this flow
-     * existed: initializes ads and loads the banner immediately, no consent form.
-     * When true, defers ad init until Google's UMP SDK has resolved consent (shows an EEA/UK
-     * consent form only where legally required); falls back to initializing ads anyway if the
-     * consent info request itself fails (e.g. offline), same as the no-consent-flow behavior.
+     * When GDPR_CONSENT_ENABLED is false, initializes ads and loads the banner immediately,
+     * no consent form. When true (default), defers ad init until Google's UMP SDK has resolved
+     * consent (shows an EEA/UK consent form only where legally required); falls back to
+     * initializing ads anyway if the consent info request itself fails (e.g. offline), same as
+     * the no-consent-flow behavior.
      */
     private void initializeAds() {
         if (!GDPR_CONSENT_ENABLED) {
@@ -138,6 +158,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadBannerAd() {
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(LoadAdError adError) {
+                Log.w("MainActivity", "Banner ad failed to load: " + adError.getMessage());
+            }
+        });
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
     }

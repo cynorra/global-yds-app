@@ -11,8 +11,10 @@ class FakeExamRepository : ExamRepository {
     var exams: Resource<List<Exam>> = Resource.Success(emptyList())
     var completedExams: Resource<List<ExamAttempt>> = Resource.Success(emptyList())
     var questionsByExamId: Map<String, List<Question>> = emptyMap()
+    var mistakes: List<Question> = emptyList()
 
     val submittedResults = mutableListOf<Triple<String, String, Int>>()
+    val removedMistakeIds = mutableListOf<String>()
 
     override suspend fun getAllExams(): Resource<List<Exam>> = exams
 
@@ -21,7 +23,13 @@ class FakeExamRepository : ExamRepository {
     override suspend fun getExamQuestions(examId: String): List<Question> =
         questionsByExamId[examId].orEmpty()
 
-    override suspend fun submitExamResult(examId: String, examTitle: String, score: Int) {
+    override suspend fun submitExamResult(examId: String, examTitle: String, score: Int, mistakes: List<Question>) {
         submittedResults.add(Triple(examId, examTitle, score))
+    }
+
+    override suspend fun getMistakes(): List<Question> = mistakes
+
+    override suspend fun removeMistake(questionId: String) {
+        removedMistakeIds.add(questionId)
     }
 }

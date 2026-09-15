@@ -103,4 +103,58 @@
     <!-- About -->
     <string name="about_description">O VocabMaster ajuda você a aprender vocabulário em inglês, dominar as regras de gramática e praticar com exames simulados realistas.</string>
     <string name="about_version">Versão %1$s</string>
+
+    <!-- Leaderboard / Daily Exam / Mistakes Box / Google Sign-In / Language Switcher -->
+    <string name="nav_leaderboard">Classificação</string>
+    <string name="leaderboard_title">Melhores Alunos</string>
+    <string name="leaderboard_subtitle">Compita e Melhore</string>
+    <string name="login_or_divider">OU</string>
+    <string name="login_google_button">Entrar com o Google</string>
+    <string name="mistakes_box_title">Caixa de Erros</string>
+    <string name="mistakes_box_desc">Você tem %1$d erros. Revise agora!</string>
+    <string name="result_blank">Deixado em branco</string>
+    <string name="result_your_answer">Sua resposta: %1$s</string>
+    <string name="result_correct_answer">Resposta correta: %1$s</string>
+    <string name="profile_language">Idioma</string>
+    <string name="daily_exam_title">Exame do Dia (%1$s)</string>
+    <string name="dialog_language_title">Selecionar idioma</string>
+    <string name="lang_english">Inglês</string>
+    <string name="lang_turkish">Turco</string>
+
+    <!-- Gamification -->
+    <string name="gamification_level_title">Nível</string>
+    <string name="gamification_streak_title">Sequência</string>
+    <string name="gamification_level_format">Nível %1$d</string>
+    <string name="gamification_streak_format">Sequência de %1$d dias</string>
+    <string name="gamification_xp_to_next_level">%1$d / %2$d XP para o próximo nível</string>
+    <string name="gamification_achievements_title">Conquistas</string>
+    <string name="achievement_first_word_title">Primeiro Passo</string>
+    <string name="achievement_first_word_desc">Aprenda sua primeira palavra</string>
+    <string name="achievement_words_25_title">Colecionador de Palavras</string>
+    <string name="achievement_words_25_desc">Aprenda 25 palavras</string>
+    <string name="achievement_words_100_title">Mestre do Vocabulário</string>
+    <string name="achievement_words_100_desc">Aprenda 100 palavras</string>
+    <string name="achievement_first_exam_title">Primeiro Exame</string>
+    <string name="achievement_first_exam_desc">Complete seu primeiro exame</string>
+    <string name="achievement_perfect_score_title">Perfeccionista</string>
+    <string name="achievement_perfect_score_desc">Obtenha 100% em um exame</string>
+    <string name="achievement_streak_3_title">Bom Começo</string>
+    <string name="achievement_streak_3_desc">Alcance uma sequência de 3 dias</string>
+    <string name="achievement_streak_7_title">Em Chamas</string>
+    <string name="achievement_streak_7_desc">Alcance uma sequência de 7 dias</string>
+
+    <!-- Premium paywall -->
+    <string name="premium_paywall_title">Desbloquear Premium</string>
+    <string name="premium_paywall_subtitle">Obtenha a experiência completa do VocabMaster</string>
+    <string name="premium_feature_leaderboard">Classificação Global</string>
+    <string name="premium_feature_daily_exam">Desafio do Exame do Dia</string>
+    <string name="premium_feature_mistakes_box">Caixa de Erros</string>
+    <string name="premium_feature_ad_free">Experiência Sem Anúncios</string>
+    <string name="premium_upgrade_button">Atualizar Agora</string>
+    <string name="premium_restore_button">Restaurar Compras</string>
+    <string name="premium_already_owned">Você já tem Premium!</string>
+    <string name="premium_purchase_unavailable">Compra temporariamente indisponível. Tente novamente mais tarde.</string>
+    <string name="premium_restore_none_found">Nenhuma compra anterior encontrada.</string>
+    <string name="premium_thanks">Obrigado por assinar o Premium!</string>
+    <string name="profile_manage_premium">Gerenciar Premium</string>
 </resources>

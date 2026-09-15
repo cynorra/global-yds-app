@@ -1,5 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.GlobalYDS" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Same Material3 parent as the light theme (values/themes.xml) so widgets (buttons, cards,
+         etc.) get identical default styling in both modes — a MaterialComponents parent here
+         previously caused dark-mode-only widget styling drift. -->
+    <style name="Theme.GlobalYDS" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
@@ -18,5 +21,8 @@
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+        <item name="android:fontFamily" tools:targetApi="o">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
     </style>
 </resources>

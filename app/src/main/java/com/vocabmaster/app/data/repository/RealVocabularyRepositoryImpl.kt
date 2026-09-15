@@ -8,6 +8,7 @@ import com.vocabmaster.app.data.remote.TranslationApi
 import com.vocabmaster.app.domain.Resource
 import com.vocabmaster.app.domain.models.Word
 import com.vocabmaster.app.domain.repository.VocabularyRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Locale
@@ -112,8 +113,12 @@ class RealVocabularyRepositoryImpl(
         }
     }
 
-    override suspend fun markWordAsLearned(wordId: String) = withContext(Dispatchers.IO) {
+    override suspend fun markWordAsLearned(wordId: String): Unit = withContext(Dispatchers.IO) {
         wordDao.markAsLearned(wordId)
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            GamificationRepository.recordDailyActivity(firestore, uid)
+        }
     }
 
     override suspend fun deleteWord(wordId: String) = withContext(Dispatchers.IO) {

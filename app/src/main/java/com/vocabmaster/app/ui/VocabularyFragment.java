@@ -117,6 +117,7 @@ public class VocabularyFragment extends Fragment {
                     state.getItems(),
                     word -> {
                         viewModel.markWordAsLearned(word.getId());
+                        com.vocabmaster.app.util.HapticUtils.tap(view);
                         Snackbar.make(view, getString(R.string.vocabulary_word_learned), Snackbar.LENGTH_SHORT).show();
                     },
                     word -> {

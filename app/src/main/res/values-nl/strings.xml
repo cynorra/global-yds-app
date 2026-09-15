@@ -103,4 +103,58 @@
     <!-- About -->
     <string name="about_description">VocabMaster helpt je Engelse woordenschat te leren, grammaticaregels onder de knie te krijgen en te oefenen met realistische proefexamens.</string>
     <string name="about_version">Versie %1$s</string>
+
+    <!-- Leaderboard / Daily Exam / Mistakes Box / Google Sign-In / Language Switcher -->
+    <string name="nav_leaderboard">Ranglijst</string>
+    <string name="leaderboard_title">Topleerlingen</string>
+    <string name="leaderboard_subtitle">Wedijver &amp; Verbeter</string>
+    <string name="login_or_divider">OF</string>
+    <string name="login_google_button">Inloggen met Google</string>
+    <string name="mistakes_box_title">Foutenmap</string>
+    <string name="mistakes_box_desc">Je hebt %1$d fouten. Bekijk ze nu!</string>
+    <string name="result_blank">Niet ingevuld</string>
+    <string name="result_your_answer">Jouw antwoord: %1$s</string>
+    <string name="result_correct_answer">Juiste antwoord: %1$s</string>
+    <string name="profile_language">Taal</string>
+    <string name="daily_exam_title">Examen van de Dag (%1$s)</string>
+    <string name="dialog_language_title">Taal selecteren</string>
+    <string name="lang_english">Engels</string>
+    <string name="lang_turkish">Turks</string>
+
+    <!-- Gamification -->
+    <string name="gamification_level_title">Niveau</string>
+    <string name="gamification_streak_title">Reeks</string>
+    <string name="gamification_level_format">Niveau %1$d</string>
+    <string name="gamification_streak_format">%1$d dagen op rij</string>
+    <string name="gamification_xp_to_next_level">%1$d / %2$d XP tot volgend niveau</string>
+    <string name="gamification_achievements_title">Prestaties</string>
+    <string name="achievement_first_word_title">Eerste Stap</string>
+    <string name="achievement_first_word_desc">Leer je eerste woord</string>
+    <string name="achievement_words_25_title">Woordenverzamelaar</string>
+    <string name="achievement_words_25_desc">Leer 25 woorden</string>
+    <string name="achievement_words_100_title">Woordenschatmeester</string>
+    <string name="achievement_words_100_desc">Leer 100 woorden</string>
+    <string name="achievement_first_exam_title">Eerste Examen</string>
+    <string name="achievement_first_exam_desc">Voltooi je eerste examen</string>
+    <string name="achievement_perfect_score_title">Perfectionist</string>
+    <string name="achievement_perfect_score_desc">Behaal 100% op een examen</string>
+    <string name="achievement_streak_3_title">Goede Start</string>
+    <string name="achievement_streak_3_desc">Bereik een reeks van 3 dagen</string>
+    <string name="achievement_streak_7_title">In Vuur</string>
+    <string name="achievement_streak_7_desc">Bereik een reeks van 7 dagen</string>
+
+    <!-- Premium paywall -->
+    <string name="premium_paywall_title">Ontgrendel Premium</string>
+    <string name="premium_paywall_subtitle">Beleef de volledige VocabMaster-ervaring</string>
+    <string name="premium_feature_leaderboard">Wereldwijde Ranglijst</string>
+    <string name="premium_feature_daily_exam">Dagelijkse Examenuitdaging</string>
+    <string name="premium_feature_mistakes_box">Foutenmap</string>
+    <string name="premium_feature_ad_free">Advertentievrije Ervaring</string>
+    <string name="premium_upgrade_button">Nu Upgraden</string>
+    <string name="premium_restore_button">Aankopen Herstellen</string>
+    <string name="premium_already_owned">Je hebt al Premium!</string>
+    <string name="premium_purchase_unavailable">Aankoop tijdelijk niet beschikbaar. Probeer het later opnieuw.</string>
+    <string name="premium_restore_none_found">Geen eerdere aankoop gevonden.</string>
+    <string name="premium_thanks">Bedankt dat je voor Premium hebt gekozen!</string>
+    <string name="profile_manage_premium">Premium Beheren</string>
 </resources>

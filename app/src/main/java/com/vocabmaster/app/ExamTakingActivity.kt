@@ -20,6 +20,8 @@ import com.vocabmaster.app.data.repository.FirebaseExamRepositoryImpl
 import com.vocabmaster.app.domain.models.Question
 import com.vocabmaster.app.ui.adapters.ExamResultAdapter
 import com.vocabmaster.app.ui.viewmodels.ExamTakingViewModel
+import com.vocabmaster.app.util.HapticUtils
+import com.vocabmaster.app.util.InterstitialAdManager
 
 class ExamTakingActivity : AppCompatActivity() {
 
@@ -52,6 +54,7 @@ class ExamTakingActivity : AppCompatActivity() {
 
         examId = intent.getStringExtra(EXTRA_EXAM_ID) ?: run { finish(); return }
         val examTitle = intent.getStringExtra(EXTRA_EXAM_TITLE).orEmpty()
+        val durationMinutes = intent.getIntExtra(EXTRA_EXAM_DURATION_MINUTES, DEFAULT_DURATION_MINUTES)
 
         findViewById<TextView>(R.id.tvExamTitle).text = examTitle
         tvQuestionCounter = findViewById(R.id.tvQuestionCounter)
@@ -82,9 +85,11 @@ class ExamTakingActivity : AppCompatActivity() {
             viewModel.goToNextQuestion(examId)
         }
 
+        InterstitialAdManager.preload(this)
+
         findViewById<MaterialButton>(R.id.btnFinish).setOnClickListener {
             setResult(Activity.RESULT_OK)
-            finish()
+            InterstitialAdManager.showIfReady(this) { finish() }
         }
 
         viewModel.currentQuestion.observe(this) { question ->
@@ -116,7 +121,7 @@ class ExamTakingActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.loadQuestions(examId, examTitle)
+        viewModel.loadQuestions(examId, examTitle, durationMinutes)
     }
 
     private fun bindQuestion(question: Question) {
@@ -135,9 +140,10 @@ class ExamTakingActivity : AppCompatActivity() {
         selectedButtonIndex = index
         viewModel.selectAnswer(index)
         btnNext.isEnabled = true
+        HapticUtils.tap(optionButtons[index])
         optionButtons.forEachIndexed { i, button ->
             if (i == index) {
-                button.setBackgroundColor(Color.parseColor("#4F46E5"))
+                button.setBackgroundColor(getColor(R.color.colorPrimary))
                 button.setTextColor(Color.WHITE)
             } else {
                 resetButtonStyle(button)
@@ -147,7 +153,7 @@ class ExamTakingActivity : AppCompatActivity() {
 
     private fun resetButtonStyle(button: MaterialButton) {
         button.setBackgroundColor(Color.TRANSPARENT)
-        button.setTextColor(Color.parseColor("#111827"))
+        button.setTextColor(getColor(R.color.textColorPrimary))
     }
 
     private fun updateCounter() {
@@ -164,26 +170,41 @@ class ExamTakingActivity : AppCompatActivity() {
         groupResult.visibility = android.view.View.VISIBLE
         tvScoreResult.text = getString(R.string.exam_score_format, scorePercent)
 
-        com.github.jinatonic.confetti.CommonConfetti.rainingConfetti(
-            findViewById<ViewGroup>(android.R.id.content),
-            intArrayOf(
-                Color.parseColor("#4F46E5"),
-                Color.parseColor("#10B981"),
-                Color.parseColor("#F59E0B"),
-                Color.parseColor("#EC4899")
-            )
-        ).oneShot()
+        // Only celebrate an actual pass; confetti on a 0-59% result reads as mocking rather
+        // than congratulating.
+        if (scorePercent >= PASSING_SCORE_PERCENT) {
+            HapticUtils.success(tvScoreResult)
+            com.github.jinatonic.confetti.CommonConfetti.rainingConfetti(
+                findViewById<ViewGroup>(android.R.id.content),
+                intArrayOf(
+                    getColor(R.color.colorPrimary),
+                    getColor(R.color.colorAccent),
+                    getColor(R.color.colorWarning),
+                    Color.parseColor("#EC4899")
+                )
+            ).oneShot()
+        }
     }
 
     companion object {
         private const val EXTRA_EXAM_ID = "extra_exam_id"
         private const val EXTRA_EXAM_TITLE = "extra_exam_title"
+        private const val EXTRA_EXAM_DURATION_MINUTES = "extra_exam_duration_minutes"
+        private const val DEFAULT_DURATION_MINUTES = 15
+        private const val PASSING_SCORE_PERCENT = 60
 
         @JvmStatic
-        fun createIntent(context: Context, examId: String, examTitle: String): Intent {
+        @JvmOverloads
+        fun createIntent(
+            context: Context,
+            examId: String,
+            examTitle: String,
+            durationMinutes: Int = DEFAULT_DURATION_MINUTES
+        ): Intent {
             val intent = Intent(context, ExamTakingActivity::class.java)
             intent.putExtra(EXTRA_EXAM_ID, examId)
             intent.putExtra(EXTRA_EXAM_TITLE, examTitle)
+            intent.putExtra(EXTRA_EXAM_DURATION_MINUTES, durationMinutes)
             return intent
         }
     }

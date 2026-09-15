@@ -10,9 +10,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
+import android.util.Log
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -37,7 +40,9 @@ class FirebaseExamRepositoryImpl(
     override suspend fun getAllExams(): Resource<List<Exam>> {
         return try {
             seedSampleExamsIfEmpty()
-            ensureDailyExam()
+            if (com.vocabmaster.app.data.remote.RemoteConfigManager.isDailyExamEnabled) {
+                ensureDailyExam()
+            }
             val exams = examsCollection.get().await().documents.mapNotNull { it.toObject(Exam::class.java) }
             // Sort so the daily exam is at the top
             val sortedExams = exams.sortedByDescending { it.id.startsWith("exam-daily") }
@@ -48,7 +53,13 @@ class FirebaseExamRepositoryImpl(
     }
 
     private suspend fun ensureDailyExam() {
-        val dateStr = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        // A fixed UTC calendar day, not the device's local day: the daily exam is a single
+        // Firestore document shared by every user, so it must roll over at the same real-world
+        // instant for everyone rather than at each user's local midnight.
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US).apply {
+            timeZone = TimeZone.getTimeZone("UTC")
+        }
+        val dateStr = dateFormat.format(Date())
         val dailyId = "exam-daily-$dateStr"
         
         val exists = examsCollection.document(dailyId).get().await().exists()
@@ -184,8 +195,12 @@ class FirebaseExamRepositoryImpl(
                     mistakesCol.document(question.id).set(question).await()
                 }
             }
+
+            GamificationRepository.recordDailyActivity(firestore, uid)
         } catch (e: Exception) {
             // Swallow network/Firestore errors; caller can retry the submission later.
+            Log.w(TAG, "submitExamResult failed for exam=$examId", e)
+            FirebaseCrashlytics.getInstance().recordException(e)
         }
     }
 
@@ -206,6 +221,8 @@ class FirebaseExamRepositoryImpl(
             firestore.collection("users").document(uid).collection("mistakes")
                 .document(questionId).delete().await()
         } catch (e: Exception) {
+            Log.w(TAG, "removeMistake failed for question=$questionId", e)
+            FirebaseCrashlytics.getInstance().recordException(e)
         }
     }
 
@@ -331,5 +348,6 @@ class FirebaseExamRepositoryImpl(
 
     companion object {
         private const val TITLE_COLLECTION = "exam_titles"
+        private const val TAG = "FirebaseExamRepo"
     }
 }

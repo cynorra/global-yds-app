@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.vocabmaster.app.R
 import com.vocabmaster.app.ui.adapters.LeaderboardAdapter
 import com.vocabmaster.app.ui.viewmodels.LeaderboardViewModel
@@ -45,6 +46,15 @@ class LeaderboardFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { message ->
+            if (message != null) {
+                Snackbar.make(view, R.string.error_generic_subtitle, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.action_retry) { viewModel.fetchLeaderboard() }
+                    .show()
+                viewModel.errorShown()
+            }
         }
 
         viewModel.fetchLeaderboard()
