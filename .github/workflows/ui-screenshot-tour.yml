@@ -30,7 +30,9 @@ jobs:
       - name: Free disk space
         run: |
           echo "Before:" && df -h /
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk/ndk /opt/ghc /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          # Deliberately NOT touching $AGENT_TOOLSDIRECTORY (/opt/hostedtoolcache) -
+          # that's where actions/setup-java just installed the JDK sdkmanager needs.
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk/ndk /opt/ghc /usr/local/share/boost || true
           sudo docker image prune --all --force || true
           echo "After:" && df -h /
 
