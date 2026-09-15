@@ -8,12 +8,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:129460323433:android:127c57aa207e917b498ef8",
+        "mobilesdk_app_id": "1:129460323433:android:5a49e2523d21b7a7498ef8",
         "android_client_info": {
           "package_name": "com.cynorra.vocabmaster.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "129460323433-8tjb2hg6m04vn3pt22shc744mdmp18ua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cynorra.vocabmaster.app",
+            "certificate_hash": "842473485a722d0cf94adecd9025de350967d579"
+          }
+        },
+        {
+          "client_id": "129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAysczGPLwix9UL4kWrIPVeLfCm2NbW3VM"
@@ -21,7 +34,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129460323433:android:127c57aa207e917b498ef8",
+        "android_client_info": {
+          "package_name": "com.vocabmaster.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAysczGPLwix9UL4kWrIPVeLfCm2NbW3VM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
