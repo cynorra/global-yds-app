@@ -45,6 +45,9 @@ public class ExamFragment extends Fragment {
     private MaterialCardView cardMistakes;
     private TextView tvMistakesCount;
     private ImageView ivMistakesLock;
+    private MaterialCardView cardMicroExam;
+
+    private static final int MICRO_EXAM_DURATION_MINUTES = 6;
 
     private final ActivityResultLauncher<Intent> examTakingLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> examViewModel.loadExams());
@@ -77,6 +80,7 @@ public class ExamFragment extends Fragment {
         cardMistakes = view.findViewById(R.id.cardMistakes);
         tvMistakesCount = view.findViewById(R.id.tvMistakesCount);
         ivMistakesLock = view.findViewById(R.id.ivMistakesLock);
+        cardMicroExam = view.findViewById(R.id.cardMicroExam);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
 
         BillingManager.isPremium().observe(getViewLifecycleOwner(), isPremium ->
@@ -94,6 +98,11 @@ public class ExamFragment extends Fragment {
         }).get(ExamViewModel.class);
 
         emptyStateRetry.setOnClickListener(v -> examViewModel.loadExams());
+
+        cardMicroExam.setOnClickListener(v -> {
+            Intent intent = ExamTakingActivity.createIntent(requireContext(), "MICRO", getString(R.string.micro_exam_title), MICRO_EXAM_DURATION_MINUTES);
+            examTakingLauncher.launch(intent);
+        });
 
         cardMistakes.setOnClickListener(v -> {
             if (!isPremium()) {

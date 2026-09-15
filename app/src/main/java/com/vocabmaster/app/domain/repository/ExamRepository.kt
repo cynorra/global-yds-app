@@ -11,5 +11,5 @@ interface ExamRepository {
     suspend fun getExamQuestions(examId: String): List<Question>
     suspend fun submitExamResult(examId: String, examTitle: String, score: Int, mistakes: List<Question>)
     suspend fun getMistakes(): List<Question>
-    suspend fun removeMistake(questionId: String)
+    suspend fun recordMistakeReview(questionId: String, wasCorrect: Boolean)
 }

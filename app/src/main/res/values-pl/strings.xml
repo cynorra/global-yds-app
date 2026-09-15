@@ -111,7 +111,9 @@
     <string name="login_or_divider">LUB</string>
     <string name="login_google_button">Zaloguj się przez Google</string>
     <string name="mistakes_box_title">Skrzynka Błędów</string>
-    <string name="mistakes_box_desc">Masz %1$d błędów. Przejrzyj teraz!</string>
+    <string name="mistakes_box_desc">%1$d pytanie/pytań do powtórki dzisiaj!</string>
+    <string name="micro_exam_title">Mikro Egzamin</string>
+    <string name="micro_exam_desc">Szybka runda ćwiczeniowa z 8 pytań</string>
     <string name="result_blank">Bez odpowiedzi</string>
     <string name="result_your_answer">Twoja odpowiedź: %1$s</string>
     <string name="result_correct_answer">Poprawna odpowiedź: %1$s</string>

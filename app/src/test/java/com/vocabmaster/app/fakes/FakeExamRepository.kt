@@ -14,7 +14,7 @@ class FakeExamRepository : ExamRepository {
     var mistakes: List<Question> = emptyList()
 
     val submittedResults = mutableListOf<Triple<String, String, Int>>()
-    val removedMistakeIds = mutableListOf<String>()
+    val mistakeReviews = mutableListOf<Pair<String, Boolean>>()
 
     override suspend fun getAllExams(): Resource<List<Exam>> = exams
 
@@ -29,7 +29,7 @@ class FakeExamRepository : ExamRepository {
 
     override suspend fun getMistakes(): List<Question> = mistakes
 
-    override suspend fun removeMistake(questionId: String) {
-        removedMistakeIds.add(questionId)
+    override suspend fun recordMistakeReview(questionId: String, wasCorrect: Boolean) {
+        mistakeReviews.add(questionId to wasCorrect)
     }
 }

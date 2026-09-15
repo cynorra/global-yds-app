@@ -111,7 +111,9 @@
     <string name="login_or_divider">OF</string>
     <string name="login_google_button">Inloggen met Google</string>
     <string name="mistakes_box_title">Foutenmap</string>
-    <string name="mistakes_box_desc">Je hebt %1$d fouten. Bekijk ze nu!</string>
+    <string name="mistakes_box_desc">%1$d vraag/vragen klaar om vandaag te herhalen!</string>
+    <string name="micro_exam_title">Micro-examen</string>
+    <string name="micro_exam_desc">Een snelle oefenronde met 8 vragen</string>
     <string name="result_blank">Niet ingevuld</string>
     <string name="result_your_answer">Jouw antwoord: %1$s</string>
     <string name="result_correct_answer">Juiste antwoord: %1$s</string>

@@ -111,7 +111,9 @@
     <string name="login_or_divider">ИЛИ</string>
     <string name="login_google_button">Войти через Google</string>
     <string name="mistakes_box_title">Ошибки</string>
-    <string name="mistakes_box_desc">У вас %1$d ошибок. Повторите сейчас!</string>
+    <string name="mistakes_box_desc">%1$d вопрос(ов) готовы к повторению сегодня!</string>
+    <string name="micro_exam_title">Мини-тест</string>
+    <string name="micro_exam_desc">Быстрый раунд практики из 8 вопросов</string>
     <string name="result_blank">Оставлено пустым</string>
     <string name="result_your_answer">Ваш ответ: %1$s</string>
     <string name="result_correct_answer">Правильный ответ: %1$s</string>

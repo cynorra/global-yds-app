@@ -111,7 +111,9 @@
     <string name="login_or_divider">OU</string>
     <string name="login_google_button">Entrar com o Google</string>
     <string name="mistakes_box_title">Caixa de Erros</string>
-    <string name="mistakes_box_desc">Você tem %1$d erros. Revise agora!</string>
+    <string name="mistakes_box_desc">%1$d pergunta(s) para revisar hoje!</string>
+    <string name="micro_exam_title">Micro Exame</string>
+    <string name="micro_exam_desc">Uma rodada rápida de prática com 8 perguntas</string>
     <string name="result_blank">Deixado em branco</string>
     <string name="result_your_answer">Sua resposta: %1$s</string>
     <string name="result_correct_answer">Resposta correta: %1$s</string>

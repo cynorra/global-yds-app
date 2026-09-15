@@ -106,4 +106,45 @@ class ExamTakingViewModelTest {
 
         assertEquals(66, viewModel.finalScorePercent.value)
     }
+
+    @Test
+    fun `finishing a Mistakes Box review records per-question outcomes instead of submitting an exam result`() {
+        val repository = FakeExamRepository()
+        repository.questionsByExamId = mapOf("MISTAKES" to questions)
+        val viewModel = ExamTakingViewModel(repository)
+        viewModel.loadQuestions("MISTAKES", "Mistakes Box", durationMinutes = 15)
+
+        viewModel.selectAnswer(1) // correct for q1
+        viewModel.goToNextQuestion("MISTAKES")
+        viewModel.selectAnswer(1) // wrong for q2 (correct is 0)
+        viewModel.goToNextQuestion("MISTAKES")
+        viewModel.selectAnswer(0) // correct for q3
+        viewModel.goToNextQuestion("MISTAKES")
+
+        assertTrue(repository.submittedResults.isEmpty())
+        assertEquals(
+            setOf("q1" to true, "q2" to false, "q3" to true),
+            repository.mistakeReviews.toSet()
+        )
+    }
+
+    @Test
+    fun `finishing a Micro Exam submits under a unique id so score history isn't overwritten`() {
+        val repository = FakeExamRepository()
+        repository.questionsByExamId = mapOf("MICRO" to questions)
+        val viewModel = ExamTakingViewModel(repository)
+        viewModel.loadQuestions("MICRO", "Micro Exam", durationMinutes = 6)
+
+        viewModel.selectAnswer(1) // correct
+        viewModel.goToNextQuestion("MICRO")
+        viewModel.selectAnswer(0) // correct
+        viewModel.goToNextQuestion("MICRO")
+        viewModel.selectAnswer(0) // correct
+        viewModel.goToNextQuestion("MICRO")
+
+        val (examId, title, score) = repository.submittedResults.single()
+        assertTrue(examId.startsWith("micro-"))
+        assertEquals("Micro Exam", title)
+        assertEquals(100, score)
+    }
 }

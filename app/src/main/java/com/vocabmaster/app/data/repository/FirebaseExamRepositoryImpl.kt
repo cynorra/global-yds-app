@@ -157,6 +157,7 @@ class FirebaseExamRepositoryImpl(
 
     override suspend fun getExamQuestions(examId: String): List<Question> {
         if (examId == "MISTAKES") return getMistakes()
+        if (examId == "MICRO") return getMicroExamQuestions()
         return try {
             examsCollection.document(examId).collection("questions").get().await()
                 .documents.mapNotNull { it.toObject(Question::class.java) }
@@ -191,8 +192,20 @@ class FirebaseExamRepositoryImpl(
 
             if (mistakes.isNotEmpty()) {
                 val mistakesCol = firestore.collection("users").document(uid).collection("mistakes")
+                val nextReviewAt = System.currentTimeMillis() + REVIEW_INTERVAL_FIRST_MS
                 mistakes.forEach { question ->
-                    mistakesCol.document(question.id).set(question).await()
+                    mistakesCol.document(question.id).set(
+                        mapOf(
+                            "id" to question.id,
+                            "text" to question.text,
+                            "options" to question.options,
+                            "correctOptionIndex" to question.correctOptionIndex,
+                            "correctStreak" to 0,
+                            "nextReviewAt" to nextReviewAt,
+                            "wrongCount" to FieldValue.increment(1)
+                        ),
+                        SetOptions.merge()
+                    ).await()
                 }
             }
 
@@ -204,27 +217,67 @@ class FirebaseExamRepositoryImpl(
         }
     }
 
+    // Spaced-repetition mistake review: only surfaces questions whose nextReviewAt has come due
+    // (legacy mistake docs written before this field existed default to 0L, i.e. immediately
+    // due), soonest-due first.
     override suspend fun getMistakes(): List<Question> {
         val uid = currentUserId ?: return emptyList()
         return try {
+            val now = System.currentTimeMillis()
             firestore.collection("users").document(uid).collection("mistakes")
                 .get().await()
-                .documents.mapNotNull { it.toObject(Question::class.java) }
+                .documents
+                .filter { doc -> (doc.getLong("nextReviewAt") ?: 0L) <= now }
+                .sortedBy { doc -> doc.getLong("nextReviewAt") ?: 0L }
+                .mapNotNull { it.toObject(Question::class.java) }
         } catch (e: Exception) {
             emptyList()
         }
     }
 
-    override suspend fun removeMistake(questionId: String) {
+    // Called once per question after a Mistakes Box review session. Wrong again -> reset the
+    // streak and push the next review out to REVIEW_INTERVAL_FIRST_MS. Correct -> advance the
+    // streak; the first correct review reschedules for REVIEW_INTERVAL_SECOND_MS, the second
+    // correct review in a row means it's mastered and gets removed from the mistake bank.
+    override suspend fun recordMistakeReview(questionId: String, wasCorrect: Boolean) {
         val uid = currentUserId ?: return
+        val docRef = firestore.collection("users").document(uid).collection("mistakes").document(questionId)
         try {
-            firestore.collection("users").document(uid).collection("mistakes")
-                .document(questionId).delete().await()
+            if (!wasCorrect) {
+                docRef.set(
+                    mapOf(
+                        "correctStreak" to 0,
+                        "nextReviewAt" to (System.currentTimeMillis() + REVIEW_INTERVAL_FIRST_MS),
+                        "wrongCount" to FieldValue.increment(1)
+                    ),
+                    SetOptions.merge()
+                ).await()
+                return
+            }
+            val currentStreak = (docRef.get().await().getLong("correctStreak") ?: 0L).toInt()
+            val newStreak = currentStreak + 1
+            if (newStreak >= MASTERY_STREAK) {
+                docRef.delete().await()
+            } else {
+                docRef.set(
+                    mapOf(
+                        "correctStreak" to newStreak,
+                        "nextReviewAt" to (System.currentTimeMillis() + REVIEW_INTERVAL_SECOND_MS)
+                    ),
+                    SetOptions.merge()
+                ).await()
+            }
         } catch (e: Exception) {
-            Log.w(TAG, "removeMistake failed for question=$questionId", e)
+            Log.w(TAG, "recordMistakeReview failed for question=$questionId", e)
             FirebaseCrashlytics.getInstance().recordException(e)
         }
     }
+
+    // Quick-practice mode: a short, randomly sampled quiz pulled from the existing seed question
+    // bank, distinct from a full themed exam. A wrong answer here still lands in the mistake
+    // bank via the normal submitExamResult path, so it feeds the same spaced-repetition review.
+    private fun getMicroExamQuestions(): List<Question> =
+        seedExams.flatMap { it.questions }.shuffled().take(MICRO_EXAM_QUESTION_COUNT)
 
     // Seeds the shared exam question bank the first time the collection is empty, so the
     // exam-taking flow is demoable before a real question bank is populated. This is per-bank,
@@ -349,5 +402,9 @@ class FirebaseExamRepositoryImpl(
     companion object {
         private const val TITLE_COLLECTION = "exam_titles"
         private const val TAG = "FirebaseExamRepo"
+        private const val REVIEW_INTERVAL_FIRST_MS = 3L * 24 * 60 * 60 * 1000
+        private const val REVIEW_INTERVAL_SECOND_MS = 7L * 24 * 60 * 60 * 1000
+        private const val MASTERY_STREAK = 2
+        private const val MICRO_EXAM_QUESTION_COUNT = 8
     }
 }

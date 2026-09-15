@@ -98,10 +98,15 @@ class ExamTakingViewModel(private val repository: ExamRepository) : ViewModel() 
         }
         
         viewModelScope.launch {
-            if (examId == "MISTAKES") {
-                corrects.forEach { q -> repository.removeMistake(q.id) }
-            } else {
-                repository.submitExamResult(examId, examTitle, scorePercent, mistakes)
+            when (examId) {
+                "MISTAKES" -> {
+                    corrects.forEach { q -> repository.recordMistakeReview(q.id, wasCorrect = true) }
+                    mistakes.forEach { q -> repository.recordMistakeReview(q.id, wasCorrect = false) }
+                }
+                // Each micro-exam attempt gets its own id so results accumulate in the score
+                // history (e.g. the Profile progress chart) instead of overwriting one another.
+                "MICRO" -> repository.submitExamResult("micro-${System.currentTimeMillis()}", examTitle, scorePercent, mistakes)
+                else -> repository.submitExamResult(examId, examTitle, scorePercent, mistakes)
             }
             _resultDetails.value = details
             _finalScorePercent.value = scorePercent

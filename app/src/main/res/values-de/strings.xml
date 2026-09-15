@@ -111,7 +111,9 @@
     <string name="login_or_divider">ODER</string>
     <string name="login_google_button">Mit Google anmelden</string>
     <string name="mistakes_box_title">Fehlerbox</string>
-    <string name="mistakes_box_desc">Du hast %1$d Fehler. Jetzt wiederholen!</string>
+    <string name="mistakes_box_desc">%1$d Frage(n) heute fällig zur Wiederholung!</string>
+    <string name="micro_exam_title">Kurztest</string>
+    <string name="micro_exam_desc">Eine schnelle Übungsrunde mit 8 Fragen</string>
     <string name="result_blank">Nicht beantwortet</string>
     <string name="result_your_answer">Deine Antwort: %1$s</string>
     <string name="result_correct_answer">Richtige Antwort: %1$s</string>

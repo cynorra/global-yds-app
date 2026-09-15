@@ -112,7 +112,9 @@
 
     <!-- Mistakes Box & Report Card -->
     <string name="mistakes_box_title">Mistakes Box</string>
-    <string name="mistakes_box_desc">You have %1$d mistakes. Review now!</string>
+    <string name="mistakes_box_desc">%1$d question(s) ready to review today!</string>
+    <string name="micro_exam_title">Micro Exam</string>
+    <string name="micro_exam_desc">A quick 8-question practice round</string>
     <string name="result_blank">Left Blank</string>
     <string name="result_your_answer">Your Answer: %1$s</string>
     <string name="result_correct_answer">Correct Answer: %1$s</string>

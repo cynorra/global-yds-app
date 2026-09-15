@@ -29,6 +29,9 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
 
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest --no-daemon --stacktrace
+
       - name: Build release AAB
         env:
           RELEASE_KEYSTORE_PATH: ${{ runner.temp }}/release.keystore

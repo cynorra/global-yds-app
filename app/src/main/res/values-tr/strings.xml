@@ -113,7 +113,9 @@
 
     <!-- Mistakes Box & Report Card -->
     <string name="mistakes_box_title">Yanlışlar Kutusu</string>
-    <string name="mistakes_box_desc">Yanlış yaptığınız %1$d soru birikti. Şimdi tekrar et!</string>
+    <string name="mistakes_box_desc">Bugün tekrar etmen gereken %1$d soru var!</string>
+    <string name="micro_exam_title">Mikro Deneme</string>
+    <string name="micro_exam_desc">8 soruluk hızlı pratik turu</string>
     <string name="result_blank">Boş Bırakıldı</string>
     <string name="result_your_answer">Senin Cevabın: %1$s</string>
     <string name="result_correct_answer">Doğru Cevap: %1$s</string>
