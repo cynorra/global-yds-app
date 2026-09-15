@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.devtools.ksp'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -20,10 +21,28 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Populated from CI env vars (GitHub Actions secrets) when building a signed release bundle.
+    // Local debug builds never need these - signingConfigs.release is only touched by the
+    // release build type, and bundleRelease/assembleRelease are meant to run in CI, not locally.
+    def releaseStorePath = System.getenv("RELEASE_KEYSTORE_PATH")
+    if (releaseStorePath != null) {
+        signingConfigs {
+            release {
+                storeFile file(releaseStorePath)
+                storePassword System.getenv("RELEASE_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("RELEASE_KEY_ALIAS")
+                keyPassword System.getenv("RELEASE_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (releaseStorePath != null) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {
@@ -69,8 +88,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-config'
     implementation 'com.google.android.gms:play-services-auth:21.2.0'
     implementation 'com.google.android.gms:play-services-ads:23.1.0'
+    implementation 'com.android.billingclient:billing-ktx:7.1.1'
     // GDPR/UK consent flow (User Messaging Platform). Wired into MainActivity but disabled by
     // default via GDPR_CONSENT_ENABLED - flip that flag on if Google flags a policy warning.
     implementation 'com.google.android.ump:user-messaging-platform:4.0.0'
