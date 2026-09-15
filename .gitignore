@@ -34,3 +34,6 @@ app/build-failed-log.txt
 
 # Firebase CLI debug log
 firebase-debug.log
+
+# graphify knowledge-graph output (regenerate locally with /graphify)
+graphify-out/
