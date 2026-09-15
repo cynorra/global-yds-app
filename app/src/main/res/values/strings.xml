@@ -9,6 +9,7 @@
     <string name="nav_profile">Profile</string>
     
     <string name="leaderboard_title">Top Achievers</string>
+    <string name="leaderboard_subtitle">Compete &amp; Improve</string>
     
     <!-- Onboarding -->
     <string name="onboarding_1_title">Succeed in English</string>
@@ -30,7 +31,7 @@
     <string name="login_no_account">Don\'t have an account? Sign up</string>
     <string name="login_or_divider">OR</string>
     <string name="login_google_button">Sign in with Google</string>
-    <string name="default_web_client_id" translatable="false">129460323433-YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com</string>
 
     <!-- Register -->
     <string name="register_title">Create Account</string>
@@ -120,4 +121,41 @@
     <string name="dialog_language_title">Select Language</string>
     <string name="lang_english">English</string>
     <string name="lang_turkish">Türkçe</string>
+
+    <!-- Gamification -->
+    <string name="gamification_level_title">Level</string>
+    <string name="gamification_streak_title">Streak</string>
+    <string name="gamification_level_format">Level %1$d</string>
+    <string name="gamification_streak_format">%1$d day streak</string>
+    <string name="gamification_xp_to_next_level">%1$d / %2$d XP to next level</string>
+    <string name="gamification_achievements_title">Achievements</string>
+    <string name="achievement_first_word_title">First Step</string>
+    <string name="achievement_first_word_desc">Learn your first word</string>
+    <string name="achievement_words_25_title">Word Collector</string>
+    <string name="achievement_words_25_desc">Learn 25 words</string>
+    <string name="achievement_words_100_title">Vocabulary Master</string>
+    <string name="achievement_words_100_desc">Learn 100 words</string>
+    <string name="achievement_first_exam_title">Test Taker</string>
+    <string name="achievement_first_exam_desc">Complete your first exam</string>
+    <string name="achievement_perfect_score_title">Perfectionist</string>
+    <string name="achievement_perfect_score_desc">Score 100% on an exam</string>
+    <string name="achievement_streak_3_title">Getting Started</string>
+    <string name="achievement_streak_3_desc">Reach a 3-day study streak</string>
+    <string name="achievement_streak_7_title">On Fire</string>
+    <string name="achievement_streak_7_desc">Reach a 7-day study streak</string>
+
+    <!-- Premium paywall -->
+    <string name="premium_paywall_title">Unlock Premium</string>
+    <string name="premium_paywall_subtitle">Get the full VocabMaster experience</string>
+    <string name="premium_feature_leaderboard">Global Leaderboard</string>
+    <string name="premium_feature_daily_exam">Daily Exam Challenge</string>
+    <string name="premium_feature_mistakes_box">Mistakes Box</string>
+    <string name="premium_feature_ad_free">Ad-Free Experience</string>
+    <string name="premium_upgrade_button">Upgrade Now</string>
+    <string name="premium_restore_button">Restore Purchases</string>
+    <string name="premium_already_owned">You already own Premium!</string>
+    <string name="premium_purchase_unavailable">Purchase temporarily unavailable. Please try again later.</string>
+    <string name="premium_restore_none_found">No previous purchase found.</string>
+    <string name="premium_thanks">Thank you for going Premium!</string>
+    <string name="profile_manage_premium">Manage Premium</string>
 </resources>

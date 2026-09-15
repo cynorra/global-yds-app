@@ -10,6 +10,7 @@
     <string name="nav_profile">Profil</string>
     
     <string name="leaderboard_title">Şampiyonlar Ligi</string>
+    <string name="leaderboard_subtitle">Yarış ve Gelişim</string>
     
     <!-- Onboarding -->
     <string name="onboarding_1_title">İngilizcede Başarıya Ulaşın</string>
@@ -31,7 +32,7 @@
     <string name="login_no_account">Hesabın yok mu? Kayıt ol</string>
     <string name="login_or_divider">VEYA</string>
     <string name="login_google_button">Google ile Giriş Yap</string>
-    <string name="default_web_client_id" translatable="false">129460323433-YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com</string>
 
     <!-- Register -->
     <string name="register_title">Hesap Oluştur</string>
@@ -121,4 +122,41 @@
     <string name="dialog_language_title">Dil Seçin</string>
     <string name="lang_english">English</string>
     <string name="lang_turkish">Türkçe</string>
+
+    <!-- Gamification -->
+    <string name="gamification_level_title">Seviye</string>
+    <string name="gamification_streak_title">Seri</string>
+    <string name="gamification_level_format">Seviye %1$d</string>
+    <string name="gamification_streak_format">%1$d günlük seri</string>
+    <string name="gamification_xp_to_next_level">Sonraki seviyeye %1$d / %2$d XP</string>
+    <string name="gamification_achievements_title">Başarımlar</string>
+    <string name="achievement_first_word_title">İlk Adım</string>
+    <string name="achievement_first_word_desc">İlk kelimeni öğren</string>
+    <string name="achievement_words_25_title">Kelime Koleksiyoncusu</string>
+    <string name="achievement_words_25_desc">25 kelime öğren</string>
+    <string name="achievement_words_100_title">Kelime Ustası</string>
+    <string name="achievement_words_100_desc">100 kelime öğren</string>
+    <string name="achievement_first_exam_title">İlk Sınav</string>
+    <string name="achievement_first_exam_desc">İlk sınavını tamamla</string>
+    <string name="achievement_perfect_score_title">Mükemmeliyetçi</string>
+    <string name="achievement_perfect_score_desc">Bir sınavda 100 puan al</string>
+    <string name="achievement_streak_3_title">Başlangıç</string>
+    <string name="achievement_streak_3_desc">3 günlük çalışma serisine ulaş</string>
+    <string name="achievement_streak_7_title">Ateşli</string>
+    <string name="achievement_streak_7_desc">7 günlük çalışma serisine ulaş</string>
+
+    <!-- Premium paywall -->
+    <string name="premium_paywall_title">Premium\'u Aç</string>
+    <string name="premium_paywall_subtitle">VocabMaster\'ın tüm deneyimine kavuş</string>
+    <string name="premium_feature_leaderboard">Küresel Skor Tablosu</string>
+    <string name="premium_feature_daily_exam">Günün Sınavı</string>
+    <string name="premium_feature_mistakes_box">Hata Kutusu</string>
+    <string name="premium_feature_ad_free">Reklamsız Deneyim</string>
+    <string name="premium_upgrade_button">Şimdi Yükselt</string>
+    <string name="premium_restore_button">Satın Alımları Geri Yükle</string>
+    <string name="premium_already_owned">Zaten Premium\'a sahipsin!</string>
+    <string name="premium_purchase_unavailable">Satın alma şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="premium_restore_none_found">Önceki bir satın alma bulunamadı.</string>
+    <string name="premium_thanks">Premium\'a geçtiğin için teşekkürler!</string>
+    <string name="profile_manage_premium">Premium\'u Yönet</string>
 </resources>
