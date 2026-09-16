@@ -54,22 +54,17 @@ jobs:
             adb shell settings put global window_animation_scale 0
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
-            # Root up front, once - a same-run pull that itself was preceded by adb root
-            # right before it kept returning ENOENT for a directory logcat proved was
-            # written seconds earlier, so the daemon restart from a *late* adb root looks
-            # like it races the pull. Rooting before install avoids that entirely.
-            adb root
-            adb wait-for-device
             ./gradlew installDebug --no-daemon --stacktrace
             ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
             mkdir -p screenshots
-            # Test writes to internal storage (filesDir), not external - it's always
-            # available regardless of SD-card mount timing on a fresh CI emulator boot.
-            # /data/user/0/<pkg>, not /data/data/<pkg> - adb pull doesn't follow the
-            # /data/data symlink on this emulator image and reports ENOENT even though
-            # the files are there.
-            adb pull /data/user/0/com.cynorra.vocabmaster.app/files/screens screenshots || true
-            ls -la screenshots || true
+            # adb root + adb pull of /data/user/0/<pkg>/files/screens kept returning ENOENT
+            # across several attempts even though logcat proved the test wrote every file
+            # there (outDir=..., ok=true) - something about root/pull races the test task's
+            # own teardown. run-as + tar streams the directory straight out of the app's own
+            # process instead, which needs no root and sidesteps that race entirely.
+            adb exec-out run-as com.cynorra.vocabmaster.app tar -cf - files/screens 2>/dev/null | tar -xf - -C screenshots || true
+            find screenshots -type f || true
+            ls -laR screenshots || true
 
       - name: Upload screenshots
         if: always()
