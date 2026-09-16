@@ -54,17 +54,20 @@ jobs:
             adb shell settings put global window_animation_scale 0
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
+            # Root up front, once - a same-run pull that itself was preceded by adb root
+            # right before it kept returning ENOENT for a directory logcat proved was
+            # written seconds earlier, so the daemon restart from a *late* adb root looks
+            # like it races the pull. Rooting before install avoids that entirely.
+            adb root
+            adb wait-for-device
             ./gradlew installDebug --no-daemon --stacktrace
             ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
             mkdir -p screenshots
             # Test writes to internal storage (filesDir), not external - it's always
             # available regardless of SD-card mount timing on a fresh CI emulator boot.
-            # adb root lets us pull an app-private path directly. Use /data/user/0/<pkg>
-            # rather than /data/data/<pkg> - adb pull doesn't follow the /data/data symlink
-            # on this emulator image and reports ENOENT even though the files are there.
-            adb root
-            sleep 3
-            adb wait-for-device
+            # /data/user/0/<pkg>, not /data/data/<pkg> - adb pull doesn't follow the
+            # /data/data symlink on this emulator image and reports ENOENT even though
+            # the files are there.
             adb pull /data/user/0/com.cynorra.vocabmaster.app/files/screens screenshots || true
             ls -la screenshots || true
 
