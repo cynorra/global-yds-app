@@ -9,6 +9,54 @@ def get_font(size, bold=False):
         font_path = os.path.join('C:\\Windows\\Fonts', font_name)
     return ImageFont.truetype(font_path, size)
 
+# Segoe UI (used above) has no glyphs for pictographic emoji - drawing them with it
+# silently renders empty tofu boxes. Windows' own color-emoji font does, but needs
+# RAQM layout + embedded_color=True to actually paint the color bitmaps.
+def get_emoji_font(size):
+    return ImageFont.truetype('C:\\Windows\\Fonts\\seguiemj.ttf', size, layout_engine=ImageFont.Layout.RAQM)
+
+# Flag emoji (regional-indicator pairs) are NOT in Windows' bundled emoji font at all -
+# they render as nothing, not even a tofu box. Don't attempt them; text-only is correct here.
+
+def draw_icon_text(draw, xy, icon, text, icon_font, text_font, fill=(255, 255, 255), gap=None, anchor='mm', icon_first=True):
+    """Draws an emoji icon (color font) next to a text label as one visually centered unit,
+    since a single draw.text() call can't mix two fonts. anchor supports 'mm' (centered on xy)
+    and 'rm' (right edge of the whole unit at xy, vertically centered)."""
+    x, y = xy
+    if gap is None:
+        gap = int(text_font.size * 0.28)
+    icon_bbox = icon_font.getbbox(icon)
+    icon_w = icon_bbox[2] - icon_bbox[0]
+    text_w = text_font.getlength(text)
+    total_w = icon_w + gap + text_w
+
+    if anchor == 'mm':
+        start_x = x - total_w / 2
+    elif anchor == 'rm':
+        start_x = x - total_w
+    else:
+        start_x = x
+
+    if icon_first:
+        icon_x, text_x = start_x, start_x + icon_w + gap
+    else:
+        text_x, icon_x = start_x, start_x + text_w + gap
+
+    draw.text((icon_x, y), icon, font=icon_font, anchor='lm', embedded_color=True)
+    draw.text((text_x, y), text, font=text_font, fill=fill, anchor='lm')
+    return total_w
+
+def draw_checkmark(draw, center, size, color, width=None):
+    """Vector checkmark - guaranteed to render (no font/glyph dependency) for the
+    selected-answer indicator."""
+    cx, cy = center
+    if width is None:
+        width = max(2, size // 8)
+    p1 = (cx - size * 0.5, cy)
+    p2 = (cx - size * 0.15, cy + size * 0.4)
+    p3 = (cx + size * 0.55, cy - size * 0.45)
+    draw.line([p1, p2, p3], fill=color, width=width, joint='curve')
+
 def create_gradient_bg(width, height, color1, color2):
     base = Image.new('RGBA', (width, height), color1)
     top = Image.new('RGBA', (width, height), color2)
@@ -27,9 +75,7 @@ def draw_rounded_rect(draw, xy, radius, fill=None, outline=None, width=1):
 # 1. APP ICON (Exact 512 x 512 px PNG & Android Launcher Icons)
 # ==============================================================================
 def build_app_icon():
-    src_path = 'store_assets/512x512_app_icon_v2.png'
-    if not os.path.exists(src_path):
-        src_path = 'store_assets/512x512_app_icon.png'
+    src_path = 'store_assets/app_icon_512x512.png'
     img = Image.open(src_path).convert('RGBA')
     icon_512 = img.resize((512, 512), Image.Resampling.LANCZOS)
     out_path = 'store_assets/app_icon_512x512.png'
@@ -87,8 +133,7 @@ def build_feature_graphic():
     draw = ImageDraw.Draw(img)
 
     # Embed Icon Preview on left (size: 260x260)
-    src_icon = 'store_assets/512x512_app_icon_v2.png' if os.path.exists('store_assets/512x512_app_icon_v2.png') else 'store_assets/512x512_app_icon.png'
-    icon_img = Image.open(src_icon).convert('RGBA')
+    icon_img = Image.open('store_assets/app_icon_512x512.png').convert('RGBA')
     icon_res = icon_img.resize((240, 240), Image.Resampling.LANCZOS)
     
     # Mask rounded corners for icon
@@ -107,14 +152,16 @@ def build_feature_graphic():
     draw.text((370, 220), "Learn faster with smart flashcards, timed mock tests, and global rankings.", fill=(203, 213, 225), font=get_font(17, bold=False))
 
     # Feature Badges/Pills
-    badges = [("⚡ Smart Flashcards", (30, 58, 138)), ("📝 Mock Exams", (30, 41, 59)), ("🏆 Global Leaderboard", (30, 41, 59))]
+    badges = [("⚡", "Smart Flashcards", (30, 58, 138)), ("📝", "Mock Exams", (30, 41, 59)), ("🏆", "Global Leaderboard", (30, 41, 59))]
     bx = 370
     by = 285
-    for label, bg_color in badges:
-        font_b = get_font(15, bold=True)
-        tw = int(font_b.getlength(label)) + 30
+    font_b = get_font(15, bold=True)
+    font_b_emoji = get_emoji_font(15)
+    for icon, label, bg_color in badges:
+        gap = 8
+        tw = int(font_b_emoji.getbbox(icon)[2] + gap + font_b.getlength(label)) + 34
         draw_rounded_rect(draw, [bx, by, bx+tw, by+44], radius=22, fill=bg_color, outline=(59, 130, 246), width=1)
-        draw.text((bx + tw//2, by + 22), label, fill=(241, 245, 249), font=font_b, anchor="mm")
+        draw_icon_text(draw, (bx + tw//2, by + 22), icon, label, font_b_emoji, font_b, fill=(241, 245, 249), gap=gap, anchor='mm')
         bx += tw + 15
 
     # Footer CTA Pill
@@ -174,7 +221,7 @@ def render_916_screenshot(title, subtitle, content_type, out_w, out_h, out_path)
         draw_rounded_rect(draw, [cx1, cy1, cx2, cy2], radius=int(28*scale), fill=(30, 41, 59), outline=(51, 65, 85), width=int(2*scale))
 
         draw.text((sx1+sw//2, cy1+int(60*scale)), "Resilient", fill=(255, 255, 255), font=get_font(int(52*scale), bold=True), anchor="mm")
-        draw.text((sx1+sw//2, cy1+int(125*scale)), "/rɪˈzɪl.i.ənt/  🔊", fill=(148, 163, 184), font=get_font(int(26*scale)), anchor="mm")
+        draw_icon_text(draw, (sx1+sw//2, cy1+int(125*scale)), "🔊", "/rɪˈzɪl.i.ənt/", get_emoji_font(int(26*scale)), get_font(int(26*scale)), fill=(148, 163, 184), anchor='mm', icon_first=False)
 
         draw.line([(cx1+int(40*scale), cy1+int(165*scale)), (cx2-int(40*scale), cy1+int(165*scale))], fill=(51, 65, 85), width=1)
 
@@ -203,7 +250,7 @@ def render_916_screenshot(title, subtitle, content_type, out_w, out_h, out_path)
         draw.text((sx1+int(40*scale), sy1+int(50*scale)), "Question 14 of 40", fill=(241, 245, 249), font=get_font(int(24*scale), bold=True))
         
         draw_rounded_rect(draw, [sx1+sw-int(220*scale), sy1+int(35*scale), sx1+sw-int(40*scale), sy1+int(80*scale)], radius=int(20*scale), fill=(30, 41, 59), outline=(225, 29, 72), width=1)
-        draw.text((sx1+sw-int(130*scale), sy1+int(58*scale)), "⏱ 03:36:47", fill=(244, 63, 94), font=get_font(int(18*scale), bold=True), anchor="mm")
+        draw_icon_text(draw, (sx1+sw-int(130*scale), sy1+int(58*scale)), "⏱", "03:36:47", get_emoji_font(int(18*scale)), get_font(int(18*scale), bold=True), fill=(244, 63, 94), anchor='mm')
 
         # Question box
         qx1, qy1, qx2, qy2 = sx1+int(40*scale), sy1+int(110*scale), sx1+sw-int(40*scale), sy1+int(380*scale)
@@ -252,7 +299,7 @@ def render_916_screenshot(title, subtitle, content_type, out_w, out_h, out_path)
 
             draw.text((ox1+int(95*scale), oy1+int(45*scale)), text, fill=(255, 255, 255) if selected else (226, 232, 240), font=get_font(int(22*scale), bold=selected), anchor="lm")
             if selected:
-                draw.text((ox2-int(40*scale), oy1+int(45*scale)), "✓", fill=(59, 130, 246), font=get_font(int(26*scale), bold=True), anchor="mm")
+                draw_checkmark(draw, (ox2-int(40*scale), oy1+int(45*scale)), int(26*scale), (59, 130, 246))
 
     elif content_type == 'leaderboard':
         # Leaderboard UI
@@ -261,32 +308,32 @@ def render_916_screenshot(title, subtitle, content_type, out_w, out_h, out_path)
         # Top 3 Podium Cards
         # Rank 2 (Left)
         draw_rounded_rect(draw, [sx1+int(40*scale), sy1+int(120*scale), sx1+int(240*scale), sy1+int(350*scale)], radius=int(24*scale), fill=(30, 41, 59), outline=(71, 85, 105), width=1)
-        draw.text((sx1+int(140*scale), sy1+int(160*scale)), "🥈 #2", fill=(203, 213, 225), font=get_font(int(24*scale), bold=True), anchor="mm")
+        draw_icon_text(draw, (sx1+int(140*scale), sy1+int(160*scale)), "🥈", "#2", get_emoji_font(int(24*scale)), get_font(int(24*scale), bold=True), fill=(203, 213, 225), anchor='mm')
         draw.text((sx1+int(140*scale), sy1+int(215*scale)), "Chloe C.", fill=(255, 255, 255), font=get_font(int(22*scale), bold=True), anchor="mm")
         draw.text((sx1+int(140*scale), sy1+int(255*scale)), "1,650 pts", fill=(96, 165, 250), font=get_font(int(19*scale)), anchor="mm")
-        draw.text((sx1+int(140*scale), sy1+int(295*scale)), "🇬🇧 UK", fill=(148, 163, 184), font=get_font(int(18*scale)), anchor="mm")
+        draw.text((sx1+int(140*scale), sy1+int(295*scale)), "UK", fill=(148, 163, 184), font=get_font(int(18*scale)), anchor="mm")
 
         # Rank 1 (Center)
         draw_rounded_rect(draw, [sx1+int(260*scale), sy1+int(90*scale), sx1+sw-int(260*scale), sy1+int(350*scale)], radius=int(28*scale), fill=(30, 58, 138), outline=(234, 179, 8), width=3)
-        draw.text((sx1+sw//2, sy1+int(135*scale)), "👑 #1", fill=(250, 204, 21), font=get_font(int(30*scale), bold=True), anchor="mm")
+        draw_icon_text(draw, (sx1+sw//2, sy1+int(135*scale)), "👑", "#1", get_emoji_font(int(30*scale)), get_font(int(30*scale), bold=True), fill=(250, 204, 21), anchor='mm')
         draw.text((sx1+sw//2, sy1+int(195*scale)), "Ben Foster", fill=(255, 255, 255), font=get_font(int(25*scale), bold=True), anchor="mm")
         draw.text((sx1+sw//2, sy1+int(240*scale)), "1,985 pts", fill=(250, 204, 21), font=get_font(int(22*scale), bold=True), anchor="mm")
-        draw.text((sx1+sw//2, sy1+int(285*scale)), "🇺🇸 USA • Master", fill=(226, 232, 240), font=get_font(int(18*scale)), anchor="mm")
+        draw.text((sx1+sw//2, sy1+int(285*scale)), "USA • Master", fill=(226, 232, 240), font=get_font(int(18*scale)), anchor="mm")
 
         # Rank 3 (Right)
         draw_rounded_rect(draw, [sx1+sw-int(240*scale), sy1+int(120*scale), sx1+sw-int(40*scale), sy1+int(350*scale)], radius=int(24*scale), fill=(30, 41, 59), outline=(71, 85, 105), width=1)
-        draw.text((sx1+sw-int(140*scale), sy1+int(160*scale)), "🥉 #3", fill=(251, 146, 60), font=get_font(int(24*scale), bold=True), anchor="mm")
+        draw_icon_text(draw, (sx1+sw-int(140*scale), sy1+int(160*scale)), "🥉", "#3", get_emoji_font(int(24*scale)), get_font(int(24*scale), bold=True), fill=(251, 146, 60), anchor='mm')
         draw.text((sx1+sw-int(140*scale), sy1+int(215*scale)), "Aisha K.", fill=(255, 255, 255), font=get_font(int(22*scale), bold=True), anchor="mm")
         draw.text((sx1+sw-int(140*scale), sy1+int(255*scale)), "1,422 pts", fill=(96, 165, 250), font=get_font(int(19*scale)), anchor="mm")
-        draw.text((sx1+sw-int(140*scale), sy1+int(295*scale)), "🇦🇪 UAE", fill=(148, 163, 184), font=get_font(int(18*scale)), anchor="mm")
+        draw.text((sx1+sw-int(140*scale), sy1+int(295*scale)), "UAE", fill=(148, 163, 184), font=get_font(int(18*scale)), anchor="mm")
 
         # Rankings list
         rankings = [
-            (4, "Sarah Lee", "1,370 pts", "🇨🇦 Canada", "+60 pts"),
-            (5, "David Chen", "1,360 pts", "🇸🇬 Singapore", "+50 pts"),
-            (6, "Liam O'Neill", "1,320 pts", "🇦🇺 Australia", "+50 pts"),
-            (7, "Sophie Garcia", "1,260 pts", "🇪🇸 Spain", "+50 pts"),
-            (8, "Kenji Tanaka", "1,180 pts", "🇯🇵 Japan", "+40 pts")
+            (4, "Sarah Lee", "1,370 pts", "Canada", "+60 pts"),
+            (5, "David Chen", "1,360 pts", "Singapore", "+50 pts"),
+            (6, "Liam O'Neill", "1,320 pts", "Australia", "+50 pts"),
+            (7, "Sophie Garcia", "1,260 pts", "Spain", "+50 pts"),
+            (8, "Kenji Tanaka", "1,180 pts", "Japan", "+40 pts")
         ]
         list_y = sy1 + int(380*scale)
         for idx, (rank, name, score, country, gain) in enumerate(rankings):
@@ -311,11 +358,12 @@ def render_916_screenshot(title, subtitle, content_type, out_w, out_h, out_path)
     active_idx = 0 if content_type == 'vocabulary' else (2 if content_type == 'exam' else 3)
     nav_items = [("Discover", "🔍"), ("Words", "📖"), ("Exams", "📝"), ("Leaders", "🏆"), ("Profile", "👤")]
     step = sw // 5
+    nav_icon_font = get_emoji_font(int(24 * scale))
     for idx, (label, icon) in enumerate(nav_items):
         nx = sx1 + int(step * (idx + 0.5))
         active = (idx == active_idx)
         color = (59, 130, 246) if active else (100, 116, 139)
-        draw.text((nx, nav_y1+int(25*scale)), icon, fill=color, font=get_font(int(24*scale)), anchor="mm")
+        draw.text((nx, nav_y1+int(25*scale)), icon, font=nav_icon_font, anchor="mm", embedded_color=True)
         draw.text((nx, nav_y1+int(58*scale)), label, fill=color, font=get_font(int(16*scale), bold=active), anchor="mm")
 
     img.save(out_path, 'PNG', optimize=True)
