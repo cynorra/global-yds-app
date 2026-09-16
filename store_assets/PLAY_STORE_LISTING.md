@@ -20,8 +20,8 @@ Kelime ezberlemekle sınırlı kalmayın: VocabMaster; kelime, gramer, okuma par
 📝 DENEME SINAVLARI
 • Gerçek sınav formatında çoktan seçmeli sorular
 • Anlık sonuç ve performans analizi
-• Günlük deneme sınavı (Premium)
-• Yanlış yaptığın soruları tekrar çalış - Mistakes Box (Premium)
+• Günlük deneme sınavı
+• Yanlış yaptığın soruları tekrar çalış - Mistakes Box
 
 📖 GRAMER VE OKUMA
 • Konu konu İngilizce gramer anlatımları
@@ -31,7 +31,7 @@ Kelime ezberlemekle sınırlı kalmayın: VocabMaster; kelime, gramer, okuma par
 • Seviye (Level) ve XP sistemi
 • Günlük çalışma serisi (Streak)
 • Başarım rozetleri (Achievements)
-• Global liderlik tablosu (Premium)
+• Global liderlik tablosu
 
 🌍 10 DİLDE ARAYÜZ
 Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce ve Rusça.
@@ -39,8 +39,7 @@ Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, 
 🔔 GÜNLÜK HATIRLATICI
 Çalışma alışkanlığını kaybetme, seni doğru zamanda hatırlatırız.
 
-⭐ PREMIUM
-Reklamsız deneyim, global liderlik tablosu, günlük deneme sınavı ve yanlışlar kutusu ile öğrenmeni bir üst seviyeye taşı.
+Tüm özellikler tamamen ücretsiz — kayıt ol ve hemen kullanmaya başla.
 
 İster YDS'ye hazırlanıyor ol, ister günlük İngilizceni geliştirmek iste — VocabMaster: Learn English, kelimeden sınava tüm süreci tek uygulamada birleştirir.
 
@@ -52,4 +51,5 @@ Hemen indir, bugün öğrenmeye başla!
 - Keyword strategy: "YDS", "gramer", "okuma", "deneme sınavı" front-loaded in the short description and opening lines — these match actual Turkish search intent for this exam-prep category, not generic "vocabulary app" terms every competitor uses.
 - Differentiation angle: positioned as the all-in-one app (vocab + grammar + reading + timed exams + gamification) vs single-purpose competitor apps that only do flashcards or only do question banks.
 - First ~250 characters are the highest-weight section for both Play Store search ranking and the "before more" preview users see, and what AI answer engines (Gemini/ChatGPT/Perplexity) tend to extract when summarizing the app - kept it as clear factual statements rather than vague marketing copy.
-- Screenshots in this folder are RGBA (have an alpha channel). Play Console sometimes rejects transparency in screenshots on upload - flatten to RGB first if that happens.
+- Screenshots and the feature graphic were RGBA (had an alpha channel) — flattened to 24-bit RGB on 2026-09-16 (Play Console rejects transparency there; the app icon correctly keeps its alpha channel and was left untouched).
+- All "(Premium)" mentions and the standalone "⭐ PREMIUM" section were removed on 2026-09-16 — the app's Play Billing paywall was fully reverted, every feature (leaderboard, daily exam, mistakes box) is now free for all users.
