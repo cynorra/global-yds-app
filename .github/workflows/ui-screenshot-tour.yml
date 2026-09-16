@@ -57,12 +57,16 @@ jobs:
             ./gradlew installDebug --no-daemon --stacktrace
             ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
             mkdir -p screenshots
+            echo "--- ScreenshotTour logcat ---"
+            adb logcat -d -s ScreenshotTour:I System.err:W AndroidRuntime:E || true
             # Test writes to internal storage (filesDir), not external - it's always
             # available regardless of SD-card mount timing on a fresh CI emulator boot.
             # adb root lets us pull an app-private /data/data path directly.
             adb root
             sleep 3
             adb wait-for-device
+            echo "--- find screens dir anywhere under /data ---"
+            adb shell "find /data -iname screens 2>&1" || true
             adb pull /data/data/com.cynorra.vocabmaster.app/files/screens screenshots || true
             ls -la screenshots || true
 
