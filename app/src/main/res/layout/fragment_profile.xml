@@ -37,17 +37,6 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginTop="16dp"/>
-
-            <TextView
-                android:id="@+id/tvPremiumBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_premium_member"
-                android:textColor="@android:color/white"
-                android:alpha="0.85"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp"
-                android:visibility="gone" />
         </LinearLayout>
 
         <!-- Stats -->
@@ -246,19 +235,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
-            <TextView
-                android:id="@+id/tvManagePremium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_manage_premium"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:textColor="@color/colorWarning"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"/>
 
             <TextView
                 android:id="@+id/tvLanguage"

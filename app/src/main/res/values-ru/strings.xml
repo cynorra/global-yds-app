@@ -83,7 +83,6 @@
     <string name="exam_error_title">Не удалось загрузить экзамены</string>
 
     <!-- Profile -->
-    <string name="profile_premium_member">Премиум участник</string>
     <string name="profile_words">Слова</string>
     <string name="profile_exams">Экзамены</string>
     <string name="profile_settings">Настройки аккаунта</string>
@@ -148,18 +147,4 @@
     <string name="achievement_streak_7_title">В Ударе</string>
     <string name="achievement_streak_7_desc">Достигните серии из 7 дней</string>
 
-    <!-- Premium paywall -->
-    <string name="premium_paywall_title">Разблокировать Premium</string>
-    <string name="premium_paywall_subtitle">Получите полный опыт VocabMaster</string>
-    <string name="premium_feature_leaderboard">Глобальный Рейтинг</string>
-    <string name="premium_feature_daily_exam">Испытание Дня</string>
-    <string name="premium_feature_mistakes_box">Ошибки</string>
-    <string name="premium_feature_ad_free">Без Рекламы</string>
-    <string name="premium_upgrade_button">Обновить Сейчас</string>
-    <string name="premium_restore_button">Восстановить Покупки</string>
-    <string name="premium_already_owned">У вас уже есть Premium!</string>
-    <string name="premium_purchase_unavailable">Покупка временно недоступна. Попробуйте позже.</string>
-    <string name="premium_restore_none_found">Предыдущая покупка не найдена.</string>
-    <string name="premium_thanks">Спасибо за переход на Premium!</string>
-    <string name="profile_manage_premium">Управление Premium</string>
 </resources>

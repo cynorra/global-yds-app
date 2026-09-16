@@ -9,13 +9,11 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import com.vocabmaster.app.data.billing.BillingManager
 import com.vocabmaster.app.data.remote.RemoteConfigManager
 
 /**
- * Shows an interstitial at natural break points (currently: leaving a finished exam). Never
- * shown to Premium users, and can be killed entirely from Firebase Remote Config
- * (interstitial_ad_enabled) without an app release.
+ * Shows an interstitial at natural break points (currently: leaving a finished exam). Can be
+ * killed entirely from Firebase Remote Config (interstitial_ad_enabled) without an app release.
  */
 object InterstitialAdManager {
     private const val AD_UNIT_ID = "ca-app-pub-4674211063760769/8929560181"
@@ -67,8 +65,5 @@ object InterstitialAdManager {
         ad.show(activity)
     }
 
-    private fun isEligible(): Boolean {
-        val isPremium = BillingManager.isPremium.value ?: false
-        return !isPremium && RemoteConfigManager.isInterstitialAdEnabled
-    }
+    private fun isEligible(): Boolean = RemoteConfigManager.isInterstitialAdEnabled
 }

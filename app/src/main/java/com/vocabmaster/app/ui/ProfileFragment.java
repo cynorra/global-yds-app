@@ -86,13 +86,6 @@ public class ProfileFragment extends Fragment {
         viewModel.getStats().observe(getViewLifecycleOwner(), this::bindStats);
         viewModel.loadStats();
 
-        view.findViewById(R.id.tvManagePremium).setOnClickListener(v ->
-                startActivity(com.vocabmaster.app.PremiumActivity.createIntent(requireContext())));
-
-        com.vocabmaster.app.data.billing.BillingManager.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
-            view.findViewById(R.id.tvPremiumBadge).setVisibility(isPremium ? View.VISIBLE : View.GONE);
-        });
-
         view.findViewById(R.id.tvAccountSettings).setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), com.vocabmaster.app.AccountSettingsActivity.class)));
 

@@ -83,7 +83,6 @@
     <string name="exam_error_title">Prüfungen konnten nicht geladen werden</string>
 
     <!-- Profile -->
-    <string name="profile_premium_member">Premium-Mitglied</string>
     <string name="profile_words">Wörter</string>
     <string name="profile_exams">Prüfungen</string>
     <string name="profile_settings">Kontoeinstellungen</string>
@@ -148,18 +147,4 @@
     <string name="achievement_streak_7_title">In Fahrt</string>
     <string name="achievement_streak_7_desc">Erreiche eine 7-tägige Lernserie</string>
 
-    <!-- Premium paywall -->
-    <string name="premium_paywall_title">Premium freischalten</string>
-    <string name="premium_paywall_subtitle">Erlebe VocabMaster in vollem Umfang</string>
-    <string name="premium_feature_leaderboard">Globale Bestenliste</string>
-    <string name="premium_feature_daily_exam">Tägliche Prüfungsherausforderung</string>
-    <string name="premium_feature_mistakes_box">Fehlerbox</string>
-    <string name="premium_feature_ad_free">Werbefreie Nutzung</string>
-    <string name="premium_upgrade_button">Jetzt upgraden</string>
-    <string name="premium_restore_button">Käufe wiederherstellen</string>
-    <string name="premium_already_owned">Du besitzt bereits Premium!</string>
-    <string name="premium_purchase_unavailable">Kauf vorübergehend nicht verfügbar. Bitte später erneut versuchen.</string>
-    <string name="premium_restore_none_found">Kein früherer Kauf gefunden.</string>
-    <string name="premium_thanks">Danke, dass du Premium gewählt hast!</string>
-    <string name="profile_manage_premium">Premium verwalten</string>
 </resources>

@@ -113,10 +113,5 @@ class ScreenshotTourTest {
                 shot(file)
             }
         }
-
-        // 5) Premium paywall, direct intent - doesn't require being signed in.
-        launch(PremiumActivity::class.java)
-        Thread.sleep(800)
-        shot("11_premium_paywall.png")
     }
 }

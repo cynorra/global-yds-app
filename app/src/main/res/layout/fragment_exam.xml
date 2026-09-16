@@ -112,14 +112,6 @@
                         android:textColor="@color/onErrorContainer"
                         android:textSize="14sp"/>
                 </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/ivMistakesLock"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_premium_crown"
-                    app:tint="@color/onErrorContainer" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

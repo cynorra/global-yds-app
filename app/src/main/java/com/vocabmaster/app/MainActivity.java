@@ -23,7 +23,6 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.UserMessagingPlatform;
-import com.vocabmaster.app.data.billing.BillingManager;
 import com.vocabmaster.app.data.remote.RemoteConfigManager;
 
 import android.util.Log;
@@ -54,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         adView = findViewById(R.id.adView);
 
-        BillingManager.initialize(this);
         RemoteConfigManager.INSTANCE.initialize();
-        BillingManager.isPremium().observe(this, isPremium -> {
-            adView.setVisibility(isPremium ? View.GONE : View.VISIBLE);
-        });
         initializeAds();
 
         // Load Home Fragment by default, unless we were opened via a deep link (e.g. a reminder notification)
@@ -84,12 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new ExamFragment());
                 return true;
             } else if (id == R.id.nav_leaderboard) {
-                if (Boolean.TRUE.equals(BillingManager.isPremium().getValue())) {
-                    loadFragment(new LeaderboardFragment());
-                    return true;
-                }
-                startActivity(PremiumActivity.createIntent(this));
-                return false;
+                loadFragment(new LeaderboardFragment());
+                return true;
             } else if (id == R.id.nav_profile) {
                 loadFragment(new ProfileFragment());
                 return true;
@@ -118,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         if (adView != null) {
             adView.destroy();
-        }
-        if (isFinishing()) {
-            BillingManager.endConnection();
         }
         super.onDestroy();
     }
