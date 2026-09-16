@@ -57,11 +57,15 @@ jobs:
             ./gradlew installDebug --no-daemon --stacktrace
             ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.TEST_EMAIL="${{ inputs.test_email }}" -Pandroid.testInstrumentationRunnerArguments.TEST_PASSWORD="${{ inputs.test_password }}"
             mkdir -p screenshots
-            # Scoped storage (API 29+) hides other apps' Android/data/<pkg>/files from the
-            # unprivileged `shell` UID adb normally runs as - `adb pull` sees ENOENT even
-            # though the files exist. google_apis (non-playstore) images support `adb root`.
             adb root
+            sleep 3
             adb wait-for-device
+            echo "--- app external files dir ---"
+            adb shell "ls -la /sdcard/Android/data/com.cynorra.vocabmaster.app/files/ 2>&1" || echo "LIST_FAILED"
+            echo "--- run-as check ---"
+            adb shell "run-as com.cynorra.vocabmaster.app ls -la files/screens 2>&1" || echo "RUNAS_FAILED"
+            echo "--- find anywhere on /sdcard ---"
+            adb shell "find /sdcard -iname screens 2>&1" || echo "FIND_FAILED"
             adb pull /sdcard/Android/data/com.cynorra.vocabmaster.app/files/screens screenshots || true
             ls -la screenshots || true
 
