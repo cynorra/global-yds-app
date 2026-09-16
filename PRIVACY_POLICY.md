@@ -1,5 +1,7 @@
 # Gizlilik Politikası & Hesap Silme Talebi (Privacy Policy & Account Deletion)
 
+> **Bu dosya kaynak metindir.** Play Console'a girilecek canlı/genel-erişilebilir URL, GitHub Pages üzerinden yayınlanan `docs/index.html`'dir: **https://cynorra.github.io/global-yds-app/**. Bu dosyada değişiklik yaparsan `docs/index.html`'i de aynı şekilde güncelle — ikisi otomatik senkronize değildir.
+
 **Uygulama Adı / App Name:** Global YDS (VocabMaster)  
 **Geliştirici / Developer Name:** Cynorra  
 **Paket Adı / Package Name:** `com.cynorra.vocabmaster.app`  

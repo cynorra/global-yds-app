@@ -47,6 +47,12 @@ Hemen indir, bugün öğrenmeye başla!
 
 ---
 
+## Play Console fields (ready to paste)
+- **Privacy Policy URL:** https://cynorra.github.io/global-yds-app/
+- **Account deletion instructions URL** (Data safety section, if asked separately): https://cynorra.github.io/global-yds-app/#account-deletion
+- **Support email:** support@cynorra.com
+- Both URLs are served by GitHub Pages from this repo's `docs/index.html` (source: `main` branch, `/docs`), confirmed live and HTTPS-enforced as of 2026-09-16. The repo itself is private, but Pages serves `docs/` publicly regardless — that's expected, not a leak: only `docs/` is exposed, no app source.
+
 ## Notes
 - Keyword strategy: "YDS", "gramer", "okuma", "deneme sınavı" front-loaded in the short description and opening lines — these match actual Turkish search intent for this exam-prep category, not generic "vocabulary app" terms every competitor uses.
 - Differentiation angle: positioned as the all-in-one app (vocab + grammar + reading + timed exams + gamification) vs single-purpose competitor apps that only do flashcards or only do question banks.
