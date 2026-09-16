@@ -27,16 +27,22 @@ class ScreenshotTourTest {
     private val device: UiDevice =
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
+    // Internal storage (filesDir) rather than getExternalFilesDir(null): the latter can
+    // return null on a freshly booted CI emulator if external storage isn't mounted yet,
+    // and File(null, child) silently resolves to a relative/unwritable path instead of
+    // throwing - takeScreenshot() then fails too, but it returns a Boolean rather than
+    // throwing, so the whole tour used to pass with zero screenshots ever written.
     private val outDir: File by lazy {
         val ctx = InstrumentationRegistry.getInstrumentation().targetContext
-        File(ctx.getExternalFilesDir(null), "screens").apply { mkdirs() }
+        File(ctx.filesDir, "screens").apply { mkdirs() }
     }
 
     private fun shot(name: String) {
         device.waitForIdle()
         Thread.sleep(700)
         outDir.mkdirs()
-        device.takeScreenshot(File(outDir, name))
+        val ok = device.takeScreenshot(File(outDir, name))
+        android.util.Log.i("ScreenshotTour", "shot($name) outDir=${outDir.absolutePath} ok=$ok")
     }
 
     private fun launch(activity: Class<*>) {
