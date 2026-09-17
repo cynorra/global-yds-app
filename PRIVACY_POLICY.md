@@ -5,7 +5,7 @@
 **Uygulama Adı / App Name:** Global YDS (VocabMaster)  
 **Geliştirici / Developer Name:** Cynorra  
 **Paket Adı / Package Name:** `com.cynorra.vocabmaster.app`  
-**Son Güncelleme / Last Updated:** 24 Ağustos 2026  
+**Son Güncelleme / Last Updated:** 17 Eylül 2026  
 
 ---
 
@@ -32,11 +32,18 @@ Talebiniz bize ulaştıktan sonra tüm kullanıcı verileriniz **en geç 7 gün 
 ### Toplanan Veriler ve Kullanım Amaçları
 * **Hesap Bilgileri:** Firebase Authentication üzerinde saklanan e-posta ve kullanıcı adı.
 * **İlerleme Verileri:** Öğrenilen kelimeler ve sınav sonuçları (Firebase Firestore & Room).
+* **Analitik ve Çökme Verileri:** Uygulamanın iyileştirilmesi amacıyla Firebase Analytics (kullanım istatistikleri) ve Firebase Crashlytics (çökme raporları, cihaz modeli, işletim sistemi sürümü) toplanır.
 * **Reklam Servisleri:** Google AdMob tarafından kullanılan cihaz reklam kimliği (AAID).
 
 ---
 
 ## 🇬🇧 English Privacy Policy
+
+### Data Collected
+* **Account Info:** Email and username stored via Firebase Authentication.
+* **Progress Data:** Learned words and exam results (Firebase Firestore & Room).
+* **Analytics & Crash Data:** Firebase Analytics (usage statistics) and Firebase Crashlytics (crash reports, device model, OS version) are collected to improve the app.
+* **Advertising:** Google AdMob uses the device advertising ID (AAID) to serve ads.
 
 ### Account & Data Deletion
 Users can request complete account and data removal by emailing **support@cynorra.com**. All user records will be deleted within 7 days upon receipt.
