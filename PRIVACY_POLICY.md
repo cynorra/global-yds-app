@@ -1,49 +1,21 @@
-# Gizlilik Politikası & Hesap Silme Talebi (Privacy Policy & Account Deletion)
+# Privacy Policy & Account Deletion
 
-> **Bu dosya kaynak metindir.** Play Console'a girilecek canlı/genel-erişilebilir URL, GitHub Pages üzerinden yayınlanan `docs/index.html`'dir: **https://cynorra.github.io/global-yds-app/**. Bu dosyada değişiklik yaparsan `docs/index.html`'i de aynı şekilde güncelle — ikisi otomatik senkronize değildir.
+> **Source text.** The live, publicly reachable pages are served by GitHub Pages from `docs/` (**https://cynorra.github.io/global-yds-app/**). `docs/index.html` is the privacy policy, `docs/delete-account.html` the account-deletion page, plus `terms.html`, `support.html`, `app-ads.txt` and `ads.txt`. When you edit this file, update `docs/index.html` to match - they are not synced automatically.
 
-**Uygulama Adı / App Name:** Global YDS (VocabMaster)  
-**Geliştirici / Developer Name:** Cynorra  
-**Paket Adı / Package Name:** `com.cynorra.vocabmaster.app`  
-**Son Güncelleme / Last Updated:** 17 Eylül 2026  
+**App:** Global YDS (VocabMaster) · **Developer:** Cynorra · **Package:** `com.cynorra.vocabmaster.app`
+**Last updated:** October 17, 2026
 
----
+## Account & Data Deletion
+Email **support@cynorra.com** from your registered address with the subject "Account Deletion Request - Global YDS". Your Firebase Authentication account and Firestore records (learned words, exam results, scores, leaderboard entry) are permanently deleted within 7 days. On-device data is removed by uninstalling the app or clearing its storage.
 
-## 🗑️ Hesap ve Veri Silme Talebi (Account Deletion Request)
+## Data we process
+- **Account:** email, username, password (hashed by Firebase Authentication); Google account email/name with Google Sign-In.
+- **Progress:** learned words, exam results, mistakes, scores, statistics (Firebase Firestore and on-device Room/SQLite).
+- **Leaderboard:** username and total score are visible to other users; email is not.
+- **Translation:** looked-up words are sent to MyMemory (api.mymemory.translated.net); no account data.
+- **Analytics & crashes:** Firebase Analytics and Crashlytics.
+- **Advertising:** Google AdMob (device advertising ID); Google UMP consent form for EEA/UK users.
+- **Notifications:** daily reminders are scheduled locally; no data sent.
 
-Google Play Geliştirici Politikaları uyarınca, **Cynorra** tarafından sunulan **Global YDS** uygulamasındaki hesabınızı ve tüm verilerinizi dilediğiniz zaman sildirebilirsiniz.
-
-### Hesap Silme Adımları (How to Request Account Deletion):
-1. Kayıtlı e-posta adresiniz üzerinden **support@cynorra.com** adresine e-posta gönderin.
-2. E-posta konusuna **"Global YDS - Hesap Silme Talebi"** yazın.
-3. Silinmesini istediğiniz hesaba ait e-posta adresini belirtin.
-
-### Silinen Veriler (Types of Data Deleted):
-* Firebase Authentication üzerindeki kullanıcı e-postanız, kullanıcı adınız ve kimlik verileriniz.
-* Firebase Firestore üzerindeki kelime kayıtlannız, çözülen sınavlarınız ve istatistikleriniz.
-
-### Veri Saklama Süresi (Data Retention Timeline):
-Talebiniz bize ulaştıktan sonra tüm kullanıcı verileriniz **en geç 7 gün içinde** kalıcı olarak silinir.
-
----
-
-## 🇹🇷 Türkçe Gizlilik Politikası
-
-### Toplanan Veriler ve Kullanım Amaçları
-* **Hesap Bilgileri:** Firebase Authentication üzerinde saklanan e-posta ve kullanıcı adı.
-* **İlerleme Verileri:** Öğrenilen kelimeler ve sınav sonuçları (Firebase Firestore & Room).
-* **Analitik ve Çökme Verileri:** Uygulamanın iyileştirilmesi amacıyla Firebase Analytics (kullanım istatistikleri) ve Firebase Crashlytics (çökme raporları, cihaz modeli, işletim sistemi sürümü) toplanır.
-* **Reklam Servisleri:** Google AdMob tarafından kullanılan cihaz reklam kimliği (AAID).
-
----
-
-## 🇬🇧 English Privacy Policy
-
-### Data Collected
-* **Account Info:** Email and username stored via Firebase Authentication.
-* **Progress Data:** Learned words and exam results (Firebase Firestore & Room).
-* **Analytics & Crash Data:** Firebase Analytics (usage statistics) and Firebase Crashlytics (crash reports, device model, OS version) are collected to improve the app.
-* **Advertising:** Google AdMob uses the device advertising ID (AAID) to serve ads.
-
-### Account & Data Deletion
-Users can request complete account and data removal by emailing **support@cynorra.com**. All user records will be deleted within 7 days upon receipt.
+## Sharing, retention, rights, children
+Data is not sold; it is processed only by Google Play Services, Firebase, Google AdMob and MyMemory, over HTTPS. Account data is kept until deletion (removed within 7 days of a request). Users may access, correct, delete, object to processing of, and port their data (GDPR/KVKK) via support@cynorra.com. The app is not directed at children under 13.

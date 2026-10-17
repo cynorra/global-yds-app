@@ -104,7 +104,10 @@ Hemen indir, bugün öğrenmeye başla!
 
 ## Play Console fields (ready to paste)
 - **Privacy Policy URL:** https://cynorra.github.io/global-yds-app/
-- **Account deletion instructions URL** (Data safety section, if asked separately): https://cynorra.github.io/global-yds-app/#account-deletion
+- **Account deletion instructions URL** (Data safety section, if asked separately): https://cynorra.github.io/global-yds-app/delete-account.html
+- **Terms of use:** https://cynorra.github.io/global-yds-app/terms.html
+- **Support page:** https://cynorra.github.io/global-yds-app/support.html
+- **app-ads.txt:** https://cynorra.github.io/global-yds-app/app-ads.txt (AdMob only reads it from the *root* of the developer-website domain - see note in chat/README if the Play Console website is not cynorra.github.io)
 - **Support email:** support@cynorra.com
 - Both URLs are served by GitHub Pages from this repo's `docs/index.html` (source: `main` branch, `/docs`), confirmed live and HTTPS-enforced as of 2026-09-16. The repo itself is private, but Pages serves `docs/` publicly regardless — that's expected, not a leak: only `docs/` is exposed, no app source.
 
