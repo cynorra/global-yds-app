@@ -123,7 +123,7 @@
             android:layout_marginTop="24dp" />
 
         <include
-            android:id="@+id/emptyState"
+            android:id="@+id/emptyStateRoot"
             layout="@layout/layout_empty_state" />
 
         <androidx.recyclerview.widget.RecyclerView
