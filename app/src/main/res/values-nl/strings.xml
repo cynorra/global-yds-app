@@ -141,7 +141,7 @@
     <string name="achievement_first_exam_title">Eerste Examen</string>
     <string name="achievement_first_exam_desc">Voltooi je eerste examen</string>
     <string name="achievement_perfect_score_title">Perfectionist</string>
-    <string name="achievement_perfect_score_desc">Behaal 100% op een examen</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Behaal 100% op een examen</string>
     <string name="achievement_streak_3_title">Goede Start</string>
     <string name="achievement_streak_3_desc">Bereik een reeks van 3 dagen</string>
     <string name="achievement_streak_7_title">In Vuur</string>

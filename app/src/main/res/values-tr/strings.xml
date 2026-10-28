@@ -143,7 +143,7 @@
     <string name="achievement_first_exam_title">İlk Sınav</string>
     <string name="achievement_first_exam_desc">İlk sınavını tamamla</string>
     <string name="achievement_perfect_score_title">Mükemmeliyetçi</string>
-    <string name="achievement_perfect_score_desc">Bir sınavda 100 puan al</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Bir sınavda 100 puan al</string>
     <string name="achievement_streak_3_title">Başlangıç</string>
     <string name="achievement_streak_3_desc">3 günlük çalışma serisine ulaş</string>
     <string name="achievement_streak_7_title">Ateşli</string>

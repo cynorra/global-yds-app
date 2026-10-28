@@ -141,7 +141,7 @@
     <string name="achievement_first_exam_title">Erste Prüfung</string>
     <string name="achievement_first_exam_desc">Schließe deine erste Prüfung ab</string>
     <string name="achievement_perfect_score_title">Perfektionist</string>
-    <string name="achievement_perfect_score_desc">Erreiche 100% in einer Prüfung</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Erreiche 100% in einer Prüfung</string>
     <string name="achievement_streak_3_title">Guter Start</string>
     <string name="achievement_streak_3_desc">Erreiche eine 3-tägige Lernserie</string>
     <string name="achievement_streak_7_title">In Fahrt</string>

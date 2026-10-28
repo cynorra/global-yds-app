@@ -142,7 +142,7 @@
     <string name="achievement_first_exam_title">Test Taker</string>
     <string name="achievement_first_exam_desc">Complete your first exam</string>
     <string name="achievement_perfect_score_title">Perfectionist</string>
-    <string name="achievement_perfect_score_desc">Score 100% on an exam</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Score 100% on an exam</string>
     <string name="achievement_streak_3_title">Getting Started</string>
     <string name="achievement_streak_3_desc">Reach a 3-day study streak</string>
     <string name="achievement_streak_7_title">On Fire</string>

@@ -141,7 +141,7 @@
     <string name="achievement_first_exam_title">Первый Экзамен</string>
     <string name="achievement_first_exam_desc">Завершите первый экзамен</string>
     <string name="achievement_perfect_score_title">Перфекционист</string>
-    <string name="achievement_perfect_score_desc">Наберите 100% на экзамене</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Наберите 100% на экзамене</string>
     <string name="achievement_streak_3_title">Хорошее Начало</string>
     <string name="achievement_streak_3_desc">Достигните серии из 3 дней</string>
     <string name="achievement_streak_7_title">В Ударе</string>

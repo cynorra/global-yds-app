@@ -141,7 +141,7 @@
     <string name="achievement_first_exam_title">Primeiro Exame</string>
     <string name="achievement_first_exam_desc">Complete seu primeiro exame</string>
     <string name="achievement_perfect_score_title">Perfeccionista</string>
-    <string name="achievement_perfect_score_desc">Obtenha 100% em um exame</string>
+    <string name="achievement_perfect_score_desc" formatted="false">Obtenha 100% em um exame</string>
     <string name="achievement_streak_3_title">Bom Começo</string>
     <string name="achievement_streak_3_desc">Alcance uma sequência de 3 dias</string>
     <string name="achievement_streak_7_title">Em Chamas</string>
