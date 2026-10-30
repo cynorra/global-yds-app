@@ -14,11 +14,12 @@ data class ExamListItem(
     val totalQuestions: Int,
     val durationMinutes: Int,
     val isCompleted: Boolean,
-    val score: Int
+    val score: Int,
+    val examType: String = "ALL",
+    val levelBadge: String = "B2-C1",
+    val difficulty: String = "Medium"
 )
 
-// scorePercent == null means the topic hasn't been attempted at all yet (surfaced ahead of a low
-// score, since zero data on a topic is a bigger gap than a low-but-attempted one).
 data class WeakAreaInsight(val topicTitle: String, val scorePercent: Int?)
 
 class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
@@ -31,6 +32,9 @@ class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
 
     private val _weakAreaInsight = MutableLiveData<WeakAreaInsight?>()
     val weakAreaInsight: LiveData<WeakAreaInsight?> get() = _weakAreaInsight
+
+    private var allCachedItems: List<ExamListItem> = emptyList()
+    private var currentFilterExamType: String = "ALL"
 
     fun loadExams() {
         _uiState.value = ListUiState(isLoading = true)
@@ -45,14 +49,12 @@ class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
             }
             val allExams = (allExamsResult as Resource.Success).data
 
-            // If fetching the user's completed attempts fails, still show the exam list rather
-            // than failing the whole screen - it just means completed exams won't be marked yet.
             val attemptByExamId = when (val completedResult = repository.getCompletedExams()) {
                 is Resource.Success -> completedResult.data.associateBy { it.examId }
                 is Resource.Error -> emptyMap()
             }
 
-            val items = allExams.map { exam ->
+            allCachedItems = allExams.map { exam ->
                 val attempt = attemptByExamId[exam.id]
                 ExamListItem(
                     id = exam.id,
@@ -60,17 +62,31 @@ class ExamViewModel(private val repository: ExamRepository) : ViewModel() {
                     totalQuestions = exam.totalQuestions,
                     durationMinutes = exam.durationMinutes,
                     isCompleted = attempt != null,
-                    score = attempt?.score ?: 0
+                    score = attempt?.score ?: 0,
+                    examType = exam.examType,
+                    levelBadge = exam.levelBadge,
+                    difficulty = exam.difficulty
                 )
             }
-            _uiState.value = ListUiState(isLoading = false, items = items)
-            _weakAreaInsight.value = computeWeakAreaInsight(items)
+            applyCurrentFilter()
+            _weakAreaInsight.value = computeWeakAreaInsight(allCachedItems)
         }
     }
 
-    // Each of the 5 seed exams IS a fixed grammar topic (its own title), so the exam list
-    // doubles as a topic list. The daily exam is excluded - its pool is a random mix, not a
-    // single topic, so a low/missing score there doesn't point at anything specific to practice.
+    fun filterByExamType(examType: String) {
+        currentFilterExamType = examType
+        applyCurrentFilter()
+    }
+
+    private fun applyCurrentFilter() {
+        val filtered = if (currentFilterExamType.equals("ALL", ignoreCase = true)) {
+            allCachedItems
+        } else {
+            allCachedItems.filter { it.examType.equals(currentFilterExamType, ignoreCase = true) }
+        }
+        _uiState.value = ListUiState(isLoading = false, items = filtered)
+    }
+
     private fun computeWeakAreaInsight(items: List<ExamListItem>): WeakAreaInsight? {
         val topicItems = items.filterNot { it.id.startsWith("exam-daily") }
         val notAttempted = topicItems.firstOrNull { !it.isCompleted }

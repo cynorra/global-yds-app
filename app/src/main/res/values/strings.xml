@@ -148,4 +148,36 @@
     <string name="achievement_streak_7_title">On Fire</string>
     <string name="achievement_streak_7_desc">Reach a 7-day study streak</string>
 
+    <!-- Legal & Account Deletion -->
+    <string name="profile_privacy_policy">Privacy Policy</string>
+    <string name="profile_terms">Terms of Service</string>
+    <string name="account_delete_button">Delete Account</string>
+    <string name="account_delete_dialog_title">Delete Account?</string>
+    <string name="account_delete_dialog_message">Are you sure you want to delete your account? All your exam history, streak, scores, and progress will be permanently deleted. This action cannot be undone.</string>
+    <string name="account_delete_confirm">Delete Permanently</string>
+    <string name="account_delete_cancel">Cancel</string>
+    <string name="account_delete_reauth_required">For security reasons, please log out and log back in before deleting your account.</string>
+    <string name="account_delete_success">Your account has been deleted.</string>
+    <string name="account_delete_web_info">Account &amp; Data Deletion Policy</string>
+    <string name="url_privacy_policy" translatable="false">https://cynorra.github.io/global-yds-app/</string>
+    <string name="url_terms" translatable="false">https://cynorra.github.io/global-yds-app/terms.html</string>
+    <string name="url_delete_account" translatable="false">https://cynorra.github.io/global-yds-app/delete-account.html</string>
+
+    <!-- Theme & UX -->
+    <string name="profile_theme">Theme</string>
+    <string name="dialog_theme_title">Choose Theme</string>
+    <string name="theme_system">System Default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+
+    <!-- Share & Viral -->
+    <string name="profile_share">Recommend to Friends</string>
+    <string name="share_app_title">Share Global YDS</string>
+    <string name="share_app_text">I am studying English words and mock exams with Global YDS. Join me!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_score_text">I scored %1$d%% on Global YDS mock exam! Join me: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="exam_share_score">Share Score</string>
+
+    <!-- Offline hint -->
+    <string name="network_offline_exam_hint">No internet connection. You can continue practicing your saved words from the Words tab.</string>
+
 </resources>

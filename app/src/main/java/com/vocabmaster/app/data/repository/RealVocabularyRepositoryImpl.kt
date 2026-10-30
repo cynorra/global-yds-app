@@ -27,7 +27,8 @@ import kotlinx.coroutines.withContext
 private data class MasterWord(
     val id: String = "",
     val englishWord: String = "",
-    val exampleSentence: String = ""
+    val exampleSentence: String = "",
+    val targetExam: String = "ALL"
 )
 
 class RealVocabularyRepositoryImpl(
@@ -155,14 +156,47 @@ class RealVocabularyRepositoryImpl(
             emptyMap()
         }
 
-        val newWords = missingWords.map { alreadyTranslated[it.id] ?: newlyTranslated.getValue(it.id) }
+        val newWords = missingWords.map { 
+            val entity = alreadyTranslated[it.id] ?: newlyTranslated.getValue(it.id)
+            if (entity.targetExam.isBlank() || entity.targetExam == "ALL") {
+                entity.copy(targetExam = it.targetExam)
+            } else {
+                entity
+            }
+        }
         wordDao.insertWords(newWords)
     }
 
     private suspend fun loadOrSeedMasterBank(): List<MasterWord> {
         val masterCollection = firestore.collection(MASTER_COLLECTION)
         return try {
-            val existing = masterCollection.get().await().documents.mapNotNull { it.toObject(MasterWord::class.java) }
+            val existing = masterCollection.get().await().documents.mapNotNull { doc ->
+                val word = doc.toObject(MasterWord::class.java) ?: return@mapNotNull null
+                val exam = if (word.targetExam.isBlank() || word.targetExam == "ALL") {
+                    when {
+                        word.englishWord.equals("Acquisition", true) || word.englishWord.equals("Compliance", true) ||
+                        word.englishWord.equals("Feasibility", true) || word.englishWord.equals("Remittance", true) ||
+                        word.englishWord.equals("Quarterly", true) -> "TOEIC"
+
+                        word.englishWord.equals("Corroborate", true) || word.englishWord.equals("Depletion", true) ||
+                        word.englishWord.equals("Discrepancy", true) || word.englishWord.equals("Ambiguous", true) ||
+                        word.englishWord.equals("Anticipate", true) -> "IELTS"
+
+                        word.englishWord.equals("Ubiquitous", true) || word.englishWord.equals("Tenacious", true) ||
+                        word.englishWord.equals("Hypothesis", true) || word.englishWord.equals("Dormant", true) ||
+                        word.englishWord.equals("Indigenous", true) -> "TOEFL"
+
+                        word.englishWord.equals("Taciturn", true) || word.englishWord.equals("Obfuscate", true) ||
+                        word.englishWord.equals("Ephemeral", true) || word.englishWord.equals("Impeccable", true) ||
+                        word.englishWord.equals("Gregarious", true) -> "GRE"
+
+                        else -> "YDS"
+                    }
+                } else {
+                    word.targetExam
+                }
+                word.copy(targetExam = exam)
+            }
             existing.ifEmpty { seedMasterBank(masterCollection) }
         } catch (e: Exception) {
             emptyList()
@@ -174,12 +208,12 @@ class RealVocabularyRepositoryImpl(
     // the bank is managed entirely in Firestore, not in this code.
     private suspend fun seedMasterBank(masterCollection: CollectionReference): List<MasterWord> {
         val seed = initialSeedWords.mapIndexed { index, (word, example) ->
-            MasterWord(id = index.toString(), englishWord = word, exampleSentence = example)
+            MasterWord(id = index.toString(), englishWord = word, exampleSentence = example, targetExam = "ALL")
         }
         try {
             seed.forEach { word ->
                 masterCollection.document(word.id).set(
-                    mapOf("id" to word.id, "englishWord" to word.englishWord, "exampleSentence" to word.exampleSentence)
+                    mapOf("id" to word.id, "englishWord" to word.englishWord, "exampleSentence" to word.exampleSentence, "targetExam" to word.targetExam)
                 ).await()
             }
         } catch (e: Exception) {
@@ -218,7 +252,8 @@ class RealVocabularyRepositoryImpl(
                         englishWord = masterWord.englishWord,
                         turkishMeaning = meaning,
                         exampleSentence = masterWord.exampleSentence,
-                        isLearned = false
+                        isLearned = false,
+                        targetExam = masterWord.targetExam
                     )
                 }
             }.awaitAll()
@@ -231,7 +266,8 @@ class RealVocabularyRepositoryImpl(
                         "id" to word.id,
                         "englishWord" to word.englishWord,
                         "turkishMeaning" to word.turkishMeaning,
-                        "exampleSentence" to word.exampleSentence
+                        "exampleSentence" to word.exampleSentence,
+                        "targetExam" to word.targetExam
                     )
                 ).await()
             }
@@ -248,7 +284,8 @@ class RealVocabularyRepositoryImpl(
         englishWord = englishWord,
         turkishMeaning = turkishMeaning,
         exampleSentence = exampleSentence,
-        isLearned = isLearned
+        isLearned = isLearned,
+        targetExam = targetExam
     )
 
     companion object {

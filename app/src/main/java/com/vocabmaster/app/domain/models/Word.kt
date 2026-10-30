@@ -5,5 +5,6 @@ data class Word(
     val englishWord: String,
     val turkishMeaning: String,
     val exampleSentence: String = "",
-    val isLearned: Boolean = false
+    val isLearned: Boolean = false,
+    val targetExam: String = "ALL"
 )

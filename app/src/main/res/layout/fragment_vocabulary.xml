@@ -44,12 +44,99 @@
         app:layout_constraintStart_toEndOf="@id/ivHeaderIcon"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Global Exam Filter Chips -->
+    <HorizontalScrollView
+        android:id="@+id/scrollVocabFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupVocabFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabAll"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="🌍 Tümü" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabToeic"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇯🇵 TOEIC" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabIelts"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇬🇧 IELTS" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabToefl"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇺🇸 TOEFL" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabCambridge"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇪🇺 Cambridge" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabSat"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎓 SAT / ACT" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabPte"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇦🇺 PTE" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabGre"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎯 GRE / GMAT" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabYds"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇹🇷 YDS / YÖKDİL" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <io.supercharge.shimmerlayout.ShimmerLayout
         android:id="@+id/shimmer_view_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/scrollVocabFilter"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -66,16 +153,16 @@
         android:id="@+id/rvVocabulary"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:visibility="gone"
         android:layoutAnimation="@anim/layout_animation_fall_down"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintTop_toBottomOf="@id/scrollVocabFilter"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <include
         android:id="@+id/emptyStateRoot"
         layout="@layout/layout_empty_state"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintTop_toBottomOf="@id/scrollVocabFilter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

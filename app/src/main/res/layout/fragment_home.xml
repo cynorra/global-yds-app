@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
@@ -17,7 +18,7 @@
         <!-- Header with KenBurnsView -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:layout_marginBottom="16dp">
             
             <com.flaviofaria.kenburnsview.KenBurnsView
@@ -43,6 +44,35 @@
                 android:layout_margin="16dp"/>
         </FrameLayout>
 
+        <!-- Global Exams Section (Target Exam Hub) -->
+        <TextView
+            android:id="@+id/tvTargetExamsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯 Hedef Sınavını Seç"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Küresel sınav formatına uygun denemeleri keşfet"
+            android:textSize="13sp"
+            android:textColor="@color/textColorSecondary"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExamHub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/item_home_exam_card" />
+
         <!-- Shimmer Loading View -->
         <io.supercharge.shimmerlayout.ShimmerLayout
             android:id="@+id/shimmerLayout"
@@ -54,17 +84,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <View android:layout_width="150dp" android:layout_height="200dp" android:background="@color/dividerColor" android:layout_marginEnd="16dp" />
-                <View android:layout_width="150dp" android:layout_height="200dp" android:background="@color/dividerColor" />
+                <View android:layout_width="150dp" android:layout_height="120dp" android:background="@color/dividerColor" android:layout_marginEnd="16dp" />
+                <View android:layout_width="150dp" android:layout_height="120dp" android:background="@color/dividerColor" />
             </LinearLayout>
         </io.supercharge.shimmerlayout.ShimmerLayout>
 
-        <!-- RecyclerView for Modules -->
+        <!-- Core Modules Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📚 Çalışma Alanları"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvModules"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
             android:visibility="gone" />
 
         <!-- Categories with Chips -->
@@ -75,25 +115,29 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/textColorPrimary"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"/>
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupTopics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:singleSelection="true">
             
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipTopicGrammar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/topic_grammar"
                 style="@style/Widget.MaterialComponents.Chip.Choice"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipTopicVocabulary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/topic_vocabulary"
                 style="@style/Widget.MaterialComponents.Chip.Choice"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipTopicMockExam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/topic_mock_exam"

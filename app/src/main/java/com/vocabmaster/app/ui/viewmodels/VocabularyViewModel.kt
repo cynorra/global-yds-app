@@ -14,14 +14,36 @@ class VocabularyViewModel(private val repository: VocabularyRepository) : ViewMo
     private val _uiState = MutableLiveData(ListUiState<Word>())
     val uiState: LiveData<ListUiState<Word>> get() = _uiState
 
+    private var allCachedWords: List<Word> = emptyList()
+    private var currentExamFilter: String = "ALL"
+
     fun loadWords() {
         _uiState.value = ListUiState(isLoading = true)
         viewModelScope.launch {
-            _uiState.value = when (val result = repository.getWordsToLearn()) {
-                is Resource.Success -> ListUiState(isLoading = false, items = result.data)
-                is Resource.Error -> ListUiState(isLoading = false, errorMessage = result.message)
+            when (val result = repository.getWordsToLearn()) {
+                is Resource.Success -> {
+                    allCachedWords = result.data
+                    applyCurrentFilter()
+                }
+                is Resource.Error -> {
+                    _uiState.value = ListUiState(isLoading = false, errorMessage = result.message)
+                }
             }
         }
+    }
+
+    fun filterWordsByExam(examType: String) {
+        currentExamFilter = examType
+        applyCurrentFilter()
+    }
+
+    private fun applyCurrentFilter() {
+        val filtered = if (currentExamFilter.equals("ALL", ignoreCase = true)) {
+            allCachedWords
+        } else {
+            allCachedWords.filter { it.targetExam.equals(currentExamFilter, ignoreCase = true) || it.targetExam == "ALL" }
+        }
+        _uiState.value = ListUiState(isLoading = false, items = filtered)
     }
 
     fun markWordAsLearned(wordId: String) {

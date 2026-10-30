@@ -115,6 +115,95 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Global Exam Filters -->
+        <HorizontalScrollView
+            android:id="@+id/scrollExamFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupExamFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="🌍 Tümü" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipToeic"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇯🇵 TOEIC" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipIelts"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇬🇧 IELTS" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipToefl"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇺🇸 TOEFL" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCambridge"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇪🇺 Cambridge" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSat"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎓 SAT / ACT" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPte"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ PTE" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDet"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🦉 DET" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGre"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏛️ GRE / GMAT" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipYds"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇹🇷 YDS / YÖKDİL" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"

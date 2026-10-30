@@ -149,4 +149,33 @@
     <string name="achievement_streak_7_title">Ateşli</string>
     <string name="achievement_streak_7_desc">7 günlük çalışma serisine ulaş</string>
 
+    <!-- Legal & Account Deletion -->
+    <string name="profile_privacy_policy">Gizlilik Politikası</string>
+    <string name="profile_terms">Kullanım Koşulları</string>
+    <string name="account_delete_button">Hesabımı ve Verilerimi Sil</string>
+    <string name="account_delete_dialog_title">Hesabı Kalıcı Olarak Sil?</string>
+    <string name="account_delete_dialog_message">Hesabınızı silmek istediğinize emin misiniz? Sınav geçmişiniz, istatistikleriniz, seri ve başarımlarınız kalıcı olarak silinecektir. Bu işlem geri alınamaz.</string>
+    <string name="account_delete_confirm">Kalıcı Olarak Sil</string>
+    <string name="account_delete_cancel">Vazgeç</string>
+    <string name="account_delete_reauth_required">Güvenlik gereği hesabınızı silmeden önce lütfen çıkış yapıp tekrar giriş yapın.</string>
+    <string name="account_delete_success">Hesabınız ve tüm verileriniz başarıyla silindi.</string>
+    <string name="account_delete_web_info">Hesap ve Veri Silme Rehberi</string>
+
+    <!-- Theme & UX -->
+    <string name="profile_theme">Görünüm ve Tema</string>
+    <string name="dialog_theme_title">Tema Seçin</string>
+    <string name="theme_system">Sistem Varsayılanı</string>
+    <string name="theme_light">Açık Tema</string>
+    <string name="theme_dark">Koyu Tema</string>
+
+    <!-- Share & Viral -->
+    <string name="profile_share">Arkadaşlarına Tavsiye Et</string>
+    <string name="share_app_title">Global YDS\'yi Paylaş</string>
+    <string name="share_app_text">Global YDS ile İngilizce kelime ve deneme sınavlarına çalışıyorum, sen de katıl!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_score_text">Global YDS deneme sınavından %%%1$d aldım! Sen de katıl: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="exam_share_score">Skorunu Paylaş</string>
+
+    <!-- Offline hint -->
+    <string name="network_offline_exam_hint">İnternet bağlantısı kurulamadı. Kelimeler sekmesinden kayıtlı kelimelerinizi çevrimdışı çalışmaya devam edebilirsiniz.</string>
+
 </resources>

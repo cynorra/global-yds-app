@@ -237,10 +237,46 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvTargetExam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎯 Hedef Sınavım"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:textColor="@color/textColorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <TextView
                 android:id="@+id/tvLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_language"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:textColor="@color/textColorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/tvTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_theme"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:textColor="@color/textColorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/tvShareApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_share"
                 android:textSize="16sp"
                 android:padding="16dp"
                 android:textColor="@color/textColorPrimary"
@@ -277,6 +313,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_about"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:textColor="@color/textColorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_privacy_policy"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:textColor="@color/textColorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/tvTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_terms"
                 android:textSize="16sp"
                 android:padding="16dp"
                 android:textColor="@color/textColorPrimary"

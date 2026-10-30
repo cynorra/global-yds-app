@@ -28,6 +28,13 @@ class VocabularyAdapter(
 
     override fun onBindViewHolder(holder: VocabularyViewHolder, position: Int) {
         val word = words[position]
+        val examTypeObj = com.vocabmaster.app.domain.models.ExamType.fromCode(word.targetExam)
+        if (word.targetExam == "ALL") {
+            holder.binding.tvTargetExamBadge.text = "🌍 Genel"
+        } else {
+            holder.binding.tvTargetExamBadge.text = "${examTypeObj.flag} ${examTypeObj.displayName}"
+        }
+
         holder.binding.tvEnglishWord.text = word.englishWord
         holder.binding.tvTurkishMeaning.text = word.turkishMeaning
         holder.binding.tvExample.text = word.exampleSentence

@@ -21,6 +21,7 @@ import com.vocabmaster.app.domain.models.Question
 import com.vocabmaster.app.ui.adapters.ExamResultAdapter
 import com.vocabmaster.app.ui.viewmodels.ExamTakingViewModel
 import com.vocabmaster.app.util.HapticUtils
+import com.vocabmaster.app.util.InAppReviewManager
 import com.vocabmaster.app.util.InterstitialAdManager
 
 class ExamTakingActivity : AppCompatActivity() {
@@ -86,6 +87,17 @@ class ExamTakingActivity : AppCompatActivity() {
         }
 
         InterstitialAdManager.preload(this)
+
+        findViewById<MaterialButton>(R.id.btnShareScore).setOnClickListener {
+            val score = viewModel.finalScorePercent.value ?: 0
+            val shareText = getString(R.string.share_score_text, score)
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_app_title))
+                putExtra(Intent.EXTRA_TEXT, shareText)
+            }
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.exam_share_score)))
+        }
 
         findViewById<MaterialButton>(R.id.btnFinish).setOnClickListener {
             setResult(Activity.RESULT_OK)
@@ -174,6 +186,7 @@ class ExamTakingActivity : AppCompatActivity() {
         // than congratulating.
         if (scorePercent >= PASSING_SCORE_PERCENT) {
             HapticUtils.success(tvScoreResult)
+            InAppReviewManager.requestReviewIfEligible(this)
             com.github.jinatonic.confetti.CommonConfetti.rainingConfetti(
                 findViewById<ViewGroup>(android.R.id.content),
                 intArrayOf(

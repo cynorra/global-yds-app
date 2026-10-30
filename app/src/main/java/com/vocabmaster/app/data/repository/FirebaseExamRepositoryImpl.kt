@@ -43,7 +43,27 @@ class FirebaseExamRepositoryImpl(
             if (com.vocabmaster.app.data.remote.RemoteConfigManager.isDailyExamEnabled) {
                 ensureDailyExam()
             }
-            val exams = examsCollection.get().await().documents.mapNotNull { it.toObject(Exam::class.java) }
+            val exams = examsCollection.get().await().documents.mapNotNull { doc ->
+                val exam = doc.toObject(Exam::class.java) ?: return@mapNotNull null
+                val type = if (exam.examType.isBlank() || exam.examType == "ALL") {
+                    when {
+                        exam.id.contains("toeic", ignoreCase = true) -> "TOEIC"
+                        exam.id.contains("ielts", ignoreCase = true) -> "IELTS"
+                        exam.id.contains("toefl", ignoreCase = true) -> "TOEFL"
+                        exam.id.contains("cambridge", ignoreCase = true) -> "CAMBRIDGE"
+                        exam.id.contains("sat", ignoreCase = true) -> "SAT"
+                        exam.id.contains("gre", ignoreCase = true) -> "GRE"
+                        exam.id.contains("pte", ignoreCase = true) -> "PTE"
+                        exam.id.contains("det", ignoreCase = true) -> "DET"
+                        exam.id.contains("tenses") || exam.id.contains("conditionals") || exam.id.contains("passive") || exam.id.contains("relative") -> "YDS"
+                        else -> "ALL"
+                    }
+                } else {
+                    exam.examType
+                }
+                val badge = if (exam.levelBadge.isBlank()) "B2" else exam.levelBadge
+                exam.copy(examType = type, levelBadge = badge)
+            }
             // Sort so the daily exam is at the top
             val sortedExams = exams.sortedByDescending { it.id.startsWith("exam-daily") }
             Resource.Success(withTranslatedTitles(sortedExams))
@@ -160,10 +180,15 @@ class FirebaseExamRepositoryImpl(
         if (examId == "MISTAKES") return getMistakes()
         if (examId == "MICRO") return getMicroExamQuestions()
         return try {
-            examsCollection.document(examId).collection("questions").get().await()
+            val fromFirestore = examsCollection.document(examId).collection("questions").get().await()
                 .documents.mapNotNull { it.toObject(Question::class.java) }
+            if (fromFirestore.isNotEmpty()) {
+                fromFirestore
+            } else {
+                seedExams.firstOrNull { it.id == examId }?.questions ?: emptyList()
+            }
         } catch (e: Exception) {
-            emptyList()
+            seedExams.firstOrNull { it.id == examId }?.questions ?: emptyList()
         }
     }
 
@@ -285,30 +310,34 @@ class FirebaseExamRepositoryImpl(
     // exam-taking flow is demoable before a real question bank is populated. This is per-bank,
     // not per-user: unlike attempts, the bank itself is shared by everyone.
     private suspend fun seedSampleExamsIfEmpty() {
-        val isEmpty = examsCollection.limit(1).get().await().isEmpty
-        if (!isEmpty) return
-
         seedExams.forEach { seedExam ->
-            examsCollection.document(seedExam.id).set(
-                mapOf(
-                    "id" to seedExam.id,
-                    "title" to seedExam.title,
-                    "totalQuestions" to seedExam.questions.size,
-                    "durationMinutes" to seedExam.durationMinutes
-                )
-            ).await()
-
-            val questionsCollection = examsCollection.document(seedExam.id).collection("questions")
-            seedExam.questions.forEach { question ->
-                questionsCollection.document(question.id).set(
+            val docRef = examsCollection.document(seedExam.id)
+            val doc = docRef.get().await()
+            if (!doc.exists()) {
+                docRef.set(
                     mapOf(
-                        "id" to question.id,
-                        "text" to question.text,
-                        "options" to question.options,
-                        "correctOptionIndex" to question.correctOptionIndex,
-                        "explanation" to question.explanation
+                        "id" to seedExam.id,
+                        "title" to seedExam.title,
+                        "totalQuestions" to seedExam.questions.size,
+                        "durationMinutes" to seedExam.durationMinutes,
+                        "examType" to seedExam.examType,
+                        "levelBadge" to seedExam.levelBadge,
+                        "difficulty" to seedExam.difficulty
                     )
                 ).await()
+
+                val questionsCollection = docRef.collection("questions")
+                seedExam.questions.forEach { question ->
+                    questionsCollection.document(question.id).set(
+                        mapOf(
+                            "id" to question.id,
+                            "text" to question.text,
+                            "options" to question.options,
+                            "correctOptionIndex" to question.correctOptionIndex,
+                            "explanation" to question.explanation
+                        )
+                    ).await()
+                }
             }
         }
     }
@@ -317,14 +346,107 @@ class FirebaseExamRepositoryImpl(
         val id: String,
         val title: String,
         val durationMinutes: Int,
+        val examType: String = "ALL",
+        val levelBadge: String = "B2",
+        val difficulty: String = "Medium",
         val questions: List<Question>
     )
 
     private val seedExams = listOf(
         SeedExam(
+            id = "exam-toeic-business",
+            title = "TOEIC: Business & Workplace Reading",
+            durationMinutes = 15,
+            examType = "TOEIC",
+            levelBadge = "B2",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("toeic_1", "The quarterly sales report must be submitted ______ Friday at 5:00 PM.", listOf("until", "by", "for", "on"), 1, "\"by\": belirli bir son tarihe kadar eylemin tamamlanması gerektiğini belirtir (deadline)."),
+                Question("toeic_2", "Due to unexpected maintenance, the conference room will be ______ until further notice.", listOf("unavailable", "availability", "unavailably", "avail"), 0, "\"will be\" fiilinden sonra sıfat gerekir: \"unavailable\" (kullanılamaz)."),
+                Question("toeic_3", "All employees are reminded to submit their travel expenses to the ______ department.", listOf("accounting", "account", "accountant", "accountable"), 0, "\"accounting department\": Muhasebe departmanı (kurumsal iş İngilizcesi terimi)."),
+                Question("toeic_4", "The newly appointed CEO announced that profits have increased ______ over the past fiscal quarter.", listOf("substantially", "substantial", "substance", "substantiate"), 0, "Fiili (have increased) nitelemek için zarf gerekir: \"substantially\" (önemli ölçüde)."),
+                Question("toeic_5", "Please sign the attached non-disclosure ______ before returning it to Human Resources.", listOf("agree", "agreement", "agreeable", "agreeing"), 1, "\"agreement\": sözleşme/anlaşma (non-disclosure agreement = gizlilik sözleşmesi).")
+            )
+        ),
+        SeedExam(
+            id = "exam-ielts-academic",
+            title = "IELTS Academic: Reading & Lexical Resource",
+            durationMinutes = 18,
+            examType = "IELTS",
+            levelBadge = "C1",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("ielts_1", "The researcher's findings ______ the long-held hypothesis regarding climate fluctuations.", listOf("corroborated", "concocted", "alleviated", "dissipated"), 0, "\"corroborate\": delillerle doğrulamak, teyit etmek (IELTS Band 7-9 akademik fiil)."),
+                Question("ielts_2", "Rapid urbanization has led to a noticeable ______ of natural habitats in the coastal region.", listOf("depletion", "propagation", "alleviation", "enhancement"), 0, "\"depletion\": tükenme, azalma (çevre ve akademik okuma parçalarının anahtar kelimesi)."),
+                Question("ielts_3", "The study concluded that early childhood bilingualism provides significant cognitive ______.", listOf("detriments", "dividends", "discrepancies", "impediments"), 1, "\"cognitive dividends\": bilişsel faydalar/kazanımlar."),
+                Question("ielts_4", "Despite initial skepticism, renewable energy sources have proven increasingly cost-______.", listOf("effective", "effect", "effectively", "effectiveness"), 0, "\"cost-effective\": maliyet açısından verimli/kârlı (IELTS Task 2 ve okuma kalıbı)."),
+                Question("ielts_5", "The author implies that technological disruption is ______ in modern global trade.", listOf("inevitable", "transient", "trivial", "redundant"), 0, "\"inevitable\": kaçınılmaz (akademik argüman ve çıkarım sorusu).")
+            )
+        ),
+        SeedExam(
+            id = "exam-toefl-ibt",
+            title = "TOEFL iBT: Academic Passage & Inferences",
+            durationMinutes = 15,
+            examType = "TOEFL",
+            levelBadge = "C1",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("toefl_1", "In paragraph 2, the word \"ubiquitous\" is closest in meaning to ______.", listOf("omnipresent", "sparse", "profound", "ambiguous"), 0, "\"ubiquitous\": her yerde bulunan, yaygın (omnipresent)."),
+                Question("toefl_2", "Which of the following can be inferred about geothermal energy?", listOf("It is limited to geologically active regions.", "It produces high levels of carbon emission.", "It is strictly a seasonal resource.", "It requires no underground piping."), 0, "TOEFL akademik metin çıkarım (inference) soru tipi."),
+                Question("toefl_3", "The author mentions photosynthesis in lines 4-6 in order to ______.", listOf("illustrate solar energy conversion", "refute chemical synthesis", "criticize agrarian methods", "define cellular respiration"), 0, "TOEFL rhetorical purpose (yazarın amaca dönük anlatımı) sorusu."),
+                Question("toefl_4", "The word \"tenacious\" most nearly denotes someone who is ______.", listOf("persistent", "hesitant", "fragile", "compliant"), 0, "\"tenacious\": azimli, ısrarcı, vazgeçmeyen (persistent)."),
+                Question("toefl_5", "According to the passage, dormant seeds germinate only when soil moisture is ______.", listOf("sufficient", "scarce", "excessive", "negligible"), 0, "Biyoloji odaklı TOEFL okuma-anlama sorusu.")
+            )
+        ),
+        SeedExam(
+            id = "exam-sat-reading",
+            title = "SAT / ACT: Critical Reading & Logic",
+            durationMinutes = 15,
+            examType = "SAT",
+            levelBadge = "C1-C2",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("sat_1", "The speaker's demeanor shifted from overtly combative to subtly ______.", listOf("conciliatory", "bellicose", "dogmatic", "truculent"), 0, "\"conciliatory\": uzlaşmacı, yatıştırıcı (SAT zıtlık/bağlam sorusu)."),
+                Question("sat_2", "Far from being a ______ expenditure, the infrastructure investment revitalized the municipal economy.", listOf("superfluous", "vital", "salutary", "judicious"), 0, "\"superfluous\": gereksiz, fuzuli (\"Far from being...\" yapısı)."),
+                Question("sat_3", "As used in line 12, \"gravity\" most nearly means ______.", listOf("seriousness", "force of attraction", "weightlessness", "momentum"), 0, "SAT \"Words in Context\": gravity = ciddiyet/önem."),
+                Question("sat_4", "The author's primary argument is best summarized as ______.", listOf("a nuanced critique of modern utilitarian ethics", "an absolute defense of traditional doctrines", "an empirical study of voter turnout", "a satirical review of contemporary art"), 0, "SAT ana fikir ve eleştirel mantık çıkarımı.")
+            )
+        ),
+        SeedExam(
+            id = "exam-gre-verbal",
+            title = "GRE / GMAT: Verbal Reasoning & Elite Vocab",
+            durationMinutes = 15,
+            examType = "GRE",
+            levelBadge = "C2",
+            difficulty = "Expert",
+            questions = listOf(
+                Question("gre_1", "Known for his ______ nature, the professor seldom spoke more than a few sentences at faculty meetings.", listOf("taciturn", "garrulous", "loquacious", "ebullient"), 0, "\"taciturn\": sessiz, az konuşan (GRE yüksek frekanslı kelimesi)."),
+                Question("gre_2", "The diplomat's ambiguous remarks were intentionally designed to ______ the ongoing negotiations.", listOf("obfuscate", "elucidate", "explicate", "reconcile"), 0, "\"obfuscate\": kasten bulanıklaştırmak, karmaşıklaştırmak."),
+                Question("gre_3", "Her ______ scholarly reputation was built upon decades of meticulous archival research.", listOf("impeccable", "specious", "spurious", "tenuous"), 0, "\"impeccable\": kusursuz, lekesiz."),
+                Question("gre_4", "Select the word that is an antonym of \"EPHEMERAL\":", listOf("perennial", "transient", "fugacious", "fleeting"), 0, "\"ephemeral\" = geçici; zıttı \"perennial\" = kalıcı, sürekli.")
+            )
+        ),
+        SeedExam(
+            id = "exam-cambridge-advanced",
+            title = "Cambridge C1: Use of English & Collocations",
+            durationMinutes = 15,
+            examType = "CAMBRIDGE",
+            levelBadge = "C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("cam_1", "It never ______ to me that she might be lying.", listOf("occurred", "happened", "struck", "entered"), 0, "\"It occurred to me\": aklıma geldi / başıma dank etti (Cambridge sabit kalıp)."),
+                Question("cam_2", "The company decided to call ______ the strike after fruitful discussions.", listOf("off", "out", "up", "in"), 0, "\"call off\": iptal etmek (Phrasal verb collocation)."),
+                Question("cam_3", "He had no choice ______ to accept the conditions.", listOf("but", "except", "without", "than"), 0, "\"have no choice but to...\": ...mekten başka çaresi olmamak."),
+                Question("cam_4", "Under no circumstances ______ reveal this confidential password.", listOf("should you", "you should", "must you", "you must"), 0, "Inversion (devrik yapı): Under no circumstances should you...")
+            )
+        ),
+        SeedExam(
             id = "exam-tenses",
             title = "Zamanlar (Tenses)",
             durationMinutes = 12,
+            examType = "YDS",
+            levelBadge = "B2",
+            difficulty = "Medium",
             questions = listOf(
                 Question("q1", "She ______ to the store every day.", listOf("go", "goes", "going", "gone"), 1, "Present Simple: 3. tekil şahısta (she/he/it) fiile -s/-es eki gelir. \"every day\" gibi zarflar alışkanlık/rutin bildirir."),
                 Question("q2", "By the time we arrived, the movie ______.", listOf("already started", "had already started", "has already started", "already starts"), 1, "Past Perfect: geçmişte iki olaydan önce biteni anlatır. \"By the time we arrived\" (geçmiş) sırasında film çoktan başlamıştı."),
@@ -342,6 +464,9 @@ class FirebaseExamRepositoryImpl(
             id = "exam-conditionals-modals",
             title = "Koşul Cümleleri ve Modallar",
             durationMinutes = 10,
+            examType = "YDS",
+            levelBadge = "B2",
+            difficulty = "Medium",
             questions = listOf(
                 Question("q1", "If it rains tomorrow, we ______ the picnic.", listOf("cancel", "will cancel", "would cancel", "canceled"), 1, "Type 1 Conditional (gerçek/olası gelecek koşul): if + Present Simple, ... will + fiil."),
                 Question("q2", "If I were you, I ______ that job offer.", listOf("accept", "will accept", "would accept", "accepted"), 2, "Type 2 Conditional (şimdiki zamana ait hayali durum): if + Past Simple (were), ... would + fiil."),
@@ -357,6 +482,9 @@ class FirebaseExamRepositoryImpl(
             id = "exam-passive-reported",
             title = "Edilgen Çatı ve Bildirilen Konuşma",
             durationMinutes = 10,
+            examType = "YDS",
+            levelBadge = "B2",
+            difficulty = "Medium",
             questions = listOf(
                 Question("q1", "The report ______ by the manager yesterday.", listOf("wrote", "was written", "is written", "has written"), 1, "Simple Past Passive: was/were + past participle. Eylemi yapan (manager) \"by\" ile belirtilir."),
                 Question("q2", "This bridge ______ in 1990.", listOf("built", "was built", "has built", "is building"), 1, "Simple Past Passive: geçmişte belirli bir tarihte tamamlanan edilgen eylem."),
@@ -372,6 +500,9 @@ class FirebaseExamRepositoryImpl(
             id = "exam-relative-comparatives",
             title = "İlgi Cümlecikleri ve Karşılaştırmalar",
             durationMinutes = 10,
+            examType = "YDS",
+            levelBadge = "B2",
+            difficulty = "Medium",
             questions = listOf(
                 Question("q1", "The man ______ car was stolen called the police.", listOf("who", "whose", "which", "that"), 1, "\"whose\": iyelik bildiren ilgi zamiri (adamın arabası -> whose car)."),
                 Question("q2", "This is the restaurant ______ we had dinner last night.", listOf("which", "who", "where", "whose"), 2, "\"where\": yer bildiren bir ismin ardından gelen ilgi zamiri."),

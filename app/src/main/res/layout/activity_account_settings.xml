@@ -79,6 +79,36 @@
                 android:text="@string/account_change_password"
                 android:textAllCaps="false" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/dividerColor" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDeleteAccount"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/account_delete_button"
+                android:textColor="@color/colorError"
+                app:strokeColor="@color/colorError"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/tvWebDeleteInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/account_delete_web_info"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

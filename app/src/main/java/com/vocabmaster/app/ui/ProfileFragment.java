@@ -95,7 +95,19 @@ public class ProfileFragment extends Fragment {
         view.findViewById(R.id.tvAbout).setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), com.vocabmaster.app.AboutActivity.class)));
 
+        view.findViewById(R.id.tvPrivacyPolicy).setOnClickListener(v ->
+                openWebUrl(getString(R.string.url_privacy_policy)));
+
+        view.findViewById(R.id.tvTerms).setOnClickListener(v ->
+                openWebUrl(getString(R.string.url_terms)));
+
+        view.findViewById(R.id.tvTargetExam).setOnClickListener(v -> showTargetExamDialog());
+
         view.findViewById(R.id.tvLanguage).setOnClickListener(v -> showLanguageDialog());
+
+        view.findViewById(R.id.tvTheme).setOnClickListener(v -> showThemeDialog());
+
+        view.findViewById(R.id.tvShareApp).setOnClickListener(v -> shareApp());
 
         view.findViewById(R.id.tvLogout).setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
@@ -104,6 +116,40 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
             requireActivity().finish();
         });
+    }
+
+    private void openWebUrl(String url) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url)));
+        } catch (Exception ignored) {}
+    }
+
+    private void showTargetExamDialog() {
+        List<String> exams = new ArrayList<>();
+        exams.add("🌍 Tüm Sınavlar (Genel)");
+        exams.add("🇯🇵 TOEIC (~7M Aday)");
+        exams.add("🇬🇧 IELTS (~4M Aday)");
+        exams.add("🇺🇸 TOEFL iBT (~3M Aday)");
+        exams.add("🇪🇺 Cambridge (B2/C1)");
+        exams.add("🎓 SAT / ACT");
+        exams.add("⚡ PTE Academic");
+        exams.add("🦉 Duolingo Test (DET)");
+        exams.add("🏛️ GRE / GMAT");
+        exams.add("🇹🇷 YDS / YÖKDİL");
+
+        final String[] codes = {"ALL", "TOEIC", "IELTS", "TOEFL", "CAMBRIDGE", "SAT", "PTE", "DET", "GRE", "YDS"};
+
+        new MaterialDialog(requireContext(), MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, "🎯 Hedef Sınavınızı Seçin")
+                .show(dialog -> {
+                    DialogListExtKt.listItems(dialog, null, exams, null, true, (dlg, index, text) -> {
+                        String selectedCode = codes[index];
+                        com.vocabmaster.app.data.local.AppPreferences.setTargetExam(requireContext(), selectedCode);
+                        com.google.android.material.snackbar.Snackbar.make(requireView(), "Hedef sınavınız güncellendi: " + text, com.google.android.material.snackbar.Snackbar.LENGTH_SHORT).show();
+                        return null;
+                    });
+                    return null;
+                });
     }
 
     private void showLanguageDialog() {
@@ -121,6 +167,38 @@ public class ProfileFragment extends Fragment {
                     });
                     return null;
                 });
+    }
+
+    private void showThemeDialog() {
+        List<String> options = new ArrayList<>();
+        options.add(getString(R.string.theme_system));
+        options.add(getString(R.string.theme_light));
+        options.add(getString(R.string.theme_dark));
+
+        new MaterialDialog(requireContext(), MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, getString(R.string.dialog_theme_title))
+                .show(dialog -> {
+                    DialogListExtKt.listItems(dialog, null, options, null, true, (dlg, index, text) -> {
+                        int mode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+                        if (index == 1) {
+                            mode = AppCompatDelegate.MODE_NIGHT_NO;
+                        } else if (index == 2) {
+                            mode = AppCompatDelegate.MODE_NIGHT_YES;
+                        }
+                        com.vocabmaster.app.data.local.AppPreferences.setThemeMode(requireContext(), mode);
+                        AppCompatDelegate.setDefaultNightMode(mode);
+                        return null;
+                    });
+                    return null;
+                });
+    }
+
+    private void shareApp() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_app_title));
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_text));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_app_title)));
     }
 
     private void bindUserInfo(View view) {

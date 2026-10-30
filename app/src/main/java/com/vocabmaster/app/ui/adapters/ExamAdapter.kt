@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vocabmaster.app.databinding.ItemExamBinding
+import com.vocabmaster.app.domain.models.ExamType
 import com.vocabmaster.app.ui.viewmodels.ExamListItem
 
 fun interface OnExamClickListener {
@@ -25,12 +26,21 @@ class ExamAdapter(
 
     override fun onBindViewHolder(holder: ExamViewHolder, position: Int) {
         val exam = exams[position]
+        val examTypeObj = ExamType.fromCode(exam.examType)
+
+        val badgeText = if (exam.examType == "ALL") {
+            "🌍 Genel • ${exam.levelBadge}"
+        } else {
+            "${examTypeObj.flag} ${examTypeObj.displayName} • ${exam.levelBadge}"
+        }
+        holder.binding.tvExamBadge.text = badgeText
+
         holder.binding.tvTitle.text = exam.title
-        holder.binding.tvDetails.text = "${exam.totalQuestions} Questions • ${exam.durationMinutes} Minutes"
+        holder.binding.tvDetails.text = "${exam.totalQuestions} Soru • ${exam.durationMinutes} Dk"
 
         if (exam.isCompleted) {
             holder.binding.tvScore.visibility = View.VISIBLE
-            holder.binding.tvScore.text = "✓ ${exam.score}%"
+            holder.binding.tvScore.text = "✓ %${exam.score}"
             holder.itemView.isClickable = false
             holder.itemView.setOnClickListener(null)
         } else {

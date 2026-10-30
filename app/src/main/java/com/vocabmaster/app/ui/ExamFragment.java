@@ -90,6 +90,76 @@ public class ExamFragment extends Fragment {
 
         emptyStateRetry.setOnClickListener(v -> examViewModel.loadExams());
 
+        com.google.android.material.chip.ChipGroup chipGroup = view.findViewById(R.id.chipGroupExamFilter);
+        if (chipGroup != null) {
+            String initialFilter = null;
+            if (getArguments() != null && getArguments().getString("EXAM_FILTER") != null) {
+                initialFilter = getArguments().getString("EXAM_FILTER");
+            } else {
+                initialFilter = com.vocabmaster.app.data.local.AppPreferences.getTargetExam(requireContext());
+            }
+
+            if ("TOEIC".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipToeic);
+                examViewModel.filterByExamType("TOEIC");
+            } else if ("IELTS".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipIelts);
+                examViewModel.filterByExamType("IELTS");
+            } else if ("TOEFL".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipToefl);
+                examViewModel.filterByExamType("TOEFL");
+            } else if ("CAMBRIDGE".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipCambridge);
+                examViewModel.filterByExamType("CAMBRIDGE");
+            } else if ("SAT".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipSat);
+                examViewModel.filterByExamType("SAT");
+            } else if ("PTE".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipPte);
+                examViewModel.filterByExamType("PTE");
+            } else if ("DET".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipDet);
+                examViewModel.filterByExamType("DET");
+            } else if ("GRE".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipGre);
+                examViewModel.filterByExamType("GRE");
+            } else if ("YDS".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipYds);
+                examViewModel.filterByExamType("YDS");
+            } else {
+                chipGroup.check(R.id.chipAll);
+            }
+
+            chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
+                if (checkedIds.isEmpty()) {
+                    examViewModel.filterByExamType("ALL");
+                    return;
+                }
+                int checkedId = checkedIds.get(0);
+                if (checkedId == R.id.chipToeic) {
+                    examViewModel.filterByExamType("TOEIC");
+                } else if (checkedId == R.id.chipIelts) {
+                    examViewModel.filterByExamType("IELTS");
+                } else if (checkedId == R.id.chipToefl) {
+                    examViewModel.filterByExamType("TOEFL");
+                } else if (checkedId == R.id.chipCambridge) {
+                    examViewModel.filterByExamType("CAMBRIDGE");
+                } else if (checkedId == R.id.chipSat) {
+                    examViewModel.filterByExamType("SAT");
+                } else if (checkedId == R.id.chipPte) {
+                    examViewModel.filterByExamType("PTE");
+                } else if (checkedId == R.id.chipDet) {
+                    examViewModel.filterByExamType("DET");
+                } else if (checkedId == R.id.chipGre) {
+                    examViewModel.filterByExamType("GRE");
+                } else if (checkedId == R.id.chipYds) {
+                    examViewModel.filterByExamType("YDS");
+                } else {
+                    examViewModel.filterByExamType("ALL");
+                }
+            });
+        }
+
         cardMicroExam.setOnClickListener(v -> {
             Intent intent = ExamTakingActivity.createIntent(requireContext(), "MICRO", getString(R.string.micro_exam_title), MICRO_EXAM_DURATION_MINUTES);
             examTakingLauncher.launch(intent);
@@ -136,7 +206,11 @@ public class ExamFragment extends Fragment {
                 emptyStateRoot.setVisibility(View.VISIBLE);
                 emptyStateIcon.setImageResource(R.drawable.ic_state_error);
                 emptyStateTitle.setText(R.string.exam_error_title);
-                emptyStateSubtitle.setText(R.string.error_generic_subtitle);
+                if (!com.vocabmaster.app.util.NetworkUtils.isOnline(requireContext())) {
+                    emptyStateSubtitle.setText(R.string.network_offline_exam_hint);
+                } else {
+                    emptyStateSubtitle.setText(R.string.error_generic_subtitle);
+                }
                 emptyStateRetry.setVisibility(View.VISIBLE);
                 Snackbar.make(view, R.string.exam_error_title, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.action_retry, v -> examViewModel.loadExams())

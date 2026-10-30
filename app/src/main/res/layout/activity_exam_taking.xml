@@ -179,10 +179,19 @@
                 android:nestedScrollingEnabled="false" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShareScore"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/exam_share_score"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFinish"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="12dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/exam_finish"
                 android:textAllCaps="false" />

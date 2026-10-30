@@ -75,6 +75,65 @@ public class VocabularyFragment extends Fragment {
         shimmerLayout.startShimmerAnimation();
         emptyStateRetry.setOnClickListener(v -> viewModel.loadWords());
 
+        com.google.android.material.chip.ChipGroup chipGroup = view.findViewById(R.id.chipGroupVocabFilter);
+        if (chipGroup != null) {
+            String savedTarget = com.vocabmaster.app.data.local.AppPreferences.getTargetExam(requireContext());
+            if ("TOEIC".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabToeic);
+                viewModel.filterWordsByExam("TOEIC");
+            } else if ("IELTS".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabIelts);
+                viewModel.filterWordsByExam("IELTS");
+            } else if ("TOEFL".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabToefl);
+                viewModel.filterWordsByExam("TOEFL");
+            } else if ("CAMBRIDGE".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabCambridge);
+                viewModel.filterWordsByExam("CAMBRIDGE");
+            } else if ("SAT".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabSat);
+                viewModel.filterWordsByExam("SAT");
+            } else if ("PTE".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabPte);
+                viewModel.filterWordsByExam("PTE");
+            } else if ("GRE".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabGre);
+                viewModel.filterWordsByExam("GRE");
+            } else if ("YDS".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabYds);
+                viewModel.filterWordsByExam("YDS");
+            } else {
+                chipGroup.check(R.id.chipVocabAll);
+            }
+
+            chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
+                if (checkedIds.isEmpty()) {
+                    viewModel.filterWordsByExam("ALL");
+                    return;
+                }
+                int checkedId = checkedIds.get(0);
+                if (checkedId == R.id.chipVocabToeic) {
+                    viewModel.filterWordsByExam("TOEIC");
+                } else if (checkedId == R.id.chipVocabIelts) {
+                    viewModel.filterWordsByExam("IELTS");
+                } else if (checkedId == R.id.chipVocabToefl) {
+                    viewModel.filterWordsByExam("TOEFL");
+                } else if (checkedId == R.id.chipVocabCambridge) {
+                    viewModel.filterWordsByExam("CAMBRIDGE");
+                } else if (checkedId == R.id.chipVocabSat) {
+                    viewModel.filterWordsByExam("SAT");
+                } else if (checkedId == R.id.chipVocabPte) {
+                    viewModel.filterWordsByExam("PTE");
+                } else if (checkedId == R.id.chipVocabGre) {
+                    viewModel.filterWordsByExam("GRE");
+                } else if (checkedId == R.id.chipVocabYds) {
+                    viewModel.filterWordsByExam("YDS");
+                } else {
+                    viewModel.filterWordsByExam("ALL");
+                }
+            });
+        }
+
         viewModel.getUiState().observe(getViewLifecycleOwner(), state -> {
             if (state.isLoading()) {
                 shimmerLayout.setVisibility(View.VISIBLE);
