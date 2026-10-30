@@ -20,6 +20,15 @@ tools/.word_tool_credential.xml
 # Never commit plaintext credentials
 tools/crds.txt
 
+# Keystores & signing secrets
+*.jks
+*.keystore
+*.key
+*.p12
+*.pem
+*.pfx
+.env*
+
 # JVM crash dumps
 hs_err_pid*.log
 replay_pid*.log

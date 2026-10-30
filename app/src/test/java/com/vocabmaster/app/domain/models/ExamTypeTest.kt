@@ -35,3 +35,4 @@ class ExamTypeTest {
         assertEquals("ALL", ExamType.ALL.code)
     }
 }
+

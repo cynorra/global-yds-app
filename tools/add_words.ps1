@@ -60,8 +60,23 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$ProjectId = "global-yds-app"
-$ApiKey = "AIzaSyAysczGPLwix9UL4kWrIPVeLfCm2NbW3VM"
+$ProjectId = if ($env:FIREBASE_PROJECT_ID) { $env:FIREBASE_PROJECT_ID } else { "global-yds-app" }
+
+# Read ApiKey from environment or parse from app/google-services.json
+$ApiKey = $env:FIREBASE_API_KEY
+if (-not $ApiKey) {
+    $GoogleServicesPath = Join-Path $PSScriptRoot "..\app\google-services.json"
+    if (Test-Path $GoogleServicesPath) {
+        try {
+            $gsJson = Get-Content $GoogleServicesPath -Raw | ConvertFrom-Json
+            $ApiKey = $gsJson.client[0].api_key[0].current_key
+        } catch { }
+    }
+}
+if (-not $ApiKey) {
+    Write-Error "Firebase API Key not found. Set the FIREBASE_API_KEY environment variable or ensure app/google-services.json exists."
+    exit 1
+}
 $FirestoreBase = "https://firestore.googleapis.com/v1/projects/$ProjectId/databases/(default)/documents"
 $CredentialFile = "$PSScriptRoot\.word_tool_credential.xml"
 
