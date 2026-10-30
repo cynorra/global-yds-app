@@ -69,9 +69,9 @@ class VocabularyViewModelTest {
 
     @Test
     fun `filterWordsByExam filters words by targetExam and ALL returns all`() {
-        val wToeic = Word(id = "1", englishWord = "Compliance", targetExam = "TOEIC")
-        val wIelts = Word(id = "2", englishWord = "Corroborate", targetExam = "IELTS")
-        val wGeneral = Word(id = "3", englishWord = "Common", targetExam = "ALL")
+        val wToeic = Word(id = "1", englishWord = "Compliance", turkishMeaning = "Uyum", targetExam = "TOEIC")
+        val wIelts = Word(id = "2", englishWord = "Corroborate", turkishMeaning = "Doğrulamak", targetExam = "IELTS")
+        val wGeneral = Word(id = "3", englishWord = "Common", turkishMeaning = "Ortak", targetExam = "ALL")
 
         val repository = FakeVocabularyRepository(listOf(wToeic, wIelts, wGeneral))
         val viewModel = VocabularyViewModel(repository)
