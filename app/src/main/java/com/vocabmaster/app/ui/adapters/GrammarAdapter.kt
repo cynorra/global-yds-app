@@ -26,6 +26,7 @@ class GrammarAdapter(private val topics: List<GrammarTopic>) :
         holder.binding.tvTitle.text = topic.title
         holder.binding.tvExplanation.text = topic.explanation
         holder.binding.tvExample.text = topic.exampleSentence
+        holder.binding.tvGrammarBadge.text = topic.targetExam
 
         applyExpandedState(holder, expandedPositions.contains(position))
 

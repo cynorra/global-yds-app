@@ -116,6 +116,20 @@
                 android:text="🇦🇺 PTE" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabDet"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🦉 DET" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVocabEiken"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌸 EIKEN" />
+
+            <com.google.android.material.chip.Chip
                 android:id="@+id/chipVocabGre"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"

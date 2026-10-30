@@ -441,6 +441,48 @@ class FirebaseExamRepositoryImpl(
             )
         ),
         SeedExam(
+            id = "exam-pte-academic",
+            title = "PTE Academic: AI-Scored Reading & Collocations",
+            durationMinutes = 12,
+            examType = "PTE",
+            levelBadge = "B2-C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("pte_1", "The institution requires all international applicants to demonstrate an ______ command of the English language.", listOf("adequate", "insufficient", "inapt", "ambiguous"), 0, "\"adequate command\": yeterli seviyede hakimiyet (PTE akademik collocation)."),
+                Question("pte_2", "Recent econometric models indicate a ______ correlation between education expenditure and GDP growth.", listOf("substantial", "negligible", "fictitious", "trivial"), 0, "\"substantial correlation\": kayda değer/önemli ilişki (PTE Reading - Fill in blanks)."),
+                Question("pte_3", "Scientists must ______ their theoretical models through repeatable empirical experimentation.", listOf("validate", "falsify", "obscure", "repudiate"), 0, "\"validate\": geçerliliğini kanıtlamak, doğrulamak."),
+                Question("pte_4", "Global supply chains are ______ to unexpected geopolitical disruptions.", listOf("vulnerable", "invulnerable", "immune", "unyielding"), 0, "\"vulnerable to\": -e karşı savunmasız/kırılgan.")
+            )
+        ),
+        SeedExam(
+            id = "exam-det-adaptive",
+            title = "Duolingo English Test: Context & Lexical Selection",
+            durationMinutes = 10,
+            examType = "DET",
+            levelBadge = "B2",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("det_1", "Select the real English word among the options:", listOf("Feasible", "Conseptualize", "Accuratly", "Discript"), 0, "\"Feasible\": uygulanabilir, mümkün (DET gerçek kelime ayırt etme testi)."),
+                Question("det_2", "The city council voted to ______ the historic theater rather than demolish it.", listOf("renovate", "disintegrate", "aggravate", "deteriorate"), 0, "\"renovate\": restore etmek, yenilemek (DET cümle tamamlama)."),
+                Question("det_3", "She couldn't attend the symposium ______ she had a prior scheduling conflict.", listOf("because", "despite", "whereas", "nevertheless"), 0, "\"because\": neden-sonuç bağlacı."),
+                Question("det_4", "Select the word that correctly completes the phrase: \"Take into ______\"", listOf("account", "mind", "head", "thought"), 0, "\"Take into account\": hesaba katmak, dikkate almak (Sabit deyim).")
+            )
+        ),
+        SeedExam(
+            id = "exam-eiken-grade",
+            title = "EIKEN Grade Pre-1: Practical Reading & Social Issues",
+            durationMinutes = 15,
+            examType = "EIKEN",
+            levelBadge = "B2",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("eiken_1", "In Japanese corporations, there has been a ______ shift toward merit-based promotions.", listOf("gradual", "hasty", "reckless", "chaotic"), 0, "\"gradual shift\": kademeli/yavaş değişim (EIKEN güncel toplum/iş hayatı sorusu)."),
+                Question("eiken_2", "Municipalities are encouraging residents to ______ their household electricity consumption.", listOf("curb", "inflate", "multiply", "aggravate"), 0, "\"curb\": dizginlemek, sınırlamak/azaltmak (EIKEN çevre ve enerji politikası sorusu)."),
+                Question("eiken_3", "The new high-speed rail line is expected to ______ tourism across rural prefectures.", listOf("boost", "hinder", "stagnate", "diminish"), 0, "\"boost\": canlandırmak, artırmak (bölgesel kalkınma sorusu)."),
+                Question("eiken_4", "Many elderly citizens rely on local community centers to ______ active social connections.", listOf("maintain", "sever", "terminate", "forfeit"), 0, "\"maintain\": sürdürmek, devam ettirmek (EIKEN toplum ve yaşlanan nüfus teması).")
+            )
+        ),
+        SeedExam(
             id = "exam-tenses",
             title = "Zamanlar (Tenses)",
             durationMinutes = 12,

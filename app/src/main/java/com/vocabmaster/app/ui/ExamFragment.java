@@ -120,6 +120,9 @@ public class ExamFragment extends Fragment {
             } else if ("DET".equalsIgnoreCase(initialFilter)) {
                 chipGroup.check(R.id.chipDet);
                 examViewModel.filterByExamType("DET");
+            } else if ("EIKEN".equalsIgnoreCase(initialFilter)) {
+                chipGroup.check(R.id.chipEiken);
+                examViewModel.filterByExamType("EIKEN");
             } else if ("GRE".equalsIgnoreCase(initialFilter)) {
                 chipGroup.check(R.id.chipGre);
                 examViewModel.filterByExamType("GRE");
@@ -150,6 +153,8 @@ public class ExamFragment extends Fragment {
                     examViewModel.filterByExamType("PTE");
                 } else if (checkedId == R.id.chipDet) {
                     examViewModel.filterByExamType("DET");
+                } else if (checkedId == R.id.chipEiken) {
+                    examViewModel.filterByExamType("EIKEN");
                 } else if (checkedId == R.id.chipGre) {
                     examViewModel.filterByExamType("GRE");
                 } else if (checkedId == R.id.chipYds) {

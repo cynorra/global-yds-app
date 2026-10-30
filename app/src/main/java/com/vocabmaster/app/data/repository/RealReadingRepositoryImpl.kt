@@ -161,11 +161,26 @@ class RealReadingRepositoryImpl(
         return initialSeedPassages
     }
 
-    private fun ReadingPassageEntity.toDomain() = ReadingPassage(
-        id = id,
-        title = title,
-        bodyText = bodyText
-    )
+    private fun ReadingPassageEntity.toDomain(): ReadingPassage {
+        val (exam, level) = when (id) {
+            "1" -> "TOEIC" to "B2"
+            "2" -> "IELTS" to "C1"
+            "3" -> "TOEFL" to "C1"
+            "4" -> "CAMBRIDGE" to "B2"
+            "5" -> "SAT" to "C1"
+            "6" -> "IELTS" to "C1"
+            "7" -> "PTE" to "B2"
+            "8" -> "YDS" to "B2-C1"
+            else -> "ALL" to "B2"
+        }
+        return ReadingPassage(
+            id = id,
+            title = title,
+            bodyText = bodyText,
+            targetExam = exam,
+            levelBadge = level
+        )
+    }
 
     companion object {
         private const val MASTER_COLLECTION = "reading_passages"

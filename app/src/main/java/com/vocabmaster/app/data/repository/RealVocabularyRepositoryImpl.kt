@@ -176,19 +176,38 @@ class RealVocabularyRepositoryImpl(
                     when {
                         word.englishWord.equals("Acquisition", true) || word.englishWord.equals("Compliance", true) ||
                         word.englishWord.equals("Feasibility", true) || word.englishWord.equals("Remittance", true) ||
-                        word.englishWord.equals("Quarterly", true) -> "TOEIC"
+                        word.englishWord.equals("Quarterly", true) || word.englishWord.equals("Benefit", true) ||
+                        word.englishWord.equals("Decline", true) -> "TOEIC"
 
                         word.englishWord.equals("Corroborate", true) || word.englishWord.equals("Depletion", true) ||
                         word.englishWord.equals("Discrepancy", true) || word.englishWord.equals("Ambiguous", true) ||
-                        word.englishWord.equals("Anticipate", true) -> "IELTS"
+                        word.englishWord.equals("Anticipate", true) || word.englishWord.equals("Crucial", true) -> "IELTS"
 
                         word.englishWord.equals("Ubiquitous", true) || word.englishWord.equals("Tenacious", true) ||
                         word.englishWord.equals("Hypothesis", true) || word.englishWord.equals("Dormant", true) ||
-                        word.englishWord.equals("Indigenous", true) -> "TOEFL"
+                        word.englishWord.equals("Indigenous", true) || word.englishWord.equals("Fundamental", true) -> "TOEFL"
 
                         word.englishWord.equals("Taciturn", true) || word.englishWord.equals("Obfuscate", true) ||
                         word.englishWord.equals("Ephemeral", true) || word.englishWord.equals("Impeccable", true) ||
-                        word.englishWord.equals("Gregarious", true) -> "GRE"
+                        word.englishWord.equals("Gregarious", true) || word.englishWord.equals("Vulnerable", true) -> "GRE"
+
+                        word.englishWord.equals("Contradict", true) || word.englishWord.equals("Demonstrate", true) ||
+                        word.englishWord.equals("Evaluate", true) || word.englishWord.equals("Significant", true) ||
+                        word.englishWord.equals("Justify", true) -> "SAT"
+
+                        word.englishWord.equals("Capable", true) || word.englishWord.equals("Enhance", true) ||
+                        word.englishWord.equals("Sustain", true) || word.englishWord.equals("Persist", true) ||
+                        word.englishWord.equals("Reluctant", true) -> "CAMBRIDGE"
+
+                        word.englishWord.equals("Adequate", true) || word.englishWord.equals("Considerable", true) ||
+                        word.englishWord.equals("Predict", true) || word.englishWord.equals("Dynamic", true) -> "PTE"
+
+                        word.englishWord.equals("Abandon", true) || word.englishWord.equals("Abstract", true) ||
+                        word.englishWord.equals("Accurate", true) || word.englishWord.equals("Achieve", true) ||
+                        word.englishWord.equals("Adjust", true) -> "DET"
+
+                        word.englishWord.equals("Gradual", true) || word.englishWord.equals("Maintain", true) ||
+                        word.englishWord.equals("Neglect", true) || word.englishWord.equals("Overcome", true) -> "EIKEN"
 
                         else -> "YDS"
                     }

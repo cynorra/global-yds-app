@@ -26,6 +26,21 @@ class ReadingAdapter(private val passages: List<ReadingPassage>) :
         holder.binding.tvTitle.text = passage.title
         holder.binding.tvBody.text = passage.bodyText
 
+        val flag = when (passage.targetExam.uppercase()) {
+            "TOEIC" -> "🇯🇵 TOEIC"
+            "IELTS" -> "🇬🇧 IELTS"
+            "TOEFL" -> "🇺🇸 TOEFL"
+            "CAMBRIDGE" -> "🇪🇺 Cambridge"
+            "SAT" -> "🎓 SAT"
+            "PTE" -> "⚡ PTE"
+            "DET" -> "🦉 DET"
+            "GRE" -> "🏛️ GRE"
+            "EIKEN" -> "🌸 EIKEN"
+            "YDS" -> "🇹🇷 YDS"
+            else -> "🌍 Global"
+        }
+        holder.binding.tvPassageBadge.text = "$flag • ${passage.levelBadge}"
+
         applyExpandedState(holder, expandedPositions.contains(position))
 
         holder.binding.root.setOnClickListener {

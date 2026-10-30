@@ -289,7 +289,15 @@ class RealGrammarRepositoryImpl(
         id = id,
         title = title,
         explanation = explanation,
-        exampleSentence = exampleSentence
+        exampleSentence = exampleSentence,
+        targetExam = when (id) {
+            "1" -> "🇯🇵 TOEIC & 🇹🇷 YDS"
+            "2" -> "🇬🇧 IELTS & 🇺🇸 TOEFL"
+            "3" -> "🇪🇺 Cambridge & 🇹🇷 YDS"
+            "4" -> "🎓 SAT & 🏛️ GRE"
+            "5" -> "⚡ PTE & 🦉 DET"
+            else -> "🌍 Global Exams"
+        }
     )
 
     companion object {

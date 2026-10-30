@@ -45,6 +45,20 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvPassageBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_badge_exam_type"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="🇬🇧 IELTS • C1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -188,6 +188,13 @@
                     android:text="🦉 DET" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEiken"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌸 EIKEN" />
+
+                <com.google.android.material.chip.Chip
                     android:id="@+id/chipGre"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"

@@ -111,6 +111,7 @@ public class HomeFragment extends Fragment {
         examItems.add(new HomeExamItem(ExamType.SAT, "~2M Aday"));
         examItems.add(new HomeExamItem(ExamType.PTE, "~2M Aday"));
         examItems.add(new HomeExamItem(ExamType.DET, "~2M Aday"));
+        examItems.add(new HomeExamItem(ExamType.EIKEN, "~3.5M Aday"));
         examItems.add(new HomeExamItem(ExamType.GRE, "~500K Aday"));
         examItems.add(new HomeExamItem(ExamType.YDS, "~400K Aday"));
 

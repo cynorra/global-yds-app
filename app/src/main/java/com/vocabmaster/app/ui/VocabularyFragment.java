@@ -96,6 +96,12 @@ public class VocabularyFragment extends Fragment {
             } else if ("PTE".equalsIgnoreCase(savedTarget)) {
                 chipGroup.check(R.id.chipVocabPte);
                 viewModel.filterWordsByExam("PTE");
+            } else if ("DET".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabDet);
+                viewModel.filterWordsByExam("DET");
+            } else if ("EIKEN".equalsIgnoreCase(savedTarget)) {
+                chipGroup.check(R.id.chipVocabEiken);
+                viewModel.filterWordsByExam("EIKEN");
             } else if ("GRE".equalsIgnoreCase(savedTarget)) {
                 chipGroup.check(R.id.chipVocabGre);
                 viewModel.filterWordsByExam("GRE");
@@ -124,6 +130,10 @@ public class VocabularyFragment extends Fragment {
                     viewModel.filterWordsByExam("SAT");
                 } else if (checkedId == R.id.chipVocabPte) {
                     viewModel.filterWordsByExam("PTE");
+                } else if (checkedId == R.id.chipVocabDet) {
+                    viewModel.filterWordsByExam("DET");
+                } else if (checkedId == R.id.chipVocabEiken) {
+                    viewModel.filterWordsByExam("EIKEN");
                 } else if (checkedId == R.id.chipVocabGre) {
                     viewModel.filterWordsByExam("GRE");
                 } else if (checkedId == R.id.chipVocabYds) {
