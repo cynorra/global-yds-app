@@ -11,9 +11,13 @@ data class HomeExamItem(
     val candidatesText: String
 )
 
+fun interface OnExamClickListener {
+    fun onExamClick(examType: ExamType)
+}
+
 class HomeExamCardAdapter(
     private val items: List<HomeExamItem>,
-    private val onExamClick: (ExamType) -> Unit
+    private val listener: OnExamClickListener
 ) : RecyclerView.Adapter<HomeExamCardAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemHomeExamCardBinding) : RecyclerView.ViewHolder(binding.root)
@@ -32,7 +36,7 @@ class HomeExamCardAdapter(
         holder.binding.tvExamDesc.text = exam.description
 
         holder.itemView.setOnClickListener {
-            onExamClick(exam)
+            listener.onExamClick(exam)
         }
     }
 
