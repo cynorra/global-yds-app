@@ -139,4 +139,32 @@ class ExamViewModelTest {
 
         assertEquals(null, viewModel.weakAreaInsight.value)
     }
+
+    @Test
+    fun `filterByExamType filters exams by matching examType and ALL returns all`() {
+        val exams = listOf(
+            Exam(id = "exam-toeic", title = "TOEIC Test", examType = "TOEIC"),
+            Exam(id = "exam-ielts", title = "IELTS Test", examType = "IELTS"),
+            Exam(id = "exam-yds", title = "YDS Test", examType = "YDS")
+        )
+        val repository = FakeExamRepository().apply {
+            this.exams = Resource.Success(exams)
+            completedExams = Resource.Success(emptyList())
+        }
+        val viewModel = ExamViewModel(repository)
+        viewModel.loadExams()
+
+        assertEquals(3, viewModel.uiState.value!!.items.size)
+
+        viewModel.filterByExamType("TOEIC")
+        assertEquals(1, viewModel.uiState.value!!.items.size)
+        assertEquals("exam-toeic", viewModel.uiState.value!!.items[0].id)
+
+        viewModel.filterByExamType("IELTS")
+        assertEquals(1, viewModel.uiState.value!!.items.size)
+        assertEquals("exam-ielts", viewModel.uiState.value!!.items[0].id)
+
+        viewModel.filterByExamType("ALL")
+        assertEquals(3, viewModel.uiState.value!!.items.size)
+    }
 }

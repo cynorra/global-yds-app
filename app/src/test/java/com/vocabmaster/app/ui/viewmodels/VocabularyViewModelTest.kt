@@ -66,4 +66,32 @@ class VocabularyViewModelTest {
         assertTrue(state.items.isEmpty())
         assertEquals("boom", state.errorMessage)
     }
+
+    @Test
+    fun `filterWordsByExam filters words by targetExam and ALL returns all`() {
+        val wToeic = Word(id = "1", englishWord = "Compliance", targetExam = "TOEIC")
+        val wIelts = Word(id = "2", englishWord = "Corroborate", targetExam = "IELTS")
+        val wGeneral = Word(id = "3", englishWord = "Common", targetExam = "ALL")
+
+        val repository = FakeVocabularyRepository(listOf(wToeic, wIelts, wGeneral))
+        val viewModel = VocabularyViewModel(repository)
+        viewModel.loadWords()
+
+        assertEquals(3, viewModel.uiState.value!!.items.size)
+
+        viewModel.filterWordsByExam("TOEIC")
+        val toeicWords = viewModel.uiState.value!!.items.map { it.englishWord }
+        assertTrue(toeicWords.contains("Compliance"))
+        assertTrue(toeicWords.contains("Common"))
+        assertFalse(toeicWords.contains("Corroborate"))
+
+        viewModel.filterWordsByExam("IELTS")
+        val ieltsWords = viewModel.uiState.value!!.items.map { it.englishWord }
+        assertTrue(ieltsWords.contains("Corroborate"))
+        assertTrue(ieltsWords.contains("Common"))
+        assertFalse(ieltsWords.contains("Compliance"))
+
+        viewModel.filterWordsByExam("ALL")
+        assertEquals(3, viewModel.uiState.value!!.items.size)
+    }
 }

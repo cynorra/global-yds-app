@@ -49,7 +49,14 @@
 
     <!-- Home -->
     <string name="home_greeting">Bugün Ne Öğrenmek İstersin?</string>
+    <string name="home_select_target_exam">🎯 Hedef Sınavını Seç</string>
+    <string name="home_select_target_exam_desc">Küresel sınav formatına uygun denemeleri keşfet</string>
+    <string name="home_study_areas">📚 Çalışma Alanları</string>
+    <string name="home_view_exams">Denemeleri Gör →</string>
     <string name="home_popular_topics">Popüler Konular</string>
+    <string name="profile_target_exam">🎯 Hedef Sınavım</string>
+    <string name="exam_candidates_format">%1$s Aday</string>
+    <string name="chip_all_exams">🌍 Tümü</string>
     <string name="topic_grammar">Gramer</string>
     <string name="topic_vocabulary">Kelime</string>
     <string name="topic_reading">Okuma</string>

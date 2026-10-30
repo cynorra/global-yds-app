@@ -49,7 +49,7 @@
             android:id="@+id/tvTargetExamsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🎯 Hedef Sınavını Seç"
+            android:text="@string/home_select_target_exam"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/textColorPrimary"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Küresel sınav formatına uygun denemeleri keşfet"
+            android:text="@string/home_select_target_exam_desc"
             android:textSize="13sp"
             android:textColor="@color/textColorSecondary"
             android:layout_marginBottom="12dp"/>
@@ -93,7 +93,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📚 Çalışma Alanları"
+            android:text="@string/home_study_areas"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/textColorPrimary"

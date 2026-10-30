@@ -104,16 +104,16 @@ public class HomeFragment extends Fragment {
         rvExamHub.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         List<HomeExamItem> examItems = new ArrayList<>();
-        examItems.add(new HomeExamItem(ExamType.TOEIC, "~7M Aday"));
-        examItems.add(new HomeExamItem(ExamType.IELTS, "~4M Aday"));
-        examItems.add(new HomeExamItem(ExamType.TOEFL, "~3M Aday"));
-        examItems.add(new HomeExamItem(ExamType.CAMBRIDGE, "~6M Aday"));
-        examItems.add(new HomeExamItem(ExamType.SAT, "~2M Aday"));
-        examItems.add(new HomeExamItem(ExamType.PTE, "~2M Aday"));
-        examItems.add(new HomeExamItem(ExamType.DET, "~2M Aday"));
-        examItems.add(new HomeExamItem(ExamType.EIKEN, "~3.5M Aday"));
-        examItems.add(new HomeExamItem(ExamType.GRE, "~500K Aday"));
-        examItems.add(new HomeExamItem(ExamType.YDS, "~400K Aday"));
+        examItems.add(new HomeExamItem(ExamType.TOEIC, getString(R.string.exam_candidates_format, "~7M")));
+        examItems.add(new HomeExamItem(ExamType.IELTS, getString(R.string.exam_candidates_format, "~4M")));
+        examItems.add(new HomeExamItem(ExamType.TOEFL, getString(R.string.exam_candidates_format, "~3M")));
+        examItems.add(new HomeExamItem(ExamType.CAMBRIDGE, getString(R.string.exam_candidates_format, "~6M")));
+        examItems.add(new HomeExamItem(ExamType.SAT, getString(R.string.exam_candidates_format, "~2M")));
+        examItems.add(new HomeExamItem(ExamType.PTE, getString(R.string.exam_candidates_format, "~2M")));
+        examItems.add(new HomeExamItem(ExamType.DET, getString(R.string.exam_candidates_format, "~2M")));
+        examItems.add(new HomeExamItem(ExamType.EIKEN, getString(R.string.exam_candidates_format, "~3.5M")));
+        examItems.add(new HomeExamItem(ExamType.GRE, getString(R.string.exam_candidates_format, "~500K")));
+        examItems.add(new HomeExamItem(ExamType.YDS, getString(R.string.exam_candidates_format, "~400K")));
 
         HomeExamCardAdapter examAdapter = new HomeExamCardAdapter(examItems, examType -> {
             AppPreferences.setTargetExam(requireContext(), examType.getCode());

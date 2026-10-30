@@ -29,7 +29,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Passage Title"
+                tools:text="Passage Title"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -53,7 +53,7 @@
             android:background="@drawable/bg_badge_exam_type"
             android:paddingHorizontal="8dp"
             android:paddingVertical="3dp"
-            android:text="🇬🇧 IELTS • C1"
+            tools:text="🇬🇧 IELTS • C1"
             android:textColor="@color/colorPrimary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -66,7 +66,7 @@
             android:ellipsize="end"
             android:lineSpacingExtra="4dp"
             android:maxLines="3"
-            android:text="Passage body text"
+            tools:text="Passage body text"
             android:textColor="@color/textColorSecondary"
             android:textSize="14sp" />
 

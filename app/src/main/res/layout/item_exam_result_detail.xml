@@ -19,7 +19,7 @@
             android:id="@+id/tvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question text here"
+            tools:text="Question text here"
             android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Your answer: ..."
+            tools:text="Your answer: ..."
             android:textSize="14sp" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Correct answer: ..."
+            tools:text="Correct answer: ..."
             android:textColor="#10B981"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Explanation: ..."
+            tools:text="Explanation: ..."
             android:textColor="@color/textColorSecondary"
             android:textSize="13sp"
             android:visibility="gone" />

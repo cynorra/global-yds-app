@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="🌍 Tümü" />
+                android:text="@string/chip_all_exams" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipVocabToeic"

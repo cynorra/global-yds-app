@@ -48,7 +48,14 @@
 
     <!-- Home -->
     <string name="home_greeting">What do you want to learn today?</string>
+    <string name="home_select_target_exam">🎯 Choose Target Exam</string>
+    <string name="home_select_target_exam_desc">Practice mock exams tailored for global test formats</string>
+    <string name="home_study_areas">📚 Study Areas</string>
+    <string name="home_view_exams">View Exams →</string>
     <string name="home_popular_topics">Popular Topics</string>
+    <string name="profile_target_exam">🎯 My Target Exam</string>
+    <string name="exam_candidates_format">%1$s Candidates</string>
+    <string name="chip_all_exams">🌍 All</string>
     <string name="topic_grammar">Grammar</string>
     <string name="topic_vocabulary">Vocabulary</string>
     <string name="topic_reading">Reading</string>

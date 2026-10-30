@@ -240,7 +240,7 @@
                 android:id="@+id/tvTargetExam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🎯 Hedef Sınavım"
+                android:text="@string/profile_target_exam"
                 android:textSize="16sp"
                 android:padding="16dp"
                 android:textColor="@color/textColorPrimary"
