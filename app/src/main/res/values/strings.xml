@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">VocabMaster: Learn English</string>
+    <string name="app_name">IELTS TOEIC TOEFL English Prep</string>
     
     <!-- Bottom Nav Menu -->
     <string name="nav_discover">Discover</string>
@@ -13,7 +13,7 @@
     
     <!-- Onboarding -->
     <string name="onboarding_1_title">Succeed in English</string>
-    <string name="onboarding_1_desc">Memorize words and take mock exams with VocabMaster.</string>
+    <string name="onboarding_1_desc">Memorize words and take realistic mock exams to achieve your dream score.</string>
     <string name="onboarding_2_title">Smart Word Cards</string>
     <string name="onboarding_2_desc">Swipe to save learned words, never forget.</string>
     <string name="onboarding_3_title">Realistic Mock Exams</string>
@@ -106,7 +106,7 @@
     <string name="notifications_permission_denied">Enable notifications in system settings to receive reminders.</string>
 
     <!-- About -->
-    <string name="about_description">VocabMaster helps you learn English vocabulary, master grammar rules, and practice with realistic mock exams.</string>
+    <string name="about_description">Prepare for IELTS, TOEIC, TOEFL, Cambridge, SAT and GRE exams with smart vocabulary cards and realistic practice tests.</string>
     <string name="about_version">Version %1$s</string>
 
     <!-- Mistakes Box & Report Card -->
@@ -172,9 +172,9 @@
 
     <!-- Share & Viral -->
     <string name="profile_share">Recommend to Friends</string>
-    <string name="share_app_title">Share Global YDS</string>
-    <string name="share_app_text">I am studying English words and mock exams with Global YDS. Join me!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
-    <string name="share_score_text">I scored %1$d%% on Global YDS mock exam! Join me: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_app_title">Share App</string>
+    <string name="share_app_text">I am studying English words and mock exams with IELTS TOEIC TOEFL English Prep. Join me!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_score_text">I scored %1$d%% on my English mock exam! Join me: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
     <string name="exam_share_score">Share Score</string>
 
     <!-- Offline hint -->

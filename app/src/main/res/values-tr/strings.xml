@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VocabMaster: Learn English</string>
+    <string name="app_name">İngilizce Sınav: YDS &amp; IELTS</string>
     
     <!-- Bottom Nav Menu -->
     <string name="nav_discover">Keşfet</string>
@@ -14,7 +14,7 @@
     
     <!-- Onboarding -->
     <string name="onboarding_1_title">İngilizcede Başarıya Ulaşın</string>
-    <string name="onboarding_1_desc">VocabMaster ile kelime ezberleyin, dil becerilerinizi geliştirin.</string>
+    <string name="onboarding_1_desc">Hedeflediğiniz puana ulaşmak için akıllı kartlarla kelime ezberleyin ve deneme sınavlarıyla pratik yapın.</string>
     <string name="onboarding_2_title">Akıllı Kelime Kartları</string>
     <string name="onboarding_2_desc">Öğrendiğiniz kelimeleri kaydırarak kaydedin, unutmayın.</string>
     <string name="onboarding_3_title">Gerçekçi Deneme Sınavları</string>
@@ -107,7 +107,7 @@
     <string name="notifications_permission_denied">Hatırlatma alabilmek için bildirimlere sistem ayarlarından izin verin.</string>
 
     <!-- About -->
-    <string name="about_description">VocabMaster; İngilizce kelime öğrenmene, gramer kurallarında ustalaşmana ve gerçekçi deneme sınavlarıyla pratik yapmana yardımcı olur.</string>
+    <string name="about_description">YDS, YÖKDİL, IELTS, TOEFL ve TOEIC için İngilizce kelime öğrenmene ve gerçekçi deneme sınavlarıyla pratik yapmana yardımcı olur.</string>
     <string name="about_version">Sürüm %1$s</string>
 
     <!-- Mistakes Box & Report Card -->
@@ -170,9 +170,9 @@
 
     <!-- Share & Viral -->
     <string name="profile_share">Arkadaşlarına Tavsiye Et</string>
-    <string name="share_app_title">Global YDS\'yi Paylaş</string>
-    <string name="share_app_text">Global YDS ile İngilizce kelime ve deneme sınavlarına çalışıyorum, sen de katıl!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
-    <string name="share_score_text">Global YDS deneme sınavından %%%1$d aldım! Sen de katıl: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_app_title">Uygulamayı Paylaş</string>
+    <string name="share_app_text">İngilizce sınavlarına ve kelimelere hazırlanıyorum, sen de katıl!\n\nhttps://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
+    <string name="share_score_text">İngilizce deneme sınavından %%%1$d aldım! Sen de katıl: https://play.google.com/store/apps/details?id=com.cynorra.vocabmaster.app</string>
     <string name="exam_share_score">Skorunu Paylaş</string>
 
     <!-- Offline hint -->
