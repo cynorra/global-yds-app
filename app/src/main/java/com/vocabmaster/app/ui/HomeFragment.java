@@ -19,6 +19,9 @@ import com.vocabmaster.app.domain.models.ExamType;
 import com.vocabmaster.app.ui.adapters.HomeExamCardAdapter;
 import com.vocabmaster.app.ui.adapters.HomeExamItem;
 import com.vocabmaster.app.ui.adapters.ModuleAdapter;
+import android.view.animation.OvershootInterpolator;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
 import io.supercharge.shimmerlayout.ShimmerLayout;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -72,6 +75,7 @@ public class HomeFragment extends Fragment {
                 rvModules.setVisibility(View.VISIBLE);
 
                 rvModules.setLayoutManager(new LinearLayoutManager(getContext()));
+                rvModules.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
                 List<com.vocabmaster.app.domain.models.Module> modules = new ArrayList<>();
                 modules.add(new com.vocabmaster.app.domain.models.Module("1", getString(R.string.topic_vocabulary), getString(R.string.module_vocabulary_desc), R.drawable.ic_module_vocabulary));
                 modules.add(new com.vocabmaster.app.domain.models.Module("2", getString(R.string.topic_grammar), getString(R.string.module_grammar_desc), R.drawable.ic_module_grammar));
@@ -102,6 +106,7 @@ public class HomeFragment extends Fragment {
     private void setupExamHub() {
         if (rvExamHub == null) return;
         rvExamHub.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rvExamHub.setItemAnimator(new SlideInRightAnimator(new OvershootInterpolator(1f)));
 
         List<HomeExamItem> examItems = new ArrayList<>();
         examItems.add(new HomeExamItem(ExamType.TOEIC, getString(R.string.exam_candidates_format, "~7M")));

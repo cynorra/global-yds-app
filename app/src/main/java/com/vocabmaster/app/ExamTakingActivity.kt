@@ -153,6 +153,10 @@ class ExamTakingActivity : AppCompatActivity() {
         viewModel.selectAnswer(index)
         btnNext.isEnabled = true
         HapticUtils.tap(optionButtons[index])
+        val selectedBtn = optionButtons[index]
+        selectedBtn.animate().scaleX(0.97f).scaleY(0.97f).setDuration(80).withEndAction {
+            selectedBtn.animate().scaleX(1.0f).scaleY(1.0f).setDuration(120).start()
+        }.start()
         optionButtons.forEachIndexed { i, button ->
             if (i == index) {
                 button.setBackgroundColor(getColor(R.color.colorPrimary))
@@ -174,12 +178,18 @@ class ExamTakingActivity : AppCompatActivity() {
         if (total == 0) return
         tvQuestionCounter.text = getString(R.string.exam_question_counter, index + 1, total)
         progressBar.max = total
-        progressBar.progress = index + 1
+        val targetProgress = index + 1
+        android.animation.ObjectAnimator.ofInt(progressBar, "progress", progressBar.progress, targetProgress)
+            .setDuration(300)
+            .start()
     }
 
     private fun showResult(scorePercent: Int) {
         groupQuiz.visibility = android.view.View.GONE
         groupResult.visibility = android.view.View.VISIBLE
+        groupResult.alpha = 0f
+        groupResult.translationY = 40f
+        groupResult.animate().alpha(1f).translationY(0f).setDuration(400).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
         tvScoreResult.text = getString(R.string.exam_score_format, scorePercent)
 
         // Only celebrate an actual pass; confetti on a 0-59% result reads as mocking rather

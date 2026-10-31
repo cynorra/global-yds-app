@@ -172,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
             // from the right; popping the back stack (system/toolbar back) reverses it, sliding
             // the previous screen back in from the left.
             ft.setCustomAnimations(
-                    R.anim.slide_in_right, R.anim.slide_out_left,
-                    R.anim.slide_in_left, R.anim.slide_out_right);
+                    R.anim.motion_slide_enter, R.anim.motion_slide_exit,
+                    R.anim.motion_pop_enter, R.anim.motion_pop_exit);
         } else {
             // Sibling-level bottom-nav tab switch: a simple cross-fade (no back-stack entry).
-            ft.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
+            ft.setCustomAnimations(R.anim.motion_tab_enter, R.anim.motion_tab_exit);
         }
         ft.replace(R.id.fragment_container, fragment);
         if (addToBackStack) {

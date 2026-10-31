@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
+    android:layout_marginVertical="6dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="12dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="18dp"
     app:cardElevation="2dp"
-    app:rippleColor="@color/colorPrimary">
+    app:cardBackgroundColor="@color/cardBackground"
+    app:strokeColor="@color/dividerColor"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +34,7 @@
                 android:layout_weight="1"
                 tools:text="Passage Title"
                 android:textColor="@color/textColorPrimary"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -48,7 +51,7 @@
             android:id="@+id/tvPassageBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bg_badge_exam_type"
             android:paddingHorizontal="8dp"
@@ -59,16 +62,26 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvBody"
+            android:id="@+id/tvContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:lineSpacingExtra="4dp"
             android:maxLines="3"
-            tools:text="Passage body text"
+            tools:text="Passage content excerpt..."
             android:textColor="@color/textColorSecondary"
             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvVocabularyHighlight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Key Vocabulary: ubiquitous, precedent"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

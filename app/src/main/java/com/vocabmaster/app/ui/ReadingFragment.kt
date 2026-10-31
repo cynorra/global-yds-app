@@ -33,6 +33,7 @@ class ReadingFragment : Fragment() {
 
         val rvReading = view.findViewById<RecyclerView>(R.id.rvReading)
         rvReading.layoutManager = LinearLayoutManager(requireContext())
+        rvReading.itemAnimator = jp.wasabeef.recyclerview.animators.SlideInUpAnimator(android.view.animation.OvershootInterpolator(1f))
 
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
         val emptyStateRoot = view.findViewById<View>(R.id.emptyStateRoot)

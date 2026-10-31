@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
+    android:layout_marginVertical="6dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="12dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="18dp"
     app:cardElevation="2dp"
-    app:rippleColor="@color/colorPrimary">
+    app:cardBackgroundColor="@color/cardBackground"
+    app:strokeColor="@color/dividerColor"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,6 +24,8 @@
             android:id="@+id/ivIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="10dp"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +36,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            tools:text="Module Title"
+            android:layout_marginEnd="8dp"
+            tools:text="Kelime Kartları"
             android:textColor="@color/textColorPrimary"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvModuleArrow"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,13 +51,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            tools:text="Module Description"
+            android:layout_marginEnd="8dp"
+            tools:text="Hedef sınavlar için kelime hazneliği"
             android:textColor="@color/textColorSecondary"
-            android:textSize="14sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvModuleArrow"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvModuleArrow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_icon_circle"
+            android:gravity="center"
+            android:text="→"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -37,6 +37,7 @@ class LeaderboardFragment : Fragment() {
         rvLeaderboard.layoutManager = LinearLayoutManager(requireContext())
         adapter = LeaderboardAdapter()
         rvLeaderboard.adapter = adapter
+        rvLeaderboard.itemAnimator = jp.wasabeef.recyclerview.animators.SlideInUpAnimator(android.view.animation.OvershootInterpolator(1f))
 
         viewModel.users.observe(viewLifecycleOwner) { users ->
             adapter.submitList(users)

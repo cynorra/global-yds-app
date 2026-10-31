@@ -34,6 +34,7 @@ class GrammarFragment : Fragment() {
 
         val rvGrammar = view.findViewById<RecyclerView>(R.id.rvGrammar)
         rvGrammar.layoutManager = LinearLayoutManager(requireContext())
+        rvGrammar.itemAnimator = jp.wasabeef.recyclerview.animators.SlideInUpAnimator(android.view.animation.OvershootInterpolator(1f))
 
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
         val emptyStateRoot = view.findViewById<View>(R.id.emptyStateRoot)

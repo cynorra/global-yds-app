@@ -18,11 +18,39 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
 
+        <!-- Modern Activity Window Animations -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.Premium</item>
+
         <!-- App-wide typography. android:fontFamily applies on API 26+; fontFamily is the
              AppCompat-backported attribute that also covers API 24-25. Falls back to the
              system font automatically if the Google Fonts provider can't be resolved. -->
         <item name="android:fontFamily" tools:targetApi="o">@font/app_font</item>
         <item name="fontFamily">@font/app_font</item>
+
+        <!-- Material 3 BottomNavigationView default styling -->
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+    </style>
+
+    <style name="WindowAnimation.Premium" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/motion_slide_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/motion_slide_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/motion_pop_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/motion_pop_exit</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/App.ItemActiveIndicator</item>
+        <item name="itemIconTint">@color/selector_bottom_nav</item>
+        <item name="itemTextColor">@color/selector_bottom_nav</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="elevation">8dp</item>
+        <item name="android:background">@color/cardBackground</item>
+    </style>
+
+    <style name="App.ItemActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/circleIconBg</item>
+        <item name="android:width">52dp</item>
+        <item name="android:height">32dp</item>
     </style>
 
     <!-- Splash screen shown while OnboardingActivity decides where to route the user
