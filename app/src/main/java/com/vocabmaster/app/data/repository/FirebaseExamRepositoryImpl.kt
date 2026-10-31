@@ -34,16 +34,40 @@ class FirebaseExamRepositoryImpl(
     private fun examAttemptsCollection(uid: String) =
         firestore.collection("users").document(uid).collection("examAttempts")
 
+    private val fallbackExams: List<Exam>
+        get() = seedExams.map { seed ->
+            Exam(
+                id = seed.id,
+                title = seed.title,
+                totalQuestions = seed.questions.size,
+                durationMinutes = seed.durationMinutes,
+                examType = seed.examType,
+                levelBadge = seed.levelBadge,
+                difficulty = seed.difficulty
+            )
+        }
+
     // Exam titles are authored in Turkish in the shared `exams` bank (see seedSampleExamsIfEmpty).
     // getAllExams() returns them translated into the device's language, cached per language in
     // Firestore so the same title is only ever translated once across all devices.
     override suspend fun getAllExams(): Resource<List<Exam>> {
         return try {
-            seedSampleExamsIfEmpty()
-            if (com.vocabmaster.app.data.remote.RemoteConfigManager.isDailyExamEnabled) {
-                ensureDailyExam()
+            try {
+                seedSampleExamsIfEmpty()
+                if (com.vocabmaster.app.data.remote.RemoteConfigManager.isDailyExamEnabled) {
+                    ensureDailyExam()
+                }
+            } catch (e: Exception) {
+                // Ignore seed/daily write failure; we still serve exams
             }
-            val exams = examsCollection.get().await().documents.mapNotNull { doc ->
+
+            val firestoreDocs = try {
+                examsCollection.get().await().documents
+            } catch (e: Exception) {
+                emptyList()
+            }
+
+            val remoteExams = firestoreDocs.mapNotNull { doc ->
                 val exam = doc.toObject(Exam::class.java) ?: return@mapNotNull null
                 val type = if (exam.examType.isBlank() || exam.examType == "ALL") {
                     when {
@@ -55,6 +79,7 @@ class FirebaseExamRepositoryImpl(
                         exam.id.contains("gre", ignoreCase = true) -> "GRE"
                         exam.id.contains("pte", ignoreCase = true) -> "PTE"
                         exam.id.contains("det", ignoreCase = true) -> "DET"
+                        exam.id.contains("eiken", ignoreCase = true) -> "EIKEN"
                         exam.id.contains("tenses") || exam.id.contains("conditionals") || exam.id.contains("passive") || exam.id.contains("relative") -> "YDS"
                         else -> "ALL"
                     }
@@ -64,11 +89,19 @@ class FirebaseExamRepositoryImpl(
                 val badge = if (exam.levelBadge.isBlank()) "B2" else exam.levelBadge
                 exam.copy(examType = type, levelBadge = badge)
             }
+
+            val combinedExams = if (remoteExams.isEmpty()) {
+                fallbackExams
+            } else {
+                val remoteIds = remoteExams.map { it.id }.toSet()
+                remoteExams + fallbackExams.filter { it.id !in remoteIds }
+            }
+
             // Sort so the daily exam is at the top
-            val sortedExams = exams.sortedByDescending { it.id.startsWith("exam-daily") }
+            val sortedExams = combinedExams.sortedByDescending { it.id.startsWith("exam-daily") }
             Resource.Success(withTranslatedTitles(sortedExams))
         } catch (e: Exception) {
-            Resource.Error(e.message)
+            Resource.Success(fallbackExams)
         }
     }
 

@@ -187,6 +187,15 @@ public class VocabularyFragment extends Fragment {
                     word -> {
                         viewModel.markWordAsLearned(word.getId());
                         com.vocabmaster.app.util.HapticUtils.tap(view);
+                        ViewGroup root = (ViewGroup) requireActivity().findViewById(android.R.id.content);
+                        if (root != null) {
+                            com.github.jinatonic.confetti.CommonConfetti.explosion(
+                                root,
+                                root.getWidth() / 2,
+                                root.getHeight() / 2,
+                                new int[]{0xFF4F46E5, 0xFF10B981, 0xFFF59E0B, 0xFF6366F1}
+                            ).oneShot();
+                        }
                         Snackbar.make(view, getString(R.string.vocabulary_word_learned), Snackbar.LENGTH_SHORT).show();
                     },
                     word -> {

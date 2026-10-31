@@ -43,65 +43,114 @@ class RealVocabularyRepositoryImpl(
     // One-time seed for the shared Firestore word bank, used only the very first time the
     // `word_bank` collection is empty (e.g. a brand new Firebase project). After that, the
     // bank lives entirely in Firestore and this list is never read again.
-    private val initialSeedWords = listOf(
-        "Abandon" to "The sailors had to abandon the sinking ship.",
-        "Abstract" to "The lecture was too abstract for most first-year students.",
-        "Accurate" to "Please make sure the figures in the report are accurate.",
-        "Achieve" to "She worked hard to achieve her goal of becoming a doctor.",
-        "Adequate" to "The salary is barely adequate to cover living expenses.",
-        "Adjust" to "It took him a while to adjust to the new time zone.",
-        "Ambiguous" to "The instructions were ambiguous, so nobody knew what to do.",
-        "Anticipate" to "Analysts anticipate a rise in prices next quarter.",
-        "Assert" to "She firmly asserted that she was not responsible for the mistake.",
-        "Benefit" to "Regular exercise can benefit both your body and your mind.",
-        "Capable" to "He is more than capable of handling this project alone.",
-        "Collapse" to "The old bridge collapsed under the weight of the truck.",
-        "Complex" to "The negotiations turned out to be far more complex than expected.",
-        "Conclude" to "The judge concluded the trial after hearing the final witness.",
-        "Consequence" to "Every decision has consequences, whether good or bad.",
-        "Considerable" to "The company invested a considerable amount of money in research.",
-        "Contradict" to "His actions often contradict what he says in public.",
-        "Convince" to "It took hours to convince her to change her mind.",
-        "Crucial" to "Sleep plays a crucial role in memory and concentration.",
-        "Decline" to "Sales have declined sharply since the new tax was introduced.",
-        "Demonstrate" to "The teacher demonstrated how to solve the equation step by step.",
-        "Deny" to "The company denied any responsibility for the accident.",
-        "Dynamic" to "The city has a dynamic economy driven by technology and tourism.",
-        "Emerge" to "New evidence emerged during the second week of the investigation.",
-        "Enhance" to "The new software will enhance the efficiency of the whole team.",
-        "Establish" to "The organization was established over fifty years ago.",
-        "Evaluate" to "Teachers evaluate students' progress at the end of each term.",
-        "Eventually" to "After months of training, she eventually won the championship.",
-        "Evident" to "It was evident from his expression that something was wrong.",
-        "Exceed" to "Demand for the product has exceeded all expectations.",
-        "Fundamental" to "Trust is a fundamental part of any healthy relationship.",
-        "Generate" to "The factory generates enough electricity to power the whole town.",
-        "Gradual" to "There has been a gradual improvement in air quality over the years.",
-        "Identify" to "Doctors were able to identify the cause of the illness quickly.",
-        "Inevitable" to "Given the circumstances, the delay was probably inevitable.",
-        "Interpret" to "Different readers may interpret the poem in very different ways.",
-        "Justify" to "He couldn't justify spending so much money on a single item.",
-        "Maintain" to "It's important to maintain a healthy balance between work and rest.",
-        "Neglect" to "Parents should never neglect their children's emotional needs.",
-        "Obvious" to "It was obvious to everyone that she was upset.",
-        "Overcome" to "With patience and practice, she managed to overcome her fear of public speaking.",
-        "Persist" to "Despite repeated failures, he continued to persist with his research.",
-        "Predict" to "Nobody could have predicted how popular the app would become.",
-        "Reluctant" to "She was reluctant to accept the offer without discussing it first.",
-        "Reveal" to "The survey revealed that most employees wanted flexible working hours.",
-        "Significant" to "There has been a significant increase in online shopping this year.",
-        "Sufficient" to "We don't have sufficient evidence to draw a firm conclusion yet.",
-        "Sustain" to "The economy needs steady investment to sustain long-term growth.",
-        "Tremendous" to "The new policy has had a tremendous impact on small businesses.",
-        "Vulnerable" to "Elderly people are particularly vulnerable during heat waves."
+    // Curated pre-bundled vocabulary bank across all 10 exam categories with Turkish meanings
+    // and context sentences. Ensures the user always has rich content offline and on first launch
+    // with 0ms loading time.
+    private val preBundledWords = listOf(
+        // TOEIC (Business & Workplace)
+        WordEntity("w_toeic_1", "Acquisition", "Şirket devralma / Satın alma", "The company announced the acquisition of its rival.", false, "TOEIC"),
+        WordEntity("w_toeic_2", "Compliance", "Mevzuata uyum / İtaat", "All staff members must ensure compliance with corporate security protocols.", false, "TOEIC"),
+        WordEntity("w_toeic_3", "Feasibility", "Uygulanabilirlik / Fizibilite", "We conducted a feasibility study before launching the new production line.", false, "TOEIC"),
+        WordEntity("w_toeic_4", "Remittance", "Para havalesi / Gönderi", "Please include the invoice number with your remittance.", false, "TOEIC"),
+        WordEntity("w_toeic_5", "Quarterly", "Üç aylık / Çeyreklik", "Our quarterly financial results exceeded all market expectations.", false, "TOEIC"),
+        WordEntity("w_toeic_6", "Substantial", "Önemli / Kayda değer", "The marketing campaign resulted in a substantial increase in inquiries.", false, "TOEIC"),
+        WordEntity("w_toeic_7", "Vendor", "Tedarikçi / Satıcı", "We negotiated a multi-year contract with our primary hardware vendor.", false, "TOEIC"),
+        WordEntity("w_toeic_8", "Merger", "Şirket birleşmesi", "The merger between the two telecom giants was approved by regulators.", false, "TOEIC"),
+
+        // IELTS (Academic & General)
+        WordEntity("w_ielts_1", "Corroborate", "Doğrulamak / Teyit etmek", "Subsequent experiments corroborated the professor's initial hypothesis.", false, "IELTS"),
+        WordEntity("w_ielts_2", "Depletion", "Tükenme / Azalma", "Overfishing has caused severe depletion of coastal marine stocks.", false, "IELTS"),
+        WordEntity("w_ielts_3", "Discrepancy", "Tutarsızlık / Çelişki", "The internal audit revealed a major discrepancy between the ledgers.", false, "IELTS"),
+        WordEntity("w_ielts_4", "Ambiguous", "Muğlak / Belirsiz", "The treaty's ambiguous wording led to conflicting interpretations.", false, "IELTS"),
+        WordEntity("w_ielts_5", "Anticipate", "Öngörmek / Ummak", "Economists anticipate a gradual stabilization in global interest rates.", false, "IELTS"),
+        WordEntity("w_ielts_6", "Crucial", "Hayati / Çok önemli", "Early linguistic immersion plays a crucial role in childhood development.", false, "IELTS"),
+        WordEntity("w_ielts_7", "Deteriorate", "Kötüleşmek / Bozulmak", "Air quality in metropolitan areas continues to deteriorate.", false, "IELTS"),
+        WordEntity("w_ielts_8", "Proliferation", "Hızlı artış / Çoğalma", "The rapid proliferation of digital media has reshaped journalism.", false, "IELTS"),
+
+        // TOEFL (Academic & Campus English)
+        WordEntity("w_toefl_1", "Ubiquitous", "Her yerde bulunan / Çok yaygın", "Smartphones have become ubiquitous across every modern demographic.", false, "TOEFL"),
+        WordEntity("w_toefl_2", "Tenacious", "Azimli / İnatçı / Tutucu", "Her tenacious defense of environmental conservation inspired millions.", false, "TOEFL"),
+        WordEntity("w_toefl_3", "Hypothesis", "Varsayım / Hipotez", "The scientists designed an experiment to test their working hypothesis.", false, "TOEFL"),
+        WordEntity("w_toefl_4", "Dormant", "Uykuda / Hareketsiz / Uyuyan", "The volcano had remained dormant for centuries before erupting.", false, "TOEFL"),
+        WordEntity("w_toefl_5", "Indigenous", "Yerli / Yöreye özgü", "The indigenous flora of the Amazon basin possess unique medicinal qualities.", false, "TOEFL"),
+        WordEntity("w_toefl_6", "Fundamental", "Temel / Esas", "Freedom of speech is a fundamental cornerstone of democratic societies.", false, "TOEFL"),
+        WordEntity("w_toefl_7", "Plausible", "Akla yatkın / Makul", "He offered a plausible explanation for the sudden power failure.", false, "TOEFL"),
+        WordEntity("w_toefl_8", "Cohesive", "Bağlantılı / Bütünlük arz eden", "The essay was praised for its cohesive structure and clear arguments.", false, "TOEFL"),
+
+        // GRE / GMAT (Elite Vocabulary & Logic)
+        WordEntity("w_gre_1", "Taciturn", "Az konuşan / Sessiz", "The detective was notoriously taciturn, preferring observation over speech.", false, "GRE"),
+        WordEntity("w_gre_2", "Obfuscate", "Bulanıklaştırmak / Kasten karmaşıklaştırmak", "Politicians often obfuscate complex realities with simplistic slogans.", false, "GRE"),
+        WordEntity("w_gre_3", "Ephemeral", "Kısa ömürlü / Geçici", "Fame on social media is notoriously ephemeral.", false, "GRE"),
+        WordEntity("w_gre_4", "Impeccable", "Kusursuz / Hatasız", "Her impeccable academic credentials made her the ideal department chair.", false, "GRE"),
+        WordEntity("w_gre_5", "Gregarious", "Sokulgan / Sosyal / Toplu yaşayan", "Dolphins are exceptionally gregarious animals that travel in pods.", false, "GRE"),
+        WordEntity("w_gre_6", "Loquacious", "Geveze / Çok konuşkan", "The loquacious host kept guests entertained throughout the evening.", false, "GRE"),
+        WordEntity("w_gre_7", "Mitigate", "Hafifletmek / Yatıştırmak", "Planting urban trees helps mitigate the heat island effect.", false, "GRE"),
+        WordEntity("w_gre_8", "Anomalous", "Kural dışı / Alışılmadık", "The meteorological station recorded anomalous temperature spikes in December.", false, "GRE"),
+
+        // SAT / ACT (Critical Reading)
+        WordEntity("w_sat_1", "Contradict", "Çelişmek / Yalanlamak", "The eyewitness testimony directly contradicted the suspect's statement.", false, "SAT"),
+        WordEntity("w_sat_2", "Demonstrate", "Göstermek / Kanıtlamak", "The clinical trials demonstrate the efficacy of the new vaccine.", false, "SAT"),
+        WordEntity("w_sat_3", "Evaluate", "Değerlendirmek / Puanlamak", "Admissions officers evaluate applicants on both grades and leadership.", false, "SAT"),
+        WordEntity("w_sat_4", "Significant", "Önemli / Anlamlı", "There was a significant improvement in test scores after tutoring.", false, "SAT"),
+        WordEntity("w_sat_5", "Justify", "Haklı çıkarmak / Gerekçelendirmek", "The CFO struggled to justify the excessive expenditures.", false, "SAT"),
+        WordEntity("w_sat_6", "Superfluous", "Gereksiz / Fuzuli", "Cut all superfluous adverbs to make your prose concise and impactful.", false, "SAT"),
+        WordEntity("w_sat_7", "Conciliatory", "Uzlaşmacı / Yatıştırıcı", "The ambassador adopted a conciliatory tone during the peace summit.", false, "SAT"),
+
+        // CAMBRIDGE (Use of English & Collocations)
+        WordEntity("w_cam_1", "Capable", "Yetenekli / Muktedir", "She is fully capable of managing the international project team.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_2", "Enhance", "Geliştirmek / Artırmak", "The new software update will enhance system security and processing speed.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_3", "Sustain", "Sürdürmek / Ayakta tutmak", "Without constant customer feedback, it is difficult to sustain innovation.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_4", "Persist", "Israr etmek / Direnmek", "If the symptoms persist for more than three days, consult a physician.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_5", "Reluctant", "Gönülsüz / İsteksiz", "Investors were reluctant to fund unproven early-stage concepts.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_6", "Conscientious", "Vicdanlı / Titiz ve özenli", "Her conscientious attention to detail prevented several critical errors.", false, "CAMBRIDGE"),
+
+        // PTE (AI Scored Academic)
+        WordEntity("w_pte_1", "Adequate", "Yeterli / Kafi", "The emergency generators provided adequate lighting during the blackout.", false, "PTE"),
+        WordEntity("w_pte_2", "Considerable", "Kayda değer / Hatırı sayılır", "The research institution invested considerable capital into quantum computing.", false, "PTE"),
+        WordEntity("w_pte_3", "Predict", "Tahmin etmek / Öngörmek", "Meteorologists can predict severe storm trajectories with high precision.", false, "PTE"),
+        WordEntity("w_pte_4", "Dynamic", "Dinamik / Hareketli", "Silicon Valley boasts a dynamic ecosystem of startups and incubators.", false, "PTE"),
+        WordEntity("w_pte_5", "Reinforce", "Pekiştirmek / Güçlendirmek", "Positive reinforcement fosters a more encouraging learning environment.", false, "PTE"),
+
+        // DET (Duolingo English Test)
+        WordEntity("w_det_1", "Abandon", "Terk etmek / Bırakmak", "The crew had to abandon ship after the engine failed in rough seas.", false, "DET"),
+        WordEntity("w_det_2", "Abstract", "Soyut / Kuramsal", "The lecture on philosophical ethics was too abstract for beginners.", false, "DET"),
+        WordEntity("w_det_3", "Accurate", "Doğru / Kesin", "Ensure the numerical calculations in your lab report are accurate.", false, "DET"),
+        WordEntity("w_det_4", "Achieve", "Başarmak / Elde etmek", "With perseverance, any diligent student can achieve their target score.", false, "DET"),
+        WordEntity("w_det_5", "Adjust", "Uyum sağlamak / Ayarlamak", "It took international students a few weeks to adjust to the local climate.", false, "DET"),
+
+        // EIKEN (Practical English)
+        WordEntity("w_eiken_1", "Gradual", "Kademeli / Aşama aşama", "We observed a gradual shift toward renewable energy sources in cities.", false, "EIKEN"),
+        WordEntity("w_eiken_2", "Maintain", "Sürdürmek / Korumak", "Regular maintenance helps maintain road safety throughout winter.", false, "EIKEN"),
+        WordEntity("w_eiken_3", "Neglect", "İhmal etmek / Savsaklamak", "You must never neglect your sleep routine during intensive exam prep.", false, "EIKEN"),
+        WordEntity("w_eiken_4", "Overcome", "Üstesinden gelmek / Aşmak", "She practiced daily to overcome her stage fright before the speech.", false, "EIKEN"),
+        WordEntity("w_eiken_5", "Foster", "Teşvik etmek / Büyütmek", "Community volunteer programs foster social solidarity among neighbors.", false, "EIKEN"),
+
+        // YDS / YÖKDİL (Akademik & Dilbilgisi)
+        WordEntity("w_yds_1", "Benefit", "Yarar sağlamak / Faydalanmak", "Students benefit greatly from interactive grammar and reading drills.", false, "YDS"),
+        WordEntity("w_yds_2", "Decline", "Azalmak / Reddetmek", "Oil consumption began to decline as electric vehicles gained popularity.", false, "YDS"),
+        WordEntity("w_yds_3", "Vulnerable", "Hassas / Savunmasız", "Coastal infrastructure is exceptionally vulnerable to rising sea levels.", false, "YDS"),
+        WordEntity("w_yds_4", "Tremendous", "Muazzam / Devasa", "The scientific breakthrough generated tremendous excitement globally.", false, "YDS"),
+        WordEntity("w_yds_5", "Consequence", "Sonuç / Netice", "Unregulated industrial emissions have dire consequences for public health.", false, "YDS"),
+        WordEntity("w_yds_6", "Inevitable", "Kaçınılmaz / Önlenemez", "Structural reform became inevitable following the global financial crisis.", false, "YDS"),
+        WordEntity("w_yds_7", "Emerge", "Ortaya çıkmak / Belirmek", "Fascinating new archaeological insights emerged during the excavation.", false, "YDS"),
+        WordEntity("w_yds_8", "Collapse", "Çökmek / Yıkılmak", "The ancient aqueduct collapsed during the magnitude 7 earthquake.", false, "YDS")
     )
+
+    private val initialSeedWords = preBundledWords.map { it.englishWord to it.exampleSentence }
 
     override suspend fun getWordsToLearn(): Resource<List<Word>> = withContext(Dispatchers.IO) {
         try {
             ensureWordsCached()
-            Resource.Success(wordDao.getAllWords().filter { !it.isLearned }.map { it.toDomain() })
+            val localWords = wordDao.getAllWords().filter { !it.isLearned }.map { it.toDomain() }
+            if (localWords.isEmpty()) {
+                // If local DB is somehow still empty, seed immediately from preBundledWords
+                wordDao.insertWords(preBundledWords)
+                Resource.Success(preBundledWords.map { it.toDomain() })
+            } else {
+                Resource.Success(localWords)
+            }
         } catch (e: Exception) {
-            Resource.Error(e.message)
+            Resource.Success(preBundledWords.map { it.toDomain() })
         }
     }
 
@@ -110,7 +159,7 @@ class RealVocabularyRepositoryImpl(
             ensureWordsCached()
             Resource.Success(wordDao.getAllWords().filter { it.isLearned }.map { it.toDomain() })
         } catch (e: Exception) {
-            Resource.Error(e.message)
+            Resource.Success(emptyList())
         }
     }
 
@@ -131,8 +180,17 @@ class RealVocabularyRepositoryImpl(
     // add new words in Firestore at any time and every device will pick up just the delta on
     // its next visit to Vocabulary - no re-download of the whole bank, no app update needed.
     private suspend fun ensureWordsCached() {
-        val masterWords = loadOrSeedMasterBank()
-        if (masterWords.isEmpty()) return // offline on first run with no local cache yet
+        // Instant offline hydration: populate Room with pre-bundled words immediately
+        if (wordDao.getAllWords().isEmpty()) {
+            wordDao.insertWords(preBundledWords)
+        }
+
+        val masterWords = try {
+            loadOrSeedMasterBank()
+        } catch (e: Exception) {
+            emptyList()
+        }
+        if (masterWords.isEmpty()) return
 
         val existingIds = wordDao.getAllWords().map { it.id }.toSet()
         val missingWords = masterWords.filterNot { it.id in existingIds }
@@ -151,20 +209,30 @@ class RealVocabularyRepositoryImpl(
 
         val needTranslation = missingWords.filterNot { it.id in alreadyTranslated.keys }
         val newlyTranslated = if (needTranslation.isNotEmpty()) {
-            translateAndCache(targetLanguage, needTranslation, translationCache)
+            try {
+                translateAndCache(targetLanguage, needTranslation, translationCache)
+            } catch (e: Exception) {
+                emptyMap()
+            }
         } else {
             emptyMap()
         }
 
-        val newWords = missingWords.map { 
-            val entity = alreadyTranslated[it.id] ?: newlyTranslated.getValue(it.id)
+        val newWords = missingWords.mapNotNull { masterWord ->
+            val entity = alreadyTranslated[masterWord.id]
+                ?: newlyTranslated[masterWord.id]
+                ?: preBundledWords.firstOrNull { it.englishWord.equals(masterWord.englishWord, ignoreCase = true) }
+                ?: return@mapNotNull null
+
             if (entity.targetExam.isBlank() || entity.targetExam == "ALL") {
-                entity.copy(targetExam = it.targetExam)
+                entity.copy(targetExam = masterWord.targetExam)
             } else {
                 entity
             }
         }
-        wordDao.insertWords(newWords)
+        if (newWords.isNotEmpty()) {
+            wordDao.insertWords(newWords)
+        }
     }
 
     private suspend fun loadOrSeedMasterBank(): List<MasterWord> {

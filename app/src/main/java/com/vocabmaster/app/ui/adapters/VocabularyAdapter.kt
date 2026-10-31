@@ -45,6 +45,9 @@ class VocabularyAdapter(
             viewBinderHelper.closeLayout(word.id)
             onLearnedClick.onWordAction(word)
         }
+        holder.binding.btnQuickLearned.setOnClickListener {
+            onLearnedClick.onWordAction(word)
+        }
         holder.binding.btnDelete.setOnClickListener {
             viewBinderHelper.closeLayout(word.id)
             onDeleteClick.onWordAction(word)

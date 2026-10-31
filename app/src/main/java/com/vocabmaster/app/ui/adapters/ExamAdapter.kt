@@ -35,19 +35,27 @@ class ExamAdapter(
         }
         holder.binding.tvExamBadge.text = badgeText
 
+        val diffEmoji = when (exam.difficulty.lowercase()) {
+            "easy" -> "🌱"
+            "hard" -> "🔥"
+            "expert" -> "💎"
+            else -> "⚡"
+        }
+        holder.binding.tvDifficultyBadge.text = "$diffEmoji ${exam.difficulty}"
+
         holder.binding.tvTitle.text = exam.title
-        holder.binding.tvDetails.text = "${exam.totalQuestions} Soru • ${exam.durationMinutes} Dk"
+        holder.binding.tvDetails.text = "📝 ${exam.totalQuestions} Soru • ⏱️ ${exam.durationMinutes} Dk"
 
         if (exam.isCompleted) {
             holder.binding.tvScore.visibility = View.VISIBLE
             holder.binding.tvScore.text = "✓ %${exam.score}"
-            holder.itemView.isClickable = false
-            holder.itemView.setOnClickListener(null)
+            holder.binding.tvStartAction.text = "Tekrar Çöz →"
         } else {
             holder.binding.tvScore.visibility = View.GONE
-            holder.itemView.isClickable = true
-            holder.itemView.setOnClickListener { onExamClick.onExamClick(exam) }
+            holder.binding.tvStartAction.text = "Sınava Başla →"
         }
+        holder.itemView.isClickable = true
+        holder.itemView.setOnClickListener { onExamClick.onExamClick(exam) }
     }
 
     override fun getItemCount() = exams.size

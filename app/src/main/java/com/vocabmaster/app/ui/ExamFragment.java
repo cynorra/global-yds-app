@@ -34,6 +34,7 @@ public class ExamFragment extends Fragment {
     private ExamViewModel examViewModel;
     private RecyclerView rvExams;
     private ProgressBar progressBar;
+    private io.supercharge.shimmerlayout.ShimmerLayout shimmerLayout;
     private View emptyStateRoot;
     private ImageView emptyStateIcon;
     private TextView emptyStateTitle;
@@ -66,6 +67,7 @@ public class ExamFragment extends Fragment {
 
         rvExams = view.findViewById(R.id.rvExams);
         progressBar = view.findViewById(R.id.progressBar);
+        shimmerLayout = view.findViewById(R.id.shimmer_view_container);
         emptyStateRoot = view.findViewById(R.id.emptyStateRoot);
         emptyStateIcon = view.findViewById(R.id.ivEmptyStateIcon);
         emptyStateTitle = view.findViewById(R.id.tvEmptyStateTitle);
@@ -76,6 +78,7 @@ public class ExamFragment extends Fragment {
         cardMicroExam = view.findViewById(R.id.cardMicroExam);
         tvWeakAreaInsight = view.findViewById(R.id.tvWeakAreaInsight);
         rvExams.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvExams.setItemAnimator(new jp.wasabeef.recyclerview.animators.SlideInUpAnimator(new android.view.animation.OvershootInterpolator(1f)));
 
         ExamRepository repo = new FirebaseExamRepositoryImpl(FirebaseFirestore.getInstance(), RetrofitClient.INSTANCE.getApi());
 
@@ -198,12 +201,19 @@ public class ExamFragment extends Fragment {
         });
 
         examViewModel.getUiState().observe(getViewLifecycleOwner(), state -> {
-            progressBar.setVisibility(state.isLoading() ? View.VISIBLE : View.GONE);
-
             if (state.isLoading()) {
+                if (shimmerLayout != null) {
+                    shimmerLayout.setVisibility(View.VISIBLE);
+                    shimmerLayout.startShimmerAnimation();
+                }
                 rvExams.setVisibility(View.GONE);
                 emptyStateRoot.setVisibility(View.GONE);
                 return;
+            }
+
+            if (shimmerLayout != null) {
+                shimmerLayout.stopShimmerAnimation();
+                shimmerLayout.setVisibility(View.GONE);
             }
 
             if (state.getErrorMessage() != null) {

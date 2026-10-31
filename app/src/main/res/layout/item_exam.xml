@@ -6,27 +6,55 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/cardBackground"
+    app:strokeColor="@color/dividerColor"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="18dp">
 
-        <TextView
-            android:id="@+id/tvExamBadge"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layoutBadges"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_badge_exam_type"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="3dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="🇬🇧 IELTS • C1" />
+            app:layout_constraintEnd_toStartOf="@id/tvScore"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvExamBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_exam_type"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="🇬🇧 IELTS • C1" />
+
+            <TextView
+                android:id="@+id/tvDifficultyBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge_exam_type"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="⚡ Hard" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvScore"
@@ -36,37 +64,64 @@
             android:paddingHorizontal="10dp"
             android:paddingVertical="4dp"
             android:textColor="@color/colorOnSuccess"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Score: 85" />
+            tools:visibility="visible"
+            tools:text="✓ %85" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:textColor="@color/textColorPrimary"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textStyle="bold"
+            android:lineSpacingExtra="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvExamBadge"
-            tools:text="IELTS Academic Vocabulary &amp; Reading" />
+            app:layout_constraintTop_toBottomOf="@id/layoutBadges"
+            tools:text="IELTS Academic: Reading &amp; Lexical Resource" />
+
+        <View
+            android:id="@+id/dividerExam"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/dividerColor"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <TextView
             android:id="@+id/tvDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:textColor="@color/textColorSecondary"
             android:textSize="13sp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvStartAction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerExam"
+            tools:text="📝 10 Soru • ⏱️ 15 Dk" />
+
+        <TextView
+            android:id="@+id/tvStartAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_exam_type"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="6dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Çöz →"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            tools:text="10 Questions • 15 Minutes" />
+            app:layout_constraintTop_toBottomOf="@id/dividerExam" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

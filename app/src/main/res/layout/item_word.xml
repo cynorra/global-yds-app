@@ -55,8 +55,8 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="3dp"
         app:strokeColor="@color/dividerColor"
         app:strokeWidth="1dp"
         app:cardBackgroundColor="@color/cardBackground">
@@ -69,27 +69,14 @@
             <!-- Type Icon/Badge -->
             <ImageView
                 android:id="@+id/ivTypeIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_sort_alphabetically"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:padding="4dp"
+                android:background="@drawable/bg_icon_circle"
+                android:src="@drawable/ic_module_vocabulary"
                 app:tint="@color/colorPrimary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
-
-            <TextView
-                android:id="@+id/tvTargetExamBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_badge_exam_type"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="3dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"
-                tools:text="🇬🇧 IELTS" />
 
             <TextView
                 android:id="@+id/tvEnglishWord"
@@ -97,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="8dp"
-                tools:text="English Word"
+                tools:text="Acquisition"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -107,39 +94,96 @@
                 app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"/>
 
             <TextView
+                android:id="@+id/tvTargetExamBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_exam_type"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"
+                tools:text="🇯🇵 TOEIC" />
+
+            <TextView
                 android:id="@+id/tvTurkishMeaning"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                tools:text="Turkish Meaning"
+                tools:text="Şirket devralma / Satın alma"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvEnglishWord" />
+                app:layout_constraintTop_toBottomOf="@id/ivTypeIcon" />
 
-            <View
-                android:id="@+id/divider"
+            <!-- Example sentence bubble container -->
+            <LinearLayout
+                android:id="@+id/layoutExampleBubble"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="12dp"
-                android:background="@color/dividerColor"
-                app:layout_constraintTop_toBottomOf="@id/tvTurkishMeaning" />
-
-            <TextView
-                android:id="@+id/tvExample"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                tools:text="Example sentence goes here. It provides context to the user."
-                android:textColor="@color/textColorSecondary"
-                android:textSize="15sp"
-                android:textStyle="italic"
-                android:lineSpacingExtra="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/bg_example_bubble"
+                android:padding="12dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tvTurkishMeaning"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider" />
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/tvExample"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="The company announced the acquisition of its primary domestic rival."
+                    android:textColor="@color/textColorSecondary"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutCardActions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@id/layoutExampleBubble"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/btnQuickLearned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_success"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:text="✓ Öğrendim"
+                    android:textColor="@color/colorOnSuccess"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tvSwipeHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="← Sola kaydır: Sil"
+                    android:textColor="@color/textColorSecondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
