@@ -1,11 +1,13 @@
 package com.vocabmaster.app.ui.adapters
 
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.chauthai.swipereveallayout.ViewBinderHelper
 import com.vocabmaster.app.databinding.ItemWordBinding
 import com.vocabmaster.app.domain.models.Word
+import java.util.Locale
 
 fun interface OnWordActionListener {
     fun onWordAction(word: Word)
@@ -18,8 +20,25 @@ class VocabularyAdapter(
 ) : RecyclerView.Adapter<VocabularyAdapter.VocabularyViewHolder>() {
 
     private val viewBinderHelper = ViewBinderHelper().apply { setOpenOnlyOne(true) }
+    private var tts: TextToSpeech? = null
 
     class VocabularyViewHolder(val binding: ItemWordBinding) : RecyclerView.ViewHolder(binding.root)
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        tts = TextToSpeech(recyclerView.context) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                tts?.language = Locale.US
+            }
+        }
+    }
+
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+        tts?.stop()
+        tts?.shutdown()
+        tts = null
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabularyViewHolder {
         val binding = ItemWordBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -40,6 +59,10 @@ class VocabularyAdapter(
         holder.binding.tvExample.text = word.exampleSentence
 
         viewBinderHelper.bind(holder.binding.swipeRevealLayout, word.id)
+
+        holder.binding.btnSpeaker.setOnClickListener {
+            tts?.speak(word.englishWord, TextToSpeech.QUEUE_FLUSH, null, word.id)
+        }
 
         holder.binding.btnLearned.setOnClickListener {
             viewBinderHelper.closeLayout(word.id)

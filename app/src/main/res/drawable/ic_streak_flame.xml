@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
+    android:width="28dp"
+    android:height="28dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    <!-- Outer flame -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M12,2 C9,6 6,9 6,13 C6,17.4 8.7,21 12,21 C15.3,21 18,17.9 18,14 C18,10.5 15.5,8.5 14.5,6 C14.2,8 13,9 12,9 C10.8,9 10,7.8 10,6.5 C10,4.8 11,3.3 12,2 Z" />
+        android:fillColor="#FFEA580C"
+        android:pathData="M12,2C8.5,6.5 5,9.5 5,14c0,4.42 3.58,8 8,8s8,-3.58 8,-8c0,-4.5 -3.5,-7.5 -7,-12h-2z"/>
+    <!-- Middle flame -->
+    <path
+        android:fillColor="#FFF59E0B"
+        android:pathData="M12,6C9.5,9.5 7,11.5 7,15c0,3.31 2.69,6 6,6s6,-2.69 6,-6c0,-3.5 -2.5,-5.5 -5,-9h-2z"/>
+    <!-- Inner bright core -->
+    <path
+        android:fillColor="#FFFDE047"
+        android:pathData="M12,10c-1.5,2.2 -2.5,3.6 -2.5,5.5 0,1.93 1.57,3.5 3.5,3.5s3.5,-1.57 3.5,-3.5c0,-1.9 -1,-3.3 -2.5,-5.5h-2z"/>
 </vector>

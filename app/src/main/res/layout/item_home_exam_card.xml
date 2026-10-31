@@ -2,14 +2,14 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="160dp"
+    android:layout_width="168dp"
     android:layout_height="wrap_content"
     android:layout_marginEnd="12dp"
     android:layout_marginVertical="4dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="18dp"
     app:cardElevation="3dp"
     app:cardBackgroundColor="@color/cardBackground"
     app:strokeColor="@color/dividerColor"
@@ -31,7 +31,7 @@
                 android:id="@+id/tvExamFlag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 tools:text="🇬🇧" />
 
             <TextView
@@ -40,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/bg_badge_exam_type"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="2dp"
+                android:paddingHorizontal="7dp"
+                android:paddingVertical="3dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp"
                 android:textStyle="bold"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="@color/textColorPrimary"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:text="IELTS" />
 
@@ -73,7 +73,7 @@
             android:id="@+id/tvExamAction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="14dp"
             android:text="@string/home_view_exams"
             android:textColor="@color/colorPrimary"
             android:textSize="12sp"
@@ -82,4 +82,3 @@
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
-

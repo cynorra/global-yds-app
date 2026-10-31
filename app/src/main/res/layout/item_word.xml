@@ -20,14 +20,14 @@
             android:id="@+id/btnLearned"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:background="#4CAF50"
+            android:background="#10B981"
             android:clickable="true"
             android:focusable="true">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center"
-                android:src="@android:drawable/ic_input_add"
+                android:src="@drawable/ic_check_circle"
                 app:tint="@android:color/white" />
         </FrameLayout>
 
@@ -35,12 +35,12 @@
             android:id="@+id/btnDelete"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:background="#F44336"
+            android:background="#EF4444"
             android:clickable="true"
             android:focusable="true">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:src="@android:drawable/ic_menu_delete"
                 app:tint="@android:color/white" />
@@ -55,7 +55,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="18dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="3dp"
         app:strokeColor="@color/dividerColor"
         app:strokeWidth="1dp"
@@ -69,9 +69,9 @@
             <!-- Type Icon/Badge -->
             <ImageView
                 android:id="@+id/ivTypeIcon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:padding="4dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:padding="6dp"
                 android:background="@drawable/bg_icon_circle"
                 android:src="@drawable/ic_module_vocabulary"
                 app:tint="@color/colorPrimary"
@@ -83,14 +83,30 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="6dp"
                 tools:text="Acquisition"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/tvTargetExamBadge"
+                app:layout_constraintEnd_toStartOf="@id/btnSpeaker"
                 app:layout_constraintStart_toEndOf="@id/ivTypeIcon"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivTypeIcon"
+                app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"/>
+
+            <ImageView
+                android:id="@+id/btnSpeaker"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:padding="6dp"
+                android:background="@drawable/bg_icon_circle"
+                android:src="@drawable/ic_speaker"
+                app:tint="@color/colorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Listen"
+                app:layout_constraintEnd_toStartOf="@id/tvTargetExamBadge"
+                app:layout_constraintTop_toTopOf="@id/ivTypeIcon"
                 app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"/>
 
             <TextView
@@ -104,7 +120,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivTypeIcon"
                 app:layout_constraintBottom_toBottomOf="@id/ivTypeIcon"
                 tools:text="🇯🇵 TOEIC" />
 
@@ -112,7 +128,7 @@
                 android:id="@+id/tvTurkishMeaning"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="14dp"
                 tools:text="Şirket devralma / Satın alma"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
@@ -128,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bg_example_bubble"
-                android:padding="12dp"
+                android:padding="14dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/tvTurkishMeaning"
                 app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +165,7 @@
                 android:id="@+id/layoutCardActions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="14dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 app:layout_constraintTop_toBottomOf="@id/layoutExampleBubble"
@@ -162,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_badge_success"
                     android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingVertical="7dp"
                     android:text="✓ Öğrendim"
                     android:textColor="@color/colorOnSuccess"
                     android:textSize="12sp"

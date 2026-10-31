@@ -109,7 +109,14 @@ class ExamTakingActivity : AppCompatActivity() {
         }
 
         viewModel.currentIndex.observe(this) { updateCounter() }
-        viewModel.totalQuestions.observe(this) { updateCounter() }
+        viewModel.totalQuestions.observe(this) { total ->
+            if (total == 0 && !isFinishing) {
+                android.widget.Toast.makeText(this, "Bu sınav için soru bulunamadı.", android.widget.Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                updateCounter()
+            }
+        }
 
         viewModel.finalScorePercent.observe(this) { score ->
             if (score != null) showResult(score)

@@ -210,7 +210,11 @@ class FirebaseExamRepositoryImpl(
     }
 
     override suspend fun getExamQuestions(examId: String): List<Question> {
-        if (examId == "MISTAKES") return getMistakes()
+        if (examId == "MISTAKES") {
+            val mistakes = getMistakes()
+            if (mistakes.isNotEmpty()) return mistakes
+            return seedExams.flatMap { it.questions }.shuffled().take(MICRO_EXAM_QUESTION_COUNT)
+        }
         if (examId == "MICRO") return getMicroExamQuestions()
         return try {
             val fromFirestore = examsCollection.document(examId).collection("questions").get().await()
