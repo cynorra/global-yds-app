@@ -38,18 +38,24 @@
 
     <!-- Typography appearances -->
     <style name="TextAppearance.App.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
     <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">-0.005</item>
     </style>
 
     <style name="TextAppearance.App.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
         <item name="android:textColor">@color/textColorSecondary</item>
         <item name="android:lineSpacingExtra">3dp</item>
     </style>
