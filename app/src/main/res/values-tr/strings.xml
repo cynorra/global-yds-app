@@ -50,6 +50,7 @@
 
     <!-- Home -->
     <string name="home_greeting">Bugün Ne Öğrenmek İstersin?</string>
+    <string name="home_hero_subtitle">🎯 Günlük Hedef: 10 Kelime ve 1 Deneme Sınavı</string>
     <string name="home_select_target_exam">🎯 Hedef Sınavını Seç</string>
     <string name="home_select_target_exam_desc">Küresel sınav formatına uygun denemeleri keşfet</string>
     <string name="home_study_areas">📚 Çalışma Alanları</string>

@@ -23,9 +23,6 @@ import android.view.animation.OvershootInterpolator;
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
 import io.supercharge.shimmerlayout.ShimmerLayout;
-import com.flaviofaria.kenburnsview.KenBurnsView;
-import com.getkeepsafe.taptargetview.TapTarget;
-import com.getkeepsafe.taptargetview.TapTargetView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,6 @@ public class HomeFragment extends Fragment {
     private ShimmerLayout shimmerLayout;
     private RecyclerView rvModules;
     private RecyclerView rvExamHub;
-    private KenBurnsView kbvHeader;
     private final Handler loadHandler = new Handler(android.os.Looper.getMainLooper());
 
     public HomeFragment() {
@@ -55,7 +51,6 @@ public class HomeFragment extends Fragment {
         shimmerLayout = view.findViewById(R.id.shimmerLayout);
         rvModules = view.findViewById(R.id.rvModules);
         rvExamHub = view.findViewById(R.id.rvExamHub);
-        kbvHeader = view.findViewById(R.id.kbvHeader);
 
         shimmerLayout.startShimmerAnimation();
 
@@ -98,7 +93,6 @@ public class HomeFragment extends Fragment {
                 });
                 rvModules.setAdapter(adapter);
 
-                showTutorial();
             }
         }, 1200);
     }
@@ -151,26 +145,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void showTutorial() {
-        if (getActivity() == null) return;
-        TapTargetView.showFor(getActivity(),
-            TapTarget.forView(kbvHeader, getString(R.string.home_tutorial_title), getString(R.string.home_tutorial_desc))
-                .outerCircleColor(R.color.colorPrimary)
-                .targetCircleColor(android.R.color.white)
-                .titleTextSize(20)
-                .titleTextColor(android.R.color.white)
-                .descriptionTextSize(14)
-                .descriptionTextColor(android.R.color.white)
-                .cancelable(true)
-                .transparentTarget(true)
-                .targetRadius(100),
-            new TapTargetView.Listener() {
-                @Override
-                public void onTargetClick(TapTargetView view) {
-                    super.onTargetClick(view);
-                }
-            });
-    }
+
 
     @Override
     public void onDestroyView() {
