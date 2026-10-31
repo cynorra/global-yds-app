@@ -93,6 +93,15 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+        findViewById<android.widget.TextView>(R.id.tvGuestLogin).setOnClickListener {
+            com.google.firebase.auth.FirebaseAuth.getInstance().signInAnonymously().addOnCompleteListener {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            }
+        }
+
         loginViewModel.isLoading.observe(this) { isLoading ->
             if (isLoading) {
                 btnLogin.startAnimation()

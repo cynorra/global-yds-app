@@ -31,6 +31,7 @@
     <string name="login_no_account">Don\'t have an account? Sign up</string>
     <string name="login_or_divider">OR</string>
     <string name="login_google_button">Sign in with Google</string>
+    <string name="login_guest_button">Continue as Guest →</string>
     <string name="default_web_client_id" translatable="false">129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com</string>
 
     <!-- Register -->

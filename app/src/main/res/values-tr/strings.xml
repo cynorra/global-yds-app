@@ -32,6 +32,7 @@
     <string name="login_no_account">Hesabın yok mu? Kayıt ol</string>
     <string name="login_or_divider">VEYA</string>
     <string name="login_google_button">Google ile Giriş Yap</string>
+    <string name="login_guest_button">Misafir Olarak Devam Et →</string>
     <string name="default_web_client_id" translatable="false">129460323433-ss3kln2uhoofrqipgnbb4jhasoh7sm3n.apps.googleusercontent.com</string>
 
     <!-- Register -->

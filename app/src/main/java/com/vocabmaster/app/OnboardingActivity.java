@@ -15,8 +15,16 @@ public class OnboardingActivity extends AppIntro {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        SplashScreen.installSplashScreen(this);
+        androidx.core.splashscreen.SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
+        splashScreen.setKeepOnScreenCondition(() -> false);
+        splashScreen.setOnExitAnimationListener(viewProvider -> {
+            viewProvider.getView().animate()
+                    .alpha(0f)
+                    .setDuration(250L)
+                    .withEndAction(viewProvider::remove)
+                    .start();
+        });
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             startActivity(new Intent(this, MainActivity.class));
