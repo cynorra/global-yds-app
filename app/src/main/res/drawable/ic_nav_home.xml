@@ -8,3 +8,4 @@
         android:fillColor="@color/textColorPrimary"
         android:pathData="M12,3 L4,9 V21 H9 V14 H15 V21 H20 V9 Z" />
 </vector>
+

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand colors lightened slightly for AA contrast on dark surfaces. -->
-    <color name="colorPrimary">#6366F1</color>
+    <!-- 2026+ Dark Mode OLED Slate Palette -->
+    <color name="colorPrimary">#818CF8</color>
+    <color name="colorPrimaryLight">#A5B4FC</color>
     <color name="colorPrimaryDark">#4F46E5</color>
-    <color name="colorAccent">#34D399</color>
+    <color name="colorAccent">#38BDF8</color>
 
-    <color name="backgroundColor">#121317</color>
-    <color name="textColorPrimary">#F3F4F6</color>
-    <color name="textColorSecondary">#9CA3AF</color>
+    <color name="backgroundColor">#090D16</color>
+    <color name="textColorPrimary">#F8FAFC</color>
+    <color name="textColorSecondary">#94A3B8</color>
 
-    <color name="cardBackground">#1E2029</color>
-    <color name="dividerColor">#2D2F3A</color>
+    <color name="cardBackground">#111827</color>
+    <color name="dividerColor">#1E293B</color>
 
-    <color name="shimmer_color">#33FFFFFF</color>
+    <color name="shimmer_color">#26818CF8</color>
 
     <color name="colorError">#F87171</color>
     <color name="colorOnError">#450A0A</color>
@@ -21,13 +22,10 @@
     <color name="colorWarning">#FBBF24</color>
     <color name="colorOnWarning">#451A03</color>
 
-    <color name="surfaceElevated">#1E2029</color>
+    <color name="surfaceElevated">#1E293B</color>
 
-    <!-- Low-opacity brand tint used behind a screen-header icon badge. -->
-    <color name="circleIconBg">#262A3D</color>
+    <color name="circleIconBg">#1E293B</color>
 
-    <!-- "Danger container" pair for the Mistakes Box card - a soft tint, not the solid
-         colorError/colorOnError pairing meant for buttons/alerts. -->
-    <color name="errorContainerBg">#3A2020</color>
+    <color name="errorContainerBg">#3A1C1C</color>
     <color name="onErrorContainer">#FCA5A5</color>
 </resources>

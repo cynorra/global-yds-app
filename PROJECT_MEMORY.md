@@ -2,7 +2,7 @@
 ## Global English Exam Hub (IELTS TOEIC TOEFL English Prep)
 
 * **Son Güncelleme:** 31 Ekim 2026
-* **Güncel Sürüm:** `v2.0.5` (`versionCode 9`, `versionName "2.0.5"`)
+* **Güncel Sürüm:** `v2.0.6` (`versionCode 10`, `versionName "2.0.6"`)
 * **Paket Kimliği (Application ID):** `com.cynorra.vocabmaster.app`
 * **GitHub Deposu:** [https://github.com/cynorra/global-yds-app](https://github.com/cynorra/global-yds-app) (Public)
 * **SDK Seviyeleri:** `minSdk 24`, `targetSdk 36`, `compileSdk 36`, `buildToolsVersion 36.0.0`, `Java 17`

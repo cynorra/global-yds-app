@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4F46E5</color>
-    <color name="colorPrimaryDark">#3730A3</color>
-    <color name="colorAccent">#10B981</color>
+    <!-- 2026+ Flagship Neo-Edtech Palette -->
+    <color name="colorPrimary">#4338CA</color>
+    <color name="colorPrimaryLight">#6366F1</color>
+    <color name="colorPrimaryDark">#312E81</color>
+    <color name="colorAccent">#0EA5E9</color>
 
-    <color name="backgroundColor">#F9FAFB</color>
-    <color name="textColorPrimary">#111827</color>
-    <color name="textColorSecondary">#6B7280</color>
+    <color name="backgroundColor">#F8FAFC</color>
+    <color name="textColorPrimary">#0F172A</color>
+    <color name="textColorSecondary">#64748B</color>
 
     <color name="cardBackground">#FFFFFF</color>
-    <color name="dividerColor">#E5E7EB</color>
+    <color name="dividerColor">#E2E8F0</color>
 
-    <color name="shimmer_color">#a2878787</color>
+    <color name="shimmer_color">#1A4338CA</color>
 
-    <!-- Semantic colors (error / success / warning), consistent across light & dark. -->
-    <color name="colorError">#DC2626</color>
+    <!-- Semantic colors (error / success / warning) -->
+    <color name="colorError">#EF4444</color>
     <color name="colorOnError">#FFFFFF</color>
     <color name="colorSuccess">#10B981</color>
     <color name="colorOnSuccess">#FFFFFF</color>
     <color name="colorWarning">#F59E0B</color>
-    <color name="colorOnWarning">#111827</color>
+    <color name="colorOnWarning">#0F172A</color>
 
     <color name="surfaceElevated">#FFFFFF</color>
 
-    <!-- Low-opacity brand tint used behind a screen-header icon badge. -->
+    <!-- Low-opacity brand tint used behind a screen-header icon badge -->
     <color name="circleIconBg">#EEF2FF</color>
 
-    <!-- "Danger container" pair for the Mistakes Box card - a soft tint, not the solid
-         colorError/colorOnError pairing meant for buttons/alerts. -->
+    <!-- Soft danger container pair -->
     <color name="errorContainerBg">#FEE2E2</color>
     <color name="onErrorContainer">#991B1B</color>
 </resources>

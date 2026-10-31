@@ -10,7 +10,7 @@
         <item name="colorOnSecondary">#052E16</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/backgroundColor</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
 
         <!-- Premium specific attributes -->
@@ -27,8 +27,31 @@
         <item name="android:fontFamily" tools:targetApi="o">@font/app_font</item>
         <item name="fontFamily">@font/app_font</item>
 
+        <!-- Material 3 Typography Attributes -->
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.App.Headline</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.Title</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.Body</item>
+
         <!-- Material 3 BottomNavigationView default styling -->
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+    </style>
+
+    <!-- Typography appearances -->
+    <style name="TextAppearance.App.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.005</item>
+    </style>
+
+    <style name="TextAppearance.App.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:lineSpacingExtra">3dp</item>
     </style>
 
     <style name="WindowAnimation.Premium" parent="@android:style/Animation.Activity">
@@ -57,7 +80,7 @@
          (already-logged-in / onboarded / first-run). See androidx.core:core-splashscreen. -->
     <style name="Theme.GlobalYDS.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/colorPrimary</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/Theme.GlobalYDS</item>
     </style>
 </resources>
