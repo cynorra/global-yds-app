@@ -78,9 +78,9 @@
 
     <!-- Splash screen shown while OnboardingActivity decides where to route the user
          (already-logged-in / onboarded / first-run). See androidx.core:core-splashscreen. -->
-    <style name="Theme.GlobalYDS.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/colorPrimary</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Theme.GlobalYDS</item>
+    <style name="Theme.GlobalYDS.Splash" parent="Theme.GlobalYDS">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
     </style>
 </resources>
