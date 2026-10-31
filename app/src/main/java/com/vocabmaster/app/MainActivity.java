@@ -145,11 +145,27 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    private static final String TEST_BANNER_AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111";
+
     private void loadBannerAd() {
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
                 Log.w("MainActivity", "Banner ad failed to load: " + adError.getMessage());
+                // Fallback to official Google AdMob test banner so ad area is always filled
+                if (adError.getCode() == AdRequest.ERROR_CODE_NO_FILL && !TEST_BANNER_AD_UNIT_ID.equals(adView.getAdUnitId())) {
+                    android.view.ViewGroup parent = (android.view.ViewGroup) adView.getParent();
+                    if (parent != null) {
+                        int index = parent.indexOfChild(adView);
+                        parent.removeView(adView);
+                        adView.destroy();
+                        adView = new com.google.android.gms.ads.AdView(MainActivity.this);
+                        adView.setAdSize(com.google.android.gms.ads.AdSize.BANNER);
+                        adView.setAdUnitId(TEST_BANNER_AD_UNIT_ID);
+                        parent.addView(adView, index);
+                        adView.loadAd(new AdRequest.Builder().build());
+                    }
+                }
             }
         });
         AdRequest adRequest = new AdRequest.Builder().build();

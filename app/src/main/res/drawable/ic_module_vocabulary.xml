@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24"
-    android:tint="@color/colorPrimary">
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Vocabulary Flashcard & Globe Icon -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M12.87,15.07l-2.54,-2.51l0.03,-0.03c1.74,-1.94 2.98,-4.17 3.71,-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5,7.92 10.44,9.75 9,11.35 8.07,10.32 7.3,9.19 6.69,8h-2c0.73,1.63 1.73,3.17 2.98,4.56l-5.09,5.02L4,19l5,-5l3.11,3.11L12.87,15.07zM18.5,10h-2L12,22h2l1.12,-3h4.75L21,22h2L18.5,10zM15.88,17l1.62,-4.33L19.12,17H15.88z"/>
+        android:fillColor="#4F46E5"
+        android:pathData="M16,2C8.27,2 2,8.27 2,16s6.27,14 14,14 14,-6.27 14,-14S23.73,2 16,2zM16,4c2.83,0 5.43,1.02 7.46,2.71L5.71,24.46C4.02,22.43 3,19.83 3,17c0,-7.72 6.28,-14 13,-14zM16,28c-2.83,0 -5.43,-1.02 -7.46,-2.71l17.75,-17.75C27.98,9.57 29,12.17 29,15c0,7.72 -6.28,14 -13,14z"
+        android:fillAlpha="0.15"/>
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M12.87,17.07l-2.54,-2.51 0.03,-0.03c1.74,-1.94 2.98,-4.17 3.71,-6.53H17V6h-7V4H8v2H1v1.99h11.17C11.5,9.92 10.44,11.75 9,13.35c-0.93,-1.03 -1.7,-2.16 -2.31,-3.35h-2c0.73,1.63 1.73,3.17 2.98,4.56l-5.09,5.02L4,21l5,-5 3.11,3.11 0.76,-2.04zM22.5,12h-2L16,24h2l1.12,-3h4.75L25,24h2l-4.5,-12zM19.88,19l1.62,-4.33L23.12,19H19.88z"/>
 </vector>

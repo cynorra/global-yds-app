@@ -3,7 +3,6 @@ package com.vocabmaster.app.data.local
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.vocabmaster.app.GlobalYdsApp
 import com.vocabmaster.app.domain.models.Exam
 import com.vocabmaster.app.domain.models.Question
@@ -42,8 +41,8 @@ object AssetDataLoader {
         return try {
             ctx.assets.open("words_bank.json").use { stream ->
                 InputStreamReader(stream, Charsets.UTF_8).use { reader ->
-                    val type = object : TypeToken<List<WordEntity>>() {}.type
-                    val words: List<WordEntity> = gson.fromJson(reader, type)
+                    val array = gson.fromJson(reader, Array<WordEntity>::class.java)
+                    val words = array?.toList() ?: emptyList()
                     cachedWords = words
                     Log.d(TAG, "Loaded ${words.size} words from assets")
                     words
@@ -61,8 +60,8 @@ object AssetDataLoader {
         return try {
             ctx.assets.open("exams_bank.json").use { stream ->
                 InputStreamReader(stream, Charsets.UTF_8).use { reader ->
-                    val type = object : TypeToken<List<SeedExamJson>>() {}.type
-                    val exams: List<SeedExamJson> = gson.fromJson(reader, type)
+                    val array = gson.fromJson(reader, Array<SeedExamJson>::class.java)
+                    val exams = array?.toList() ?: emptyList()
                     cachedExams = exams
                     Log.d(TAG, "Loaded ${exams.size} exams from assets")
                     exams
@@ -74,4 +73,3 @@ object AssetDataLoader {
         }
     }
 }
-
