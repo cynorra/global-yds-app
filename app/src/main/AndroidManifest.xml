@@ -27,7 +27,7 @@
             android:value="ca-app-pub-4674211063760769~7607691537"/>
         
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".SplashActivity"
             android:theme="@style/Theme.GlobalYDS.Splash"
             android:exported="true">
             <intent-filter>
@@ -35,6 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".OnboardingActivity"
+            android:theme="@style/Theme.GlobalYDS"
+            android:exported="false" />
         
         <activity
             android:name=".LoginActivity"

@@ -4,38 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.core.splashscreen.SplashScreen;
 import androidx.fragment.app.Fragment;
 import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntroFragment;
-import com.google.firebase.auth.FirebaseAuth;
 import com.vocabmaster.app.data.local.AppPreferences;
 
 public class OnboardingActivity extends AppIntro {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        androidx.core.splashscreen.SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
-        splashScreen.setKeepOnScreenCondition(() -> false);
-        splashScreen.setOnExitAnimationListener(viewProvider -> {
-            viewProvider.getView().animate()
-                    .alpha(0f)
-                    .setDuration(250L)
-                    .withEndAction(viewProvider::remove)
-                    .start();
-        });
-
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-            return;
-        }
-        if (AppPreferences.isOnboardingComplete(this)) {
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-            return;
-        }
 
         // Slide 1: Welcome
         addSlide(AppIntroFragment.createInstance(
@@ -70,20 +48,16 @@ public class OnboardingActivity extends AppIntro {
     @Override
     protected void onSkipPressed(@Nullable Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
-        goToLogin();
+        AppPreferences.setOnboardingComplete(this);
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
     @Override
     protected void onDonePressed(@Nullable Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-        goToLogin();
-    }
-
-    private void goToLogin() {
         AppPreferences.setOnboardingComplete(this);
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }
