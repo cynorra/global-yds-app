@@ -31,7 +31,7 @@ class HomeExamCardAdapter(
         val item = items[position]
         val exam = item.examType
         holder.binding.tvExamFlag.text = exam.flag
-        holder.binding.tvCandidatesBadge.text = item.candidatesText
+        holder.binding.tvCandidatesBadge.visibility = android.view.View.GONE
         holder.binding.tvExamName.text = exam.displayName
         holder.binding.tvExamDesc.text = exam.description
 
