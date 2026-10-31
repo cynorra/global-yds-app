@@ -4,22 +4,23 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Deep midnight foundation -->
     <path
         android:fillColor="#1E1B4B"
         android:pathData="M0,0h108v108h-108z" />
-    <!-- Modern geometric gradient facets -->
     <path
         android:fillColor="#312E81"
         android:pathData="M0,0 L108,0 L108,108 Z" />
     <path
         android:fillColor="#4338CA"
-        android:pathData="M24,0 L108,0 L108,84 Z" />
+        android:pathData="M15,0 L108,0 L108,93 Z" />
     <path
         android:fillColor="#4F46E5"
-        android:pathData="M52,0 L108,0 L108,56 Z" />
+        android:pathData="M35,0 L108,0 L108,73 Z" />
     <path
         android:fillColor="#6366F1"
-        android:alpha="0.3"
-        android:pathData="M72,0 L108,0 L108,36 Z" />
+        android:pathData="M60,0 L108,0 L108,48 Z" />
+    <path
+        android:fillColor="#7C3AED"
+        android:alpha="0.4"
+        android:pathData="M80,0 L108,0 L108,28 Z" />
 </vector>
