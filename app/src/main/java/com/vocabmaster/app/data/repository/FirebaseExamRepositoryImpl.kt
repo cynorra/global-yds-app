@@ -590,6 +590,161 @@ class FirebaseExamRepositoryImpl(
             )
         ),
         SeedExam(
+            id = "exam-toeic-office",
+            title = "TOEIC: Corporate Communications & Schedules",
+            durationMinutes = 15,
+            examType = "TOEIC",
+            levelBadge = "B2",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("toeic_off_1", "Mr. Tanaka will be out of the office until Monday; ______, inquiries should be directed to his assistant.", listOf("meanwhile", "furthermore", "nonetheless", "whereas"), 0, "\"meanwhile\": bu esnada / bu süre zarfýnda (iþ yazýþmalarýnda geçiþ zarfý)."),
+                Question("toeic_off_2", "The itinerary states that our flight is scheduled to ______ at Terminal 3.", listOf("arrive", "arrival", "arriving", "arrived"), 0, "\"is scheduled to\" yapýsýndan sonra yalýn fiil gelir: arrive."),
+                Question("toeic_off_3", "Please review the updated safety procedures ______ in the employee handbook.", listOf("outlined", "outlining", "outline", "outlines"), 0, "\"outlined\": kýsaltýlmýþ ilgi cümleciði (which are outlined -> outlined)."),
+                Question("toeic_off_4", "Participants who register before the deadline are ______ for a 15% discount.", listOf("eligible", "capable", "reliable", "competent"), 0, "\"eligible for\": bir hakka ya da indirime hak kazanmýþ, uygun."),
+                Question("toeic_off_5", "The factory experienced a temporary stoppage due to a power ______ yesterday.", listOf("outage", "leakage", "storage", "drainage"), 0, "\"power outage\": elektrik kesintisi (TOEIC iþ ortamý terimi).")
+            )
+        ),
+        SeedExam(
+            id = "exam-ielts-general",
+            title = "IELTS General: Workplace & Social Context",
+            durationMinutes = 15,
+            examType = "IELTS",
+            levelBadge = "B2-C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("ielts_gen_1", "Candidates are requested to provide proof of their ______ residential address.", listOf("current", "actual", "presently", "currently"), 0, "\"current residential address\": güncel ikamet adresi (IELTS General form doldurma)."),
+                Question("ielts_gen_2", "The tenant agreed to give one month's ______ before vacating the property.", listOf("notice", "warning", "advice", "caution"), 0, "\"give one month's notice\": bir ay önceden bildirimde bulunmak (kira/sözleþme terimi)."),
+                Question("ielts_gen_3", "Commuters experienced significant ______ due to signal maintenance on the central line.", listOf("delays", "deferrals", "pauses", "extensions"), 0, "\"significant delays\": önemli gecikmeler (ulaþým ve günlük yaþam)."),
+                Question("ielts_gen_4", "Smoking is strictly prohibited on the premises in ______ with municipal bylaws.", listOf("accordance", "agreement", "conformity", "compliance"), 0, "\"in accordance with\": -e uygun olarak / gereðince."),
+                Question("ielts_gen_5", "Staff members are expected to dress in a manner that is ______ for a corporate setting.", listOf("appropriate", "approving", "appropriately", "appropriation"), 0, "\"appropriate for\": -e uygun, münasip (sýfat kullanýmý).")
+            )
+        ),
+        SeedExam(
+            id = "exam-toefl-science",
+            title = "TOEFL: Science & Natural History Passages",
+            durationMinutes = 15,
+            examType = "TOEFL",
+            levelBadge = "C1",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("toefl_sci_1", "The author mentions plate tectonics in paragraph 3 in order to explain ______.", listOf("the distribution of fossil deposits across continents", "the atmospheric composition of the Paleozoic era", "the migration routes of marine mammals", "the cooling mechanisms of magma reservoirs"), 0, "TOEFL Rhetorical Purpose: yazarýn delili hangi savý desteklemek için kullandýðýný sorgular."),
+                Question("toefl_sci_2", "The word \"tenuous\" in line 14 is closest in meaning to ______.", listOf("fragile or weak", "rigid and dense", "abundant", "permanent"), 0, "\"tenuous\": zayýf, iðreti, pamuk ipliðine baðlý (fragile/weak)."),
+                Question("toefl_sci_3", "According to the passage, hydrothermal vents support unique ecosystems because they ______.", listOf("derive metabolic energy from chemical synthesis", "receive filtered sunlight through deep ocean layers", "remain at near-freezing temperatures year-round", "depend exclusively on photosynthetic algae"), 0, "Metne dayalý bilgi teyit (Factual Information) sorusu."),
+                Question("toefl_sci_4", "What can be inferred about the species mentioned in the second paragraph?", listOf("Its evolutionary adaptations were accelerated by isolation.", "It competed directly with larger mammalian predators.", "It migrated seasonally across land bridges.", "It became extinct due to catastrophic volcanic activity."), 0, "TOEFL Çýkarým (Inference) soru tipi."),
+                Question("toefl_sci_5", "The word \"proliferation\" in line 22 refers to the ______ of organisms.", listOf("rapid multiplication", "gradual extinction", "sudden dispersal", "genetic mutation"), 0, "\"proliferation\": hýzlý çoðalma, üreme (rapid multiplication).")
+            )
+        ),
+        SeedExam(
+            id = "exam-cambridge-first",
+            title = "Cambridge B2 First: Phrasal Verbs & Grammar",
+            durationMinutes = 15,
+            examType = "CAMBRIDGE",
+            levelBadge = "B2",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("cam_f_1", "I can't put ______ with this constant noise any longer.", listOf("up", "down", "off", "away"), 0, "\"put up with\": katlanmak, tahammül etmek (Cambridge Phrasal Verb)."),
+                Question("cam_f_2", "She turned ______ the lucrative job offer because she preferred freelance work.", listOf("down", "off", "away", "over"), 0, "\"turn down\": reddetmek (turn down an offer)."),
+                Question("cam_f_3", "I wish I ______ more attention when the teacher was explaining the project.", listOf("had paid", "paid", "would pay", "have paid"), 0, "Geçmiþe dair piþmanlýk: wish + Past Perfect (had paid)."),
+                Question("cam_f_4", "Hardly had we arrived ______ the presentation began.", listOf("when", "than", "that", "while"), 0, "\"Hardly... when\" devrik ve zaman kalýbý."),
+                Question("cam_f_5", "He apologized for ______ late to the client presentation.", listOf("being", "to be", "be", "having"), 0, "\"apologize for + V-ing\": edattan sonra gerund (being) gelir.")
+            )
+        ),
+        SeedExam(
+            id = "exam-sat-writing",
+            title = "SAT: Rhetoric, Syntax & Evidence Analysis",
+            durationMinutes = 15,
+            examType = "SAT",
+            levelBadge = "C1-C2",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("sat_w_1", "The editor suggested that the author delete the introductory clause because it was ______.", listOf("redundant", "pivotal", "illustrative", "evocative"), 0, "\"redundant\": gereksiz yere tekrarlanan, fuzuli (SAT Concise Writing kuralý)."),
+                Question("sat_w_2", "Neither the primary researcher nor her colleagues ______ able to replicate the anomalous result.", listOf("were", "was", "is", "has been"), 0, "Neither...nor kuralý: fiil en yakýn özneye (colleagues -> were) uyar."),
+                Question("sat_w_3", "Which choice provides the most logical transition from the preceding paragraph?", listOf("Consequently, urban planning models shifted toward transit-oriented design.", "In spite of this, classical architecture remains popular.", "On the other hand, suburban expansion ceased entirely.", "Similarly, ancient roman roads were built for military logistics."), 0, "SAT Rhetorical Transition (Baðlam ve geçiþ mantýðý)."),
+                Question("sat_w_4", "The novel's protagonist is portrayed as both ______ in his convictions and open to debate.", listOf("resolute", "vacillating", "dogmatic", "capricious"), 0, "\"resolute\": kararlý, azimli (ve tartýþmaya açýk, tutarlý ikileme)."),
+                Question("sat_w_5", "The archival records shed light on an era that had previously been ______.", listOf("obscure", "celebrated", "conspicuous", "laudable"), 0, "\"obscure\": karanlýkta kalmýþ, az bilinen (shed light on obscure era).")
+            )
+        ),
+        SeedExam(
+            id = "exam-gre-sentence-eq",
+            title = "GRE: Sentence Equivalence & Complex Context",
+            durationMinutes = 15,
+            examType = "GRE",
+            levelBadge = "C2",
+            difficulty = "Expert",
+            questions = listOf(
+                Question("gre_eq_1", "The critic dismissed the debut novel as ______, noting that its plot relied heavily on well-worn tropes.", listOf("derivative", "innovative", "trenchant", "heterogeneous"), 0, "\"derivative\": özgün olmayan, taklit (GRE Sentence Equivalence)."),
+                Question("gre_eq_2", "Although the committee initially appeared ______, they eventually reached a unanimous consensus.", listOf("fractious", "monolithic", "congruous", "pliant"), 0, "\"fractious\": huysuz, uyuþmaz, bölünmüþ (\"Although... unanimous\")."),
+                Question("gre_eq_3", "The executive's speech was characterized by ______; he spoke for an hour without clarifying his policy.", listOf("prolixity", "brevity", "succinctness", "candor"), 0, "\"prolixity\": gereksiz uzunluk, laf kalabalýðý (GRE yüksek frekans)."),
+                Question("gre_eq_4", "The scientist remained ______ in the face of harsh criticism, refusing to retract her thesis.", listOf("intransigent", "vacillating", "malleable", "diffident"), 0, "\"intransigent\": tavizsiz, geri adým atmayan."),
+                Question("gre_eq_5", "Select the synonym of \"SPECIOUS\":", listOf("plausible yet false", "empirically verified", "obscurely worded", "profoundly wise"), 0, "\"specious\": ilk bakýþta doðru görünen ama aslýnda yanýltýcý/sahte.")
+            )
+        ),
+        SeedExam(
+            id = "exam-pte-fill-blanks",
+            title = "PTE: Fill in the Blanks & Lexical Selection",
+            durationMinutes = 12,
+            examType = "PTE",
+            levelBadge = "B2-C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("pte_fb_1", "Biomedical engineers are developing synthetic materials that can ______ natural bone tissue.", listOf("simulate", "disrupt", "counteract", "terminate"), 0, "\"simulate\": taklit etmek, benzer iþlevi görmek (PTE Reading - Fill in Blanks)."),
+                Question("pte_fb_2", "The committee reached a ______ decision after considering all stakeholder viewpoints.", listOf("unanimous", "discordant", "fragmented", "tentative"), 0, "\"unanimous decision\": oy birliðiyle alýnan karar."),
+                Question("pte_fb_3", "Academic papers must cite previous literature to ______ academic integrity.", listOf("uphold", "suppress", "evade", "undermine"), 0, "\"uphold integrity\": dürüstlüðü ve ilkeleri korumak/sürdürmek."),
+                Question("pte_fb_4", "The city's rapid expansion placed ______ pressure on water and sanitation systems.", listOf("unprecedented", "negligible", "trivial", "recurrent"), 0, "\"unprecedented pressure\": eþi benzeri görülmemiþ baský."),
+                Question("pte_fb_5", "Researchers noted a sharp ______ in infant mortality rates following the sanitation reform.", listOf("decline", "escalation", "elevation", "surge"), 0, "\"sharp decline\": keskin düþüþ/azalma.")
+            )
+        ),
+        SeedExam(
+            id = "exam-det-interactive",
+            title = "Duolingo English Test: Interactive Reading & Real Word ID",
+            durationMinutes = 10,
+            examType = "DET",
+            levelBadge = "B2-C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("det_in_1", "Identify the correctly spelled English word:", listOf("Phenomenon", "Phenominon", "Phenomemon", "Phenomnon"), 0, "\"Phenomenon\": olgu, fenomen (DET doðru kelimeyi tanýma testi)."),
+                Question("det_in_2", "The research findings will be ______ in an international peer-reviewed journal.", listOf("published", "propagated", "dispensed", "disclosed"), 0, "\"published in a journal\": dergide yayýmlanmak."),
+                Question("det_in_3", "Select the word that fits: \"He is known for his ______ attention to detail.\"", listOf("meticulous", "careless", "superficial", "reckless"), 0, "\"meticulous attention\": titiz, kýlý kýrk yaran dikkat."),
+                Question("det_in_4", "Choose the best connector: \"The team worked tirelessly; ______, they finished ahead of schedule.\"", listOf("consequently", "nevertheless", "otherwise", "conversely"), 0, "\"consequently\": dolayýsýyla, sonuç olarak."),
+                Question("det_in_5", "Which word is an antonym of \"AMBIGUOUS\"?", listOf("Clear", "Vague", "Obscure", "Equivocal"), 0, "\"ambiguous\" = belirsiz/muðlak; zýttý \"clear\" = açýk/net.")
+            )
+        ),
+        SeedExam(
+            id = "exam-eiken-grade1",
+            title = "EIKEN Grade 1: Global Affairs & Discourse Analysis",
+            durationMinutes = 15,
+            examType = "EIKEN",
+            levelBadge = "C1",
+            difficulty = "Hard",
+            questions = listOf(
+                Question("eiken_g1_1", "Demographic aging in industrialized nations poses severe ______ for pension solvency.", listOf("repercussions", "subsidies", "remedies", "dividends"), 0, "\"repercussions\": olumsuz yankýlar, ciddi sonuçlar (EIKEN Grade 1 sosyo-ekonomik soru)."),
+                Question("eiken_g1_2", "International trade pacts aim to ______ non-tariff barriers between member states.", listOf("dismantle", "reinforce", "erect", "perpetuate"), 0, "\"dismantle barriers\": engelleri ortadan kaldýrmak/yýkmak."),
+                Question("eiken_g1_3", "The spokesperson gave a ______ response that failed to address the journalist's query directly.", listOf("circumspect", "candid", "blunt", "forthright"), 0, "\"circumspect\": temkinli, lafý çeviren, dikkatli."),
+                Question("eiken_g1_4", "Clean water access is a fundamental human right that must not be ______.", listOf("compromised", "celebrated", "fostered", "sanctioned"), 0, "\"compromise a right\": bir haktan taviz vermek ya da tehlikeye atmak."),
+                Question("eiken_g1_5", "Scholars emphasize the need to ______ traditional craftsmanship in rural regions.", listOf("preserve", "demolish", "deplete", "extinguish"), 0, "\"preserve craftsmanship\": zanaatkarlýðý korumak ve yaþatmak.")
+            )
+        ),
+        SeedExam(
+            id = "exam-yds-connectors",
+            title = "YDS / YÖKDÝL: Baðlaçlar ve Cümle Tamamlama",
+            durationMinutes = 15,
+            examType = "YDS",
+            levelBadge = "B2-C1",
+            difficulty = "Medium",
+            questions = listOf(
+                Question("yds_c_1", "______ the severe blizzard, all international flights from the airport departed on schedule.", listOf("In spite of", "Because of", "Due to", "Owing to"), 0, "\"In spite of\": zýtlýk bildiren edat; ardýndan isim gelir (\"the severe blizzard\")."),
+                Question("yds_c_2", "The minister stated that the reform would proceed ______ public opposition intensified.", listOf("even if", "in case", "as long as", "so that"), 0, "\"even if\": -se bile (koþul ve zýtlýk baðlacý)."),
+                Question("yds_c_3", "Scientists must publish their data ______ other researchers can verify their findings.", listOf("so that", "lest", "unless", "in case of"), 0, "\"so that\": -ebilsin diye / amacýyla (amaç baðlacý, ardýndan can/could/would gelir)."),
+                Question("yds_c_4", "______ had the new law been enacted than several legal challenges were filed.", listOf("No sooner", "Hardly", "Scarcely", "Barely"), 0, "\"No sooner... than\" kalýbý: devrik yapý gerektirir."),
+                Question("yds_c_5", "The treaty was signed by all delegates, ______ bringing an end to years of territorial dispute.", listOf("thereby", "whereas", "otherwise", "nevertheless"), 0, "\"thereby + V-ing\": böylece, bu suretle (YDS yüksek frekanslý sonuç zarfý)."),
+                Question("yds_c_6", "______ had the economy shown signs of recovery when interest rates spiked again.", listOf("Hardly", "No sooner", "Rather", "Seldom"), 0, "\"Hardly... when\" zaman ve zýtlýk kalýbý."),
+                Question("yds_c_7", "The archaeological expedition was postponed ______ adverse winter weather conditions.", listOf("on account of", "in contrast to", "with a view to", "as regards"), 0, "\"on account of\": -den dolayý, yüzünden (neden-sonuç edatý)."),
+                Question("yds_c_8", "We cannot approve the expenditure ______ a detailed cost breakdown is submitted.", listOf("unless", "provided that", "so long as", "if"), 0, "\"unless\": -medikçe, -mezse (olumsuz koþul)."),
+                Question("yds_c_9", "______ she lacked formal credentials, her extensive field experience made her the ideal candidate.", listOf("Although", "Since", "Because", "Despite"), 0, "\"Although\": tam cümle alan zýtlýk baðlacý (cümle: she lacked...)."),
+                Question("yds_c_10", "The research grant was awarded ______ her groundbreaking paper on genetic engineering.", listOf("in recognition of", "in comparison with", "in place of", "by means of"), 0, "\"in recognition of\": -in takdiri/þerefine/tanýnmasý vesilesiyle.")
+            )
+        ),
+        SeedExam(
             id = "exam-mixed-review",
             title = "Genel Tekrar",
             durationMinutes = 14,

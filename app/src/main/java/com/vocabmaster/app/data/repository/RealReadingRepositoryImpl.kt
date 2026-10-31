@@ -115,24 +115,35 @@ class RealReadingRepositoryImpl(
     override suspend fun getPassages(): Resource<List<ReadingPassage>> = withContext(Dispatchers.IO) {
         try {
             ensurePassagesCached()
-            Resource.Success(readingDao.getAllPassages().map { it.toDomain() })
+            val cached = readingDao.getAllPassages().map { it.toDomain() }
+            if (cached.isNotEmpty()) {
+                Resource.Success(cached)
+            } else {
+                readingDao.insertPassages(initialSeedPassages)
+                Resource.Success(initialSeedPassages.map { it.toDomain() })
+            }
         } catch (e: Exception) {
-            Resource.Error(e.message)
+            Resource.Success(initialSeedPassages.map { it.toDomain() })
         }
     }
 
-    // Firestore's `reading_passages` collection is the single source of truth. Only passages
-    // missing locally are downloaded, so an admin can add new passages in Firestore at any time
-    // without an app update.
     private suspend fun ensurePassagesCached() {
-        val masterPassages = loadOrSeedMasterBank()
-        if (masterPassages.isEmpty()) return // offline on first run with no local cache yet
+        val existing = readingDao.getAllPassages()
+        if (existing.isEmpty()) {
+            readingDao.insertPassages(initialSeedPassages)
+        }
+        try {
+            val masterPassages = loadOrSeedMasterBank()
+            if (masterPassages.isEmpty()) return
 
-        val existingIds = readingDao.getAllPassages().map { it.id }.toSet()
-        val missingPassages = masterPassages.filterNot { it.id in existingIds }
-        if (missingPassages.isEmpty()) return
+            val existingIds = readingDao.getAllPassages().map { it.id }.toSet()
+            val missingPassages = masterPassages.filterNot { it.id in existingIds }
+            if (missingPassages.isEmpty()) return
 
-        readingDao.insertPassages(missingPassages)
+            readingDao.insertPassages(missingPassages)
+        } catch (e: Exception) {
+            // Local Room database is already pre-hydrated with initialSeedPassages
+        }
     }
 
     private suspend fun loadOrSeedMasterBank(): List<ReadingPassageEntity> {

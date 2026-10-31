@@ -163,43 +163,67 @@ class RealGrammarRepositoryImpl(
     override suspend fun getTopics(): Resource<List<GrammarTopic>> = withContext(Dispatchers.IO) {
         try {
             ensureTopicsCached()
-            Resource.Success(grammarDao.getAllTopics().map { it.toDomain() })
+            val cached = grammarDao.getAllTopics().map { it.toDomain() }
+            if (cached.isNotEmpty()) {
+                Resource.Success(cached)
+            } else {
+                val fallbackEntities = initialSeedTopics.map { 
+                    GrammarTopicEntity(id = it.id, title = it.title, explanation = it.explanation, exampleSentence = it.exampleSentence)
+                }
+                grammarDao.insertTopics(fallbackEntities)
+                Resource.Success(fallbackEntities.map { it.toDomain() })
+            }
         } catch (e: Exception) {
-            Resource.Error(e.message)
+            val fallbackEntities = initialSeedTopics.map { 
+                GrammarTopicEntity(id = it.id, title = it.title, explanation = it.explanation, exampleSentence = it.exampleSentence)
+            }
+            try { grammarDao.insertTopics(fallbackEntities) } catch (_: Exception) {}
+            Resource.Success(fallbackEntities.map { it.toDomain() })
         }
     }
 
-    // Same pattern as the vocabulary word bank: Firestore's `grammar_topics` collection is the
-    // single source of truth. Only topics missing locally are downloaded/translated, so an
-    // admin can add new topics in Firestore at any time without an app update.
     private suspend fun ensureTopicsCached() {
-        val masterTopics = loadOrSeedMasterBank()
-        if (masterTopics.isEmpty()) return // offline on first run with no local cache yet
+        val existingTopics = grammarDao.getAllTopics()
+        if (existingTopics.isEmpty()) {
+            val fallbackEntities = initialSeedTopics.map { 
+                GrammarTopicEntity(id = it.id, title = it.title, explanation = it.explanation, exampleSentence = it.exampleSentence)
+            }
+            grammarDao.insertTopics(fallbackEntities)
+        }
 
-        val existingIds = grammarDao.getAllTopics().map { it.id }.toSet()
-        val missingTopics = masterTopics.filterNot { it.id in existingIds }
-        if (missingTopics.isEmpty()) return
+        try {
+            val masterTopics = loadOrSeedMasterBank()
+            if (masterTopics.isEmpty()) return
 
-        val targetLanguage = Locale.getDefault().language
-        val explanationCache = firestore.collection(EXPLANATION_COLLECTION).document(targetLanguage).collection("items")
+            val existingIds = grammarDao.getAllTopics().map { it.id }.toSet()
+            val missingTopics = masterTopics.filterNot { it.id in existingIds }
+            if (missingTopics.isEmpty()) return
 
-        val alreadyTranslated = try {
-            explanationCache.get().await().documents
-                .mapNotNull { it.toObject(GrammarTopicEntity::class.java) }
-                .associateBy { it.id }
+            val targetLanguage = Locale.getDefault().language
+            val explanationCache = firestore.collection(EXPLANATION_COLLECTION).document(targetLanguage).collection("items")
+
+            val alreadyTranslated = try {
+                explanationCache.get().await().documents
+                    .mapNotNull { it.toObject(GrammarTopicEntity::class.java) }
+                    .associateBy { it.id }
+            } catch (e: Exception) {
+                emptyMap()
+            }
+
+            val needTranslation = missingTopics.filterNot { it.id in alreadyTranslated.keys }
+            val newlyTranslated = if (needTranslation.isNotEmpty()) {
+                translateAndCache(targetLanguage, needTranslation, explanationCache)
+            } else {
+                emptyMap()
+            }
+
+            val newTopics = missingTopics.map { 
+                alreadyTranslated[it.id] ?: newlyTranslated[it.id] ?: GrammarTopicEntity(it.id, it.title, it.explanation, it.exampleSentence)
+            }
+            grammarDao.insertTopics(newTopics)
         } catch (e: Exception) {
-            emptyMap()
+            // Local Room database is already pre-hydrated with initialSeedTopics
         }
-
-        val needTranslation = missingTopics.filterNot { it.id in alreadyTranslated.keys }
-        val newlyTranslated = if (needTranslation.isNotEmpty()) {
-            translateAndCache(targetLanguage, needTranslation, explanationCache)
-        } else {
-            emptyMap()
-        }
-
-        val newTopics = missingTopics.map { alreadyTranslated[it.id] ?: newlyTranslated.getValue(it.id) }
-        grammarDao.insertTopics(newTopics)
     }
 
     private suspend fun loadOrSeedMasterBank(): List<MasterTopic> {

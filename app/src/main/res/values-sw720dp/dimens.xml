@@ -3,3 +3,4 @@
     <!-- Large tablets (10"+ / screen width >= 720dp): keep layouts centered and ergonomically readable -->
     <dimen name="screen_horizontal_margin">160dp</dimen>
 </resources>
+

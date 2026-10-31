@@ -133,7 +133,29 @@ class RealVocabularyRepositoryImpl(
         WordEntity("w_yds_5", "Consequence", "SonuÃ§ / Netice", "Unregulated industrial emissions have dire consequences for public health.", false, "YDS"),
         WordEntity("w_yds_6", "Inevitable", "KaÃ§Ä±nÄ±lmaz / Ã–nlenemez", "Structural reform became inevitable following the global financial crisis.", false, "YDS"),
         WordEntity("w_yds_7", "Emerge", "Ortaya Ã§Ä±kmak / Belirmek", "Fascinating new archaeological insights emerged during the excavation.", false, "YDS"),
-        WordEntity("w_yds_8", "Collapse", "Ã‡Ã¶kmek / YÄ±kÄ±lmak", "The ancient aqueduct collapsed during the magnitude 7 earthquake.", false, "YDS")
+        WordEntity("w_yds_8", "Collapse", "Ã‡Ã¶kmek / YÄ±kÄ±lmak", "The ancient aqueduct collapsed during the magnitude 7 earthquake.", false, "YDS"),
+        WordEntity("w_toeic_9", "Consolidated", "Birleþtirilmiþ / Konsolide", "The CFO presented the consolidated balance sheet to shareholders.", false, "TOEIC"),
+        WordEntity("w_toeic_10", "Reimbursement", "Masraf iadesi / Geri ödeme", "Submit your travel receipts to claim full reimbursement.", false, "TOEIC"),
+        WordEntity("w_ielts_9", "Ubiquitous", "Her yerde bulunan / Yaygýn", "Digital interfaces are now ubiquitous in modern education.", false, "IELTS"),
+        WordEntity("w_ielts_10", "Mitigate", "Hafifletmek / Azaltmak", "Strict reforestation projects help mitigate carbon accumulation.", false, "IELTS"),
+        WordEntity("w_toefl_9", "Conjecture", "Tahmin / Varsayým", "Without empirical testing, the theory remains mere conjecture.", false, "TOEFL"),
+        WordEntity("w_toefl_10", "Resilient", "Dirençli / Çabuk toparlanan", "Certain desert succulents are remarkably resilient to prolonged drought.", false, "TOEFL"),
+        WordEntity("w_gre_9", "Equivocal", "Muðlak / Çift anlamlý", "The politician gave an equivocal response when questioned about taxes.", false, "GRE"),
+        WordEntity("w_gre_10", "Alacrity", "Ýsteklilik / Canlýlýk / Çeviklik", "She accepted the research fellowship with tremendous alacrity.", false, "GRE"),
+        WordEntity("w_sat_8", "Scrutinize", "Detaylýca incelemek / Tetkik etmek", "Auditors will scrutinize every transaction over ten thousand dollars.", false, "SAT"),
+        WordEntity("w_sat_9", "Vindicate", "Aklamak / Haklýlýðýný kanýtlamak", "Newly uncovered DNA evidence served to vindicate the defendant.", false, "SAT"),
+        WordEntity("w_cam_7", "Reluctance", "Ýsteksizlik / Gönülsüzlük", "He expressed initial reluctance but ultimately signed the partnership.", false, "CAMBRIDGE"),
+        WordEntity("w_cam_8", "Disregard", "Göz ardý etmek / Yok saymak", "Do not disregard the safety warning printed on the device.", false, "CAMBRIDGE"),
+        WordEntity("w_pte_6", "Substantiate", "Somut delille desteklemek / Kanýtlamak", "You must substantiate your thesis with peer-reviewed literature.", false, "PTE"),
+        WordEntity("w_pte_7", "Coherent", "Tutarlý / Mantýklý", "The speaker delivered a coherent and persuasive argument.", false, "PTE"),
+        WordEntity("w_det_6", "Comprehend", "Kavramak / Tam anlamak", "It took time to comprehend the profound implications of the discovery.", false, "DET"),
+        WordEntity("w_det_7", "Essential", "Temel / Çok önemli", "Regular vocabulary revision is essential for score improvement.", false, "DET"),
+        WordEntity("w_eiken_6", "Coincide", "Denk gelmek / Çakýþmak", "The festival was scheduled to coincide with the cherry blossom season.", false, "EIKEN"),
+        WordEntity("w_eiken_7", "Vitalize", "Canlandýrmak / Güçlendirmek", "New investments helped vitalize the historic shopping district.", false, "EIKEN"),
+        WordEntity("w_yds_9", "Compensate", "Telafi etmek / Karþýlamak", "The government promised to compensate farmers for drought losses.", false, "YDS"),
+        WordEntity("w_yds_10", "Ambiguity", "Belirsizlik / Muðlaklýk", "Clear definitions eliminate any legal ambiguity in the contract.", false, "YDS"),
+        WordEntity("w_yds_11", "Precaution", "Önlem / Tedbir", "Take every reasonable precaution when handling laboratory chemicals.", false, "YDS"),
+        WordEntity("w_yds_12", "Subsequent", "Ardýndan gelen / Sonraki", "The initial earthquake and subsequent aftershocks caused heavy damage.", false, "YDS")
     )
 
     private val initialSeedWords = preBundledWords.map { it.englishWord to it.exampleSentence }
