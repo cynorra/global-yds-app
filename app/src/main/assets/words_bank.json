@@ -1,0 +1,3202 @@
+[
+  {
+    "id": "word_ielts_1",
+    "englishWord": "Analyze",
+    "turkishMeaning": "Analiz etmek / Çözümlemek",
+    "exampleSentence": "Researchers analyze the empirical data to uncover climate patterns.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_2",
+    "englishWord": "Approach",
+    "turkishMeaning": "Yaklaşım / Yaklaşmak",
+    "exampleSentence": "The university adopted a multidisciplinary approach to environmental science.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_3",
+    "englishWord": "Assess",
+    "turkishMeaning": "Değerlendirmek / Paha biçmek",
+    "exampleSentence": "Examiners assess candidates on fluency, coherence, and lexical resource.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_4",
+    "englishWord": "Assume",
+    "turkishMeaning": "Varsaymak / Üstlenmek",
+    "exampleSentence": "Scientists assume that solar fluctuations have minimal long-term effects.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_5",
+    "englishWord": "Authority",
+    "turkishMeaning": "Otorite / Yetki / Uzman",
+    "exampleSentence": "Dr. Vance is a recognized authority on marine biology.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_6",
+    "englishWord": "Benefit",
+    "turkishMeaning": "Yarar sağlamak / Fayda",
+    "exampleSentence": "Bilingual children benefit from enhanced executive cognitive function.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_7",
+    "englishWord": "Concept",
+    "turkishMeaning": "Kavram / Fikir",
+    "exampleSentence": "The concept of sustainability is central to modern urban planning.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_8",
+    "englishWord": "Consistent",
+    "turkishMeaning": "Tutarlı / İstikrarlı",
+    "exampleSentence": "The laboratory results are consistent with the original hypothesis.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_9",
+    "englishWord": "Context",
+    "turkishMeaning": "Bağlam / Ortam",
+    "exampleSentence": "You must interpret the author's argument within its historical context.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_10",
+    "englishWord": "Contract",
+    "turkishMeaning": "Sözleşme / Daralmak",
+    "exampleSentence": "Metals contract as the ambient temperature drops significantly.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_11",
+    "englishWord": "Derive",
+    "turkishMeaning": "Türetmek / Çıkarsamak",
+    "exampleSentence": "Many pharmaceutical treatments derive from indigenous plant species.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_12",
+    "englishWord": "Distribute",
+    "turkishMeaning": "Dağıtmak / Paylaştırmak",
+    "exampleSentence": "Relief agencies distribute essential food supplies across affected regions.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_13",
+    "englishWord": "Establish",
+    "turkishMeaning": "Kurmak / Saptamak",
+    "exampleSentence": "The government aims to establish stricter carbon emission quotas.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_14",
+    "englishWord": "Estimate",
+    "turkishMeaning": "Tahmin etmek / Hesaplamak",
+    "exampleSentence": "Economists estimate that renewable investments will double by 2030.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_15",
+    "englishWord": "Evident",
+    "turkishMeaning": "Açık / Belirgin",
+    "exampleSentence": "The positive impact of the education reform became evident in exam scores.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_16",
+    "englishWord": "Identify",
+    "turkishMeaning": "Tespit etmek / Tanımlamak",
+    "exampleSentence": "Satellite sensors identify deforestation hotspots in real time.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_17",
+    "englishWord": "Interpret",
+    "turkishMeaning": "Yorumlamak / Anlamlandırmak",
+    "exampleSentence": "Historians interpret ancient inscriptions through cross-referencing.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_18",
+    "englishWord": "Involve",
+    "turkishMeaning": "İçermek / Dahil etmek",
+    "exampleSentence": "The experimental protocol involves rigorous randomized trials.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_19",
+    "englishWord": "Issue",
+    "turkishMeaning": "Mesele / Konu / Yayınlamak",
+    "exampleSentence": "Water scarcity is the most pressing issue confronting the valley.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_20",
+    "englishWord": "Major",
+    "turkishMeaning": "Büyük / Başlıca",
+    "exampleSentence": "Urban sprawl is a major driver of habitat fragmentation.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_21",
+    "englishWord": "Method",
+    "turkishMeaning": "Yöntem / Metot",
+    "exampleSentence": "The researcher developed an innovative method for carbon sequestration.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_22",
+    "englishWord": "Occur",
+    "turkishMeaning": "Meydana gelmek / Oluşmak",
+    "exampleSentence": "Seismic tremors occur frequently along tectonic boundary zones.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_23",
+    "englishWord": "Period",
+    "turkishMeaning": "Dönem / Çağ",
+    "exampleSentence": "The Renaissance was a period of extraordinary artistic renewal.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_24",
+    "englishWord": "Principle",
+    "turkishMeaning": "İlke / Prensip",
+    "exampleSentence": "Conservation of energy is a fundamental principle of physics.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_25",
+    "englishWord": "Proceed",
+    "turkishMeaning": "İlerlemek / Devam etmek",
+    "exampleSentence": "The construction team may proceed once environmental clearance is granted.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_26",
+    "englishWord": "Process",
+    "turkishMeaning": "Süreç / İşlemden geçirmek",
+    "exampleSentence": "Photosynthesis is the biochemical process that sustains plant life.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_27",
+    "englishWord": "Require",
+    "turkishMeaning": "Gerektirmek / İstemek",
+    "exampleSentence": "Advanced aerospace applications require ultra-lightweight alloys.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_28",
+    "englishWord": "Research",
+    "turkishMeaning": "Araştırma / İncelemek",
+    "exampleSentence": "Recent neurological research sheds light on early memory storage.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_29",
+    "englishWord": "Respond",
+    "turkishMeaning": "Yanıt vermek / Tepki göstermek",
+    "exampleSentence": "Marine ecosystems respond sensitively to sea surface temperature rises.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_30",
+    "englishWord": "Role",
+    "turkishMeaning": "Rol / Görev",
+    "exampleSentence": "Enzymes play a vital role in accelerating cellular metabolism.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_31",
+    "englishWord": "Section",
+    "turkishMeaning": "Bölüm / Kısım",
+    "exampleSentence": "The introductory section outlines the scope and methodology.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_32",
+    "englishWord": "Sector",
+    "turkishMeaning": "Sektör / Kesim",
+    "exampleSentence": "The renewable energy sector experienced double-digit growth this year.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_33",
+    "englishWord": "Significant",
+    "turkishMeaning": "Önemli / Anlamlı",
+    "exampleSentence": "There was a significant disparity in economic recovery rates.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_34",
+    "englishWord": "Similar",
+    "turkishMeaning": "Benzer / Eşdeğer",
+    "exampleSentence": "Both fossil species display remarkably similar cranial morphology.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_35",
+    "englishWord": "Source",
+    "turkishMeaning": "Kaynak / Menşe",
+    "exampleSentence": "Geothermal vents serve as a primary source of mineral nutrition.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_36",
+    "englishWord": "Specific",
+    "turkishMeaning": "Belirli / Özgül",
+    "exampleSentence": "The antibody binds exclusively to a specific viral surface protein.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_37",
+    "englishWord": "Structure",
+    "turkishMeaning": "Yapı / Bünye",
+    "exampleSentence": "Crystalline structure dictates the electrical conductivity of graphene.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_38",
+    "englishWord": "Theory",
+    "turkishMeaning": "Teori / Kuram",
+    "exampleSentence": "Darwin formulated his theory of evolution during the Beagle voyage.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_39",
+    "englishWord": "Vary",
+    "turkishMeaning": "Çeşitlilik göstermek / Değişmek",
+    "exampleSentence": "Sedimentation rates vary according to seasonal river discharge.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_ielts_40",
+    "englishWord": "Corroborate",
+    "turkishMeaning": "Doğrulamak / Teyit etmek",
+    "exampleSentence": "Peer-reviewed studies corroborated the effectiveness of the vaccine.",
+    "isLearned": false,
+    "targetExam": "IELTS"
+  },
+  {
+    "id": "word_toefl_1",
+    "englishWord": "Adjacent",
+    "turkishMeaning": "Bitişik / Komşu",
+    "exampleSentence": "The laboratory is adjacent to the main botanical greenhouse.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_2",
+    "englishWord": "Aggregate",
+    "turkishMeaning": "Toplam / Bir araya getirilmiş",
+    "exampleSentence": "Aggregate global temperatures have risen steadily over the century.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_3",
+    "englishWord": "Albeit",
+    "turkishMeaning": "Olsa da / -e rağmen",
+    "exampleSentence": "The experiment was successful, albeit more time-consuming than expected.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_4",
+    "englishWord": "Ambiguous",
+    "turkishMeaning": "Muğlak / Çift anlamlı",
+    "exampleSentence": "The survey question was ambiguous, yielding unreliable participant responses.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_5",
+    "englishWord": "Anticipate",
+    "turkishMeaning": "Öngörmek / Ummak",
+    "exampleSentence": "Geologists anticipate heightened seismic activity near the fault line.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_6",
+    "englishWord": "Apparent",
+    "turkishMeaning": "Aşikar / Görünürdeki",
+    "exampleSentence": "The apparent calm in the eye of the hurricane is deceptive.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_7",
+    "englishWord": "Approximate",
+    "turkishMeaning": "Yaklaşık / Yaklaşmak",
+    "exampleSentence": "The approximate distance between stellar clusters is measured in light-years.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_8",
+    "englishWord": "Arbitrary",
+    "turkishMeaning": "Keyfi / Rastgele",
+    "exampleSentence": "The classification of specimens was criticized for being arbitrary.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_9",
+    "englishWord": "Aspect",
+    "turkishMeaning": "Yön / Boyut",
+    "exampleSentence": "Every aspect of the organism's morphology was cataloged meticulously.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_10",
+    "englishWord": "Attain",
+    "turkishMeaning": "Erişmek / Ulaşmak",
+    "exampleSentence": "Larvae attain adult coloration only after their final molt.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_11",
+    "englishWord": "Attitude",
+    "turkishMeaning": "Tutum / Yaklaşım",
+    "exampleSentence": "Public attitudes toward artificial intelligence have shifted favorably.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_12",
+    "englishWord": "Attribute",
+    "turkishMeaning": "Bağlamak / Nitelik",
+    "exampleSentence": "Climatologists attribute the severe drought to persistent ocean warming.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_13",
+    "englishWord": "Cease",
+    "turkishMeaning": "Durmak / Sona erdirmek",
+    "exampleSentence": "Volcanic emissions did not cease until late in the subsequent epoch.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_14",
+    "englishWord": "Clarify",
+    "turkishMeaning": "Açıklığa kavuşturmak",
+    "exampleSentence": "The professor sought to clarify the distinction between meiosis and mitosis.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_15",
+    "englishWord": "Coincide",
+    "turkishMeaning": "Çakışmak / Denk gelmek",
+    "exampleSentence": "The peak of bird migration coincided with the sudden cold snap.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_16",
+    "englishWord": "Commence",
+    "turkishMeaning": "Başlamak / Başlatmak",
+    "exampleSentence": "Field excavations will commence as soon as the winter thaw finishes.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_17",
+    "englishWord": "Compatible",
+    "turkishMeaning": "Uyumlu / Bağdaşan",
+    "exampleSentence": "The newly synthesized polymer is fully compatible with human tissue.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_18",
+    "englishWord": "Compensate",
+    "turkishMeaning": "Telafi etmek / Dengelemek",
+    "exampleSentence": "Solar arrays compensate for seasonal dips in hydroelectric generation.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_19",
+    "englishWord": "Compile",
+    "turkishMeaning": "Derlemek / Biriktirmek",
+    "exampleSentence": "Graduate students compile demographic data from historical censuses.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_20",
+    "englishWord": "Complement",
+    "turkishMeaning": "Tamamlamak / Bütünlemek",
+    "exampleSentence": "Practical lab assignments complement the theoretical lecture modules.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_21",
+    "englishWord": "Comprehensive",
+    "turkishMeaning": "Kapsamlı / Geniş çaplı",
+    "exampleSentence": "The encyclopedia provides a comprehensive survey of medieval astronomy.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_22",
+    "englishWord": "Conceive",
+    "turkishMeaning": "Düşünmek / Tasarlamak",
+    "exampleSentence": "Archimedes conceived the principle of buoyancy while in Syracuse.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_23",
+    "englishWord": "Concurrent",
+    "turkishMeaning": "Eşzamanlı / Aynı andaki",
+    "exampleSentence": "The two chemical reactions are concurrent and interdependent.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_24",
+    "englishWord": "Confer",
+    "turkishMeaning": "Danışmak / Bahşetmek",
+    "exampleSentence": "The University Senate voted to confer an honorary doctorate on the poet.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_25",
+    "englishWord": "Confine",
+    "turkishMeaning": "Sınırlamak / Hapsetmek",
+    "exampleSentence": "Ecologists caution against confining large predators to small reserves.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_26",
+    "englishWord": "Conform",
+    "turkishMeaning": "Uymak / Boyun eğmek",
+    "exampleSentence": "All test apparatus must conform to international safety regulations.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_27",
+    "englishWord": "Consent",
+    "turkishMeaning": "Onay / Rıza göstermek",
+    "exampleSentence": "Clinical trials cannot proceed without written informed patient consent.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_28",
+    "englishWord": "Consequent",
+    "turkishMeaning": "Sonuç olarak ortaya çıkan",
+    "exampleSentence": "Deforestation and the consequent loss of topsoil devastated agriculture.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_29",
+    "englishWord": "Considerable",
+    "turkishMeaning": "Kayda değer / Hatırı sayılır",
+    "exampleSentence": "The grant provided a considerable boost to high-energy physics research.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_30",
+    "englishWord": "Consist",
+    "turkishMeaning": "Oluşmak / Meydana gelmek",
+    "exampleSentence": "Sedimentary rocks consist predominantly of compressed mineral grains.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_31",
+    "englishWord": "Constitute",
+    "turkishMeaning": "Oluşturmak / Teşkil etmek",
+    "exampleSentence": "Microscopic plankton constitute the foundation of marine food webs.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_32",
+    "englishWord": "Constrain",
+    "turkishMeaning": "Kısıtlamak / Zorlamak",
+    "exampleSentence": "Budgetary cutbacks severely constrain deep-space exploration missions.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_33",
+    "englishWord": "Construct",
+    "turkishMeaning": "İnşa etmek / Kurmak",
+    "exampleSentence": "Engineers constructed an earthquake-resistant suspension bridge.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_34",
+    "englishWord": "Consult",
+    "turkishMeaning": "Danışmak / Başvurmak",
+    "exampleSentence": "Anthropologists consult tribal elders to verify oral traditions.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_35",
+    "englishWord": "Consume",
+    "turkishMeaning": "Tüketmek / Harcamak",
+    "exampleSentence": "Metabolic tissues consume large quantities of glucose during exercise.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_36",
+    "englishWord": "Contradict",
+    "turkishMeaning": "Çelişmek / Aksini iddia etmek",
+    "exampleSentence": "The fossil discoveries contradict previous evolutionary timetables.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_37",
+    "englishWord": "Contrary",
+    "turkishMeaning": "Aksine / Zıt",
+    "exampleSentence": "Contrary to popular belief, bats possess well-developed vision.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_38",
+    "englishWord": "Contrast",
+    "turkishMeaning": "Karşılaştırmak / Zıtlık",
+    "exampleSentence": "The stark contrast between nocturnal and diurnal adaptations is striking.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_39",
+    "englishWord": "Contribute",
+    "turkishMeaning": "Katkıda bulunmak",
+    "exampleSentence": "Volcanic ash plumes contribute substantially to atmospheric cooling.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toefl_40",
+    "englishWord": "Convene",
+    "turkishMeaning": "Toplanmak / Bir araya gelmek",
+    "exampleSentence": "International delegates convene annually to review biodiversity protocols.",
+    "isLearned": false,
+    "targetExam": "TOEFL"
+  },
+  {
+    "id": "word_toeic_1",
+    "englishWord": "Acquisition",
+    "turkishMeaning": "Şirket devralma / Satın alma",
+    "exampleSentence": "The board approved the strategic acquisition of a German robotics firm.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_2",
+    "englishWord": "Agenda",
+    "turkishMeaning": "Gündem / Toplantı planı",
+    "exampleSentence": "The chairperson circulated the annual general meeting agenda in advance.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_3",
+    "englishWord": "Allocate",
+    "turkishMeaning": "Tahsis etmek / Paylaştırmak",
+    "exampleSentence": "The CFO decided to allocate additional capital to digital infrastructure.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_4",
+    "englishWord": "Audit",
+    "turkishMeaning": "Denetim / Mali teftiş",
+    "exampleSentence": "External consultants conducted a thorough financial audit of the branch.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_5",
+    "englishWord": "Authorization",
+    "turkishMeaning": "Yetkilendirme / İzin",
+    "exampleSentence": "Expenditures exceeding five thousand dollars require prior authorization.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_6",
+    "englishWord": "Benchmark",
+    "turkishMeaning": "Kıyaslama noktası / Kriter",
+    "exampleSentence": "Our manufacturing plant set the benchmark for low carbon intensity.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_7",
+    "englishWord": "Bid",
+    "turkishMeaning": "Teklif vermek / İhale teklifi",
+    "exampleSentence": "Three engineering firms submitted a competitive bid for the port project.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_8",
+    "englishWord": "Briefing",
+    "turkishMeaning": "Bilgilendirme toplantısı",
+    "exampleSentence": "The project manager led an executive briefing on supply chain delays.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_9",
+    "englishWord": "Budget",
+    "turkishMeaning": "Bütçe",
+    "exampleSentence": "Marketing expenses must remain strictly within the allocated budget.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_10",
+    "englishWord": "Candidate",
+    "turkishMeaning": "Aday / Başvuran",
+    "exampleSentence": "The hiring committee interviewed five shortlisted candidates for the post.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_11",
+    "englishWord": "Clause",
+    "turkishMeaning": "Madde / Hüküm (Sözleşme)",
+    "exampleSentence": "The confidentiality clause remains binding for two years after termination.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_12",
+    "englishWord": "Collaborate",
+    "turkishMeaning": "İş birliği yapmak",
+    "exampleSentence": "Engineers collaborate with sales reps to tailor custom client solutions.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_13",
+    "englishWord": "Compensation",
+    "turkishMeaning": "Tazminat / Ücret paketi",
+    "exampleSentence": "The executive package includes competitive salary and stock compensation.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_14",
+    "englishWord": "Compliance",
+    "turkishMeaning": "Mevzuata uyum",
+    "exampleSentence": "The compliance officer confirmed that our policies satisfy GDPR criteria.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_15",
+    "englishWord": "Contractor",
+    "turkishMeaning": "Müteahhit / Taşeron",
+    "exampleSentence": "The general contractor promised project completion before the deadline.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_16",
+    "englishWord": "Deadline",
+    "turkishMeaning": "Son teslim tarihi",
+    "exampleSentence": "All quarterly performance metrics must be submitted before Friday's deadline.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_17",
+    "englishWord": "Deficit",
+    "turkishMeaning": "Açık / Bütçe açığı",
+    "exampleSentence": "The trade deficit narrowed due to an unexpected surge in manufacturing exports.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_18",
+    "englishWord": "Deliberate",
+    "turkishMeaning": "Müzakere etmek / Kasıtlı",
+    "exampleSentence": "The directors deliberated for four hours before finalizing the merger.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_19",
+    "englishWord": "Discrepancy",
+    "turkishMeaning": "Tutarsızlık / Uyuşmazlık",
+    "exampleSentence": "The accountant identified an unexplained discrepancy in the ledgers.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_20",
+    "englishWord": "Eligible",
+    "turkishMeaning": "Uygun / Şartları taşıyan",
+    "exampleSentence": "Employees with one year of service are eligible for parental leave.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_21",
+    "englishWord": "Enterprise",
+    "turkishMeaning": "Girişim / Şirket",
+    "exampleSentence": "The enterprise expanded its cloud offerings across Southeast Asia.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_22",
+    "englishWord": "Feasibility",
+    "turkishMeaning": "Uygulanabilirlik / Fizibilite",
+    "exampleSentence": "We conducted a feasibility study before purchasing the commercial property.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_23",
+    "englishWord": "Fluctuation",
+    "turkishMeaning": "Dalgalanma / Değişkenlik",
+    "exampleSentence": "Currency fluctuation has eroded profit margins in foreign markets.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_24",
+    "englishWord": "Forecast",
+    "turkishMeaning": "Tahmin / Öngörü",
+    "exampleSentence": "The sales forecast indicates sustained double-digit revenue expansion.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_25",
+    "englishWord": "Incentive",
+    "turkishMeaning": "Teşvik / Prim",
+    "exampleSentence": "Performance-based bonuses provide a strong incentive for the sales team.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_26",
+    "englishWord": "Invoice",
+    "turkishMeaning": "Fatura / Fatura kesmek",
+    "exampleSentence": "Accounts payable will settle the outstanding invoice within thirty days.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_27",
+    "englishWord": "Liability",
+    "turkishMeaning": "Yükümlülük / Mali sorumluluk",
+    "exampleSentence": "The company insured itself against third-party environmental liability.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_28",
+    "englishWord": "Merger",
+    "turkishMeaning": "Şirket birleşmesi",
+    "exampleSentence": "The merger between the two airline carriers received regulatory clearance.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_29",
+    "englishWord": "Negotiation",
+    "turkishMeaning": "Müzakere / Pazarlık",
+    "exampleSentence": "Contract negotiations stalled over patent licensing royalties.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_30",
+    "englishWord": "Overhaul",
+    "turkishMeaning": "Kapsamlı bakım / Baştan yenileme",
+    "exampleSentence": "The IT department scheduled an overhaul of the server architecture.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_31",
+    "englishWord": "Personnel",
+    "turkishMeaning": "Personel / Çalışanlar",
+    "exampleSentence": "All security personnel received training on incident response protocols.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_32",
+    "englishWord": "Portfolio",
+    "turkishMeaning": "Yatırım portföyü",
+    "exampleSentence": "Diversifying the equity portfolio mitigates long-term macroeconomic risks.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_33",
+    "englishWord": "Quarterly",
+    "turkishMeaning": "Üç aylık / Çeyreklik",
+    "exampleSentence": "Shareholders praised the record quarterly dividend distribution.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_34",
+    "englishWord": "Reimburse",
+    "turkishMeaning": "Geri ödemek / Masraf karşılamak",
+    "exampleSentence": "The company will reimburse travel expenses backed by itemized receipts.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_35",
+    "englishWord": "Remittance",
+    "turkishMeaning": "Para havalesi / Ödeme",
+    "exampleSentence": "Foreign remittance transfers were processed through automated clearing.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_36",
+    "englishWord": "Restructure",
+    "turkishMeaning": "Yeniden yapılandırmak",
+    "exampleSentence": "The firm restructured operations into three autonomous operating units.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_37",
+    "englishWord": "Revenue",
+    "turkishMeaning": "Gelir / Hasılat",
+    "exampleSentence": "Annual subscription revenue surpassed fifty million dollars this fiscal year.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_38",
+    "englishWord": "Stipulate",
+    "turkishMeaning": "Şart koşmak / Belirtmek",
+    "exampleSentence": "The agreement stipulates that disputes will be settled through arbitration.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_39",
+    "englishWord": "Substantial",
+    "turkishMeaning": "Önemli / Kayda değer",
+    "exampleSentence": "The marketing revamp yielded a substantial boost in brand awareness.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_toeic_40",
+    "englishWord": "Vendor",
+    "turkishMeaning": "Tedarikçi / Satıcı",
+    "exampleSentence": "We selected a cloud vendor certified for ISO-27001 data integrity.",
+    "isLearned": false,
+    "targetExam": "TOEIC"
+  },
+  {
+    "id": "word_cambridge_1",
+    "englishWord": "Accountable",
+    "turkishMeaning": "Sorumlu / Mesul",
+    "exampleSentence": "Public officials must remain accountable to the communities they serve.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_2",
+    "englishWord": "Adversity",
+    "turkishMeaning": "Zorluk / Sıkıntı / Güçlük",
+    "exampleSentence": "She showed remarkable resilience in the face of profound adversity.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_3",
+    "englishWord": "Advocate",
+    "turkishMeaning": "Savunmak / Destekçi",
+    "exampleSentence": "The senator is a vocal advocate of international maritime protection.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_4",
+    "englishWord": "Affluent",
+    "turkishMeaning": "Varlıklı / Zengin",
+    "exampleSentence": "Subsidies were redirected from affluent suburbs to underfunded urban zones.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_5",
+    "englishWord": "Alleviate",
+    "turkishMeaning": "Hafifletmek / Yatıştırmak",
+    "exampleSentence": "Government subsidies helped alleviate fuel poverty during the winter.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_6",
+    "englishWord": "Ambiguity",
+    "turkishMeaning": "Muğlaklık / Belirsizlik",
+    "exampleSentence": "The wording of the legal statute was revised to remove all ambiguity.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_7",
+    "englishWord": "Antithesis",
+    "turkishMeaning": "Zıt kutup / Tam tersi",
+    "exampleSentence": "Selfish indifference is the absolute antithesis of humanitarian service.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_8",
+    "englishWord": "Articulate",
+    "turkishMeaning": "Fikirlerini açıkça ifade eden",
+    "exampleSentence": "The spokesperson gave an articulate defence of the new urban policy.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_9",
+    "englishWord": "Ascertain",
+    "turkishMeaning": "Aslını öğrenmek / Saptamak",
+    "exampleSentence": "Forensic experts worked diligently to ascertain the cause of the blaze.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_10",
+    "englishWord": "Aversion",
+    "turkishMeaning": "Nefret / Şiddetli isteksizlik",
+    "exampleSentence": "Many children have an innate aversion to bitter-tasting leafy vegetables.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_11",
+    "englishWord": "Benevolent",
+    "turkishMeaning": "Hayırsever / İyiliksever",
+    "exampleSentence": "A benevolent benefactor financed the construction of the public library.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_12",
+    "englishWord": "Bolster",
+    "turkishMeaning": "Desteklemek / Güçlendirmek",
+    "exampleSentence": "The central bank intervened with rate cuts to bolster consumer confidence.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_13",
+    "englishWord": "Breach",
+    "turkishMeaning": "İhlal / Gedik açmak",
+    "exampleSentence": "Failing to safeguard client confidentiality constitutes a serious breach.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_14",
+    "englishWord": "Candid",
+    "turkishMeaning": "İçten / Samimi / Açık sözlü",
+    "exampleSentence": "The director gave a candid evaluation of the team's ongoing shortcomings.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_15",
+    "englishWord": "Catalyst",
+    "turkishMeaning": "Katalizör / Harekete geçirici",
+    "exampleSentence": "Technological innovation served as the catalyst for the digital revolution.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_16",
+    "englishWord": "Cohesive",
+    "turkishMeaning": "Bütünlük arz eden / Kaynaşmış",
+    "exampleSentence": "A cohesive argument requires tightly structured logic and evidence.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_17",
+    "englishWord": "Complacent",
+    "turkishMeaning": "Rehavete kapılmış / Kendinden memnun",
+    "exampleSentence": "Despite winning the primary, the candidate warned staff not to be complacent.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_18",
+    "englishWord": "Conducive",
+    "turkishMeaning": "Elverişli / Katkıda bulunan",
+    "exampleSentence": "A quiet and orderly study space is conducive to deep intellectual focus.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_19",
+    "englishWord": "Conspicuous",
+    "turkishMeaning": "Göze batan / Belirgin",
+    "exampleSentence": "His absence from the ministerial banquet was conspicuous to all reporters.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_20",
+    "englishWord": "Constraint",
+    "turkishMeaning": "Kısıtlama / Zorunluluk",
+    "exampleSentence": "Severe financial constraints forced the university to postpone the project.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_21",
+    "englishWord": "Contemplate",
+    "turkishMeaning": "Düşünüp taşınmak / Düşünmek",
+    "exampleSentence": "The philosopher contemplated the ethical dilemmas raised by biotechnology.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_22",
+    "englishWord": "Curtail",
+    "turkishMeaning": "Kısmak / Sınırlamak",
+    "exampleSentence": "Emergency austerity measures aimed to curtail excessive public borrowing.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_23",
+    "englishWord": "Daunting",
+    "turkishMeaning": "Göz korkutucu / Ürkütücü",
+    "exampleSentence": "Climbing the steep north face presented a daunting physical challenge.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_24",
+    "englishWord": "Debilitate",
+    "turkishMeaning": "Güçten düşürmek / Sarsmak",
+    "exampleSentence": "Prolonged drought debilitated rural farming communities throughout the state.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_25",
+    "englishWord": "Defiant",
+    "turkishMeaning": "Meydan okuyan / Başkaldıran",
+    "exampleSentence": "The protestors remained defiant despite repeated dispersal warnings.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_26",
+    "englishWord": "Delineate",
+    "turkishMeaning": "Ana hatlarıyla çizmek",
+    "exampleSentence": "The strategic blueprint clearly delineates departmental responsibilities.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_27",
+    "englishWord": "Detrimental",
+    "turkishMeaning": "Zararlı / Hasar verici",
+    "exampleSentence": "Excessive screen exposure before sleep can have a detrimental effect on rest.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_28",
+    "englishWord": "Disclose",
+    "turkishMeaning": "Açığa vurmak / İfşa etmek",
+    "exampleSentence": "Whistleblowers chose to disclose internal safety test manipulations.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_29",
+    "englishWord": "Disdain",
+    "turkishMeaning": "Tepeden bakmak / Küçümseme",
+    "exampleSentence": "The critic treated superficial commercial art with unconcealed disdain.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_30",
+    "englishWord": "Disregard",
+    "turkishMeaning": "Göz ardı etmek / Yok saymak",
+    "exampleSentence": "Motorists who disregard pedestrian crossing signs face hefty fines.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_31",
+    "englishWord": "Dissent",
+    "turkishMeaning": "Farklı düşünce / Muhalefet",
+    "exampleSentence": "Judicial dissent in landmark cases frequently shapes future legislation.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_32",
+    "englishWord": "Elusive",
+    "turkishMeaning": "Ele geçmez / Zor yakalanır",
+    "exampleSentence": "A universally accepted definition of human consciousness remains elusive.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_33",
+    "englishWord": "Empirical",
+    "turkishMeaning": "Deneysel / Gözleme dayalı",
+    "exampleSentence": "Scientists require robust empirical data before endorsing new therapies.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_34",
+    "englishWord": "Endeavour",
+    "turkishMeaning": "Çaba / Gayret etmek",
+    "exampleSentence": "The space mission represents a multinational endeavour of historic scale.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_35",
+    "englishWord": "Exemplify",
+    "turkishMeaning": "Örnek oluşturmak / Somutlaştırmak",
+    "exampleSentence": "Her tireless humanitarian work exemplifies the spirit of selfless service.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_36",
+    "englishWord": "Feasible",
+    "turkishMeaning": "Uygulanabilir / Mümkün",
+    "exampleSentence": "Constructing offshore floating wind farms is both feasible and cost-effective.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_37",
+    "englishWord": "Foster",
+    "turkishMeaning": "Geliştirmek / Teşvik etmek",
+    "exampleSentence": "The incubator program aims to foster homegrown digital startup enterprise.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_38",
+    "englishWord": "Frail",
+    "turkishMeaning": "Narin / Çelimsiz / Kırılgan",
+    "exampleSentence": "The historical manuscript was preserved in an inert gas chamber as it was frail.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_39",
+    "englishWord": "Hinder",
+    "turkishMeaning": "Engel olmak / Aksatmak",
+    "exampleSentence": "Bureaucratic red tape should not hinder the delivery of humanitarian aid.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_cambridge_40",
+    "englishWord": "Inherent",
+    "turkishMeaning": "Doğasında olan / İçkin",
+    "exampleSentence": "There is an inherent level of financial volatility in cryptocurrency trading.",
+    "isLearned": false,
+    "targetExam": "CAMBRIDGE"
+  },
+  {
+    "id": "word_sat_1",
+    "englishWord": "Aberration",
+    "turkishMeaning": "Sapma / Norm dışı durum",
+    "exampleSentence": "The sudden temperature spike was dismissed as an atmospheric aberration.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_2",
+    "englishWord": "Abstain",
+    "turkishMeaning": "Çekinmek / Uzak durmak",
+    "exampleSentence": "Several delegates chose to abstain during the final vote on sanctions.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_3",
+    "englishWord": "Acumen",
+    "turkishMeaning": "Keskin zeka / Sezgi kabiliyeti",
+    "exampleSentence": "Her business acumen allowed the startup to pivot and dominate the niche.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_4",
+    "englishWord": "Admonish",
+    "turkishMeaning": "Tatlı sert uyarmak / Nasihat etmek",
+    "exampleSentence": "The judge admonished the attorney for badgering the vulnerable witness.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_5",
+    "englishWord": "Aesthetic",
+    "turkishMeaning": "Estetik / Sanatsal",
+    "exampleSentence": "Minimalist Scandinavian design balances practical utility and aesthetic purity.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_6",
+    "englishWord": "Ambivalence",
+    "turkishMeaning": "Duygu karmaşası / Çelişki",
+    "exampleSentence": "Voters expressed ambivalence regarding both proposed candidates.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_7",
+    "englishWord": "Amicable",
+    "turkishMeaning": "Dostane / Barışçıl",
+    "exampleSentence": "The partners agreed to an amicable dissolution of their joint venture.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_8",
+    "englishWord": "Anachronism",
+    "turkishMeaning": "Çağ aşımı / Tarih hatası",
+    "exampleSentence": "Depicting an ancient Roman wearing a wristwatch is a blatant anachronism.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_9",
+    "englishWord": "Anomaly",
+    "turkishMeaning": "Anormallik / Kuraldışılık",
+    "exampleSentence": "Astronomers detected a gravitational anomaly near the orbit of Neptune.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_10",
+    "englishWord": "Antipathy",
+    "turkishMeaning": "Derin hoşnutsuzluk / Antipati",
+    "exampleSentence": "There was longstanding antipathy between the rival academic departments.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_11",
+    "englishWord": "Apprehension",
+    "turkishMeaning": "Endişe / Kaygı / Kavrama",
+    "exampleSentence": "Freshmen entered the calculus auditorium with perceptible apprehension.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_12",
+    "englishWord": "Arbitrary",
+    "turkishMeaning": "Gelişigüzel / Keyfi",
+    "exampleSentence": "Decisions on zoning permits appeared arbitrary and lacked clear rubrics.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_13",
+    "englishWord": "Audacious",
+    "turkishMeaning": "Cüretkar / Gözü pek",
+    "exampleSentence": "The museum heist was an audacious plan executed with military precision.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_14",
+    "englishWord": "Augment",
+    "turkishMeaning": "Artırmak / Büyütmek",
+    "exampleSentence": "Surgeons augment standard microscopes with high-definition digital feeds.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_15",
+    "englishWord": "Austere",
+    "turkishMeaning": "Sade / Çileli / Katı",
+    "exampleSentence": "Monastic cloisters are renowned for their austere architectural beauty.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_16",
+    "englishWord": "Autonomous",
+    "turkishMeaning": "Özerk / Bağımsız",
+    "exampleSentence": "The university granted the research institute an autonomous administrative status.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_17",
+    "englishWord": "Banal",
+    "turkishMeaning": "Sıradan / Bayağı",
+    "exampleSentence": "The plot relied on banal tropes rather than original narrative elements.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_18",
+    "englishWord": "Benevolent",
+    "turkishMeaning": "Cömert / İyiliksever",
+    "exampleSentence": "The hospital wing was built through the bequest of a benevolent donor.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_19",
+    "englishWord": "Capricious",
+    "turkishMeaning": "Maymun iştahlı / Sağı solu belli olmayan",
+    "exampleSentence": "The capricious mountain weather shifted from brilliant sun to blizzard.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_20",
+    "englishWord": "Castigate",
+    "turkishMeaning": "Şiddetle azarlamak / Kınamak",
+    "exampleSentence": "The committee castigated the contractor for substandard structural safety.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_21",
+    "englishWord": "Circumspect",
+    "turkishMeaning": "Tedbirli / İhtiyatlı",
+    "exampleSentence": "Diplomats must remain circumspect when addressing territorial disputes.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_22",
+    "englishWord": "Cogent",
+    "turkishMeaning": "İkna edici / Mantıklı",
+    "exampleSentence": "The defense lawyer presented a cogent argument grounded in forensic fact.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_23",
+    "englishWord": "Corroborate",
+    "turkishMeaning": "Delille kanıtlamak",
+    "exampleSentence": "Witness testimonies served to corroborate the suspect's ironclad alibi.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_24",
+    "englishWord": "Curtail",
+    "turkishMeaning": "Kısmak / Kesmek",
+    "exampleSentence": "The municipality was forced to curtail transit subsidies due to deficits.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_25",
+    "englishWord": "Deference",
+    "turkishMeaning": "Hürmet / Saygı gösterme",
+    "exampleSentence": "In deference to local custom, visitors removed their footwear at the shrine.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_26",
+    "englishWord": "Diatribe",
+    "turkishMeaning": "Yerin dibine batıran eleştiri",
+    "exampleSentence": "The editorial was a scathing diatribe against speculative real estate bubbles.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_27",
+    "englishWord": "Diffident",
+    "turkishMeaning": "Çekingen / Özgüvensiz",
+    "exampleSentence": "Though brilliantly insightful, the young theorist was diffident in debate.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_28",
+    "englishWord": "Disparage",
+    "turkishMeaning": "Kötülemek / Önemsizleştirmek",
+    "exampleSentence": "Unprofessional critics tend to disparage genres they do not understand.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_29",
+    "englishWord": "Dispassionate",
+    "turkishMeaning": "Tarafsız / Soğukkanlı",
+    "exampleSentence": "A forensic accountant must offer a dispassionate review of the books.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_30",
+    "englishWord": "Dogmatic",
+    "turkishMeaning": "Dogmatik / Körü körüne bağnaz",
+    "exampleSentence": "A dogmatic insistence on outdated doctrine stifles scientific innovation.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_31",
+    "englishWord": "Ebullient",
+    "turkishMeaning": "Coşkulu / Hayat dolu",
+    "exampleSentence": "The championship team was met with ebullient cheers at the parade.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_32",
+    "englishWord": "Eclectic",
+    "turkishMeaning": "Çeşitli kaynaklardan derlenmiş",
+    "exampleSentence": "His music collection is an eclectic mix of baroque sonatas and modern jazz.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_33",
+    "englishWord": "Eloquent",
+    "turkishMeaning": "Fesahat sahibi / Etkili konuşan",
+    "exampleSentence": "The keynote speaker made an eloquent plea for biosphere preservation.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_34",
+    "englishWord": "Emulate",
+    "turkishMeaning": "Taklit ederek aşmaya çalışmak",
+    "exampleSentence": "Junior programmers aspire to emulate the software architect's clean style.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_35",
+    "englishWord": "Ephemeral",
+    "turkishMeaning": "Fani / Geçici / Kısa ömürlü",
+    "exampleSentence": "The cherry blossoms' beauty lies partly in their ephemeral springtime bloom.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_36",
+    "englishWord": "Equivocal",
+    "turkishMeaning": "Muğlak / Çift taraflı",
+    "exampleSentence": "The spokesperson gave an equivocal answer that evaded direct confirmation.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_37",
+    "englishWord": "Exonerate",
+    "turkishMeaning": "Suçsuzluğunu kanıtlamak",
+    "exampleSentence": "The ballistic report exonerated the police officer from wrongful conduct.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_38",
+    "englishWord": "Fastidious",
+    "turkishMeaning": "Titiz / Müşkülpesent",
+    "exampleSentence": "The restorer took fastidious care when treating the ancient silk scroll.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_39",
+    "englishWord": "Fervent",
+    "turkishMeaning": "Ateşli / Hararetli",
+    "exampleSentence": "She is a fervent advocate for civil liberties and digital privacy rights.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_sat_40",
+    "englishWord": "Frugal",
+    "turkishMeaning": "Tutumlu / Tutumlu yaşayan",
+    "exampleSentence": "Frugal management of public revenues allowed the town to avoid all debt.",
+    "isLearned": false,
+    "targetExam": "SAT"
+  },
+  {
+    "id": "word_gre_1",
+    "englishWord": "Alacrity",
+    "turkishMeaning": "Büyük heves / Çeviklik / İsteklilik",
+    "exampleSentence": "The eager apprentice accepted the master's instruction with alacrity.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_2",
+    "englishWord": "Anomalous",
+    "turkishMeaning": "Kuralsız / Anormal",
+    "exampleSentence": "The spectrometer revealed anomalous emission lines in the distant nebula.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_3",
+    "englishWord": "Approbase",
+    "turkishMeaning": "Onaylamak / Tasvip etmek",
+    "exampleSentence": "The council refused to approbate the unverified environmental assessment.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_4",
+    "englishWord": "Assiduous",
+    "turkishMeaning": "Gayretli / Sebatkar / Çalışkan",
+    "exampleSentence": "Her assiduous archival research uncovered forgotten 17th-century diaries.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_5",
+    "englishWord": "Belie",
+    "turkishMeaning": "Aksini göstermek / Maskelemek",
+    "exampleSentence": "Her relaxed smile belied the intense pressure she felt before the defense.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_6",
+    "englishWord": "Castigation",
+    "turkishMeaning": "Şiddetli kınama / Cezalandırma",
+    "exampleSentence": "The audit report was a blistering castigation of municipal wastefulness.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_7",
+    "englishWord": "Chicanery",
+    "turkishMeaning": "Hilekarlık / Düzenbazlık",
+    "exampleSentence": "Legal chicanery was employed to circumvent statutory monopoly regulations.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_8",
+    "englishWord": "Cogent",
+    "turkishMeaning": "Akla yatkın / İkna edici",
+    "exampleSentence": "Her cogent critique dismantled the foundations of the opposing hypothesis.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_9",
+    "englishWord": "Complaisant",
+    "turkishMeaning": "Kolay yola gelen / Boyun eğen",
+    "exampleSentence": "The complaisant board rarely questioned the chief executive's directives.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_10",
+    "englishWord": "Convoluted",
+    "turkishMeaning": "Son derece karmaşık / Girift",
+    "exampleSentence": "The tax code had become so convoluted that even experts required software.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_11",
+    "englishWord": "Decorum",
+    "turkishMeaning": "Görgü kuralları / Ağırbaşlılık",
+    "exampleSentence": "Senators are strictly expected to preserve parliamentary decorum.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_12",
+    "englishWord": "Denigrate",
+    "turkishMeaning": "Karalamak / Değerini düşürmek",
+    "exampleSentence": "It is unfair to denigrate the achievements of early pioneering aviators.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_13",
+    "englishWord": "Desiccate",
+    "turkishMeaning": "Kurumak / Suyunu çekmek",
+    "exampleSentence": "The scorching desert winds desiccate vegetation in a matter of hours.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_14",
+    "englishWord": "Diatribe",
+    "turkishMeaning": "Acımasız taşlama / Yergi",
+    "exampleSentence": "The philosopher penned a diatribe against materialistic utilitarianism.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_15",
+    "englishWord": "Disabuse",
+    "turkishMeaning": "Gözünü açmak / Yanılgıdan kurtarmak",
+    "exampleSentence": "Field data quickly disabused the team of their overly optimistic expectations.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_16",
+    "englishWord": "Disparate",
+    "turkishMeaning": "Tamamen farklı / Ayrı türden",
+    "exampleSentence": "The symposium gathered disparate viewpoints from neurobiology and philosophy.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_17",
+    "englishWord": "Dissemble",
+    "turkishMeaning": "Duygularını gizlemek / Niyetini saklamak",
+    "exampleSentence": "A seasoned diplomat knows when to speak plainly and when to dissemble.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_18",
+    "englishWord": "Dogmatism",
+    "turkishMeaning": "Dogmatizm / Bağnaz inatçılık",
+    "exampleSentence": "Scientific enquiry stands in direct opposition to uncritical dogmatism.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_19",
+    "englishWord": "Duplicity",
+    "turkishMeaning": "İkiyüzlülük / Sahtekarlık",
+    "exampleSentence": "The deceitful advisor's financial duplicity was finally uncovered in court.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_20",
+    "englishWord": "Eclectic",
+    "turkishMeaning": "Farklı ekollerden seçen",
+    "exampleSentence": "Her research employs an eclectic methodology spanning genetics and linguistics.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_21",
+    "englishWord": "Efficacy",
+    "turkishMeaning": "Yararlılık / Etkinlik / Şifa",
+    "exampleSentence": "Clinical trials confirmed the superior therapeutic efficacy of the drug.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_22",
+    "englishWord": "Elegy",
+    "turkishMeaning": "Ağıt / Hüzünlü şiir",
+    "exampleSentence": "The poet recited a moving elegy dedicated to fallen wartime comrades.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_23",
+    "englishWord": "Enervate",
+    "turkishMeaning": "Güçten düşürmek / Takatsiz bırakmak",
+    "exampleSentence": "The stifling equatorial heat seemed to enervate the entire expedition team.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_24",
+    "englishWord": "Engender",
+    "turkishMeaning": "Yol açmak / Doğurmak",
+    "exampleSentence": "Lack of transparency tends to engender deep suspicion among citizens.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_25",
+    "englishWord": "Ephemeral",
+    "turkishMeaning": "Gelip geçici / Kısa süreli",
+    "exampleSentence": "Fashion trends in the digital era are notoriously ephemeral and fleeting.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_26",
+    "englishWord": "Equivocate",
+    "turkishMeaning": "Lafı çevirmek / Belirsiz konuşmak",
+    "exampleSentence": "When pressed for dates, the minister began to equivocate repeatedly.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_27",
+    "englishWord": "Erudite",
+    "turkishMeaning": "Alim / Engin bilgili",
+    "exampleSentence": "The professor delivered an erudite lecture on Hellenistic textual traditions.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_28",
+    "englishWord": "Esoteric",
+    "turkishMeaning": "Sadece dar bir zümrenin anladığı",
+    "exampleSentence": "Quantum chromodynamics remains an esoteric field for lay audiences.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_29",
+    "englishWord": "Eulogy",
+    "turkishMeaning": "Övgü dolu konuşma / Medhiye",
+    "exampleSentence": "The senator delivered a heartfelt eulogy honoring his late mentor.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_30",
+    "englishWord": "Exculpate",
+    "turkishMeaning": "Aklamak / Temize çıkarmak",
+    "exampleSentence": "Fresh forensic evidence emerged to completely exculpate the prime suspect.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_31",
+    "englishWord": "Exigent",
+    "turkishMeaning": "Acil / Israrcı / Zorlayıcı",
+    "exampleSentence": "The humanitarian agency responded immediately to exigent food shortages.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_32",
+    "englishWord": "Facetious",
+    "turkishMeaning": "Yersiz şaka yapan / Laubali",
+    "exampleSentence": "The judge warned the witness that facetious commentary would not be tolerated.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_33",
+    "englishWord": "Fatuous",
+    "turkishMeaning": "Aptalca / Boş / Manasız",
+    "exampleSentence": "Making sweeping generalizations without data is a fatuous undertaking.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_34",
+    "englishWord": "Garrulous",
+    "turkishMeaning": "Geveze / Çenesi düşük",
+    "exampleSentence": "The garrulous cab driver kept talking throughout the two-hour transit.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_35",
+    "englishWord": "Gregarious",
+    "turkishMeaning": "Sokulgan / Sürü halinde yaşayan",
+    "exampleSentence": "Dolphins are inherently gregarious mammals that travel in social pods.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_36",
+    "englishWord": "Harangue",
+    "turkishMeaning": "Ateşli ve saldırgan nutuk",
+    "exampleSentence": "The union leader delivered a fiery harangue against workplace automation.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_37",
+    "englishWord": "Iconoclast",
+    "turkishMeaning": "Gelenekleri yıkan / Tabu yıkan kimse",
+    "exampleSentence": "The artist was hailed as an iconoclast who overturned classical realism.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_38",
+    "englishWord": "Immutable",
+    "turkishMeaning": "Değişmez / Sabit",
+    "exampleSentence": "Physicists investigate whether gravitational constants are truly immutable.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_39",
+    "englishWord": "Inchoate",
+    "turkishMeaning": "Henüz olgunlaşmamış / Başlangıç evresindeki",
+    "exampleSentence": "At this stage, our business model is merely an inchoate collection of ideas.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_gre_40",
+    "englishWord": "Ingenuous",
+    "turkishMeaning": "Saf / Temiz kalpli / Hilesiz",
+    "exampleSentence": "The child gave an ingenuous explanation that disarmed everyone in the room.",
+    "isLearned": false,
+    "targetExam": "GRE"
+  },
+  {
+    "id": "word_pte_1",
+    "englishWord": "Accommodate",
+    "turkishMeaning": "Barındırmak / Uyum sağlamak",
+    "exampleSentence": "The lecture theatre was enlarged to accommodate up to five hundred students.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_2",
+    "englishWord": "Accumulate",
+    "turkishMeaning": "Biriktirmek / Yığılmak",
+    "exampleSentence": "Toxic heavy metals can accumulate in the tissues of predatory fish.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_3",
+    "englishWord": "Administer",
+    "turkishMeaning": "Yönetmek / İlaç tatbik etmek",
+    "exampleSentence": "Trained clinicians must administer the experimental vaccine intravenously.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_4",
+    "englishWord": "Aggregate",
+    "turkishMeaning": "Toplu / Kümülatif",
+    "exampleSentence": "The aggregate data suggests a subtle correlation between sleep and retention.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_5",
+    "englishWord": "Allocate",
+    "turkishMeaning": "Pay ayırmak / Tahsis etmek",
+    "exampleSentence": "The university voted to allocate funds for upgrading server infrastructure.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_6",
+    "englishWord": "Alter",
+    "turkishMeaning": "Değiştirmek / Başkalaşmak",
+    "exampleSentence": "Genetic mutations can alter the tertiary structure of cellular enzymes.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_7",
+    "englishWord": "Ambiguity",
+    "turkishMeaning": "Belirsizlik",
+    "exampleSentence": "The wording of survey instructions must leave no room for ambiguity.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_8",
+    "englishWord": "Amend",
+    "turkishMeaning": "Yasa/metin değiştirmek",
+    "exampleSentence": "Parliament voted to amend the maritime commerce act of nineteen ninety.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_9",
+    "englishWord": "Apparent",
+    "turkishMeaning": "Aşikar / Belirgin",
+    "exampleSentence": "The benefits of regular cardiovascular conditioning become apparent quickly.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_10",
+    "englishWord": "Append",
+    "turkishMeaning": "Sonuna eklemek / İliştirmek",
+    "exampleSentence": "Please append your bibliography to the final draft of your dissertation.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_11",
+    "englishWord": "Arbitrary",
+    "turkishMeaning": "Rastlantısal / Keyfi",
+    "exampleSentence": "Grading rubrics must be standardized to prevent arbitrary scoring discrepancies.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_12",
+    "englishWord": "Aspect",
+    "turkishMeaning": "Görünüş / Yön",
+    "exampleSentence": "Every aspect of the flight telemetry was evaluated by ground controllers.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_13",
+    "englishWord": "Assimilate",
+    "turkishMeaning": "Özümsemek / Sindirmek",
+    "exampleSentence": "Immigrant families gradually assimilate elements of the host nation's culture.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_14",
+    "englishWord": "Attain",
+    "turkishMeaning": "Ulaşmak / Erişmek",
+    "exampleSentence": "Athletes must train rigorously to attain peak international fitness levels.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_15",
+    "englishWord": "Attitude",
+    "turkishMeaning": "Tavır / Tutum",
+    "exampleSentence": "Positive student attitudes toward group work foster superior collaboration.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_16",
+    "englishWord": "Attribute",
+    "turkishMeaning": "Nitelik / Dayandırmak",
+    "exampleSentence": "Biologists attribute migratory navigation to geomagnetic sensory organs.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_17",
+    "englishWord": "Channel",
+    "turkishMeaning": "Yönlendirmek / Kanalize etmek",
+    "exampleSentence": "The government aims to channel private investments toward green transport.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_18",
+    "englishWord": "Coherent",
+    "turkishMeaning": "Tutarlı / Ahenkli",
+    "exampleSentence": "A dissertation must advance a coherent line of logical argument.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_19",
+    "englishWord": "Coincide",
+    "turkishMeaning": "Zaman olarak çakışmak",
+    "exampleSentence": "Lunar eclipses coincide with full moon phases under precise celestial alignments.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_20",
+    "englishWord": "Collapse",
+    "turkishMeaning": "Çökmek / Yıkılmak",
+    "exampleSentence": "Structural faults caused the abandoned storage facility to collapse.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_21",
+    "englishWord": "Commence",
+    "turkishMeaning": "Başlamak / Start almak",
+    "exampleSentence": "The keynote presentation will commence promptly at nine o'clock.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_22",
+    "englishWord": "Compatible",
+    "turkishMeaning": "Bağdaşabilir / Uyumlu",
+    "exampleSentence": "Ensure your citation management software is compatible with LaTeX templates.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_23",
+    "englishWord": "Compensate",
+    "turkishMeaning": "Karşılamak / Telafi etmek",
+    "exampleSentence": "Extra credit assignments cannot fully compensate for poor test performances.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_24",
+    "englishWord": "Compile",
+    "turkishMeaning": "Derlemek / Toparlamak",
+    "exampleSentence": "Librarians compile comprehensive archives of digital periodicals.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_25",
+    "englishWord": "Complement",
+    "turkishMeaning": "Tamamlayıcı / Bütünlemek",
+    "exampleSentence": "Interactive laboratory seminars complement the main lecture curriculum.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_26",
+    "englishWord": "Comprehensive",
+    "turkishMeaning": "Tüm unsurları kapsayan",
+    "exampleSentence": "The review article provides a comprehensive overview of CRISPR technology.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_27",
+    "englishWord": "Conceive",
+    "turkishMeaning": "Zihinde canlandırmak",
+    "exampleSentence": "Engineers conceived the sub-sea tunnel project more than two decades ago.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_28",
+    "englishWord": "Concurrent",
+    "turkishMeaning": "Aynı anda gerçekleşen",
+    "exampleSentence": "The conference organized three concurrent tracks on artificial intelligence.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_29",
+    "englishWord": "Confer",
+    "turkishMeaning": "Müzakere etmek / Derece vermek",
+    "exampleSentence": "Academic councils confer master's degrees upon completing all requirements.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_30",
+    "englishWord": "Confine",
+    "turkishMeaning": "Sınır koymak / Hapsetmek",
+    "exampleSentence": "Please confine your introductory remarks to three minutes or fewer.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_31",
+    "englishWord": "Conform",
+    "turkishMeaning": "Kurallara uymak",
+    "exampleSentence": "Manufactured components must conform strictly to aerospace tolerances.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_32",
+    "englishWord": "Consent",
+    "turkishMeaning": "Onay vermek / Muvafakat",
+    "exampleSentence": "Subject consent forms must be securely archived for seven years.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_33",
+    "englishWord": "Consequent",
+    "turkishMeaning": "Bunun sonucunda olan",
+    "exampleSentence": "Soil erosion and consequent agricultural declines triggered migration.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_34",
+    "englishWord": "Considerable",
+    "turkishMeaning": "Kayda değer oranda",
+    "exampleSentence": "The new catalyst demonstrated considerable acceleration of reaction speed.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_35",
+    "englishWord": "Consist",
+    "turkishMeaning": "Oluşmak / Teşekkül etmek",
+    "exampleSentence": "The interview panel will consist of three senior department members.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_36",
+    "englishWord": "Constitute",
+    "turkishMeaning": "Oluşturmak / Sayılmak",
+    "exampleSentence": "These unexpected test findings constitute an important scientific advance.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_37",
+    "englishWord": "Constrain",
+    "turkishMeaning": "Kısıtlamak / Baskılamak",
+    "exampleSentence": "Tight supply chain bottlenecks constrain production capacity worldwide.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_38",
+    "englishWord": "Construct",
+    "turkishMeaning": "Kuram oluşturmak / İnşa etmek",
+    "exampleSentence": "Sociologists construct predictive models based on longitudinal survey data.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_39",
+    "englishWord": "Consult",
+    "turkishMeaning": "Başvurmak / Danışmak",
+    "exampleSentence": "Students should consult their faculty advisors before enrolling in electives.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_pte_40",
+    "englishWord": "Consume",
+    "turkishMeaning": "Tüketmek / Yok etmek",
+    "exampleSentence": "Cryptocurrency mining data centres consume immense quantities of electricity.",
+    "isLearned": false,
+    "targetExam": "PTE"
+  },
+  {
+    "id": "word_det_1",
+    "englishWord": "Accessible",
+    "turkishMeaning": "Erişilebilir / Kolay anlaşılır",
+    "exampleSentence": "The new museum layout makes exhibits fully accessible to wheelchair users.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_2",
+    "englishWord": "Accomplish",
+    "turkishMeaning": "Başarmak / Sonuçlandırmak",
+    "exampleSentence": "Dedication and persistent effort enabled her to accomplish her academic goals.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_3",
+    "englishWord": "Accurate",
+    "turkishMeaning": "Doğru / Hatasız",
+    "exampleSentence": "Modern GPS devices provide accurate coordinates down to within centimeters.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_4",
+    "englishWord": "Adaptable",
+    "turkishMeaning": "Uyum sağlayabilen",
+    "exampleSentence": "Successful species are remarkably adaptable to changing environmental conditions.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_5",
+    "englishWord": "Adequate",
+    "turkishMeaning": "Yeterli / Kafi",
+    "exampleSentence": "Ensure that you get adequate sleep before undertaking a long drive.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_6",
+    "englishWord": "Affordable",
+    "turkishMeaning": "Hesaplı / Karşılanabilir",
+    "exampleSentence": "The university opened affordable student residences close to the main campus.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_7",
+    "englishWord": "Ambition",
+    "turkishMeaning": "Hırs / Büyük hedef",
+    "exampleSentence": "His lifelong ambition has always been to direct an international orchestra.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_8",
+    "englishWord": "Apparent",
+    "turkishMeaning": "Aşikar / Meydanda",
+    "exampleSentence": "The apparent cause of the software glitch was a missing semi-colon.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_9",
+    "englishWord": "Appreciate",
+    "turkishMeaning": "Takdir etmek / Değerini bilmek",
+    "exampleSentence": "Art historians appreciate the subtle brushwork of Impressionist painters.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_10",
+    "englishWord": "Appropriate",
+    "turkishMeaning": "Uygun / Yerinde",
+    "exampleSentence": "Please select appropriate formal attire for the scholarship awards ceremony.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_11",
+    "englishWord": "Authentic",
+    "turkishMeaning": "Orijinal / Hakiki",
+    "exampleSentence": "The gallery verified that the Renaissance portrait was completely authentic.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_12",
+    "englishWord": "Benefit",
+    "turkishMeaning": "Fayda / Yarar sağlamak",
+    "exampleSentence": "Regular physical exercise offers undeniable benefits for mental wellbeing.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_13",
+    "englishWord": "Broaden",
+    "turkishMeaning": "Genişletmek / Ufkunu açmak",
+    "exampleSentence": "Studying abroad provides a unique opportunity to broaden one's perspective.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_14",
+    "englishWord": "Capable",
+    "turkishMeaning": "Becerikli / Yetenekli",
+    "exampleSentence": "The newly appointed manager proved capable of handling tense negotiations.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_15",
+    "englishWord": "Circumstance",
+    "turkishMeaning": "Koşul / Hal / Şart",
+    "exampleSentence": "Under no circumstance should students open test booklets before the bell.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_16",
+    "englishWord": "Collaborate",
+    "turkishMeaning": "Birlikte çalışmak",
+    "exampleSentence": "Designers collaborate with engineers to optimize ergonomic handles.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_17",
+    "englishWord": "Comprehend",
+    "turkishMeaning": "Kavramak / Tam manasıyla anlamak",
+    "exampleSentence": "It was difficult to comprehend the scale of the subterranean cave network.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_18",
+    "englishWord": "Concentrate",
+    "turkishMeaning": "Odaklanmak / Yoğunlaşmak",
+    "exampleSentence": "Please eliminate distractions so that you can concentrate on reading.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_19",
+    "englishWord": "Conclude",
+    "turkishMeaning": "Sonuçlandırmak / Karara varmak",
+    "exampleSentence": "The panel concluded that the proposal met all necessary criteria.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_20",
+    "englishWord": "Confident",
+    "turkishMeaning": "Özgüvenli / Kendinden emin",
+    "exampleSentence": "She sounded confident during her presentation on renewable technologies.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_21",
+    "englishWord": "Consistent",
+    "turkishMeaning": "Tutarlı / İstikrarlı",
+    "exampleSentence": "Consistent daily practice is the most reliable path to linguistic fluency.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_22",
+    "englishWord": "Contribute",
+    "turkishMeaning": "Katkı sunmak / Yardım etmek",
+    "exampleSentence": "Every member of the community was encouraged to contribute to the festival.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_23",
+    "englishWord": "Crucial",
+    "turkishMeaning": "Hayati derecede mühim",
+    "exampleSentence": "Timely medical intervention is crucial for recovery from acute stroke.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_24",
+    "englishWord": "Demonstrate",
+    "turkishMeaning": "Göstermek / İspatlamak",
+    "exampleSentence": "Lab simulations demonstrate how ocean acidification impairs coral reef growth.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_25",
+    "englishWord": "Diverse",
+    "turkishMeaning": "Çeşitli / Farklı",
+    "exampleSentence": "The campus boasts a diverse student population hailing from eighty nations.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_26",
+    "englishWord": "Emphasize",
+    "turkishMeaning": "Vurgulamak / Altını çizmek",
+    "exampleSentence": "The professor emphasized the necessity of citing all secondary sources.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_27",
+    "englishWord": "Engage",
+    "turkishMeaning": "Meşgul olmak / Katılım sağlamak",
+    "exampleSentence": "The interactive workshop was designed to engage high school students.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_28",
+    "englishWord": "Enhance",
+    "turkishMeaning": "Geliştirmek / Artırmak",
+    "exampleSentence": "Audiobooks can enhance vocabulary acquisition among young foreign readers.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_29",
+    "englishWord": "Essential",
+    "turkishMeaning": "Vazgeçilmez / Temel",
+    "exampleSentence": "Water and sunlight are essential nutrients for all terrestrial plant life.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_30",
+    "englishWord": "Establish",
+    "turkishMeaning": "Kurmak / Tesis etmek",
+    "exampleSentence": "The foundation established a scholarship for underprivileged STEM students.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_31",
+    "englishWord": "Evidence",
+    "turkishMeaning": "Kanıt / Delil",
+    "exampleSentence": "Archeologists unearthed evidence of ancient grain cultivation in the valley.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_32",
+    "englishWord": "Expand",
+    "turkishMeaning": "Genişlemek / Büyümek",
+    "exampleSentence": "The retail chain plans to expand operations into three European nations.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_33",
+    "englishWord": "Flexible",
+    "turkishMeaning": "Esnek / Uyumlu",
+    "exampleSentence": "Modern work environments favor flexible scheduling and remote collaboration.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_34",
+    "englishWord": "Fundamental",
+    "turkishMeaning": "Temel / Esas",
+    "exampleSentence": "Respect for human rights is a fundamental principle of international law.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_35",
+    "englishWord": "Highlight",
+    "turkishMeaning": "Öne çıkarmak / Vurgulamak",
+    "exampleSentence": "The documentary highlights the plight of endangered sea turtle habitats.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_36",
+    "englishWord": "Illustrate",
+    "turkishMeaning": "Örneklerle açıklamak",
+    "exampleSentence": "Case studies illustrate how supply chain disruptions impact product retail.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_37",
+    "englishWord": "Impact",
+    "turkishMeaning": "Etki / Etkilemek",
+    "exampleSentence": "Deforestation has a profound impact on local hydrology and precipitation.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_38",
+    "englishWord": "Indicate",
+    "turkishMeaning": "İşaret etmek / Göstermek",
+    "exampleSentence": "Survey metrics indicate growing public support for wind energy subsidies.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_39",
+    "englishWord": "Influence",
+    "turkishMeaning": "Etki / Nüfuz etmek",
+    "exampleSentence": "Classical Greek philosophy exerted immense influence over Western thought.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_det_40",
+    "englishWord": "Initiative",
+    "turkishMeaning": "Girişim / İnisiyatif",
+    "exampleSentence": "The city council launched an ambitious clean river initiative this spring.",
+    "isLearned": false,
+    "targetExam": "DET"
+  },
+  {
+    "id": "word_eiken_1",
+    "englishWord": "Abolish",
+    "turkishMeaning": "Yürürlükten kaldırmak / İptal etmek",
+    "exampleSentence": "Humanitarian groups campaigned tirelessly to abolish capital punishment.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_2",
+    "englishWord": "Abundant",
+    "turkishMeaning": "Bol / Bereketli",
+    "exampleSentence": "The coastal waters teem with abundant shoals of migratory sardines.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_3",
+    "englishWord": "Acquaint",
+    "turkishMeaning": "Tanıştırmak / Haberdar etmek",
+    "exampleSentence": "New employees must acquaint themselves with our health and safety guide.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_4",
+    "englishWord": "Afflict",
+    "turkishMeaning": "Musallat olmak / Izdırap vermek",
+    "exampleSentence": "Tropical diseases continue to afflict populations in low-lying delta zones.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_5",
+    "englishWord": "Allocate",
+    "turkishMeaning": "Ödenek ayırmak",
+    "exampleSentence": "The ministry agreed to allocate emergency funds to reinforce flood dykes.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_6",
+    "englishWord": "Anticipate",
+    "turkishMeaning": "Önceden sezinlemek",
+    "exampleSentence": "Retailers anticipate a record surge in purchases ahead of the holiday week.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_7",
+    "englishWord": "Apathy",
+    "turkishMeaning": "Kayıtsızlık / Umursamazlık",
+    "exampleSentence": "Voter apathy is often cited as a symptom of declining trust in politicians.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_8",
+    "englishWord": "Appease",
+    "turkishMeaning": "Yatıştırmak / Gönlünü yapmak",
+    "exampleSentence": "The government offered tax exemptions in an effort to appease angry farmers.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_9",
+    "englishWord": "Arbitrary",
+    "turkishMeaning": "Hakkaniyetsiz / Keyfi",
+    "exampleSentence": "Critics condemned the decision to dismiss the editor as entirely arbitrary.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_10",
+    "englishWord": "Arduous",
+    "turkishMeaning": "Meşakkatli / Çok zahmetli",
+    "exampleSentence": "The mountaineering team completed an arduous trek through frozen terrain.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_11",
+    "englishWord": "Ascertain",
+    "turkishMeaning": "Tahkik etmek / Aslını öğrenmek",
+    "exampleSentence": "Inspectors examined the wreckage to ascertain whether mechanical failure occurred.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_12",
+    "englishWord": "Aspire",
+    "turkishMeaning": "Göz dikmek / Can atmak",
+    "exampleSentence": "Many young apprentices aspire to master traditional ceramic techniques.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_13",
+    "englishWord": "Austere",
+    "turkishMeaning": "Gösterişsiz / Sade",
+    "exampleSentence": "The monastery was built according to the austere rules of the early order.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_14",
+    "englishWord": "Autonomous",
+    "turkishMeaning": "Kendi kendini yöneten",
+    "exampleSentence": "The island prefecture enjoys autonomous control over educational funding.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_15",
+    "englishWord": "Banish",
+    "turkishMeaning": "Sürgün etmek / Kafasından atmak",
+    "exampleSentence": "She attempted to banish all anxious doubts before entering the interview.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_16",
+    "englishWord": "Barren",
+    "turkishMeaning": "Çorak / Verimsiz",
+    "exampleSentence": "After decades of overgrazing, the once lush plain turned into barren dust.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_17",
+    "englishWord": "Belittle",
+    "turkishMeaning": "Küçümsemek / Hakir görmek",
+    "exampleSentence": "Supervisors should never belittle junior researchers when questions arise.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_18",
+    "englishWord": "Benign",
+    "turkishMeaning": "Zararsız / Huylu (Tıp)",
+    "exampleSentence": "The biopsy confirmed that the cellular growth was completely benign.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_19",
+    "englishWord": "Bewilder",
+    "turkishMeaning": "Afallatmak / Hayrete düşürmek",
+    "exampleSentence": "The sudden shift in monetary regulations bewildered international investors.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_20",
+    "englishWord": "Blatant",
+    "turkishMeaning": "Bariz / Apaçık / Saygısızca",
+    "exampleSentence": "Ignoring sanitary protocols was a blatant violation of laboratory ethics.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_21",
+    "englishWord": "Bountiful",
+    "turkishMeaning": "Bol bereketli / Cömert",
+    "exampleSentence": "The orchard produced a bountiful harvest of honeycrisp apples this autumn.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_22",
+    "englishWord": "Brevity",
+    "turkishMeaning": "Kısalık / Öz ve az oluş",
+    "exampleSentence": "Brevity is the soul of effective business and technical communication.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_23",
+    "englishWord": "Calamity",
+    "turkishMeaning": "Büyük felaket / Afet",
+    "exampleSentence": "The eruption was a catastrophic calamity that displaced thousands of villagers.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_24",
+    "englishWord": "Capacious",
+    "turkishMeaning": "Geniş / Çok şey alan",
+    "exampleSentence": "The museum storage vault is a capacious room equipped with climate controls.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_25",
+    "englishWord": "Captivate",
+    "turkishMeaning": "Büyülemek / Kendine hayran bırakmak",
+    "exampleSentence": "Her virtuosic violin solo captivated the audience at the grand theatre.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_26",
+    "englishWord": "Catastrophe",
+    "turkishMeaning": "Yıkım / Facia",
+    "exampleSentence": "The tsunami proved to be a natural catastrophe of unprecedented magnitude.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_27",
+    "englishWord": "Chastise",
+    "turkishMeaning": "Azarlamak / Tekdir etmek",
+    "exampleSentence": "The headmaster chastised the pupils for damaging school gymnasium property.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_28",
+    "englishWord": "Chronological",
+    "turkishMeaning": "Zaman sırasına göre",
+    "exampleSentence": "The exhibition arranges the master's woodblock prints in chronological order.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_29",
+    "englishWord": "Circumscribe",
+    "turkishMeaning": "Sınırlamak / Çevrelemek",
+    "exampleSentence": "New laws circumscribe the circumstances under which public land can be sold.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_30",
+    "englishWord": "Coerce",
+    "turkishMeaning": "Zorlamak / Baskı altına almak",
+    "exampleSentence": "Defendants argued that confessions were coerced under psychological duress.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_31",
+    "englishWord": "Cognizant",
+    "turkishMeaning": "Farkında / Haberdar",
+    "exampleSentence": "Engineers must remain fully cognizant of seismic vulnerability standards.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_32",
+    "englishWord": "Colossal",
+    "turkishMeaning": "Muazzam / Devasa",
+    "exampleSentence": "The construction of the hydro dam required a colossal investment of resources.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_33",
+    "englishWord": "Commemorate",
+    "turkishMeaning": "Anmak / Hatırasını yaşatmak",
+    "exampleSentence": "A bronze statue was unveiled to commemorate the town's founding poet.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_34",
+    "englishWord": "Compassion",
+    "turkishMeaning": "Merhamet / Şefkat",
+    "exampleSentence": "Hospice nurses treat every palliative care resident with extraordinary compassion.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_35",
+    "englishWord": "Compelling",
+    "turkishMeaning": "Son derece ikna edici",
+    "exampleSentence": "The forensic evidence presented a compelling case for the defendant's guilt.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_36",
+    "englishWord": "Complacent",
+    "turkishMeaning": "Rehavete düşmüş",
+    "exampleSentence": "World champions cannot afford to become complacent between Olympic tournaments.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_37",
+    "englishWord": "Compliant",
+    "turkishMeaning": "Kurallara harfiyen uyan",
+    "exampleSentence": "The newly manufactured aircraft was certified as compliant with all emissions laws.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_38",
+    "englishWord": "Comprehensive",
+    "turkishMeaning": "Ayrıntılı ve etraflı",
+    "exampleSentence": "The ministry published a comprehensive report on demographic aging trends.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_39",
+    "englishWord": "Concur",
+    "turkishMeaning": "Aynı fikirde olmak",
+    "exampleSentence": "Medical specialists concur that preventative exercise lowers stroke hazards.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_eiken_40",
+    "englishWord": "Condone",
+    "turkishMeaning": "Göz yummak / Hoş görmek",
+    "exampleSentence": "The university administration will never condone academic plagiarism.",
+    "isLearned": false,
+    "targetExam": "EIKEN"
+  },
+  {
+    "id": "word_yds_1",
+    "englishWord": "Compensate",
+    "turkishMeaning": "Telafi etmek / Dengelemek",
+    "exampleSentence": "The government agreed to compensate farmers for severe drought damages.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_2",
+    "englishWord": "Ambiguity",
+    "turkishMeaning": "Muğlaklık / Belirsizlik",
+    "exampleSentence": "The legal wording leaves no room for ambiguity regarding patent rights.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_3",
+    "englishWord": "Precaution",
+    "turkishMeaning": "Önlem / Tedbir",
+    "exampleSentence": "Always take every reasonable safety precaution when operating high-voltage tools.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_4",
+    "englishWord": "Subsequent",
+    "turkishMeaning": "Ardından gelen / Sonraki",
+    "exampleSentence": "The initial tremor and subsequent aftershocks caused extensive destruction.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_5",
+    "englishWord": "Undermine",
+    "turkishMeaning": "Baltalamak / Temelini zayıflatmak",
+    "exampleSentence": "Persistent budget cuts threaten to undermine the quality of public healthcare.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_6",
+    "englishWord": "Deteriorate",
+    "turkishMeaning": "Gittikçe kötüleşmek",
+    "exampleSentence": "Relations between the neighbouring nations began to deteriorate rapidly.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_7",
+    "englishWord": "Fluctuate",
+    "turkishMeaning": "Dalgalanmak / Değişmek",
+    "exampleSentence": "Crude oil market prices fluctuate violently during geopolitical tensions.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_8",
+    "englishWord": "Reconcile",
+    "turkishMeaning": "Uzlaştırmak / Barıştırmak",
+    "exampleSentence": "Historians tried to reconcile the divergent accounts of the medieval treaty.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_9",
+    "englishWord": "Contradict",
+    "turkishMeaning": "Çelişmek / Yalanlamak",
+    "exampleSentence": "The latest experimental metrics contradict long-accepted acoustic models.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_10",
+    "englishWord": "Eradicate",
+    "turkishMeaning": "Kökünü kazımak / Yok etmek",
+    "exampleSentence": "Global vaccination initiatives aim to eradicate infectious polio worldwide.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_11",
+    "englishWord": "Devastate",
+    "turkishMeaning": "Harap etmek / Yıkmak",
+    "exampleSentence": "The catastrophic Category 5 cyclone devastated coastal resort villages.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_12",
+    "englishWord": "Trigger",
+    "turkishMeaning": "Tetiklemek / Başlatmak",
+    "exampleSentence": "Prolonged financial inflation can trigger widespread domestic strikes.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_13",
+    "englishWord": "Hazardous",
+    "turkishMeaning": "Tehlikeli / Riskli",
+    "exampleSentence": "Disposing of radioactive toxic waste remains a hazardous operation.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_14",
+    "englishWord": "Plausible",
+    "turkishMeaning": "Akla yatkın / Mantıklı",
+    "exampleSentence": "The detective developed a plausible explanation for the museum break-in.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_15",
+    "englishWord": "Coincide",
+    "turkishMeaning": "Denk düşmek / Çakışmak",
+    "exampleSentence": "Her resignation was timed to coincide with the end of the fiscal term.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_16",
+    "englishWord": "Impair",
+    "turkishMeaning": "Bozmak / Zarara uğratmak",
+    "exampleSentence": "Excessive alcohol consumption significantly impairs motor reflexes.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_17",
+    "englishWord": "Reluctant",
+    "turkishMeaning": "Gönülsüz / İsteksiz",
+    "exampleSentence": "The board was reluctant to approve risky offshore speculative acquisitions.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_18",
+    "englishWord": "Stem from",
+    "turkishMeaning": "-den kaynaklanmak / İleri gelmek",
+    "exampleSentence": "Many cardiovascular issues stem from sedentary habits and poor nutrition.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_19",
+    "englishWord": "Incompatible",
+    "turkishMeaning": "Uyuşmaz / Bağdaşmayan",
+    "exampleSentence": "Extreme dogmatism is completely incompatible with open scientific inquiry.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_20",
+    "englishWord": "Accelerate",
+    "turkishMeaning": "Hızlanmak / Hızlandırmak",
+    "exampleSentence": "Subsidies for electric vehicles accelerated the shift away from diesel engines.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_21",
+    "englishWord": "Accomplish",
+    "turkishMeaning": "Başarı ile tamamlamak",
+    "exampleSentence": "The diplomatic delegation managed to accomplish all primary objectives.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_22",
+    "englishWord": "Acknowledge",
+    "turkishMeaning": "Kabul etmek / İtiraf etmek",
+    "exampleSentence": "The company was forced to acknowledge structural defects in the vehicle.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_23",
+    "englishWord": "Adapt",
+    "turkishMeaning": "Uyum sağlamak / Adapte olmak",
+    "exampleSentence": "Desert flora develop deep roots to adapt to arid climates.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_24",
+    "englishWord": "Advocate",
+    "turkishMeaning": "Müdafaa etmek / Savunmak",
+    "exampleSentence": "Humanitarian agencies advocate for refugee access to education.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_25",
+    "englishWord": "Alleviate",
+    "turkishMeaning": "Hafifletmek / Azaltmak",
+    "exampleSentence": "Painkillers were administered to alleviate the patient's discomfort.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_26",
+    "englishWord": "Allocate",
+    "turkishMeaning": "Pay ayırmak / Tahsis etmek",
+    "exampleSentence": "The ministry must allocate sufficient funding for seismic retrofitting.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_27",
+    "englishWord": "Anticipate",
+    "turkishMeaning": "Öngörmek / Sezinlemek",
+    "exampleSentence": "Demographers anticipate rapid urban population expansion across Asia.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_28",
+    "englishWord": "Attribute",
+    "turkishMeaning": "Dayandırmak / -e mal etmek",
+    "exampleSentence": "Scientists attribute coral reef bleaching to elevated water temperatures.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_29",
+    "englishWord": "Cease",
+    "turkishMeaning": "Son bulmak / Durmak",
+    "exampleSentence": "Hostilities ceased following the signing of an internationally monitored truce.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_30",
+    "englishWord": "Coincide",
+    "turkishMeaning": "Rast gelmek / Denk gelmek",
+    "exampleSentence": "The lunar cycle coincides with tidal surges in coastal estuaries.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_31",
+    "englishWord": "Collaborate",
+    "turkishMeaning": "İş birliği yapmak",
+    "exampleSentence": "Medical universities collaborate on genetic research projects.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_32",
+    "englishWord": "Commence",
+    "turkishMeaning": "Başlamak / Start almak",
+    "exampleSentence": "The construction of the geothermal generator will commence in spring.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_33",
+    "englishWord": "Compensate",
+    "turkishMeaning": "Karşılamak / Telafi etmek",
+    "exampleSentence": "Insuring companies compensate homeowners for storm-related damages.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_34",
+    "englishWord": "Concur",
+    "turkishMeaning": "Hemfikir olmak",
+    "exampleSentence": "All three independent audits concur with the chief accountant's findings.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_35",
+    "englishWord": "Confine",
+    "turkishMeaning": "Sınırlandırmak",
+    "exampleSentence": "Please confine your speech to the specific items listed on today's agenda.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_36",
+    "englishWord": "Constitute",
+    "turkishMeaning": "Teşkil etmek / Oluşturmak",
+    "exampleSentence": "Fossil fuels constitute roughly eighty percent of world energy consumption.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_37",
+    "englishWord": "Contribute",
+    "turkishMeaning": "Katkı sunmak / Sebep olmak",
+    "exampleSentence": "Greenhouse gas emissions contribute substantially to global warming.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_38",
+    "englishWord": "Crucial",
+    "turkishMeaning": "Hayati ehemmiyete haiz",
+    "exampleSentence": "Linguistic proficiency is crucial for diplomats serving abroad.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_39",
+    "englishWord": "Deplete",
+    "turkishMeaning": "Tüketmek / Suyunu çekmek",
+    "exampleSentence": "Over-irrigation threatens to deplete subterranean aquifer reserves.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  },
+  {
+    "id": "word_yds_40",
+    "englishWord": "Differentiate",
+    "turkishMeaning": "Ayırt etmek / Farklı kılmak",
+    "exampleSentence": "Genomic sequencing helps biologists differentiate between twin species.",
+    "isLearned": false,
+    "targetExam": "YDS"
+  }
+]
