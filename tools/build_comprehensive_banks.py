@@ -984,3 +984,4 @@ with open(exams_path, "w", encoding="utf-8") as f:
 
 total_q = sum(len(e["questions"]) for e in exams_data)
 print(f"Successfully generated {len(exams_data)} exams ({total_q} questions) in {exams_path}")
+

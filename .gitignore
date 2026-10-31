@@ -46,3 +46,4 @@ firebase-debug.log
 
 # graphify knowledge-graph output (regenerate locally with /graphify)
 graphify-out/
+/releases/
